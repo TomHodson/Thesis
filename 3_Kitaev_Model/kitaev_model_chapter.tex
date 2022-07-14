@@ -25,6 +25,7 @@ This gives us the Hamiltonian
 \end{equation}
 where $\sigma^\alpha_j$ is a Pauli matrix acting on site $j$, \(\langle j,k\rangle_\alpha\) is a pair of nearest-neighbour indices connected by an $\alpha$-bond with exchange coupling $J^\alpha$~\cite{kitaevAnyonsExactlySolved2006}.
 
+% plaquette operators and wilson loops
 This model has a set of conserved quantities that, in the spin language, take the form of Wilson loops 
 \begin{equation}
 W_p = \prod \sigma_j^{\alpha}\sigma_k^{\alpha}
@@ -38,38 +39,62 @@ W_p = \sigma_1^{x}\sigma_2^{y} \sigma_3^{z} \sigma_4^{x} \sigma_5^{y}\sigma_6^{z
 \end{equation}
 In this latter form can be seen to commute with all the terms in the Hamiltonian because {\color{red} why again?}
 
+% relationship between wilson loops and topology
 Such paths can enclose a collection of faces or `plaquettes' of the lattice. In the case of periodic boundary conditions, the system is torioidal and we also get Wilson loops that wind the whole system without enclosing a definite area. The loop operator associated with each such path has eigenvalues $/pm 1$ and can be interpreted as measuring the magnetic flux through that region. Without going into the details of counting them, the number of these conserved loop operators clearly scales with system size and it is this extensive number of classical degrees of freedom that ultimately allows us to decouple this interacting many body hamiltonian into a set of non interaction quadratic hamiltonians. {\color{red} add a figure showing the different kinds of Wilson loops and of an example plaquette}
+
+% diagraom of a honeycomb lattice with majorana construction
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{figure_code/amk_chapter/honeycomb_zoom/intro_figure_template}
+    \caption{\textbf{(a)} The standard Kitaev Model is defined on a honeycomb lattice. The special feature of the honeycomb lattice that makes the model solveable it is that each vertex is joined by exactly three bonds i.e the lattice is trivalent. One of three labels is assigned to each \textbf{(b)} We represent the antisymmetric gauge degree of freedom $u_{jk} = \pm 1$ with arrows that point in the direction $u_{jk} = +1$ \textbf{(c)} A visual analogy for The majorana transformation can be visualised as breaking each spin into}
+    \label{fig:honeycomb_zoom}
+\end{figure}
 
 In order to actually solve the model we need to figure out how to leverage these conserved quantities. The trick is not so much a trick as an almost perfect consequence of the structure of the model and perhaps this was in fact how Kitaev first came up with it. We know that a single spin$-1/2$ can be represented by fermionic creation and annihilation operators $\sigma^{\pm} = 1/2(\sigma^x \pm \sigma^y)$ through a Jordan-Wigner transformation~\cite{}, this gives one fermion for each spin. In turn a fermion can be broken into two Majorana fermions $c_1 = 1/\sqrt{1}(f + f^\dagger)$ and $c_2 = i/\sqrt{1}(f - f^\dagger)$. If we double up the Hilbert space we get four Majoranas per spin: 
 
 So how do we solve it? The trick is to replace each spin operator with 4 majorana operators (equivalent to two fermionic operators). 
  
- 
 The honeycomb lattice is bipartite, which means that it can be subdivided into two sub-lattices with only between sub-lattice couplings. It is also trivalent which means that each vertex connects to exactly three others. Finally, the edges of the lattice are three colourable, which means we can make an assignment (x,y,z) such that each site is connected to one of each type of edge. 
 
-\subsetion{Kitaev-Heisenberg Model}
-In real materials there will generally be an addtional small Heisenberg term
-\begin{equation}
-    \label{eqn:kitham}
-    \mathcal{H} =  - \sum_{\langle j,k\rangle_\alpha} J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha} + \sigma_j\sigma_k
-\end{equation}
+\subsection{Lattice generation}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width = \textwidth]{figs/pbc_voronoi.eps}
+%     \caption{The construction of a periodic trivalent graph from a point set. The point set is replicated, a Voronoi transform is taken and finally the replication is undone. The graphs generated are trivalent except in very fine tuned cases which occur with low probability.}
+%     \label{fig:pbc_voronoi}
+% \end{figure}
 
-\section{The Projector} \label{apx:projector}
-{\color{red} Add brief mention of fermions and many body ground state}
-Closely following the derivation of~\cite{pedrocchiPhysicalSolutionsKitaev2011} we can extend to the amorphous case relatively simply. The main quantity needed is the product of the local projectors \(D_i\)
-\[\prod_i^{2N} D_i = \prod_i^{2N} b^x_i b^y_i b^z_i c_i \]
-for a lattice with \(2N\) vertices and \(3N\) edges. The operators can be ordered by bond type without utilising any property of the lattice.
-\[\prod_i^{2N} D_i = \prod_i^{2N} b^x_i \prod_i^{2N} b^y_i \prod_i^{2N} b^z_i \prod_i^{2N} c_i\]
-The product over \(c_i\) operators reduces to a determinant of the Q matrix and the fermion parity. The only problem is to compute the factors \(p_x,p_y,p_z = \pm1\) that arise from reordering the b operators such that pairs of vertices linked by the corresponding bonds are adjacent.
-\[\prod_i^{2N} b^\alpha_i = p_\alpha \prod_{(i,j)}b^\alpha_i b^\alpha_j\]
-This is simple the parity of the permutation from one ordering to the other and can be computed easily with a cycle decomposition.
+We start from a set of points in the unit square. These can be drawn uniformly or via other methods such as using blue-noise or jammed circle packing. 
 
-The final form is almost identical to the honeycomb case with the addition of the lattice structure factors \(p_x,p_y,p_z\)
-\[P^0 = 1 + p_x\;p_y\;p_z \mathrm{det}(Q^u) \; \hat{\pi} \; \prod_{\{i,j\}} -iu_{ij}\] 
+We then tile the plane with images of the point in the unit square and perform a voronisation over them. After this we can get rid of the images and relabel edges that cross the boundaries (red lines in fig \ref{fig:pbc_voronoi}) such that they connect points to the equivalent point within the unit cell.
 
-\(\mathrm{det}(Q^u)\) is the determinant of the matrix that takes \((c_1, c_2... c_{2N}) Q = (b_1, b_2... b_{2N})\). This along with \(\prod u_{ij}\) depend on the lattice and the particular vortex sector. 
+We represent the graph structure with an ordered list of edges \((i,j)\) so we can represent both directed and undirected graphs which is useful for defining the sign of bond operators \(u_{ij} = - u_{ji}\).
 
-\(\hat{\pi} = \prod{i}^{N} (1 - 2\hat{n}_i)\) is the parity of the particular many body state determined by fermionic occupation numbers \(n_i\). The Hamiltonian is \(H = \sum \epsilon_i (n_i - 1/2)\) in this basis and this tells use that the ground state is either an empty system with all \(n_i = 0\) or a state with a single fermion in the lowest level. 
+% \subsetion{Kitaev-Heisenberg Model}
+% In real materials there will generally be an addtional small Heisenberg term
+% \begin{equation}
+%     \label{eqn:kitaev_heisnberg}
+%     \mathcal{H} =  - \sum_{\langle j,k\rangle_\alpha} J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha} + \sigma_j\sigma_k
+% \end{equation}
+
+% \section{The Projector} \label{apx:projector}
+% {\color{red} Add brief mention of fermions and many body ground state}
+% Closely following the derivation of~\cite{pedrocchiPhysicalSolutionsKitaev2011} we can extend to the amorphous case relatively simply. The main quantity needed is the product of the local projectors \(D_i\)
+% \[\prod_i^{2N} D_i = \prod_i^{2N} b^x_i b^y_i b^z_i c_i \]
+% for a lattice with \(2N\) vertices and \(3N\) edges. The operators can be ordered by bond type without utilising any property of the lattice.
+% \[\prod_i^{2N} D_i = \prod_i^{2N} b^x_i \prod_i^{2N} b^y_i \prod_i^{2N} b^z_i \prod_i^{2N} c_i\]
+% The product over \(c_i\) operators reduces to a determinant of the Q matrix and the fermion parity. The only problem is to compute the factors \(p_x,p_y,p_z = \pm1\) that arise from reordering the b operators such that pairs of vertices linked by the corresponding bonds are adjacent.
+% \[\prod_i^{2N} b^\alpha_i = p_\alpha \prod_{(i,j)}b^\alpha_i b^\alpha_j\]
+% This is simple the parity of the permutation from one ordering to the other and can be computed easily with a cycle decomposition.
+
+% The final form is almost identical to the honeycomb case with the addition of the lattice structure factors \(p_x,p_y,p_z\)
+% \[P^0 = 1 + p_x\;p_y\;p_z \mathrm{det}(Q^u) \; \hat{\pi} \; \prod_{\{i,j\}} -iu_{ij}\] 
+
+% \(\mathrm{det}(Q^u)\) is the determinant of the matrix that takes \((c_1, c_2... c_{2N}) Q = (b_1, b_2... b_{2N})\). This along with \(\prod u_{ij}\) depend on the lattice and the particular vortex sector. 
+
+% \(\hat{\pi} = \prod{i}^{N} (1 - 2\hat{n}_i)\) is the parity of the particular many body state determined by fermionic occupation numbers \(n_i\). The Hamiltonian is \(H = \sum \epsilon_i (n_i - 1/2)\) in this basis and this tells use that the ground state is either an empty system with all \(n_i = 0\) or a state with a single fermion in the lowest level. 
+
+
 
 	        Conserved quantities -> plaquettes
 			Majorana representation with 4 per site
@@ -94,6 +119,13 @@ Majorana representations
 		Even and Odd Plaquettes
         Degeneracy and euler's equation
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{figure_code/amk_chapter/lattice_construction/lattice_construction}
+    \caption{\textbf{(a)} In-gap fermionic wavefunction drawn from the ground state flux sector in open boundary conditions, showing the state corresponds to a topological edge mode. Cut of the density along a line of lattice sites spanning the system (black line) is shown in the bottom subfigure on a logarithmic scale, demonstrating the characteristic exponential decay of topological edge modes with distance from the system edge. \textbf{(b)} Ground-state flux sector fermionic density of states in open boundary conditions, colored by inverse participation ratio. The increased inverse participation ratio of the in-gap states signifies their localisation to the edges of the system.}
+    \label{fig:lattice_generation}
+\end{figure}
+
 
 \section{Methods}
         \subsection{Generating and Colouring Trivalent Graphs}
@@ -117,10 +149,7 @@ Majorana representations
 \section{Future Work}
 
 \section{The Kitaev Honeycomb Model}
-\begin{figure}
- \centering 
- \includegraphics{Amorphous Kitaev model cheat sheet .pdf}
-\end{figure}
+
 \subsection{The spin model}
 The Kitaev-Honeycomb model is an exactly solveable model of interacting spins (or generic spin 1/2 degrees of freedom) on a honeycomb lattice. The Honeycomb lattice is bipartite and trivalent (each vertex connects to three others). The edges of the lattice are assigned to (x,y,z) such that each site is connected to one of each type of edge. 
 
@@ -137,12 +166,12 @@ Expanding the bond operators \(K_{ij} = \sigma_i^{\alpha} \sigma_j^{\alpha}\), P
 where \(c_i = 0,1\) measures the handedness of the edges around vertex i, see Fig \ref{fig:handedness}. Plaquette operators for plaquettes with even numbers of edges square to 1 and hence have eigenvalues \(\pm 1\), while those around odd plaquettes have eigenvalues \(\pm i\) breaking chiral symmetry. The values of the plaquette operators partition the Hilbert space of the Hamiltonian into a set of flux sectors.
 
 
-\begin{figure}
-    \centering
-    \includegraphics[width = 0.5\textwidth]{figs/vertex_handedness}
-    \caption{Plaquette operators defined as a clockwise product of bond operators will contain a term \(...K_{ki}K_{ij}... = ...\sigma^\alpha_i \sigma^\beta_i ...\) which can be replaced with \(i (-1)^{c_i} \sigma_i^\gamma\) where \(c_i = 1\) if the bond types going clockwise around vertex i are a cyclic permutation of xyz otherwise \(c_i = 0\)}
-    \label{fig:handedness}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width = 0.5\textwidth]{figs/vertex_handedness}
+%     \caption{Plaquette operators defined as a clockwise product of bond operators will contain a term \(...K_{ki}K_{ij}... = ...\sigma^\alpha_i \sigma^\beta_i ...\) which can be replaced with \(i (-1)^{c_i} \sigma_i^\gamma\) where \(c_i = 1\) if the bond types going clockwise around vertex i are a cyclic permutation of xyz otherwise \(c_i = 0\)}
+%     \label{fig:handedness}
+% \end{figure}
 
 \subsection{A non-interacting Majorana representation}
 
@@ -175,36 +204,24 @@ With this choice, the Hamiltonian becomes quadratic:
 
 
 \section{The Kitaev Honeycomb Model extended to an Amorphous Lattice}
-\subsection{Lattice generation}
-\begin{figure}
-    \centering
-    \includegraphics[width = \textwidth]{figs/pbc_voronoi}
-    \caption{The construction of a periodic trivalent graph from a point set. The point set is replicated, a Voronoi transform is taken and finally the replication is undone. The graphs generated are trivalent except in very fine tuned cases which occur with low probability.}
-    \label{fig:pbc_voronoi}
-\end{figure}
 
-We start from a set of points in the unit square. These can be drawn uniformly or via other methods such as using blue-noise or jammed circle packing. 
-
-We then tile the plane with images of the point in the unit square and perform a voronisation over them. After this we can get rid of the images and relabel edges that cross the boundaries (red lines in fig \ref{fig:pbc_voronoi}) such that they connect points to the equivalent point within the unit cell.
-
-We represent the graph structure with an ordered list of edges \((i,j)\) so we can represent both directed and undirected graphs which is useful for defining the sign of bond operators \(u_{ij} = - u_{ji}\).
 
 
 
 \subsection{Edge Colouring}
-\begin{figure}
-    \centering
-    \includegraphics[width = .5\textwidth]{figs/dual_graphs.png}
-    \caption{Two graphs which are dual of one another.}
-    \label{fig:dual_graphs}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width = .5\textwidth]{figs/dual_graphs.png}
+%     \caption{Two graphs which are dual of one another.}
+%     \label{fig:dual_graphs}
+% \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width = \textwidth]{figs/k5}
-    \caption{Embedings of the complete graph \(K_5\) and its dual \(D(K_5)\) onto the torus. The vertices of \(K_5\) cannot be 4 coloured and the edges of \(D(K_5)\) cannot be 3 coloured.}
-    \label{fig:k5}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width = \textwidth]{figs/k5}
+%     \caption{Embedings of the complete graph \(K_5\) and its dual \(D(K_5)\) onto the torus. The vertices of \(K_5\) cannot be 4 coloured and the edges of \(D(K_5)\) cannot be 3 coloured.}
+%     \label{fig:k5}
+% \end{figure}
 
 Now that we have trivalent amorphous lattices, we need to assign \(\sigma_x, \sigma_y, \sigma_z\) to each edge. If we want the Majorana transformation to remain useful then we require that each site be connected to exactly on of each type of edge, otherwise the bond operators \(u_{ij}\) would not commute with one another and the model would not reduce to a quadratic form. This amounts to asking for a 3 coloring of the edges of the graph. 
 
@@ -224,12 +241,12 @@ k if {a,d} or {b,c}
 
 This implies that all trivalent planar graphs can have their edges 3 coloured. However we work in periodic boundary conditions and it's easy to embed the complete graph \(K_5\) into periodic boundary conditions, showing that the four colour theorem does not apply to periodic boundary conditions. However numerically we have not yet encountered even one case.
 
-\begin{figure}
-    \centering
-    \includegraphics[width = \textwidth]{figs/edge_color}
-    \caption{On the left, a single vertex in G, and the three dual-vertices in its dual D(G). If the dual-vertices of D(G) are 4 colored, the three dual-vertices shown must be three distinct colors, and hence if the colors of the edges in G are chosen according to the rules on the right, each will be distinct.}
-    \label{fig:edge_color}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width = \textwidth]{figs/edge_color}
+%     \caption{On the left, a single vertex in G, and the three dual-vertices in its dual D(G). If the dual-vertices of D(G) are 4 colored, the three dual-vertices shown must be three distinct colors, and hence if the colors of the edges in G are chosen according to the rules on the right, each will be distinct.}
+%     \label{fig:edge_color}
+% \end{figure}
 
 \subsection{Finding Colourings}
 
@@ -240,12 +257,12 @@ The problems can be written as a a series of statements about a set of boolean v
 I'll fill in the encoding later but the gist is that we can give this to a solver and get back: whether the problem is solveable, a solution or all the possible solutions. Finding a solution is relatively fast, while finding all the solutions is slower since there appear to be exponentially many of them. Fig \ref{fig:multiple_colourings} shows some examples. 
 
 
-\begin{figure}
-    \centering
-    \includegraphics[width = \textwidth]{figs/multiple_colourings}
-    \caption{Multiple valid 3-edge-colourings of a random trivalent lattice. Edges are colored from red, green and blue and vertices are coloured red/blue if the edge colours are a cyclic/anticyclic permutation of rgb going clockwise around the vertex. Black edges or vertices indicate the color is the same as that in the top left. Note that some of the points are very close together, in future we will add a step to separate these.}
-    \label{fig:multiple_colourings}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width = \textwidth]{figs/multiple_colourings}
+%     \caption{Multiple valid 3-edge-colourings of a random trivalent lattice. Edges are colored from red, green and blue and vertices are coloured red/blue if the edge colours are a cyclic/anticyclic permutation of rgb going clockwise around the vertex. Black edges or vertices indicate the color is the same as that in the top left. Note that some of the points are very close together, in future we will add a step to separate these.}
+%     \label{fig:multiple_colourings}
+% \end{figure}
 
 
 \section{Weaire-Thorpe Models}
@@ -253,19 +270,19 @@ As a benchmark for our graph algorithms we reproduce results on the Weaire-Thorp
 
 
 
-\begin{figure}
-    \centering
-    \includegraphics[width = \textwidth]{figs/WT_lattice}
-    \caption{An example of a Weaire-Thorpe model generated with our code.}
-    \label{fig:WT_lattice}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width = \textwidth]{figs/WT_lattice}
+%     \caption{An example of a Weaire-Thorpe model generated with our code.}
+%     \label{fig:WT_lattice}
+% \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width = \textwidth]{figs/DOS_WT_Comp}
-    \caption{A comparison between the DOS from the paper (left) and the DOS generated using our code (right)}
-    \label{fig:DOS_WT_Comp}
-\end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width = \textwidth]{figs/DOS_WT_Comp}
+%     \caption{A comparison between the DOS from the paper (left) and the DOS generated using our code (right)}
+%     \label{fig:DOS_WT_Comp}
+% \end{figure}
 
 
 \section{Open Questions}
