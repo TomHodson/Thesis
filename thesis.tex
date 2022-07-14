@@ -1,0 +1,54 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=3cm]{geometry}
+
+\include{thesis.preamble}
+
+% Render just a single part but with correct TOC and references
+% \includeonly{0_Preface/preface}
+% \includeonly{1_Intro/intro_chapter}
+% \includeonly{2_FK_Model/fk_model_chapter}
+% \includeonly{3_Kitaev_Model/kitaev_model_chapter}
+% \includeonly{4_Conclusion/conclusion_chapter}
+% \includeonly{5_Appendices/appendices}
+
+\begin{document}
+
+\title{\LARGE {\bf Mixed Quantum Classical Models as a tool for understanding many body interacting systems}\\
+ \vspace*{6mm}
+}
+
+\author{Thomas Hodson}
+\submitdate{June 2022}
+
+\normallinespacing
+\maketitle
+
+\preface
+% \include{0_Preface/preface}
+
+
+\body
+% \chapter{Introduction}
+% \label{ch:intro}
+%     \include{1_Intro/introduction_chapter}
+
+% \chapter{The Long-Range Falikov-Kimball Model}
+% \label{ch:fk_model}
+%     \include{2_FK_Model/fk_model_chapter}
+
+\chapter{The Amorphous Kitaev Honeycomb Model}
+\label{ch:kitaev_model}
+    \include{3_Kitaev_Model/kitaev_model_chapter}
+
+% \chapter{Conclusion \& Discussion}
+% \label{ch:conclusion}
+%     \include{4_Conclusion/conclusion_chapter}
+
+% \appendix
+%     \include{5_Appendices/appendices}
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{unsrt}
+\bibliography{entire_zotero_library}
+
+\end{document}

@@ -1,0 +1,15 @@
+.DS_Store
+.pynb_checkpoints
+.cspell/custom-dictionary-folder-61f10c08c7e33698e75c411f.txt
+.vscode/settings.json
+2_FK_Model/9_month_review_fk.tex
+
+*.aux
+*.fls
+*.log
+*.fdb_latexmk
+*.pdf
+*.toc
+*.pdf
+*.gz
+thesis.pdf

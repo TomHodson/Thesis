@@ -1,0 +1,34 @@
+\section{Methods}
+\subsection{Markov Chain Monte Carlo}
+\label{sec:mcmc}
+
+\fig{mcmc_model_energy}{As an example, \ac{MCMC} applied to a particle in a 1D potential well. On the left we see the potential energy landscape has multiple minima which can be a problem for \ac{MCMC} as the walkers will need to cross the energy barriers between minima. At high temperatures (low \(\beta\) this doesn't matter much, but at lower temperatures almost all of the probability mass begins to cluster at the minima and it must necessarily become more rare that the walkers cross the energy barriers.}
+    	    
+\fig{mcmc_model_positions}{Top: The trajectories through state space of 500 walkers starting from the sample initial position, with one highlighted in black. }
+
+Dimensionality can be both a blessing and a curse. In \autoref{ch:fk_model} I'll discuss the fact that statistical physics can be somewhat boring in one dimension where most simple models have no phase transitions. This chapter is motivated by the the converse problem, high dimensional spaces can sometimes be just too much.
+
+While there are many problems with high dimensions \footnote{my favourite being that there are no stable gravitational orbits in 4D and above} the specific issue we'll focus on here is that it's very hard to compute integrals over high dimensional spaces. 
+
+The standard methods for numerical integration in 1,2 and 3 dimensions mostly work in the same way REFERENCE. You evaluate the integrand at a grid of points, define an interpolating function over the points that's easy to integrate and then integrate the function. For a fixed grid spacing $d$ on a finite domain of integration we'll find that we need to evaluate $\propto (1/d)^D$ points, which scales exponentially with dimension! 
+
+In statistical physics the main integral that one would love to be able to evaluate is of course the partition function.
+
+\[Z = \int ds e^{-\beta F}\]
+
+And as this is condensed matter theory, we will mainly be looking at quantum models in which our states are discrete occupation numbers of single particle energy states. For a spin model with just two states per site and N sites we therefore end up with $2^N$ possible states of the system.
+
+
+domain of integration is bounded we can cif we take a discrete space with \(M\) dimensions each taking \(N\) distinct values. 
+    	
+\subsubsection{Detailed and Global balance equation}
+\subsubsection{Mixing times}
+\subsubsection{Cluster updates and Critical slowing down}
+\subsubsection{Effective Sample Size}
+
+\subsection{Localisation}
+\fig{anderson_model_dos}{Density of states for the Anderson model with (a) no potential, (b) a charge density wave (CDW) potential \(\vec{h} = (0,1,0,1...)\), (c) a disordered CDW potential each site has an uncorrelated \(2\%\) chance of deviating from the CDW background. Hopping and potential terms both have unit magnitude.}
+\subsubsection{Inverse Participation Ratios}
+\subsubsection{Transmission matrix methods}
+
+    
