@@ -13,3 +13,4 @@
 *.pdf
 *.gz
 thesis.pdf
+*.pyc

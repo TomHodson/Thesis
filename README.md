@@ -10,7 +10,7 @@ sudo tlmgr install latexmk # latexmk manages latex compilation with the latexmkr
 sudo tlmgr install texliveonfly # this package can autoinstall dependencies
 
 # auto install dependencies in thesis.tex
-# this will install everything and then eventuallly fail but don't worry
+# this will install everything and then eventually fail but don't worry
 sudo texliveonfly thesis.tex 
 
 # actually compile
@@ -47,5 +47,7 @@ Add the `-shell-escape` arg to the latexmk commandd invocation by adding this to
 ```
 
 [Reproducing overleaf compilation locally]()
+
 [Using a custom latexmkrc](https://www.overleaf.com/learn/how-to/How_does_Overleaf_compile_my_project%3F)
+
 [How to put .sty files in a subfolder](https://www.overleaf.com/learn/latex/Questions/I_have_a_lot_of_.cls%2C_.sty%2C_.bst_files%2C_and_I_want_to_put_them_in_a_folder_to_keep_my_project_uncluttered._But_my_project_is_not_finding_them_to_compile_correctly)

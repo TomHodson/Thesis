@@ -1,0 +1,30 @@
+# dir to  keep all pandoc related files
+data-dir: pandoc
+resource-path: ['pandoc', '.']
+
+# input and output formats
+from: latex
+to: html5
+
+# a filter to prepend '/pandoc/figs/' before all image tag urls, may bite me later
+filters:
+  - ${.}/make_imgs_absolute.lua
+
+# enable the bibliography
+citeproc: true
+metadata:
+  bibliography: entire_zotero_library.bib
+  csl: nature-physics.csl
+  link-citations: true
+
+# use mathjax for math
+html-math-method:
+  method: mathjax
+
+include-in-header: ${.}/mathjax.html
+
+# copy all images over to pandoc/figs/...
+extract-media: ${.}/figs
+
+# when images don't have an extension, assume svg
+default-image-extension: svg
