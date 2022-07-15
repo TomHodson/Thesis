@@ -3,6 +3,7 @@
 .cspell/custom-dictionary-folder-61f10c08c7e33698e75c411f.txt
 .vscode/settings.json
 2_FK_Model/9_month_review_fk.tex
+figure_code/amk_paper
 
 *.aux
 *.fls
@@ -19,3 +20,4 @@ thesis.bbl
 *.lof
 *.lot
 *.out
+*.ipynb

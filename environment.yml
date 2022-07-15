@@ -1,0 +1,19 @@
+name: thesis
+
+channels:
+  - defaults
+  - conda-forge
+
+dependencies:
+  - python=3.10
+  - ipykernel
+  - numpy
+  - scipy
+  - matplotlib
+  - pre-commit
+  - pandoc
+  - pip
+  - pip:
+    - pandoc-xnos
+    - --editable /Users/tom/git/koala/ #install MCFF from the local repository using pip and do it in editable mode
+      

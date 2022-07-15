@@ -1,0 +1,23 @@
+# input and output formats
+from: markdown
+to: latex
+
+# dir to  keep all pandoc related files
+data-dir: pandoc
+resource-path: ['pandoc', '.']
+
+# enable the bibliography
+filters:
+  - pandoc-xnos
+
+citeproc: true
+metadata:
+  bibliography: entire_zotero_library.bib
+  csl: nature-physics.csl
+  link-citations: true
+
+# # copy all images over to pandoc/figs/...
+# extract-media: ${.}/figs
+
+# when images don't have an extension, assume svg
+# default-image-extension: svg
