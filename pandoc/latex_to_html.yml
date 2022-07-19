@@ -6,9 +6,8 @@ resource-path: ['pandoc', '.']
 from: latex
 to: html5
 
-# a filter to prepend '/pandoc/figs/' before all image tag urls, may bite me later
 filters:
-  - ${.}/make_imgs_absolute.lua
+  - ${.}/test_filter.py
 
 # enable the bibliography
 citeproc: true

@@ -8,16 +8,19 @@ resource-path: ['pandoc', '.']
 
 # enable the bibliography
 filters:
+  - ${.}/latex_filter_figure.py
+  - ${.}/latex_filter.py
   - pandoc-xnos
 
-citeproc: true
-metadata:
-  bibliography: entire_zotero_library.bib
-  csl: nature-physics.csl
-  link-citations: true
+# citeproc: true
+# metadata:
+#   bibliography: entire_zotero_library.bib
+#   csl: nature-physics.csl
+#   link-citations: true
+cite-method: biblatex
 
 # # copy all images over to pandoc/figs/...
-# extract-media: ${.}/figs
+extract-media: ${.}/figs
 
 # when images don't have an extension, assume svg
-# default-image-extension: svg
+default-image-extension: pdf

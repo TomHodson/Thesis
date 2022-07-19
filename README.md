@@ -14,7 +14,7 @@ sudo tlmgr install texliveonfly # this package can autoinstall dependencies
 sudo texliveonfly thesis.tex 
 
 # actually compile
-latexmk -pdf -shell-escape thesis.pdf
+latexmk -pdf -shell-escape -interaction=nonstopmode thesis.tex
 ```
 
 ## Getting it working in visual studio code

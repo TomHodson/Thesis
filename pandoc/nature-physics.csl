@@ -5,7 +5,8 @@
     <title>Nature Physics</title>
     <id>http://www.zotero.org/styles/nature-physics</id>
     <link href="http://www.zotero.org/styles/nature-physics" rel="self"/>
-    <link href="http://www.zotero.org/styles/nature" rel="independent-parent"/>
+    <!-- <link href="http://www.zotero.org/styles/nature" rel="independent-parent"/> -->
+    <link href="nature.csl" rel="independent-parent"/>
     <link href="http://www.nature.com/nphys/authors/submit/index.html#References" rel="documentation"/>
     <category citation-format="numeric"/>
     <category field="physics"/>
