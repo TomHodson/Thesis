@@ -13,7 +13,8 @@ dependencies:
   - pre-commit
   - pandoc
   - pip
+  - doit
   - pip:
     - pandoc-xnos
-    - --editable /Users/tom/git/koala/ #install MCFF from the local repository using pip and do it in editable mode
+    - --editable +https://github.com/Imperial-CMTH/koala #install MCFF from the local repository using pip and do it in editable mode
       
