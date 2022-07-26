@@ -19,15 +19,15 @@ def task_svg_to_pdf():
 
 def task_jupyter_to_markdown():
     "convert .ipynb files to .md files using nbconvert"
-    jupyter_files = Path("./").glob("*/*.ipynb")
+    jupyter_files = Path("./").glob("src/*.ipynb")
     for f in jupyter_files:
-        target = f.parent / (f.stem + ".md")
+        target = Path("./build/markdown") / (f.stem + ".md")
         yield dict(
             name = str(f),
             file_dep = [f,],
             targets = [target,],
             actions = [
-                f'jupyter nbconvert --to markdown "{f}" --output {target.name}',],
+                f'jupyter nbconvert --to markdown "{f}" --output-dir={target.parent} --output {target.name}',],
         )
 
 def task_markdown_to_json():
@@ -36,9 +36,9 @@ def task_markdown_to_json():
     latex_filter = 'pandoc/latex_filter.py'
     latex_filter_figure = 'pandoc/latex_filter_figure.py'
     code_dependencies = [pandoc_config, latex_filter, latex_filter_figure]
-    inputs = Path("./").glob("*/*.md")
+    inputs = Path("./").glob("./build/markdown/*.md")
     for f in inputs:
-        target = f.parent / (f.stem + ".json")
+        target = Path("./build/json") / (f.stem + ".json")
         yield dict(
             name = str(f),
             file_dep = [f,] + code_dependencies,
@@ -52,9 +52,9 @@ def task_latex():
     latex_filter = 'pandoc/latex_filter.py'
     latex_filter_figure = 'pandoc/latex_filter_figure.py'
     code_dependencies = [pandoc_config, latex_filter, latex_filter_figure]
-    markdown_files = Path("./").glob("*/*.md")
+    markdown_files = Path("./").glob("./build/markdown/*.md")
     for f in markdown_files:
-        target = f.parent / (f.stem + ".tex")
+        target = Path("./build/tex") / (f.stem + ".tex")
         yield dict(
             name = str(f),
             file_dep = [f,] + code_dependencies,
@@ -69,8 +69,8 @@ def task_pdf():
     t = 'thesis'
     return dict(
         file_dep = ['pandoc/markdown_to_tex.yml',] + latex_files,
-        targets = ['thesis.pdf'],
-        actions = ['latexmk -pdf -f -shell-escape -interaction=nonstopmode thesis.tex',
+        targets = ['{t}.pdf'],
+        actions = ['latexmk -pdf -f -shell-escape -interaction=nonstopmode {t}.tex',
                    'rm {t}.aux {t}.bbl {t}.blg {t}.fdb_latexmk {t}.fls {t}.lof {t}.log {t}.lot {t}.out {}'
         ],
         verbosity = 0,

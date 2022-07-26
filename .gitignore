@@ -9,6 +9,7 @@ doit.db.db
 
 pandoc/figs
 figure_code/exports
+build/
 
 *.aux
 *.fls
@@ -25,4 +26,5 @@ thesis.bbl
 *.lof
 *.lot
 *.out
-*.ipynb
+.doit.db.
+

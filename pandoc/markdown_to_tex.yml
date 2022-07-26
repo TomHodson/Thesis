@@ -12,11 +12,8 @@ filters:
   - ${.}/latex_filter.py
   - pandoc-xnos
 
-# citeproc: true
-# metadata:
-#   bibliography: entire_zotero_library.bib
-#   csl: nature-physics.csl
-#   link-citations: true
+# top-level-division: chapter
+
 cite-method: biblatex
 
 # # copy all images over to pandoc/figs/...
