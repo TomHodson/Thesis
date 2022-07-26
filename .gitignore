@@ -6,6 +6,7 @@
 figure_code/amk_paper
 *.json
 doit.db.db
+iteration*.svg
 
 pandoc/figs
 figure_code/exports

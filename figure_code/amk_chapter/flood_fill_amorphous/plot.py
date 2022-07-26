@@ -38,9 +38,9 @@ matplotlib.rcParams.update({"axes.linewidth": black_line_widths})
 
 line_colors = [to_hex(a) for a in cm.inferno([0.25, 0.5, 0.75])]
 
-# rng = np.random.default_rng(seed = 10)
-# l, coloring, _ = eg.make_amorphous(8, rng = rng)
-l, coloring, ujk = eg.make_honeycomb(8)
+rng = np.random.default_rng(seed = 10)
+l, coloring, ujk = eg.make_amorphous(8, rng = rng)
+# l, coloring, ujk = eg.make_honeycomb(8)
 
 plaquettes = [40,]
 vertices = [78,]
