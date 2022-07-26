@@ -8,7 +8,7 @@ resource-path: ['pandoc', '.']
 
 # enable the bibliography
 filters:
-  - ${.}/latex_filter_figure.py
+  # - ${.}/latex_filter_figure.py
   - ${.}/latex_filter.py
   - pandoc-xnos
 

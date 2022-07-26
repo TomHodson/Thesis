@@ -4,7 +4,7 @@ from pathlib import Path
 
 src = Path("../figure_code/amk_chapter/visual_kitaev_1.svg")
 base = Path("../")
-new_base = Path("pandoc/figs/")
+new_base = Path("./")
 
 def action(elem, doc):
     if type(elem) == pf.RawInline and elem.format == "html" and "<img " in elem.text:

@@ -1,6 +1,22 @@
 from pathlib import Path
 pandoc = '/usr/local/Cellar/pandoc/2.18/bin/pandoc'
 
+def task_svg_to_pdf():
+    "convert inkscape .svg files to .pdf"
+    files = Path("./").glob("figure_code/amk_chapter/*.svg")
+    for f in files:
+        target = f.parent / (f.stem + ".pdf")
+        yield dict(
+            name = str(f),
+            verbosity = 0,
+            file_dep = [f,],
+            targets = [target,],
+            actions = [
+                f'inkscape "{f}" --export-type=pdf --export-filename="{target}"',
+                ],
+        )
+    
+
 def task_jupyter_to_markdown():
     "convert .ipynb files to .md files using nbconvert"
     jupyter_files = Path("./").glob("*/*.ipynb")
