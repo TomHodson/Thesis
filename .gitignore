@@ -1,7 +1,7 @@
 .DS_Store
 .ipynb_checkpoints
-.cspell/custom-dictionary-folder-61f10c08c7e33698e75c411f.txt
-.vscode/settings.json
+.cspell/
+.vscode/
 2_FK_Model/9_month_review_fk.tex
 figure_code/amk_paper
 *.json
@@ -19,7 +19,6 @@ thesis.pdf
 *.log
 *.fdb_latexmk
 *.toc
-*.pdf
 *.gz
 thesis.pdf
 *.pyc
