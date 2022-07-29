@@ -10,7 +10,8 @@ iteration*.svg
 
 pandoc/figs
 figure_code/exports
-build/
+build/json
+build/markdown
 
 *.aux
 *.fls
@@ -29,3 +30,4 @@ thesis.bbl
 *.out
 .doit.db.
 
+.doit.db.db
