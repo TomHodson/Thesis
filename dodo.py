@@ -82,7 +82,7 @@ def task_cleanup():
     'clean'
     t = 'thesis'
     return dict(
-        actions = [f'rm {t}.aux {t}.bbl {t}.blg {t}.fdb_latexmk {t}.fls {t}.lof {t}.log {t}.lot {t}.out'
+        actions = [f'rm -f {t}.aux {t}.bbl {t}.blg {t}.fdb_latexmk {t}.fls {t}.lof {t}.log {t}.lot {t}.out'
         ],
     )
 
