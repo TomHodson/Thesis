@@ -12,12 +12,12 @@ pandoc/figs
 figure_code/exports
 build/json
 build/markdown
+thesis.pdf
 
 *.aux
 *.fls
 *.log
 *.fdb_latexmk
-*.pdf
 *.toc
 *.pdf
 *.gz
