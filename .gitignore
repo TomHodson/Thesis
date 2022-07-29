@@ -27,8 +27,7 @@ thesis.bbl
 *.lof
 *.lot
 *.out
-.doit.db.
 
-.doit.db.db
 thesis.bcf
 thesis.run.xml
+*doit*
