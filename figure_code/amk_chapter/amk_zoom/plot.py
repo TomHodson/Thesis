@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import matplotlib
 from matplotlib.colors import to_rgba, to_hex
 from matplotlib import cm

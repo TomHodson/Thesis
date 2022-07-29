@@ -7,8 +7,10 @@ base = Path("../")
 new_base = Path("./")
 
 def action(elem, doc):
-    if type(elem) == pf.RawInline and elem.format == "html" and "<img " in elem.text:
-        img = pf.convert_text(elem.text, "html")[0].content[0]
+    # if type(elem) == pf.RawInline and elem.format == "html" and "<img " in elem.text:
+    if type(elem) == pf.Image:
+        # img = pf.convert_text(elem.text, "html")[0].content[0]
+        img = elem
         src = Path(img.url)
         if src.is_relative_to(base): 
             src = new_base / src.relative_to(base)
@@ -17,7 +19,7 @@ def action(elem, doc):
             _, name = img.url.split(":")
             src = new_base / name
 
-        if img.url.endswith(".svg"):
+        if img.url.endswith(".svg") or img.url.endswith(".gif"):
             src = src.parent / (src.stem + ".pdf")
             
         img.url = str(src)

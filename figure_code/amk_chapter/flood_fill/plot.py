@@ -9,6 +9,7 @@ import numpy as np
 import itertools as it
 from pathlib import Path
 import subprocess
+from tqdm import tqdm
 
 from koala import plotting as pl
 from koala import phase_diagrams as pd
@@ -47,7 +48,7 @@ vertices = [78,]
 
 subprocess.run(["mkdir", "-p", "./animation"])
 
-for n in range(15):
+for n in tqdm(range(15)):
     fig, axes = plt.subplots(nrows=1, ncols=2)
     fig.set_size_inches(2 * w, 2/2 * w)
     for a in axes: a.set(xticks = [], yticks = [])
@@ -92,6 +93,7 @@ for n in range(15):
     fig.tight_layout()
     if n == 3: fig.savefig(f'./{Path.cwd().name}.svg')
     fig.savefig(f"animation/iteration_{n:03}.svg")
+    plt.close(fig)
 
 subprocess.run(["magick", "animation/*.svg", f'./{Path.cwd().name}.gif'])
 subprocess.run(["rm", "-r", "./animation"])

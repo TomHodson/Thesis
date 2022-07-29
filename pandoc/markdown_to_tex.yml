@@ -15,6 +15,7 @@ filters:
 # top-level-division: chapter
 
 cite-method: biblatex
+# cite-method: natbib
 
 # # copy all images over to pandoc/figs/...
 extract-media: ${.}/figs

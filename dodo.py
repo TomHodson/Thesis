@@ -27,7 +27,9 @@ def task_jupyter_to_markdown():
             file_dep = [f,],
             targets = [target,],
             actions = [
-                f'jupyter nbconvert --to markdown "{f}" --output-dir={target.parent} --output {target.name}',],
+                f'jupyter nbconvert --to markdown "{f}" --output-dir={target.parent} --output "{target.name}"',
+                f'pandoc/figure_to_markdown_tag.py --input "{target}" --output "{target}"'
+                ],
         )
 
 def task_markdown_to_json():
@@ -43,7 +45,7 @@ def task_markdown_to_json():
             name = str(f),
             file_dep = [f,] + code_dependencies,
             targets = [target,],
-            actions = [f'{pandoc} -d {pandoc_config} --to json {f} -o {target}',],
+            actions = [f'{pandoc} -d {pandoc_config} --to json "{f}" -o "{target}"',],
         )
 
 def task_latex():
@@ -60,7 +62,7 @@ def task_latex():
             file_dep = [f,] + code_dependencies,
             targets = [target,],
             actions = [
-                f'{pandoc} -d {pandoc_config} {f} -o {target}',],
+                f'{pandoc} -d {pandoc_config} "{f}" -o "{target}"',],
         )
 
 def task_pdf():
@@ -70,8 +72,8 @@ def task_pdf():
     return dict(
         file_dep = ['pandoc/markdown_to_tex.yml',] + latex_files,
         targets = ['{t}.pdf'],
-        actions = ['latexmk -pdf -f -shell-escape -interaction=nonstopmode {t}.tex',
-                   'rm {t}.aux {t}.bbl {t}.blg {t}.fdb_latexmk {t}.fls {t}.lof {t}.log {t}.lot {t}.out {}'
+        actions = [f'latexmk -pdf -f -shell-escape -interaction=nonstopmode {t}.tex',
+                   f'rm -f {t}.aux {t}.bbl {t}.blg {t}.fdb_latexmk {t}.fls {t}.lof {t}.log {t}.lot {t}.out'
         ],
         verbosity = 0,
     )

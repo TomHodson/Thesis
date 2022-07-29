@@ -3,17 +3,9 @@
 
 \include{thesis.preamble}
 
-% Render just a single part but with correct TOC and references
-% \includeonly{0_Preface/preface}
-% \includeonly{1_Intro/intro_chapter}
-% \includeonly{2_FK_Model/fk_model_chapter}
-% \includeonly{3_Kitaev_Model/kitaev_model_chapter}
-% \includeonly{4_Conclusion/conclusion_chapter}
-% \includeonly{5_Appendices/appendices}
-
 \begin{document}
 
-\title{\LARGE {\bf Mixed Quantum Classical Models as a tool for understanding many body interacting systems}\\
+\title{\LARGE {\bf Interacting quantum many body systems I have known and loved}\\
  \vspace*{6mm}
 }
 
@@ -24,22 +16,31 @@
 \maketitle
 
 \preface
-% \include{0_Preface/preface}
-
+\include{0_Preface/abstract}
+\include{0_Preface/statement_of_orginality}
+\include{0_Preface/copyright_declaration}
+\include{0_Preface/acknowledgements}
+% \include{0_Preface/personal_contributions}
 
 \body
-% \chapter{Introduction}
-% \chapter{The Long-Range Falikov-Kimball Model}
-% \chapter{The Amorphous Kitaev Honeycomb Model}
+\chapter{Introduction}
+\include{build/tex/1.1 Intro.tex}
 
-\include{build/tex/AMK}
+\chapter{The Long-Range Falikov-Kimball Model}
+\include{build/tex/1.1 FK Intro.tex}
 
-% \chapter{Conclusion \& Discussion}
-% \appendix
-%     \include{5_Appendices/appendices}
+\chapter{The Amorphous Kitaev Honeycomb Model}
+\include{build/tex/2.1 AMK Intro.tex}
+\include{build/tex/2.2 AMK Methods.tex}
+\include{build/tex/2.3 AMK Results.tex}
+
+\chapter{Conclusion \& Discussion}
+\appendix
+    \include{5_Appendices/appendices}
 
 \addcontentsline{toc}{chapter}{Bibliography}
-\bibliographystyle{unsrt}
-\bibliography{entire_zotero_library}
+% \bibliographystyle{unsrt}
+% \bibliography{entire_zotero_library}
+\printbibliography
 
 \end{document}

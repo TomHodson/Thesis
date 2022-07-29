@@ -7,6 +7,7 @@
 \usepackage{physics}
 % \usepackage{layouts}
 \usepackage{acronym}
+\usepackage{lipsum} 
 
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -14,53 +15,26 @@
 \usepackage{comment}
 \usepackage{placeins}
 \usepackage{float}
+\floatplacement{figure}{H} % the default figure placement specifier
+
+\usepackage{pdfpages} % To be able to include pdfs in the appendix
 
 \usepackage[version=4]{mhchem} % for chemical formulas
 
-%%%%%% Adds markdown support %%%%%%%%%%%%%%%%%%%%%%
-\usepackage[fencedCode,inlineFootnotes,citations,definitionLists,hashEnumerators,smartEllipses,pipeTables,tableCaptions,hybrid]{markdown}
-\usepackage[T1]{fontenc}
-% \usepackage{fullpage}
-\usepackage[numbers]{natbib}
+% \usepackage[hyperref=true,natbib=true,
+% %autocite=inline,
+% %citestyle=authoryear-ibid,  %% Eventually will use this
+% backend=biber]{biblatex}
 
-%for markdown coding block support
-\usepackage{minted}
-\usepackage{csquotes}
-\usepackage{xcolor} % to access the named colour LightGray
-\definecolor{LightGray}{gray}{0.9}
-\setminted{bgcolor=LightGray}
-% [
-% % frame=lines,
-% % framesep=2mm,
-% % baselinestretch=1.2,
-% bgcolor=LightGray,
-% % fontsize=\footnotesize,
-% % linenos
-% ]
-
-\setkeys{Gin}{width=\linewidth,                 totalheight=\textheight,keepaspectratio}
-
-%% You can re-define how links are rendered: uncomment the following to get hyperlinked text instead of footnotes
-% \usepackage{hyperref}
-%%begin novalidate
-\markdownSetup{rendererPrototypes={
-%   link = {\href{#2}{#1}},
-  image = {\begin{figure}[t]
-    \centering
-    \includegraphics{#3}%
-    \ifx\empty#4\empty\else
-    \caption{#4}%
-    \fi
-    \label{fig:#1}%
-    \end{figure}}
-}}
-%%end novalidate
-
-%%%%%% Markown support section%%%%%%%%%%%%%%%%%%%
+\usepackage[style=numeric, 
+sorting=none,
+autocite=numeric,
+hyperref=true]{biblatex}
+\addbibresource{entire_zotero_library.bib}
 
 \def\[#1\]{\begin{equation}#1\end{equation}}
 
-% Exta syhmbol commands
+% Exrta symbol commands
 \newcommand{\tex}[1]{\expval{#1}} %Thermal expectation value
 \newcommand{\qex}[1]{\expval{#1}} %Quantum expectation value
 \newcommand{\Z}{\mathcal{Z}} %Partition function
@@ -235,35 +209,3 @@
 
 \newtheorem{definition}{Definition}[chapter]
 \newtheorem{theorem}{Theorem}[chapter]
-
-\newcommand{\Figref}[1]{Figure~\ref{#1}}
-
-\newcommand{\fig}[2]{
- \begin{figure}[!ht]
- \begin{center}
-\includegraphics{figs/#1}
- \vspace{-0.1in}
- \caption[ ]{\label{#1} #2}
- \end{center}
- \end{figure}
-}
-
-\newcommand{\figtwo}[8]{
- \begin{figure}
- \parbox[b]{#4 \textwidth}{
- \begin{center}
- \scalebox{#3}{\includegraphics{figs/#1.ps}}
- \vspace{-0.1in}
- \caption{\label{#1}#2}
- \end{center}
- }
- \hfill
- \parbox[b]{#8 \textwidth}{
- \begin{center}
- \scalebox{#7}{\includegraphics{figs/#5.ps}}
- \vspace{-0.1in}
- \caption{\label{#5}#6}
- \end{center}
- }
- \end{figure}
-}
