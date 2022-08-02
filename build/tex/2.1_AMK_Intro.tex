@@ -48,21 +48,21 @@ I'll start by discussing the physics of the Kitaev model in much more
 detail. Here I will look at the gauge symmetries of the model as well as
 its solution via a transformation to a Majorana hamiltonian. From this
 discusssion we will see that for the the model to be sovleable it need
-only be defined on a trivalent, tri-edge-colourable lattice.
+only be defined on a trivalent, tri-edge-colourable lattice
+\autocite{Nussinov2009}.
 
 In the methods section, I will discuss how to generate such lattices and
 colour them as well as how to map back and forth between configurations
-of the gauge field and configurations of the fluxes.
+of the gauge field and configurations of the gauge invariant quantities.
 
 In results section, I will begin by looking at the zero temperature
-physics. I'll present numerical evidence that the ground state flux
-sector of the model is given by a simple rule. I'll make an assessment
-of the gapless, abelian and non-abelian phases that are present as well
-as spontaneous chiral symmetry breaking and topological edge states. We
-will also compare the zero temperature phase diagram to that of the
-Kitaev Honeycomb Model. Next I will take the model to finite temperature
-and demonstrate that there is a phase transition to a thermal metal
-state.
+physics. I'll present numerical evidence that the ground state of the
+model is given by a simple rule. I'll make an assessment of the gapless,
+abelian and non-abelian phases that are present as well as spontaneous
+chiral symmetry breaking and topological edge states. We will also
+compare the zero temperature phase diagram to that of the Kitaev
+Honeycomb Model. Next I will take the model to finite temperature and
+demonstrate that there is a phase transition to a thermal metal state.
 
 In the Discussion I will consider possible physical realisations of this
 model as well the motivations for doing so. I will alao discuss how a
@@ -175,10 +175,10 @@ useful to introduce the bond operators
 function of \(i,j\) that picks the correct bond type.
 
 \begin{figure}
-\hypertarget{fig:vis_kitaev_1}{%
+\hypertarget{fig:visual_kitaev_1}{%
 \centering
-\includegraphics{figure_code/amk_chapter/visual_kitaev_1.pdf}
-\caption{}\label{fig:vis_kitaev_1}
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/visual_kitaev_1.pdf}
+\caption{}\label{fig:visual_kitaev_1}
 }
 \end{figure}
 
@@ -220,7 +220,7 @@ will have eigenvalues \(\pm i\).
 \begin{figure}
 \hypertarget{fig:regular_plaquettes}{%
 \centering
-\includegraphics{figure_code/amk_chapter/regular_plaquettes/regular_plaquettes.pdf}
+\includegraphics[width=0.86\textwidth,height=\textheight]{figure_code/amk_chapter/regular_plaquettes/regular_plaquettes.pdf}
 \caption{The eigenvalues of a loop or plaquette operators depend on how
 many bonds in its enclosing path.}\label{fig:regular_plaquettes}
 }
@@ -238,7 +238,7 @@ outlined in \cref{fig:visual_kitaev_2}.
 \begin{figure}
 \hypertarget{fig:visual_kitaev_2}{%
 \centering
-\includegraphics{figure_code/amk_chapter/visual_kitaev_2.pdf}
+\includegraphics[width=1.43\textwidth,height=\textheight]{figure_code/amk_chapter/visual_kitaev_2.pdf}
 \caption{}\label{fig:visual_kitaev_2}
 }
 \end{figure}
@@ -252,10 +252,14 @@ all intents and purposes act like classical degrees of freedom. These
 are the extensively many conserved quantities that make the model
 tractable.
 
-I will use the term flux to refer to expectation value of a plaquette
-operator. Fixing the fluxes thus partitions the many body Hilbert space
-into a set of `flux sectors' labelled by that particular flux
-configuration.
+Plaquette operators measure flux. We will find that the ground state of
+the model corresponds to some particular choice of flux through each
+plaquette. I will refer to excitations which flip the expectation value
+of a plaqutte operator away from the ground state as \textbf{vortices}.
+
+Fixing a configuration of the vortices thus partitions the many-body
+Hilbert space into a set of `vortex sectors' labelled by that particular
+flux configuration \(\phi_i = \pm 1,\pm i\).
 
 \hypertarget{from-spins-to-majorana-operators}{%
 \subsection{From Spins to Majorana
@@ -314,7 +318,7 @@ the physical subspace \(D = 1\) and this all makes sense.
 \begin{figure}
 \hypertarget{fig:majorana}{%
 \centering
-\includegraphics{figure_code/majorana.png}
+\includegraphics[width=0.71\textwidth,height=\textheight]{figure_code/majorana.png}
 \caption{}\label{fig:majorana}
 }
 \end{figure}
@@ -390,7 +394,7 @@ the theory of the Majorana Hamiltonian a little more.
 \begin{figure}
 \hypertarget{fig:intro_figure_template}{%
 \centering
-\includegraphics{figure_code/amk_chapter/honeycomb_zoom/intro_figure_template.pdf}
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/honeycomb_zoom/intro_figure_template.pdf}
 \caption{\textbf{(a)} The standard Kitaev Model is defined on a
 honeycomb lattice. The special feature of the honeycomb lattice that
 makes the model solveable it is that each vertex is joined by exactly
@@ -411,7 +415,9 @@ Majorana \(c_i\) per site.}\label{fig:intro_figure_template}
 We now have a quadtratic hamiltonian
 \[ \tilde{H} =  \frac{i}{4} \sum_{\langle i,j\rangle_\alpha} 2J^{\alpha} u_{ij} c_i c_j\]
 in which most of the Majorana degrees of freedom have paired along bonds
-to become a classical gauge field \(u_{ij}\).
+to become a classical gauge field \(u_{ij}\). What follows is relatively
+standard theory for quadratic Majorana Hamiltonians
+\textcite{BlaizotRipka1986}.
 
 As a consequence of the the antisymmetry of the matrix with entries
 \(J^{\alpha} u_{ij}\), the eigenvalues of the Hamiltonian
@@ -535,16 +541,16 @@ movements}\label{vortices-and-their-movements}}
 Let's imagine we started from the ground state of the model and flipped
 the sign of a single bond. In doing so we will flip the sign of the two
 plaquettes adjacent to that bond. I'll call these disturbed plaquettes
-\emph{fluxes}. I'll refer to a particular choice values for the
-plaquette operators as a flux sector.
+\emph{vortices}. I'll refer to a particular choice values for the
+plaquette operators as a vortex sector.
 
-If we chain multiple bond flips we can create a pair of fluxes at
+If we chain multiple bond flips we can create a pair of vortices at
 arbitrary locations. The chain of bonds that we must flip corresponds to
 a path on the dual of the lattice.
 
-Something else we can do is create a pair of fluxes, move one around a
+Something else we can do is create a pair of vortices, move one around a
 loop and then anhilate it with its partner. This corresponds to a closed
-loop on the dual lattice and applying such a bond flip leaves the flux
+loop on the dual lattice and applying such a bond flip leaves the vortex
 sector unchanged.
 
 Notice that the \(D_j\) operators flip three bonds around a vertex. This
@@ -571,7 +577,7 @@ loops}{Composition of u\_\{jk\} loops}}\label{composition-of-u_jk-loops}}
 \begin{figure}
 \hypertarget{fig:plaquette_addition_by_hand}{%
 \centering
-\includegraphics{figure_code/amk_chapter/plaquette_addition/plaquette_addition_by_hand.pdf}
+\includegraphics[width=0.57\textwidth,height=\textheight]{figure_code/amk_chapter/plaquette_addition/plaquette_addition_by_hand.pdf}
 \caption{In the product of individual plaquette operators shared bonds
 cancel out. The product is equal to the enclosing
 path.}\label{fig:plaquette_addition_by_hand}
@@ -596,9 +602,9 @@ operators \(\Phi\) that span the area \(A\) enclosed by that loop:
 \begin{figure}
 \hypertarget{fig:stokes_theorem}{%
 \centering
-\includegraphics{figure_code/amk_chapter/stokes_theorem/stokes_theorem.pdf}
+\includegraphics[width=0.71\textwidth,height=\textheight]{figure_code/amk_chapter/stokes_theorem/stokes_theorem.pdf}
 \caption{The loop composition rule extends to arbitrary numbers of
-fluxes giving a discrete version of Stoke's
+vortices giving a discrete version of Stoke's
 theorem.}\label{fig:stokes_theorem}
 }
 \end{figure}
@@ -612,7 +618,7 @@ Equation}\label{gauge-degeneracy-and-the-euler-equation}}
 
 We can check this analysis with a counting argument. For a lattice with
 \(B\) bonds, \(P\) plaquettes and \(V\) vertices we can count how many
-bond sectors, fluxes sectors and gauge symmetries there are and check
+bond sectors, vortices sectors and gauge symmetries there are and check
 them against Euler's polyhedra equation.
 
 Euler's equation states for a closed surface of genus \(g\), i.e that
@@ -622,7 +628,7 @@ for \(g\) tori stuck together \[B = P + V + 2 - 2g\]
 \begin{figure}
 \hypertarget{fig:torus}{%
 \centering
-\includegraphics{figs/torus.jpeg}
+\includegraphics[width=0.86\textwidth,height=\textheight]{figs/torus.jpeg}
 \caption{In periodic boundary conditions the Kitaev model is defined on
 the surface of a torus. Topologically the torus is distinct from the
 sphere in that it has a hole that cannot be smoothly deformed away.
@@ -640,13 +646,13 @@ For the case of the torus where \(g = 1\) we can rearrange this to read:
 Each \(u_{ij}\) takes two values and there is one associated with each
 bond so there are exactly \(2^B\) distinct configurations of the bond
 sector. Let's see if we can factor those configurations out into the
-cartesian product of flux sectors, gauge symmetries and non-contractible
-loop operators.
+cartesian product of vortex sectors, gauge symmetries and
+non-contractible loop operators.
 
-Flux sectors: each plaquette operator \(\phi_i\) takes two values
+Vortex sectors: each plaquette operator \(\phi_i\) takes two values
 (\(\pm 1\) or \(\pm i\)) and there are \(P\) of them so naively one
-would think there are \(2^P\). However fluxes can only be created on
-pairs so there are really \(\tfrac{2^P}{2} = 2^{P-1}\) flux sectors.
+would think there are \(2^P\). However vortices can only be created on
+pairs so there are really \(\tfrac{2^P}{2} = 2^{P-1}\) vortex sectors.
 
 Gauge symmetries: As discussed earlier these correspond to the all
 possible compositions of the \(D_j\) operators. Again there are only
@@ -655,7 +661,7 @@ possible compositions of the \(D_j\) operators. Again there are only
 this by chooising the correct product of single particle fermion states.
 You can get an intuitive picture for why \(\prod_{j} D_j = \mathbb{1}\)
 by imagining larger and larger patches of \(D_j\) operators on the
-torus. These patches correspond to transporting a flux pair around the
+torus. These patches correspond to transporting a vortex pair around the
 edge of the patch. At some point the patch wraps around and starts to
 cover the entire torus, as this happens the bounday of the patch
 disappears and hence it which corresponds to the identity operation. See
@@ -666,17 +672,17 @@ with its major and minor diameters.
 
 Putting this all together we see that there are \textbf{\(2^B\) bond
 sectors} a space which can be decomposed into the cartesian product of
-\textbf{\(2^{P-1}\) flux sectors}, \textbf{\(2^{V-1}\) gauge symmetries}
-and \textbf{\(2^2 = 4\) topological sectors} associated with the
-non-contractible loop operators. This last factor forms the basis of
+\textbf{\(2^{P-1}\) vortex sectors}, \textbf{\(2^{V-1}\) gauge
+symmetries} and \textbf{\(2^2 = 4\) topological sectors} associated with
+the non-contractible loop operators. This last factor forms the basis of
 proposals to construct topologically protected qubits since the 4
 sectors cold only be mixed by a highly non-local perturbation, ref
 ?????.
 
-\includegraphics{figure_code/amk_chapter/intro/types_of_dual_loops/types_of_dual_loops.pdf}
-\includegraphics{figure_code/amk_chapter/intro/gauge_symmetries/gauge_symmetries.pdf}
-\includegraphics{figure_code/amk_chapter/flood_fill/flood_fill.pdf}
-\includegraphics{figure_code/amk_chapter/flood_fill_amorphous/flood_fill_amorphous.pdf}
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/intro/types_of_dual_loops/types_of_dual_loops.pdf}
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/intro/gauge_symmetries/gauge_symmetries.pdf}
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/flood_fill/flood_fill.pdf}
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/flood_fill_amorphous/flood_fill_amorphous.pdf}
 
 \hypertarget{counting-edges-plaquettes-and-vertices}{%
 \subsubsection{Counting edges, plaquettes and
@@ -709,7 +715,7 @@ plaquettes must come in pairs.
 \begin{figure}
 \hypertarget{fig:hilbert_spaces}{%
 \centering
-\includegraphics{figure_code/amk_chapter/hilbert_spaces.pdf}
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/hilbert_spaces.pdf}
 \caption{The relationship between the different Hilbert spaces used in
 the solution is slightly complex.}\label{fig:hilbert_spaces}
 }
@@ -803,8 +809,8 @@ Along with that mapping comes a gauge field \(u_{jk}\) defining
 \textbf{bond sectors}. The gauge symmetries of \(u_{jk}\) are generated
 by the set of \(D_j\) operators. The gauge invariant and therefore
 physically relevant variables are the plaquette operators \(\phi_i\)
-which define a \textbf{flux sector}. In order to practically solve the
-Majorana Hamiltonian we must remove hats from the gauge field by
+which define as a \textbf{vortex sector}. In order to practically solve
+the Majorana Hamiltonian we must remove hats from the gauge field by
 restricting ourselves to a particular bond sector. From there the
 Majorana Hamiltonian becomes non-interacting and we can solve it like
 any quadratic theory. This lets us construct the single particle
@@ -846,13 +852,13 @@ performed. \textbf{Is is possible that a lattice constructed and
 coloured like this would have unequal numbers of \(b^x\) \(b^y\) and
 \(b^z\) operators?}
 
-\hypertarget{the-ground-state-flux-sector}{%
-\subsection{The Ground State Flux
-Sector}\label{the-ground-state-flux-sector}}
+\hypertarget{the-ground-state-vortex-sector}{%
+\subsection{The Ground State Vortex
+Sector}\label{the-ground-state-vortex-sector}}
 
-On the Honeycomb, Lieb's theorem implies that the the ground state flux
-sector corresponds to the state where all \(u_jk = 1\) implying that the
-`flux free' sector is the ground state flux sector.
+On the Honeycomb, Lieb's theorem implies that the the ground state
+corresponds to the state where all \(u_jk = 1\) implying that the flux
+free sector is the ground state sector \textcite{lieb_flux_1994}.
 
 Lieb's theorem does not generalise easily to the amorphous case. However
 we can get some intuition by examining the problem that will lead to a
@@ -890,7 +896,7 @@ and we put ourselves in the isotropic phase where \(J^\alpha = 1\)
 We then see that the trace of the nth power of H is a sums over Wilson
 loops of size \(n\) with an additional factor of \(2^{-n}\). We showed
 earlier that the Wilson loop operators can always be written as products
-of the fluxes operators that they enclose.
+of the plaquette operators that they enclose.
 
 Lumping all the prefactors together, we can write:
 \[ \mathcal{Z} = c_A \hat{A} + c_B \hat{B} + \sum_i c_i \hat{\phi}_i + \sum_{ij} c_{ij}  \hat{\phi}_i \hat{\phi}_j + \sum_{ijk} c_{ijk}  \hat{\phi}_i \hat{\phi}_j \hat{\phi}_k + ...\]
@@ -913,28 +919,31 @@ system size limit, while that degeneracy is lifted in finite sized
 systems.
 
 We don't have much hope of actually evaluating this for an amorphous
-lattice. However it lead us to guess that the ground state flux sector
+lattice. However it lead us to guess that the ground state vortex sector
 might be a simple function of the side length of each plaquette.
 
 The ground state of the Amorphous Kitaev Model is found by setting the
-flux through each plaquette \(\phi\) to be equal to \(\phi_0(s)\) where
-\(s\) is the number of sides and \[   
-\phi_0(s) = 
-     \begin{cases}
-       -1 \;\textrm{if}\; s = 0 \mod 4\\
-       \pm 1 \;\textrm{if}\; s = 1 \mod 4\\
-       +1 \;\textrm{if}\; s = 2 \mod 4\\
-       \mp 1 \;\textrm{if}\; s = 3 \mod 4\\
-     \end{cases}
-\]
+flux through each plaquette \(\phi\) to be equal to
+\(\phi^{\mathrm{g.s.}}(n_{\mathrm{sides}})\)
 
-Where the choice of \(\pm 1\) for plaquettes with 1 side mod 4 is made
-globally and the oposite choice is made for those with 2 sides mod 4.
+\[\begin{aligned}
+    \phi^{\mathrm{g.s.}}(n_{\mathrm{sides}}) = -(\pm i)^{n_{\mathrm{sides}}},
+\end{aligned}\] where \(n_{\mathrm{sides}}\) is the number of edges that
+form each plaquette and the choice of sign gives a twofold chiral ground
+state degeneracy.
 
-However this guess only works for larger lattices because of the finite
-size effects. In order to rigorously test it we would like to directly
-enumerate the \(2^N\) flux sectors for a smaller lattice and check that
-the lowest state found is the flux sector predicted by ???.
+This conjecture is consistent with Lieb's theorem on regular lattices
+\autocite{lieb_flux_1994} and is supported by numerical evidence. As
+noted before, any flux that differs from the ground state is an
+excitation which I call a vortex.
+
+\hypertarget{finite-size-effects}{%
+\subsubsection{Finite size effects}\label{finite-size-effects}}
+
+This guess only works for larger lattices because of the finite size
+effects. In order to rigorously test it we would like to directly
+enumerate the \(2^N\) vortex sectors for a smaller lattice and check
+that the lowest state found is the vortex sector predicted by ???.
 
 To do this we tile an amorphous lattice onto a repeating \(NxN\) grid.
 The use of a fourier series then allows us to compute the
@@ -948,6 +957,23 @@ Using this technique we verified that \(\phi_0\) correctly predicts the
 ground state for hundreds of thousands of lattices with upto 20
 plaquettes. For larger lattices we verified that random perturbations
 around the predicted ground state never yield a lower energy state.
+
+\hypertarget{chiral-symmetry}{%
+\subsection{Chiral Symmetry}\label{chiral-symmetry}}
+
+In the discussion above we see that the ground state has a twofold
+\textbf{chiral} degeneracy that comes about because the global sign of
+the odd plaquettes does not matter.
+
+This happens because by adding odd plaquettes we have broken the time
+reversal symmetry of the original model
+\autocite{Chua2011,yaoExactChiralSpin2007,ChuaPRB2011,Fiete2012,Natori2016,Wu2009,Peri2020,WangHaoranPRB2021}.
+
+Similar to the behaviour of the original Kitaev model in response to a
+magnetic field, we get two degenerate ground states of different
+handedness. Practicaly speaking, one ground state is related to the
+other by inverting the imaginary \(\phi\) fluxes
+\autocite{yaoExactChiralSpin2007}.
 
 \hypertarget{topology-chirality-and-edge-modes}{%
 \subsection{Topology, chirality and edge
@@ -963,170 +989,166 @@ local order parameter. These phases are intead said to posess
 `topological order'.
 
 One property of topological order that is particularly easy to observe
-is if the ground state degeneracy depends on the topology of the
-manifold that we put the system on to. This is referred to as
-topological degeneracy to distinguish it from standard symmetry
-breaking.
+that the ground state degeneracy depends on the topology of the manifold
+that we put the system on to. This is referred to as topological
+degeneracy to distinguish it from standard symmetry breaking.
 
-In our case we will consider the Kitaev defined on a graph that is
-embedded either into the plane or onto the torus but the extension to
-surfaces like the torus but with more than one handle is relatively
-easy.
-
-One reason the topic has gained interest recently is there have
-proposals to use this ground state degeneracy to implement both
-passively fault tolerant and actively stabilised quantum computations
-{[}\textcite{kitaevFaulttolerantQuantumComputation2003};
-\textcite{poulinStabilizerFormalismOperator2005};
-hastingsDynamicallyGeneratedLogical2021{]} .
+The Kitaev model will be a good example of this, we have already looked
+at it defined on a graph that is embedded either into the plane or onto
+the torus. The extension to surfaces like the torus but with more than
+one handle is relatively easy.
 
 \hypertarget{anyonic-statistics}{%
-\subsubsection{Anyonic Statistics}\label{anyonic-statistics}}
+\subsection{Anyonic Statistics}\label{anyonic-statistics}}
 
-In dimensions greater than two the quantum state of two identical
-particles must pick up a factor of \(-1\) or \(+1\) upon interchange and
-we call these Fermions and Bosons.
+In dimensions greater than two, the quantum state of a system must pick
+up a factor of \(-1\) or \(+1\) if two identical particles are swapped.
+We call these Fermions and Bosons.
 
 This argument is predicated on the idea that performing two swaps is
 equivalent to doing nothing. Doing nothing should not change the quantum
 state at all, so doing one swap can at most multiply it by \(\pm 1\).
 
-However there is a little bit of topology hiding in here. What we're
-really saying when we say that two swaps is the identity is that the
-world lines of two particles that have been swapped twice can be
-untangled without the lines crossing.
+However there are many hidden parts to this argument. Firstly, this
+argument just isn't the whole story, if you want to know why Fermions
+have half integer spin, for instance, you have to go to field theory.
 
-That's not true in two dimensions. In two dimensions the world line of
-the particles are braided together and they cannot be untangled.
+There is also a second niggle, why does this argument only work in
+dimensions greater than two? What we're really saying when we say that
+two swaps do nothing is that the world lines of two particles that have
+been swapped twice can be untangled without crossing. Why can't they
+cross? Well because if they cross then the particles can interact and
+the quantum state could change in an arbitrary way. We're implcitly
+using the locality of physics here to argue that if the worldlines stay
+well separated then the overall quantum state cannot too much.
 
-{}
+In two dimensions we cannot untangle the worldlines of two particles
+that have swapped places, they are braided together. See Fig
+\ref{fig:braiding} for a diagram.
+
+\begin{figure}
+\hypertarget{fig:braiding}{%
+\centering
+\includegraphics[width=0.71\textwidth,height=\textheight]{figure_code/amk_chapter/braiding.png}
+\caption{}\label{fig:braiding}
+}
+\end{figure}
 
 From this fact flows a whole new world of behaviours, now the quantum
-state can aquire a phase factor \(e^{i\phi}\) upon exchange of the two
-particles, which we now call Anyons.
+state can aquire a phase factor \(e^{i\phi}\) upon exchange of two
+identical particles, which we now call Anyons.
 
 The Kitaev Model is a good demonstration of the connection beween Anyons
 and topological degeneracy. In the Kitaev model we can create a pair of
-vortices, move one around a non-contractable loop and anhilate them
-together. Without topology this should leave the quantum state
-unchanged. Instead it moves us to another ground state in a
-topologically degenerate ground state subspace.
+vortices, move one around a non-contractable loop \(\mathcal{T}_{x/y}\)
+and then anhilate them together. Without topology this should leave the
+quantum state unchanged. Instead it moves us to another ground state in
+a topologically degenerate ground state subspace. Practically speaking
+it flips a dual line of bonds \(u_{jk}\) going around the loop which we
+cannot undo with any gauge transformation made from \(D_j\) operators.
 
-If the ground state subspace is multidimensional, multi-quasiparticle
-exchange can move us around in the space with an action corresponding to
-a matrix. These matrices do not in general commmute and so these are
-known as non-Abelian anyons.
+If the ground state subspace is multidimensional, quasiparticle exchange
+can move us around in the space with an action corresponding to a
+matrix. These matrices do not in general commmute and so these are known
+as non-Abelian anyons.
 
 From here things get even more complex, the Kitaev model has a
 non-Abelian phase when exposed to a magnetic field, and the amorphous
-Kitaev Model is non-Abelian because of its broken chiral symmetry.
+Kitaev Model has a non-Abelian phase because of its broken chiral
+symmetry.
 
-Translated to our model, when we create a vortex-vortex pair, we are
-really creating a pair of two objects composed of a (vortex+majorana
-bound state) called \emph{visons}. In the Abelian phase we can move
-these two objects along any path we like and then when we bring them
-back together they will anhilate back to the vacuum, where we understand
-`the vacuum' to refer to one of the ground states, though not necesarily
-the same one we started in. We can use this to get from the
-\((\Phi_x, \Phi_y) = (+1, +1)\) ground state and construct the set
-\((+1, +1), (+1, -1), (-1, +1), (-1, -1)\).
+The way that we have subdivided the Kitaev model into vortex sectors, we
+have a neat separation beween vortices and fermionic excitations.
+However if we looked at the full many body picture we would see that a
+vortex caries with it a cloud of bound majorana states.
 
-However in the non-Abelian phase we have to wrangle with monodromy
-\autocite{chungExplicitMonodromyMoore2007,oshikawaTopologicalDegeneracyNonAbelian2007}.
-Monodromy is behaviour of objects as they move around a singularity.
-This manifests here in that the identity of our visions can change as we
-wind them around the torus in such a way that rather than anhilating to
-the vacuum them anhilate to create an excited state instead of a ground
-state. This means we end up with only three degenerate ground states in
-the non-Abelian phase \((+1, +1), (+1, -1), (-1, +1)\)
-\autocite[yaoAlgebraicSpinLiquid2009a]{chungTopologicalQuantumPhase2010}.
-The deep theory of this is beyong the scope of this thesis but it's
-important to be aware of.
-
-{}
-
-\hypertarget{quantum-number-fractionalisation}{%
-\subsubsection{Quantum number
-fractionalisation}\label{quantum-number-fractionalisation}}
-
-Another much loved, crazy thing that quasiparticles can do is
-fractonalise.
-
-It has been pointed out that
-\textcite{oshikawaFractionalizationTopologicalOrder2006} that
-fractionalisation and topological order are intimatly related.
-
-https://journals.aps.org/prl/pdf/10.1103/PhysRevLett.96.060601
-https://pdf.sciencedirectassets.com/272507/1-s2.0-S0003491607X07036/1-s2.0-S0003491606001837/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEKL\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2FwEaCXVzLWVhc3QtMSJGMEQCIF6tR08KkKuS3NkB1Ui8KBpKsXz\%2FdfNnuxwKS6hYtKb2AiBjxPGNq6qGs\%2F8h\%2Bi3igmkvSPa0z4\%2BIAPScL65NfImFCirbBAjr\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F\%2F8BEAUaDDA1OTAwMzU0Njg2NSIMtxhz9p5roiYciL\%2BvKq8EsbEnRhtsnZgZ\%2FJmhdrrakZB7JKeGK3lykDtNyk\%2B3Re4LBZF1bYHjZ36lJpKlYaZddXMhVownzKN4hcSGQi\%2FxAVgyPC6ouim4pPUl1IIJo\%2B0WFhtz6jF5kPPWaxB0ZpsznocquhYP29ceNDZ383lPl9615f\%2FMVLbsgzc9vjAwZq2sQoX7P0p\%2FEbjFUJGywGH52xCuEDzYJT9sXXP9CFnc86lj4LY11NnUOo1nXQ1H8fH86HDLKP7X5jelJJEOfz9lOA3w0cXmgtdRxcCzImp8tcVNot7wfT5ujSVs7E41pLCFYtWPSyCgG1Kk1rx3KJoCgT0HySFL0dYi8qlluVwXY2mCQ29XVjiudpW2TSJ7YRT\%2BrLuf73U5gvRCavSsW1\%2FtjwrHkEZY\%2BhJQddibC5\%2BmbsRNXDfzkDcyUkcD4Ir5hyo8QwQWRyhCqGTCtunnWh\%2FMEmP\%2BH0tq8bWbEOG0ephryfg39YSvRWa1g6emsjOZBHqcLg50\%2BvGWX3r\%2F\%2BpErVaLUgno\%2BjMsZhhj5M6yrxlP8YIiisfN1ScmaNMTGA5BVrUB0WPW\%2B\%2FPAUoeC3B1rwXq9aHDfMpX\%2FTWJQoysYNjBAWThjgoTFFf6Ev5IzGPbC0zEuKr\%2Bvp0BC7EQ\%2BZ7DCv7Ke1PdZWuKVZ9CfUHhTT9kmtHTQ1kldEegN2N8qfOcNicH3YEXGIGw7yfqcCDreGSyz9tTHssaFNwSH3uoDn3kcu6KtotuIi8ROOfkZNysZuOzCtuomXBjqqAQbb0t5tjiRV0L8TfZEa34Cxwx1QlR96HJ98vSF\%2Fync\%2B6WSCFTwTvCgqYhnqFgBOp\%2BhbO3ok3P\%2BZmLB\%2FutaDCbA\%2F7VTEMpHCSco82OZxvBQ1JKyrySgzpm18YYOyRwSNALsIEx5dAowvdDZn3XRUKX0x24jcFs70FF0ZCLGMu9igV2Fl6yUGn\%2FpJVkFu9bR\%2BLcNFoMDPhxKAfmpoUy\%2FEXdOzVwVsEPEWMnBN\&X-Amz-Algorithm=AWS4-HMAC-SHA256\&X-Amz-Date=20220728T110719Z\&X-Amz-SignedHeaders=host\&X-Amz-Expires=300\&X-Amz-Credential=ASIAQ3PHCVTYTC4WU3FG\%2F20220728\%2Fus-east-1\%2Fs3\%2Faws4\_request\&X-Amz-Signature=7421458bb98c079ec73cf9dbe844d84702ada667ed4fce51b28df51ea36c69eb\&hash=62be723c2529e409fb4fdb50a4dfad0ff10602d0e007803f32da50e4eccff4cc\&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61\&pii=S0003491606001837\&tid=spdf-d4f494ac-efc2-4b4a-b612-9318b42ba4cc\&sid=2bb12bc35234814e538810d5a09c5779f45agxrqb\&type=client\&ua=5951510b54555d5055\&rr=731d26867ff67521
+\begin{figure}
+\hypertarget{fig:majorana_bound_states}{%
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/majorana_bound_states/majorana_bound_states.pdf}
+\caption{(Left) A large amorphous lattice in the ground state save for a
+single pair of vortices shown in red, separated by the string of bonds
+that we flipped to create them. (Right) The density of the lowest energy
+Majorana state in this vortex sector. The state is clearly bound to the
+vortices.}\label{fig:majorana_bound_states}
+}
+\end{figure}
 
 Consider two processes
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
 \item
-  we transport a quasiparticle pair around the torus
-  \(\mathcal{T}_{x,y}\)
+  We transport one half of a vortex pair around either the x or y loops
+  of the torus before anhilating back to the ground state vortex sector
+  \(\mathcal{T}_{x,y}\).
 \item
-  We flip a line of bond operators coresponding to inserting a flux
+  We flip a line of bond operators coresponding to measuring the flux
   through either the major or minor axes of the torus
-  \(\mathcal{F}_{x,y}\)
+  \(\mathcal{\Phi}_{x,y}\)
 \end{enumerate}
 
-We can think of the plaquettes as being associated with fluxes on the
-torus and the two non-contractible loops \(F_x\) and \(F_y\) as being
-associated with the fluxes through the two diameters of the torus.
+\begin{figure}
+\hypertarget{fig:loops_and_dual_loops}{%
+\centering
+\includegraphics[width=1.14\textwidth,height=\textheight]{figure_code/amk_chapter/loops_and_dual_loops/loops_and_dual_loops.pdf}
+\caption{(Left) The two topological flux operators of the toroidal
+lattice, these don't correspond to any face of the lattice, but rather
+measure flux that threads through the major and minor axes of the torus.
+This shows a particular choice but any loop that crosses the boundary is
+gauge equivalent to one of or the sum of these two loop. (Right) The two
+ways to transport vortices around the diameters. These correspond to
+creating a vortex pair, transporting one of them around the major or
+minor diameters of the torus and then anhilating them
+again.}\label{fig:loops_and_dual_loops}
+}
+\end{figure}
 
-{}
+The plaquette operators \(\phi_i\) are associated with fluxes. Wilson
+loops that wind the torus are associated with the fluxes through its two
+diameters \(\mathcal{\Phi}_{x,y}\).
 
-\hypertarget{to-add}{%
-\subsection{To add}\label{to-add}}
+In the Abelian phase we can move a vortex along any path we like and
+then when we bring them back together they will anhilate back to the
+vacuum, where we understand `the vacuum' to refer to one of the ground
+states, though not necesarily the same one we started in. We can use
+this to get from the \((\Phi_x, \Phi_y) = (+1, +1)\) ground state and
+construct the set \((+1, +1), (+1, -1), (-1, +1), (-1, -1)\).
 
-\begin{itemize}
-\tightlist
-\item
-  Along with the fluxes we have two global fluxes associated with the
-  major and minor axes of the torus
-\item
-  Adiabatic flux insertion can undo this exept in the case of (-1,-1) in
-  the non-abelian regime (why?)
-\item
-  be more clear about the distinction between the global fluxes (or
-  global ujk loops) vs the transport of vortices around the loop
-\item
-  what's a vison? Is it a vortex with a majorana bound to it?
-\item
-  mention abiguity about measuring lengths in the embedding or as
-  lattice distances
-\item
-  see if jupyter has a way to supress cells in nbconvert so that the
-  html at the top doesn't get output
-\end{itemize}
+\begin{figure}
+\hypertarget{fig:topological_fluxes}{%
+\centering
+\includegraphics[width=0.57\textwidth,height=\textheight]{figure_code/amk_chapter/topological_fluxes.png}
+\caption{Wilson loops that wind the major or minor diameters of the
+torus measure flux winding through the hole of the donut/torus or
+through the filling. If they made donuts that had both a jam filling and
+a hole this analogy would be a lot easier to make
+\textcite{parkerWhyDoesThis}.}\label{fig:topological_fluxes}
+}
+\end{figure}
 
-\textbf{make a nice figure showing how arbitrary bond sectors can be
-decomposed into flux sector X gauge symmetry X T\_x/Ty (or is it F\_x
-anf F\_)?}
+However in the non-Abelian phase we have to wrangle with monodromy
+\autocite{chungExplicitMonodromyMoore2007,oshikawaTopologicalDegeneracyNonAbelian2007}.
+Monodromy is behaviour of objects as they move around a singularity.
+This manifests here in that the identity of a vortex and cloud of
+Majoranas can change as we wind them around the torus in such a way that
+rather than anhilating to the vacuum the anhilate to create an excited
+state instead of a ground state. This means we end up with only three
+degenerate ground states in the non-Abelian phase
+\((+1, +1), (+1, -1), (-1, +1)\)
+\autocite[yaoAlgebraicSpinLiquid2009a]{chungTopologicalQuantumPhase2010}.
+The way that this shows up concretly is that the projector enforces both
+flux and fermion parity. When we wind a vortex around both
+non-contractible loops of the torus, it flips the flux parity which
+forces means we have to introduce a fermionic excitation to make the
+state physical. Hence the process does not give a fourth ground state.
 
-maybe the way it works is that, in the non-abelian phase you can wind
-around the major axis and anhilate, fine, but if you try to wind around
-the x axis and then the y axis you find that you've changed you
-particles too much and can't anhilate?
+\includegraphics[width=0.86\textwidth,height=\textheight]{figure_code/amk_chapter/threefold_degeneracy.png}
+\includegraphics[width=1.14\textwidth,height=\textheight]{figure_code/amk_chapter/state_decomposition_animated/state_decomposition_animated.pdf}
 
-\begin{itemize}
-\tightlist
-\item
-  fix up the projector section to include the flux sector parity as well
-  as the fermion parity. Make better mention of the global \(\Phi_x\)
-  \(\Phi_y\) fluxes
-\end{itemize}
-
-{image.png}
-
-{image.png}
-
-{image.png}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-
-\end{Highlighting}
-\end{Shaded}
+One reason the topology has gained interest recently is there have
+proposals to use this ground state degeneracy to implement both
+passively fault tolerant and actively stabilised quantum computations
+{[}\textcite{kitaevFaulttolerantQuantumComputation2003};
+\textcite{poulinStabilizerFormalismOperator2005};
+hastingsDynamicallyGeneratedLogical2021{]}.

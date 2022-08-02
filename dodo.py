@@ -69,10 +69,11 @@ def task_pdf():
     'compile the pdf output using latexmk'
     latex_files = list(Path("./").glob("*/*.tex"))
     t = 'thesis'
+    jobname = Path("./build/pdf/thesis")
     return dict(
         file_dep = ['pandoc/markdown_to_tex.yml',] + latex_files,
         targets = ['{t}.pdf'],
-        actions = [f'latexmk -pdf -f -shell-escape -interaction=nonstopmode {t}.tex',
+        actions = [f'latexmk -pdf -f -shell-escape -interaction=nonstopmode -jobname="{jobname}" {t}.tex',
                    f'rm -f {t}.aux {t}.bbl {t}.blg {t}.fdb_latexmk {t}.fls {t}.lof {t}.log {t}.lot {t}.out'
         ],
         verbosity = 0,
