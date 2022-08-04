@@ -1,9 +1,3 @@
-\begin{Shaded}
-\begin{Highlighting}[]
-\OperatorTok{\%\%}\NormalTok{html}
-\end{Highlighting}
-\end{Shaded}
-
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
@@ -34,12 +28,6 @@ terms of single particle states
 \textcite{kitaevAnyonsExactlySolved2006}. Its solubility comes about
 because the model has extensively many conserved degrees of freedom that
 mediate the interactions between quantum degrees of freedom.
-
-\textbf{Insert discussion of why a generalisation to the amorphous case
-is intersting}
-
-\hypertarget{chapter-outline}{%
-\subsection{Chapter outline}\label{chapter-outline}}
 
 In this chapter I will discuss the physics of the Kitaev Model on
 amorphous lattices.
@@ -78,26 +66,28 @@ is that each vertex interacts with exactly three others via an x, y and
 z edge. However the lattice will no longer be bipartite, breaking chiral
 symmetry among other things.
 
-\hypertarget{kitaev-heisenberg-model}{%
-\subsection{Kitaev-Heisenberg Model}\label{kitaev-heisenberg-model}}
-
-In real materials there will generally be an addtional small Heisenberg
-term
+Kitaev-Heisenberg Model In real materials there will generally be an
+addtional small Heisenberg term
 \[H_{KH} =  - \sum_{\langle j,k\rangle_\alpha} J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha} + \sigma_j\sigma_k\]
 
-\hypertarget{an-in-depth-look-at-the-kitaev-model}{%
-\section{An in-depth look at the Kitaev
-Model}\label{an-in-depth-look-at-the-kitaev-model}}
+\hypertarget{amorphous-systems}{%
+\subsection{Amorphous Systems}\label{amorphous-systems}}
+
+\textbf{Insert discussion of why a generalisation to the amorphous case
+is intersting}
+
+\hypertarget{the-kitaev-model}{%
+\subsection{The Kitaev Model}\label{the-kitaev-model}}
 
 \hypertarget{commutation-relations}{%
-\subsection{Commutation relations}\label{commutation-relations}}
+\subsubsection{Commutation relations}\label{commutation-relations}}
 
 Before diving into the Hamiltonian of the Kitaev Model, here is a quick
 refresher of the key commutation relations of spins, fermions and
 Majoranas.
 
 \hypertarget{spins}{%
-\subsubsection{Spins}\label{spins}}
+\paragraph{Spins}\label{spins}}
 
 Skip this is you're super familiar with the algebra of the Pauli
 martrices. Scalars like \(\delta_{ij}\) should be understood to be
@@ -126,7 +116,7 @@ appling the above relations yielding:
 and \[[\sigma^\alpha \sigma^\beta, \sigma^\gamma] = 0\]
 
 \hypertarget{fermions-and-majoranas}{%
-\subsubsection{Fermions and Majoranas}\label{fermions-and-majoranas}}
+\paragraph{Fermions and Majoranas}\label{fermions-and-majoranas}}
 
 The fermionic creation and anhilation operators are defined by the
 canonical anticommutation relations \[\begin{aligned}
@@ -156,7 +146,7 @@ the Majoranas still anticommute:
 \[ \{c_i, c_j\} = 2\delta_{ij}\]
 
 \hypertarget{the-hamiltonian}{%
-\subsection{The Hamiltonian}\label{the-hamiltonian}}
+\subsubsection{The Hamiltonian}\label{the-hamiltonian}}
 
 To get down to brass tacks, the Kitaev Honeycomb model is a model of
 interacting spin\(-1/2\)s on the vertices of a honeycomb lattice. Each
@@ -181,8 +171,6 @@ function of \(i,j\) that picks the correct bond type.
 \caption{}\label{fig:visual_kitaev_1}
 }
 \end{figure}
-
-\ref{fig:vis_kitaev_1}
 
 This Kitaev model has a set of conserved quantities that, in the spin
 language, take the form of Wilson loop operators \(W_p\) winding around
@@ -262,11 +250,11 @@ Hilbert space into a set of `vortex sectors' labelled by that particular
 flux configuration \(\phi_i = \pm 1,\pm i\).
 
 \hypertarget{from-spins-to-majorana-operators}{%
-\subsection{From Spins to Majorana
+\subsubsection{From Spins to Majorana
 operators}\label{from-spins-to-majorana-operators}}
 
 \hypertarget{for-a-single-spin}{%
-\subsubsection{For a single spin}\label{for-a-single-spin}}
+\paragraph{For a single spin}\label{for-a-single-spin}}
 
 Let's start by considering just one site and its \(\sigma^x, \sigma^y\)
 and \(\sigma^z\) operators which live in a two dimensional Hilbert space
@@ -324,7 +312,7 @@ the physical subspace \(D = 1\) and this all makes sense.
 \end{figure}
 
 \hypertarget{for-multiple-spins}{%
-\subsubsection{For multiple spins}\label{for-multiple-spins}}
+\paragraph{For multiple spins}\label{for-multiple-spins}}
 
 This construction generalises easily to the case of multiple spins: we
 get a set of 4 Majoranas \(b^x_j,\; b^y_j,\;b^z_j,\; c_j\) and a
@@ -369,7 +357,7 @@ In summary Majorana bond operators \(u_{ij}\) are an emergent,
 classical, \(\mathbb{Z_2}\) gauge field!
 
 \hypertarget{partitioning-the-hilbert-space-into-bond-sectors}{%
-\subsection{Partitioning the Hilbert Space into Bond
+\subsubsection{Partitioning the Hilbert Space into Bond
 sectors}\label{partitioning-the-hilbert-space-into-bond-sectors}}
 
 Similar to the story with the plaquette operators from the spin
@@ -454,7 +442,7 @@ whole set to recover \(\sum_m \epsilon_m\) easily.
 \textbf{The Majorana Hamiltonian is quadratic within a Bond Sector.}
 
 \hypertarget{mapping-back-from-bond-sectors-to-the-physical-subspace}{%
-\subsection{Mapping back from Bond Sectors to the Physical
+\subsubsection{Mapping back from Bond Sectors to the Physical
 Subspace}\label{mapping-back-from-bond-sectors-to-the-physical-subspace}}
 
 At this point, given a particular bond configuration \(u_{ij} = \pm 1\)
@@ -505,336 +493,9 @@ these will turn out to just be the plaquette operators.
 \textbf{The Bond Sectors overlap with the physical subspace but are not
 contained within it.}
 
-\hypertarget{properties-of-the-gauge-field}{%
-\subsection{Properties of the Gauge
-Field}\label{properties-of-the-gauge-field}}
-
-The bond operators \(u_{ij}\) are useful because they label a bond
-sector \(\mathcal{\tilde{L}}_u\) in which we can easiy solve the
-Hamiltonian. However the gauge operators move us between bond sectors.
-\textbf{Bond sectors are not gauge invariant!}
-
-Let's consider instead the properties of the plaquette operators
-\(\hat{\phi}_i\) that live on the faces of the lattice.
-
-We already showed that they are conserved. And as one might hope and
-expect, the plaquette operators map cleanly on to the bond operators of
-the Majorana representation:
-
-\[\begin{aligned}
-\tilde{W}_p &= \prod_{\mathrm{i,j}\; \in\; p} \tilde{K}_{ij}\\
-            &= \prod_{\mathrm{i,j}\; \in\; p} \tilde{\sigma}_i^\alpha \tilde{\sigma}_j^\alpha\\
-            &= \prod_{\mathrm{i,j}\; \in\; p} (ib^\alpha_i c_i)(ib^\alpha_j c_j)\\
-            &= \prod_{\mathrm{i,j}\; \in\; p} i u_{ij} c_i c_j\\
-            &= \prod_{\mathrm{i,j}\; \in\; p} i u_{ij}
-\end{aligned}\]
-
-Where the last steps holds because each \(c_i\) appears exactly twice
-and adjacent to its neighbour in each plaquette operator. Note that this
-is consistent with the observation from earlier that each \(W_p\) takes
-values \(\pm 1\) for even paths and \(\pm i\) for odd paths.
-
-\hypertarget{vortices-and-their-movements}{%
-\subsubsection{Vortices and their
-movements}\label{vortices-and-their-movements}}
-
-Let's imagine we started from the ground state of the model and flipped
-the sign of a single bond. In doing so we will flip the sign of the two
-plaquettes adjacent to that bond. I'll call these disturbed plaquettes
-\emph{vortices}. I'll refer to a particular choice values for the
-plaquette operators as a vortex sector.
-
-If we chain multiple bond flips we can create a pair of vortices at
-arbitrary locations. The chain of bonds that we must flip corresponds to
-a path on the dual of the lattice.
-
-Something else we can do is create a pair of vortices, move one around a
-loop and then anhilate it with its partner. This corresponds to a closed
-loop on the dual lattice and applying such a bond flip leaves the vortex
-sector unchanged.
-
-Notice that the \(D_j\) operators flip three bonds around a vertex. This
-is the smallest closed loop around which one can move a vortex pair and
-anhilate it with itself.
-
-Such operations compose in the sense that we can build any larger loop
-by applying a series of \(D_j\) operations. Indeed the symetrisation
-procedure \(\prod_i \left( \frac{1 + D_i}{2}\right)\) that maps from the
-bond sector to a physical state is applying constructing a superposition
-over every such loop that leaves the vortex sector unchanged.
-
-The only loops that we cannot build out of \(D_j\)s are non-contractible
-loops, such as those that span the major or minor circumference of the
-torus.
-
-\textbf{The plaquette operators are the gauge invariant quantity that
-determines the physics of the model}
-
-\hypertarget{composition-of-u_jk-loops}{%
-\subsubsection{\texorpdfstring{Composition of \(u_{jk}\)
-loops}{Composition of u\_\{jk\} loops}}\label{composition-of-u_jk-loops}}
-
-\begin{figure}
-\hypertarget{fig:plaquette_addition_by_hand}{%
-\centering
-\includegraphics[width=0.57\textwidth,height=\textheight]{figure_code/amk_chapter/plaquette_addition/plaquette_addition_by_hand.pdf}
-\caption{In the product of individual plaquette operators shared bonds
-cancel out. The product is equal to the enclosing
-path.}\label{fig:plaquette_addition_by_hand}
-}
-\end{figure}
-
-Second it is now easy to show that the loops and plaquettes satisfy nice
-composition rules, so long as we stick to loops that wind in a
-particular direction.
-
-Consider the product of two non-overlapping loops \(W_a\) and \(W_b\)
-that share an edge \(u_{12}\). Since the two loops both wind clockwise
-and do not overlap, one will contain a term \(i u_{12}\) and the other
-\(i u_{21}\). Since the \(u_{ij}\) commute with one another, they square
-to \(1\) and \(u_{ij} = -u_{ji}\) we see have \(i u_{12} i u_{21} = 1\)
-and we can repeat this for any number of shared edges. Hence, we get a
-version of Stokes' theorem: the product of \(i u_{jk}\) around any
-closed loop \(\partial A\) is equal to the product of plaquette
-operators \(\Phi\) that span the area \(A\) enclosed by that loop:
-\[\prod_{u_{jk} \in \partial A} i \; u_{jk} = \prod_{\phi_i \in A} \phi_i\]
-
-\begin{figure}
-\hypertarget{fig:stokes_theorem}{%
-\centering
-\includegraphics[width=0.71\textwidth,height=\textheight]{figure_code/amk_chapter/stokes_theorem/stokes_theorem.pdf}
-\caption{The loop composition rule extends to arbitrary numbers of
-vortices giving a discrete version of Stoke's
-theorem.}\label{fig:stokes_theorem}
-}
-\end{figure}
-
-\textbf{Wilson loops can always be decomposed into products of
-plaquettes operators unless they are non-contractable}
-
-\hypertarget{gauge-degeneracy-and-the-euler-equation}{%
-\subsubsection{Gauge Degeneracy and the Euler
-Equation}\label{gauge-degeneracy-and-the-euler-equation}}
-
-We can check this analysis with a counting argument. For a lattice with
-\(B\) bonds, \(P\) plaquettes and \(V\) vertices we can count how many
-bond sectors, vortices sectors and gauge symmetries there are and check
-them against Euler's polyhedra equation.
-
-Euler's equation states for a closed surface of genus \(g\), i.e that
-has \(g\) holes so \(0\) for the sphere, \(1\) for the torus and \(g\)
-for \(g\) tori stuck together \[B = P + V + 2 - 2g\]
-
-\begin{figure}
-\hypertarget{fig:torus}{%
-\centering
-\includegraphics[width=0.86\textwidth,height=\textheight]{figs/torus.jpeg}
-\caption{In periodic boundary conditions the Kitaev model is defined on
-the surface of a torus. Topologically the torus is distinct from the
-sphere in that it has a hole that cannot be smoothly deformed away.
-Associated with each such hole are two non-contractible loops on the
-surface, here labeled A and B, that cannot be smoothly deformed to a
-point. These two non-contracible loops can. be used to construct two
-symmetry operators \(\hat{A}\) and \(\hat{A}\) that flip \(u_{jk}\)s
-along their paths.}\label{fig:torus}
-}
-\end{figure}
-
-For the case of the torus where \(g = 1\) we can rearrange this to read:
-\[B = (P-1) + (V-1) + 2\]
-
-Each \(u_{ij}\) takes two values and there is one associated with each
-bond so there are exactly \(2^B\) distinct configurations of the bond
-sector. Let's see if we can factor those configurations out into the
-cartesian product of vortex sectors, gauge symmetries and
-non-contractible loop operators.
-
-Vortex sectors: each plaquette operator \(\phi_i\) takes two values
-(\(\pm 1\) or \(\pm i\)) and there are \(P\) of them so naively one
-would think there are \(2^P\). However vortices can only be created on
-pairs so there are really \(\tfrac{2^P}{2} = 2^{P-1}\) vortex sectors.
-
-Gauge symmetries: As discussed earlier these correspond to the all
-possible compositions of the \(D_j\) operators. Again there are only
-\(2^{V-1}\) of these because, as we will see in the next section,
-\(\prod_{j} D_j = \mathbb{1}\) in the physical space, and we enforce
-this by chooising the correct product of single particle fermion states.
-You can get an intuitive picture for why \(\prod_{j} D_j = \mathbb{1}\)
-by imagining larger and larger patches of \(D_j\) operators on the
-torus. These patches correspond to transporting a vortex pair around the
-edge of the patch. At some point the patch wraps around and starts to
-cover the entire torus, as this happens the bounday of the patch
-disappears and hence it which corresponds to the identity operation. See
-Fig ?? (animated in the HTML version).
-
-Finally the torus has two non-contractible loop operators asscociated
-with its major and minor diameters.
-
-Putting this all together we see that there are \textbf{\(2^B\) bond
-sectors} a space which can be decomposed into the cartesian product of
-\textbf{\(2^{P-1}\) vortex sectors}, \textbf{\(2^{V-1}\) gauge
-symmetries} and \textbf{\(2^2 = 4\) topological sectors} associated with
-the non-contractible loop operators. This last factor forms the basis of
-proposals to construct topologically protected qubits since the 4
-sectors cold only be mixed by a highly non-local perturbation, ref
-?????.
-
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/intro/types_of_dual_loops/types_of_dual_loops.pdf}
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/intro/gauge_symmetries/gauge_symmetries.pdf}
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/flood_fill/flood_fill.pdf}
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/flood_fill_amorphous/flood_fill_amorphous.pdf}
-
-\hypertarget{counting-edges-plaquettes-and-vertices}{%
-\subsubsection{Counting edges, plaquettes and
-vertices}\label{counting-edges-plaquettes-and-vertices}}
-
-It will be useful to know how the trivalent structre of the lattice
-constraints the number of bonds \(B\), plaquettes \(P\) and vertices
-\(V\) it has.
-
-We can immediately see that the lattice is built from vertices that each
-share 3 edges with their neighbours. This means each vertex comes with
-\(\tfrac{3}{2}\) bonds i.e \(3V = 2B\). This is consistent with the fact
-that in the Majorana representation on the torus each vertex brings
-three \(b^\alpha\) operators which then pair along bonds to give \(3/2\)
-bonds per vertex.
-
-If we define an integer \(N\) such that \(V = 2N\) and \(B = 3N\) and
-substitite this into the polyhedra equation for the torus we see that
-\(P = N\). So if is a trivalent lattice on the torus has \(N\)
-plaquettes, it has \(2N\) vertices and \(3N\) bonds.
-
-We can also consider the sum of the number of bonds in each plaquette
-\(S_p\), since each bond is a member of exactly two plaquettes
-\[S_p = 2B = 6N\]
-
-The mean size of a plaquette in a trivalent lattice on the torus is
-exactly 6. Since the sum is even, this also tells us that all odd
-plaquettes must come in pairs.
-
-\begin{figure}
-\hypertarget{fig:hilbert_spaces}{%
-\centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/hilbert_spaces.pdf}
-\caption{The relationship between the different Hilbert spaces used in
-the solution is slightly complex.}\label{fig:hilbert_spaces}
-}
-\end{figure}
-
-\hypertarget{the-projector}{%
-\subsection{The Projector}\label{the-projector}}
-
-It will turn out that the projection from the extended space to the
-physical space is not actually that important for the results that I
-will present. However it it useful to go through the theory of it to
-explain why this is.
-
-The physicil states are defined as those for which
-\(D_i |\phi\rangle = |\phi\rangle\) for all \(D_i\). Since \(D_i\) has
-eigenvalues \(\pm1\), the quantity \(\tfrac{(1+D_i)}{2}\) has eigenvalue
-\(1\) for physical states and \(0\) for extended states so is the local
-projector onto the physical subspace.
-
-The global projector is therefore
-\[ \mathcal{P} = \prod_{i=1}^{2N} \left( \frac{1 + D_i}{2}\right)\]
-
-for a toroidal trivalent lattice with \(N\) plaquettes \(2N\) vertices
-and \(3N\) edges. As I pointed out before the product over \((1 + D_j)\)
-can also be thought of as the sum of all possible subsets \(\{i\}\) of
-the \(D_j\) operators, which is the set of all possible gauge symmetry
-operations.
-
-\[ \mathcal{P} = \frac{1}{2^{2N}} \sum_{\{i\}} \prod_{i\in\{i\}} D_i\]
-
-Since the gauge operators \(D_j\) commute and square to one, we can
-define the complement operator \(C = \prod_{i=1}^{2N} D_i\) and see that
-it take each set of \(\prod_{i \in \{i\}} D_j\) operators and gives us
-the complement of that set. I said earlier that \(C\) is the identity in
-the physical subspace and we will shortly see why.
-
-W use the complement operator to rewrite the projector as a sum over
-half the subsets \(\{\}\) let's call that \(\Lambda\). The complement
-operator deals with the other half
-
-\[ \mathcal{P} =  \left( \frac{1}{2^{2N-1}} \sum_{\Lambda} \prod_{i\in\{i\}} D_i\right) \left(\frac{1 + \prod_i^{2N} D_i}{2}\right) = \mathcal{S} \cdot \mathcal{P}_0\]
-
-To compute \(\mathcal{P}_0\) the main quantity needed is the product of
-the local projectors \(D_i\)
-\[\prod_i^{2N} D_i = \prod_i^{2N} b^x_i b^y_i b^z_i c_i \] for a
-toroidal trivalent lattice with \(N\) plaquettes \(2N\) vertices and
-\(3N\) edges.
-
-First we reorder the operators by bond type, this doesn't require any
-information about the underlying lattice.
-
-\[\prod_i^{2N} D_i = \prod_i^{2N} b^x_i \prod_i^{2N} b^y_i \prod_i^{2N} b^z_i \prod_i^{2N} c_i\]
-
-The product over \(c_i\) operators reduces to a determinant of the Q
-matrix and the fermion parity, see
-\textcite{pedrocchiPhysicalSolutionsKitaev2011b} . The only difference
-from the honeycomb case is that we cannot explicitely compute the
-factors \(p_x,p_y,p_z = \pm\;1\) that arise from reordering the b
-operators such that pairs of vertices linked by the corresponding bonds
-are adjacent.
-
-\[\prod_i^{2N} b^\alpha_i = p_\alpha \prod_{(i,j)}b^\alpha_i b^\alpha_j\]
-
-However they are simply the parity of the permutation from one ordering
-to the other and can be computed in linear time with a cycle
-decomposition \textcite{app:cycle_decomp}.
-
-We find that
-\[\mathcal{P}_0 = 1 + p_x\;p_y\;p_z\; \mathrm{det}(Q^u) \; \hat{\pi} \; \prod_{\{i,j\}} -iu_{ij}\]
-
-where \(p_x\;p_y\;p_z = \pm 1\) are lattice structure factors. \(Q^u\)
-is the determinant of the matrix mentioned earlier that maps \(c_i\)
-operators to normal mode operators \(b'_i, b''_i\). These depend only on
-the lattice structure. \(\prod -i \; u_{ij}\) depend on the lattice and
-the particular vortex sector.
-\(\hat{\pi} = \prod{i}^{N} (1 - 2\hat{n}_i)\) is the parity of the
-particular many body state determined by fermionic occupation numbers
-\(n_i\).
-
-All these factors take values \(\pm 1\) so \(\mathcal{P}_0\) is 0 or 1
-for a particular state. Since \(\mathcal{S}\) corresponds to
-symmetrising over all the gauge configurations and cannot be 0, this
-tells use that once we have determined the single particle eigenstates
-of a bond sector, the true many body ground state has the same energy as
-either the empty state with \(n_i = 0\) or a state with a single fermion
-in the lowest level.
-
-Let's think about where are with the model now. We can map the spin
-Hamiltonian to a Majorana Hamiltonian in an extended Hilbert space.
-Along with that mapping comes a gauge field \(u_{jk}\) defining
-\textbf{bond sectors}. The gauge symmetries of \(u_{jk}\) are generated
-by the set of \(D_j\) operators. The gauge invariant and therefore
-physically relevant variables are the plaquette operators \(\phi_i\)
-which define as a \textbf{vortex sector}. In order to practically solve
-the Majorana Hamiltonian we must remove hats from the gauge field by
-restricting ourselves to a particular bond sector. From there the
-Majorana Hamiltonian becomes non-interacting and we can solve it like
-any quadratic theory. This lets us construct the single particle
-eigenstates from which we can also construct many body states. However
-the many body states constructed this way are not in the physical
-subspace!
-
-However for the many body states within a particular bond sector,
-\(\mathcal{P}_0 = 0,1\) tells us which of those have some overlap with
-the physical sector.
-
-We see that finding a state that has overlap with a physical state only
-ever requires the addition or removal of one fermion. There are cases
-where this can make a difference but for most observables such as ground
-state energy this correction scales away as the number of fermions in
-the system grows.
-
-If we wanted to construct a full many body wavefunction in the spin
-basis we would need to include the full symmetrisation over the gauge
-fields. However this was not necessary for any of the results that will
-be presented here.
-
 \hypertarget{open-boundary-conditions}{%
-\subsection{Open boundary conditions}\label{open-boundary-conditions}}
+\subsubsection{Open boundary
+conditions}\label{open-boundary-conditions}}
 
 Care must be taken in the definition of open boundary conditions. Simply
 removing bonds from the lattice leaves behind unpaired \(b^\alpha\)
@@ -851,304 +512,3 @@ an arbitrary pairing of the unpaired \(b^\alpha\) operators could be
 performed. \textbf{Is is possible that a lattice constructed and
 coloured like this would have unequal numbers of \(b^x\) \(b^y\) and
 \(b^z\) operators?}
-
-\hypertarget{the-ground-state-vortex-sector}{%
-\subsection{The Ground State Vortex
-Sector}\label{the-ground-state-vortex-sector}}
-
-On the Honeycomb, Lieb's theorem implies that the the ground state
-corresponds to the state where all \(u_jk = 1\) implying that the flux
-free sector is the ground state sector \textcite{lieb_flux_1994}.
-
-Lieb's theorem does not generalise easily to the amorphous case. However
-we can get some intuition by examining the problem that will lead to a
-guess for the ground state. We will then provide numerical evidence that
-this guess is in fact correct.
-
-Let's consider the partition function of the Majorana hamiltonian:
-\[ \mathcal{Z} = \mathrm{Tr}\left( e^{-\beta H}\right) = \sum_i \exp{-\beta \epsilon_i}\]
-At low temperatures \(\mathcal{Z} \approx \beta \epsilon_0\) where
-\(\epsilon_0\) is the lowest energy fermionic state.
-
-How does the \(\mathcal{Z}\) depend on the Majorana hamiltonian?
-Expanding the exponential out gives:
-\[ \mathcal{Z} = \sum_n \frac{(-\beta)^n}{n!} \mathrm{Tr(H^k)} \]
-
-Now there's an interesting observation to make here. The Hamiltonian is
-essentially a scaled adjacency matrix. An adjacency matrix being a
-matrix \(g_{ij}\) such that \(g_{ij} = 1\) if vertices \(i\) and \(j\)
-and joined by an edge and 0 otherwise.
-
-Powers of adjacency matrices have the property that the entry
-\((g^n)_{ij}\) corresponds to the number of paths of length n on the
-graph that begin at site \(i\) and end at site \(j\). These include
-somewhat degenerate paths that go back on themselves etc.
-
-The trace of an adjacency matrix
-\[\mathrm{Tr}(g^n) = \sum_i (g^n)_{ii}\] therefore counts the number
-number of loops of size \(n\) that can be drawn on the graph.
-
-Applying the same treatment to our Majorana Hamiltonian, we can
-interpret \(u_ij\) to equal 0 if the two sites are not joined by a bond
-and we put ourselves in the isotropic phase where \(J^\alpha = 1\)
-\[ \tilde{H}_{ij} =  \tfrac{1}{2} i u_{ij}\]
-
-We then see that the trace of the nth power of H is a sums over Wilson
-loops of size \(n\) with an additional factor of \(2^{-n}\). We showed
-earlier that the Wilson loop operators can always be written as products
-of the plaquette operators that they enclose.
-
-Lumping all the prefactors together, we can write:
-\[ \mathcal{Z} = c_A \hat{A} + c_B \hat{B} + \sum_i c_i \hat{\phi}_i + \sum_{ij} c_{ij}  \hat{\phi}_i \hat{\phi}_j + \sum_{ijk} c_{ijk}  \hat{\phi}_i \hat{\phi}_j \hat{\phi}_k + ...\]
-
-Where the \(c\) factors would be something like
-\[c_{ijk...} = \sum_n \tfrac{(-\beta)^n}{n!} \tfrac{1}{2^n} K_{ijk...}\]
-which is a sum over all loop lengths \(n\) and for each we have a
-combinatoral factor \(K_{ijk...}\) that counts how many ways there are
-to draw a loop of length \(n\) that only encloses plaquettes \(ijk...\).
-
-We also have the pesky non-contractible loop operators \(\hat{A}\) and
-\(\hat{B}\). Again the prefactors for these are very complicated but we
-can intuitively see that for larger and larger loops lengths there will
-be a combinatorial explosion of possible ways that they appear in these
-sums. These are suppressed exponentially with system size but at
-practical lattice sizes they cause significant finite size effects. The
-main evidence of this is that the 4 loop sectors spanned by the
-\(\hat{A}\) and \(\hat{B}\) operators are degenerate in the infinite
-system size limit, while that degeneracy is lifted in finite sized
-systems.
-
-We don't have much hope of actually evaluating this for an amorphous
-lattice. However it lead us to guess that the ground state vortex sector
-might be a simple function of the side length of each plaquette.
-
-The ground state of the Amorphous Kitaev Model is found by setting the
-flux through each plaquette \(\phi\) to be equal to
-\(\phi^{\mathrm{g.s.}}(n_{\mathrm{sides}})\)
-
-\[\begin{aligned}
-    \phi^{\mathrm{g.s.}}(n_{\mathrm{sides}}) = -(\pm i)^{n_{\mathrm{sides}}},
-\end{aligned}\] where \(n_{\mathrm{sides}}\) is the number of edges that
-form each plaquette and the choice of sign gives a twofold chiral ground
-state degeneracy.
-
-This conjecture is consistent with Lieb's theorem on regular lattices
-\autocite{lieb_flux_1994} and is supported by numerical evidence. As
-noted before, any flux that differs from the ground state is an
-excitation which I call a vortex.
-
-\hypertarget{finite-size-effects}{%
-\subsubsection{Finite size effects}\label{finite-size-effects}}
-
-This guess only works for larger lattices because of the finite size
-effects. In order to rigorously test it we would like to directly
-enumerate the \(2^N\) vortex sectors for a smaller lattice and check
-that the lowest state found is the vortex sector predicted by ???.
-
-To do this we tile an amorphous lattice onto a repeating \(NxN\) grid.
-The use of a fourier series then allows us to compute the
-diagonalisation with a penalty only linear in the number of tiles used
-compared to diagonalising a single lattice. With this technique the
-finite size effects related to the non-contractible loop operators are
-removed with only a linear penalty in computation time compared to the
-exponential penalty paid by simply simply diagonalising larger lattices.
-
-Using this technique we verified that \(\phi_0\) correctly predicts the
-ground state for hundreds of thousands of lattices with upto 20
-plaquettes. For larger lattices we verified that random perturbations
-around the predicted ground state never yield a lower energy state.
-
-\hypertarget{chiral-symmetry}{%
-\subsection{Chiral Symmetry}\label{chiral-symmetry}}
-
-In the discussion above we see that the ground state has a twofold
-\textbf{chiral} degeneracy that comes about because the global sign of
-the odd plaquettes does not matter.
-
-This happens because by adding odd plaquettes we have broken the time
-reversal symmetry of the original model
-\autocite{Chua2011,yaoExactChiralSpin2007,ChuaPRB2011,Fiete2012,Natori2016,Wu2009,Peri2020,WangHaoranPRB2021}.
-
-Similar to the behaviour of the original Kitaev model in response to a
-magnetic field, we get two degenerate ground states of different
-handedness. Practicaly speaking, one ground state is related to the
-other by inverting the imaginary \(\phi\) fluxes
-\autocite{yaoExactChiralSpin2007}.
-
-\hypertarget{topology-chirality-and-edge-modes}{%
-\subsection{Topology, chirality and edge
-modes}\label{topology-chirality-and-edge-modes}}
-
-Most thermodynamic and quantum phases studied can be characterised by a
-local order parameter. That is, a function or operator that only
-requires knowledge about some fixed sized patch of the system that does
-not scale with system size.
-
-However there are quantum phases that cannot be characterised by such a
-local order parameter. These phases are intead said to posess
-`topological order'.
-
-One property of topological order that is particularly easy to observe
-that the ground state degeneracy depends on the topology of the manifold
-that we put the system on to. This is referred to as topological
-degeneracy to distinguish it from standard symmetry breaking.
-
-The Kitaev model will be a good example of this, we have already looked
-at it defined on a graph that is embedded either into the plane or onto
-the torus. The extension to surfaces like the torus but with more than
-one handle is relatively easy.
-
-\hypertarget{anyonic-statistics}{%
-\subsection{Anyonic Statistics}\label{anyonic-statistics}}
-
-In dimensions greater than two, the quantum state of a system must pick
-up a factor of \(-1\) or \(+1\) if two identical particles are swapped.
-We call these Fermions and Bosons.
-
-This argument is predicated on the idea that performing two swaps is
-equivalent to doing nothing. Doing nothing should not change the quantum
-state at all, so doing one swap can at most multiply it by \(\pm 1\).
-
-However there are many hidden parts to this argument. Firstly, this
-argument just isn't the whole story, if you want to know why Fermions
-have half integer spin, for instance, you have to go to field theory.
-
-There is also a second niggle, why does this argument only work in
-dimensions greater than two? What we're really saying when we say that
-two swaps do nothing is that the world lines of two particles that have
-been swapped twice can be untangled without crossing. Why can't they
-cross? Well because if they cross then the particles can interact and
-the quantum state could change in an arbitrary way. We're implcitly
-using the locality of physics here to argue that if the worldlines stay
-well separated then the overall quantum state cannot too much.
-
-In two dimensions we cannot untangle the worldlines of two particles
-that have swapped places, they are braided together. See Fig
-\ref{fig:braiding} for a diagram.
-
-\begin{figure}
-\hypertarget{fig:braiding}{%
-\centering
-\includegraphics[width=0.71\textwidth,height=\textheight]{figure_code/amk_chapter/braiding.png}
-\caption{}\label{fig:braiding}
-}
-\end{figure}
-
-From this fact flows a whole new world of behaviours, now the quantum
-state can aquire a phase factor \(e^{i\phi}\) upon exchange of two
-identical particles, which we now call Anyons.
-
-The Kitaev Model is a good demonstration of the connection beween Anyons
-and topological degeneracy. In the Kitaev model we can create a pair of
-vortices, move one around a non-contractable loop \(\mathcal{T}_{x/y}\)
-and then anhilate them together. Without topology this should leave the
-quantum state unchanged. Instead it moves us to another ground state in
-a topologically degenerate ground state subspace. Practically speaking
-it flips a dual line of bonds \(u_{jk}\) going around the loop which we
-cannot undo with any gauge transformation made from \(D_j\) operators.
-
-If the ground state subspace is multidimensional, quasiparticle exchange
-can move us around in the space with an action corresponding to a
-matrix. These matrices do not in general commmute and so these are known
-as non-Abelian anyons.
-
-From here things get even more complex, the Kitaev model has a
-non-Abelian phase when exposed to a magnetic field, and the amorphous
-Kitaev Model has a non-Abelian phase because of its broken chiral
-symmetry.
-
-The way that we have subdivided the Kitaev model into vortex sectors, we
-have a neat separation beween vortices and fermionic excitations.
-However if we looked at the full many body picture we would see that a
-vortex caries with it a cloud of bound majorana states.
-
-\begin{figure}
-\hypertarget{fig:majorana_bound_states}{%
-\centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/majorana_bound_states/majorana_bound_states.pdf}
-\caption{(Left) A large amorphous lattice in the ground state save for a
-single pair of vortices shown in red, separated by the string of bonds
-that we flipped to create them. (Right) The density of the lowest energy
-Majorana state in this vortex sector. The state is clearly bound to the
-vortices.}\label{fig:majorana_bound_states}
-}
-\end{figure}
-
-Consider two processes
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi})}
-\item
-  We transport one half of a vortex pair around either the x or y loops
-  of the torus before anhilating back to the ground state vortex sector
-  \(\mathcal{T}_{x,y}\).
-\item
-  We flip a line of bond operators coresponding to measuring the flux
-  through either the major or minor axes of the torus
-  \(\mathcal{\Phi}_{x,y}\)
-\end{enumerate}
-
-\begin{figure}
-\hypertarget{fig:loops_and_dual_loops}{%
-\centering
-\includegraphics[width=1.14\textwidth,height=\textheight]{figure_code/amk_chapter/loops_and_dual_loops/loops_and_dual_loops.pdf}
-\caption{(Left) The two topological flux operators of the toroidal
-lattice, these don't correspond to any face of the lattice, but rather
-measure flux that threads through the major and minor axes of the torus.
-This shows a particular choice but any loop that crosses the boundary is
-gauge equivalent to one of or the sum of these two loop. (Right) The two
-ways to transport vortices around the diameters. These correspond to
-creating a vortex pair, transporting one of them around the major or
-minor diameters of the torus and then anhilating them
-again.}\label{fig:loops_and_dual_loops}
-}
-\end{figure}
-
-The plaquette operators \(\phi_i\) are associated with fluxes. Wilson
-loops that wind the torus are associated with the fluxes through its two
-diameters \(\mathcal{\Phi}_{x,y}\).
-
-In the Abelian phase we can move a vortex along any path we like and
-then when we bring them back together they will anhilate back to the
-vacuum, where we understand `the vacuum' to refer to one of the ground
-states, though not necesarily the same one we started in. We can use
-this to get from the \((\Phi_x, \Phi_y) = (+1, +1)\) ground state and
-construct the set \((+1, +1), (+1, -1), (-1, +1), (-1, -1)\).
-
-\begin{figure}
-\hypertarget{fig:topological_fluxes}{%
-\centering
-\includegraphics[width=0.57\textwidth,height=\textheight]{figure_code/amk_chapter/topological_fluxes.png}
-\caption{Wilson loops that wind the major or minor diameters of the
-torus measure flux winding through the hole of the donut/torus or
-through the filling. If they made donuts that had both a jam filling and
-a hole this analogy would be a lot easier to make
-\textcite{parkerWhyDoesThis}.}\label{fig:topological_fluxes}
-}
-\end{figure}
-
-However in the non-Abelian phase we have to wrangle with monodromy
-\autocite{chungExplicitMonodromyMoore2007,oshikawaTopologicalDegeneracyNonAbelian2007}.
-Monodromy is behaviour of objects as they move around a singularity.
-This manifests here in that the identity of a vortex and cloud of
-Majoranas can change as we wind them around the torus in such a way that
-rather than anhilating to the vacuum the anhilate to create an excited
-state instead of a ground state. This means we end up with only three
-degenerate ground states in the non-Abelian phase
-\((+1, +1), (+1, -1), (-1, +1)\)
-\autocite[yaoAlgebraicSpinLiquid2009a]{chungTopologicalQuantumPhase2010}.
-The way that this shows up concretly is that the projector enforces both
-flux and fermion parity. When we wind a vortex around both
-non-contractible loops of the torus, it flips the flux parity which
-forces means we have to introduce a fermionic excitation to make the
-state physical. Hence the process does not give a fourth ground state.
-
-\includegraphics[width=0.86\textwidth,height=\textheight]{figure_code/amk_chapter/threefold_degeneracy.png}
-\includegraphics[width=1.14\textwidth,height=\textheight]{figure_code/amk_chapter/state_decomposition_animated/state_decomposition_animated.pdf}
-
-One reason the topology has gained interest recently is there have
-proposals to use this ground state degeneracy to implement both
-passively fault tolerant and actively stabilised quantum computations
-{[}\textcite{kitaevFaulttolerantQuantumComputation2003};
-\textcite{poulinStabilizerFormalismOperator2005};
-hastingsDynamicallyGeneratedLogical2021{]}.

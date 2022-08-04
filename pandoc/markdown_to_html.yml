@@ -9,27 +9,25 @@ template: ${.}/jekyll_template.html
 
 # a filter to prepend '/pandoc/figs/' before all image tag urls, may bite me later
 filters:
-  - pandoc-fignos
-  - ${.}/test_filter.py
+  - pandoc-xnos
+  - ${.}/html_filter.py
 
-
+toc: true
 
 # enable the bibliography
 citeproc: true
 metadata:
   bibliography: entire_zotero_library.bib
-  csl: nature-physics.csl
+  # csl: american-physics-society-without-titles.csl
+  csl: nature.csl
   link-citations: true
 
 # use mathjax for math
 html-math-method:
   method: mathjax
 
-
+# mathjax support is now this is now directly in the template
 # include-in-header: ${.}/mathjax.html
-
-# copy all images over to pandoc/figs/...
-extract-media: ${.}/figs
 
 # when images don't have an extension, assume svg
 default-image-extension: svg

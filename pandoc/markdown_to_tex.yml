@@ -18,7 +18,7 @@ cite-method: biblatex
 # cite-method: natbib
 
 # # copy all images over to pandoc/figs/...
-extract-media: ${.}/figs
+# extract-media: ${.}/figs
 
 # when images don't have an extension, assume svg
 default-image-extension: pdf

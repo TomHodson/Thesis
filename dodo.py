@@ -17,7 +17,7 @@ def task_svg_to_pdf():
         )
     
 
-def task_jupyter_to_markdown():
+def task_markdown():
     "convert .ipynb files to .md files using nbconvert"
     jupyter_files = Path("./").glob("src/*.ipynb")
     for f in jupyter_files:
@@ -27,12 +27,12 @@ def task_jupyter_to_markdown():
             file_dep = [f,],
             targets = [target,],
             actions = [
-                f'jupyter nbconvert --to markdown "{f}" --output-dir={target.parent} --output "{target.name}"',
+                f'jupyter nbconvert --TagRemovePreprocessor.remove_cell_tags=\'{"remove_cell"}\' --to markdown "{f}" --output-dir={target.parent} --output "{target.name}"',
                 f'pandoc/figure_to_markdown_tag.py --input "{target}" --output "{target}"'
                 ],
         )
 
-def task_markdown_to_json():
+def task_json():
     "convert .md files to json using pandoc"
     pandoc_config = 'pandoc/markdown_to_tex.yml'
     latex_filter = 'pandoc/latex_filter.py'
@@ -65,6 +65,54 @@ def task_latex():
                 f'{pandoc} -d {pandoc_config} "{f}" -o "{target}"',],
         )
 
+
+def task_html():
+    "convert .md files to .html files for jekyll using pandoc"
+    pandoc_config = 'pandoc/markdown_to_html.yml'
+    filter_file = 'pandoc/html_filter.py'
+    template = 'pandoc/jekyll_template.html'
+    markdown_files = Path("./").glob("./build/markdown/*.md")
+    for f in markdown_files:
+        target = Path("./build/html") / (f.stem + ".html")
+        yield dict(
+            name = str(f),
+            file_dep = [pandoc_config, filter_file, template, f,],
+            targets = [target,],
+            actions = [
+                f'{pandoc} -d {pandoc_config} "{f}" -o "{target}"',
+                ],
+        )
+
+def task_toc():
+    ""
+    script = 'pandoc/toc_gen.py'
+    markdown_files = Path("./").glob("./build/markdown/*.md")
+    target = Path("./build/html") / ("toc.html")
+    return dict(
+        file_dep = [script,] + list(markdown_files),
+        targets = [target,],
+        actions = [f'./{script} > "{target}"',],
+    )
+def task_copy_html():
+    yield dict(
+        name = 'copy html over',
+        actions = [
+            'rm -r /Users/tom/git/tomhodson.github.com/_thesis/',
+            'mkdir /Users/tom/git/tomhodson.github.com/_thesis/',
+            'cp -r build/html/ /Users/tom/git/tomhodson.github.com/_thesis/',
+            ],
+        file_dep = list(Path("./").glob("./build/*.html")),
+        targets = ['/Users/tom/git/tomhodson.github.com/_thesis',]
+    )
+    yield dict(
+            name = 'copy images over',
+            actions = [
+                    "rsync -a --prune-empty-dirs --include '*/' --include '*.jpg' --include '*.jpeg' --include '*.png' --include '*.svg'  --include '*.gif' --exclude '*' figure_code /Users/tom/git/tomhodson.github.com/assets/thesis/",
+                ],
+            file_dep = list(Path("./").glob("./build/*.html")),
+            targets = ['/Users/tom/git/tomhodson.github.com/assets/thesis_figs',]
+    )
+
 def task_pdf():
     'compile the pdf output using latexmk'
     latex_files = list(Path("./").glob("*/*.tex"))
@@ -85,26 +133,4 @@ def task_cleanup():
     return dict(
         actions = [f'rm -f {t}.aux {t}.bbl {t}.blg {t}.fdb_latexmk {t}.fls {t}.lof {t}.log {t}.lot {t}.out'
         ],
-    )
-
-
-def task_blog():
-    "convert .md files to .html files for jekyll using pandoc"
-    pandoc_config = 'pandoc/markdown_to_html.yml'
-    markdown_files = Path("./").glob("*/*.md")
-    for f in markdown_files:
-        target = Path("/Users/tom/git/tomhodson.github.com/_thesis/") / (f.stem + ".html")
-        yield dict(
-            name = str(f),
-            file_dep = [pandoc_config, f,],
-            targets = [target,],
-            actions = [
-                f'{pandoc} -d {pandoc_config} {f} -o {target}',
-                ],
-        )
-    yield dict(
-            name = 'copy images over',
-            actions = ['cp -r pandoc/figs/* /Users/tom/git/tomhodson.github.com/assets/thesis_figs/'],
-            file_dep = list(Path("./").glob("*/*.html")),
-            targets = ['/Users/tom/git/tomhodson.github.com/assets/thesis_figs',]
     )
