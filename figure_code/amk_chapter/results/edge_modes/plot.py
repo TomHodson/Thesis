@@ -9,7 +9,6 @@ from koala import flux_finder
 from koala import plotting as pl
 from matplotlib import pyplot as plt
 from matplotlib.colors import ListedColormap
-from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 from pathlib import Path
 
 
@@ -21,47 +20,6 @@ def find_transector(lattice, x = 0.5):
         points.append(m)
     return flux_finder.path_between_vertices(lattice, points[0], points[1], early_stopping = False, maxits = 10**6)
 
-def plot_DOS_oscillations(top_ax, bottom_ax):
-    data_hlm_field = np.load('dos_oscillations_hlm_field.npy', allow_pickle=True).tolist()
-    data_amo_nofield = np.load('dos_oscillations_am_nofield.npy', allow_pickle=True).tolist()
-    xdata = np.load('xdata.npy')
-    xdata = (xdata[:-1] + xdata[1:]) / 2.0
-
-    system_sizes = data_amo_nofield.keys()
-    line_colors = [matplotlib.cm.inferno(X) for X in [0.25, 0.5, 0.75]]
-    
-    for ax in [top_ax, bottom_ax]:
-        ax.set(xscale = "log", yticks = [1.00, 1.25, 1.50, 1.75])
-        ax.yaxis.set_label_position("right")
-        ax.yaxis.tick_right()
-
-        
-    top_ax.set(xticks = [])
-    top_ax.axes.xaxis.set_visible(False)
-    
-    bottom_ax.set(xlabel = r"$E/J$")
-
-    for system_size, line_color in zip(system_sizes, line_colors):
-      shared_args = {
-        'c': line_color,
-        'alpha': 0.7,
-        'fmt': '.',
-        'capsize': 2,
-        'markersize': 2
-      }
-
-      hlm_vals = data_hlm_field[system_size]
-      amo_vals = data_amo_nofield[system_size]
-
-      top_ax.errorbar(
-        xdata, hlm_vals[0], hlm_vals[1], label=f"$L={system_size}$", **shared_args
-      )
-
-      bottom_ax.errorbar(
-        xdata, amo_vals[0], amo_vals[1], **shared_args
-      )
-
-    top_ax.legend(frameon = False, borderpad = 0.0, borderaxespad = 0.4, handletextpad = 0.2)
 
 ## Setup colormap
 inferno = matplotlib.cm.get_cmap('inferno_r', 256)
@@ -165,18 +123,8 @@ x = np.arange(n_steps) - n_steps//2
 ax.plot(x, np.log(edge_state_density)[path_verts], linewidth = 1, color = 'k', solid_capstyle='round')
 ax.set(yticks = [], xlabel = "Lattice distance")
 
-# ### Inset Chern Marker Plot
-# ax = chern_inset_ax
-# pl.plot_edges(lattice, ax = chern_inset_ax, linewidth = 0.1, zorder = -1)
-# if rasterize: ax.set_rasterization_zorder(0)
-
-### Right panel: DOS Oscillations
-# plot_DOS_oscillations(top_ax, bottom_ax)
-# top_ax.text(0.01, 1.8, r"\textbf{(c)}")
-# fig.text(0.96, 0.45, r"$\rho(E)$", va='center', rotation='vertical')
-
 # plt.subplots_adjust(hspace=.0, right=0.88, bottom=0.15)
 
-fig.savefig(f'./{Path.cwd().name}.pdf')
-fig.savefig(f'./{Path.cwd().name}.svg')
+fig.savefig(f'./{Path.cwd().name}.pdf', dpi = 400)
+fig.savefig(f'./{Path.cwd().name}.svg', dpi = 400)
 
