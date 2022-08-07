@@ -9,36 +9,52 @@
  \vspace*{6mm}
 }
 
-\author{Thomas Hodson}
+\author{Thomas Hodson\\\vspace{10mm}
+\includegraphics[width=.4\textwidth,height=.4\textheight]{figure_code/logo/logo}
+\vspace{-0.4\textheight}
+\vspace{10mm}
+}
 \submitdate{June 2022}
 
 \normallinespacing
+
 \maketitle
+
 
 \preface
 \include{0_Preface/abstract}
-\include{0_Preface/statement_of_orginality}
-\include{0_Preface/copyright_declaration}
-\include{0_Preface/acknowledgements}
+\input{0_Preface/copyright_declaration}
+
+% \cleardoublepage
+% \addcontentsline{toc}{chapter}{Acknowledgements}
+% \begin{acknowledgements}
+% \include{build/tex/0.i_Aknowledgements}
+% \end{acknowledgements}
 % \include{0_Preface/personal_contributions}
 
 \body
-\chapter{Introduction}
-\include{build/tex/1.1_Intro.tex}
+% \chapter{Introduction}
+% \include{build/tex/1.1_Intro.tex}
 
-\chapter{The Long-Range Falikov-Kimball Model}
-\include{build/tex/1.1_FK_Intro.tex}
+% % \chapter{The Long-Range Falikov-Kimball Model}
+% % \include{build/tex/1.1_FK_Intro.tex}
 
 \chapter{The Amorphous Kitaev Honeycomb Model}
+\backgroundsetup{scale = 1, angle = 0, opacity = 0.2,
+  contents = {\includegraphics[width=297mm, height=297mm]{figure_code/test.pdf}}}
+\BgThispage
 \include{build/tex/2.1_AMK_Intro}
 \include{build/tex/2.2_AMK_Methods}
 \include{build/tex/2.3_AMK_Results}
 
-\chapter{Conclusion \& Discussion}
-\appendix
-    \include{5_Appendices/appendices}
+% \chapter{Conclusion \& Discussion}
+% \appendix
+%     \include{5_Appendices/appendices}
 
 \addcontentsline{toc}{chapter}{Bibliography}
 \printbibliography
+
+\addcontentsline{toc}{chapter}{Copyright}
+\includepdf[pages=-]{5_Appendices/APS_copyright_permission.pdf}
 
 \end{document}

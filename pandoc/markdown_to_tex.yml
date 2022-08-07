@@ -1,6 +1,7 @@
 # input and output formats
 from: markdown
 to: latex
+wrap: none
 
 # dir to  keep all pandoc related files
 data-dir: pandoc
