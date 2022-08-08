@@ -39,9 +39,9 @@ matplotlib.rcParams.update({"axes.linewidth": black_line_widths})
 
 line_colors = [to_hex(a) for a in cm.inferno([0.25, 0.5, 0.75])]
 
-# rng = np.random.default_rng(seed = 10)
-# l, coloring, _ = eg.make_amorphous(8, rng = rng)
-l, coloring, ujk = eg.make_honeycomb(8)
+rng = np.random.default_rng(seed = 10)
+l, coloring, ujk = eg.make_amorphous(8, rng = rng)
+# l, coloring, ujk = eg.make_honeycomb(8)
 
 plaquettes = [40,]
 vertices = [78,]
@@ -65,12 +65,12 @@ for n in tqdm(range(15)):
     
     multi_edges = multi_set_symmetric_difference([l.vertices.adjacent_edges[v] for v in vertices])
     
-    if multi_edges: pl.plot_dual(l, ax = ax, color = 'blue', subset = multi_edges)
+    if multi_edges: pl.plot_dual(l, ax = ax, color_scheme = line_colors[1:], subset = multi_edges)
     pl.plot_edges(l, ax = ax, color = 'k', subset = multi_edges)
     pl.plot_vertices(l, ax = ax, subset = list(vertices), s = 5)
 
     pl.plot_edges(l, ax = ax, alpha = 0.1)
-    pl.plot_dual(l, ax = ax, color = 'blue', alpha = 0.1)
+    pl.plot_dual(l, ax = ax, color_scheme = line_colors[1:], alpha = 0.1)
 
     ax.set(xticks = [], yticks = [])
     
@@ -83,17 +83,20 @@ for n in tqdm(range(15)):
     fluxes = flux_finder.fluxes_from_bonds(l, ujk)
 
     pl.plot_edges(l, ax = ax, alpha = 0.1)
-    pl.plot_dual(l, ax = ax, color = 'blue', alpha = 0.1)
+    pl.plot_dual(l, ax = ax, color_scheme = line_colors[1:], alpha = 0.1)
     
     pl.plot_edges(l, ax = ax, subset = (ujk == -1))
-    if len(plaquettes) > 1: pl.plot_dual(l, ax = ax, subset = (ujk == -1), color = 'blue')
+    if len(plaquettes) > 1: pl.plot_dual(l, ax = ax, color_scheme = line_colors[1:], subset = (ujk == -1), )
     pl.plot_plaquettes(l, subset = fluxes == -1, ax = ax, color_scheme = ["orange", "white"], alpha = 0.5);
     ax.set(xticks = [], yticks = [])
     
     fig.tight_layout()
-    if n == 3: fig.savefig(f'./{Path.cwd().name}.svg')
+    if n == 3: 
+        fig.savefig(f'./{Path.cwd().name}.svg')
+        fig.savefig(f'./{Path.cwd().name}.pdf')
     fig.savefig(f"animation/iteration_{n:03}.svg")
     plt.close(fig)
 
 subprocess.run(["magick", "animation/*.svg", f'./{Path.cwd().name}.gif'])
+subprocess.run(["convert", "-delay", "100", f'./{Path.cwd().name}.gif', f'./{Path.cwd().name}.gif'])
 subprocess.run(["rm", "-r", "./animation"])
