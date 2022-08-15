@@ -94,7 +94,7 @@ fig.tight_layout()
 # fig.subplots_adjust(left = 0.01, wspace=.05, right = 1 - 0.01, top = 1 - 0.01, bottom = 0.01)
 
 fig.savefig(f'./{Path.cwd().name}.pdf')
-fig.savefig(f'./{Path.cwd().name}.svg')
+fig.savefig(f'./{Path.cwd().name}.svg', transparent = True)
 
 # for i, panel in enumerate([panel_a, panel_b, panel_c]):
 #     fig, ax = plt.subplots()

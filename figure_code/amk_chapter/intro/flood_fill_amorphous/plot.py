@@ -92,7 +92,7 @@ for n in tqdm(range(15)):
     
     fig.tight_layout()
     if n == 3: 
-        fig.savefig(f'./{Path.cwd().name}.svg')
+        fig.savefig(f'./{Path.cwd().name}.svg', transparent = True)
         fig.savefig(f'./{Path.cwd().name}.pdf')
     fig.savefig(f"animation/iteration_{n:03}.svg")
     plt.close(fig)

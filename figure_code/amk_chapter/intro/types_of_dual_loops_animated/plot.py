@@ -28,8 +28,8 @@ matplotlib.rcParams.update({"axes.linewidth": black_line_widths})
 
 def make_path_from_plaquettes(lattice, p):
     eps = [pathfinding.path_between_plaquettes(lattice, p[i], p[(i+1)%len(p)]) for i in range(len(p))]
-    ps = list(it.chain.from_iterable(ep[0][:0:-1] for ep in eps))
-    es = list(it.chain.from_iterable(ep[1][::-1] for ep in eps))
+    ps = list(it.chain.from_iterable(ep[0][:-1] for ep in eps))
+    es = list(it.chain.from_iterable(ep[1] for ep in eps))
     
     return ps, es
 
@@ -39,7 +39,9 @@ lattice, colouring, ujk = eg.make_honeycomb(13)
     
 subprocess.run(["mkdir", "-p", "./animation"])
 
-total_frames = 20
+total_frames = 10
+frames = list(range(total_frames))
+frames = [0,] + frames[:-1]
 for i in tqdm(range(total_frames)):
     fig, ax = plt.subplots(nrows=1, ncols=1)
     aspect_ratio = 3
@@ -64,16 +66,28 @@ for i in tqdm(range(total_frames)):
     ##### flip edges to make a loop #######
     p = [36, 64, 68, 44, 16, 12]
     ps, es = make_path_from_plaquettes(lattice, p)
-    edges_to_highlight += es[:i]
-    if i < len(ps): plaquettes_to_highlight += [ps[0], ps[i]]
+
+    m = len(ps) // 2
+
+    if i == 0: pass
+    elif i < len(ps)//2: 
+        edges_to_highlight += es[m-i:m+i]
+        plaquettes_to_highlight += [ps[m-i], ps[m+i]]
+    else:
+        edges_to_highlight += es
 
     ##### make a boundary crossing loop #######
     p = [100, 22]
     ps, es = pathfinding.path_between_plaquettes(lattice, *p)
     es += [621,]
+    m = len(ps) // 2 + 1
 
-    edges_to_highlight += es[:i]
-    if i < len(ps): plaquettes_to_highlight += [ps[0], ps[i]]
+    if i == 0: pass
+    elif i < 4:
+        edges_to_highlight += es[m-i:m+i]
+        plaquettes_to_highlight += [ps[m-i], ps[m+i] if m+i < len(ps) else ps[-1]]
+    else:
+        edges_to_highlight += es
 
     pl.plot_edges(lattice, color = 'grey', alpha = 0.5)
     pl.plot_edges(lattice, subset = edges_to_highlight, color = 'k')
@@ -101,11 +115,12 @@ for i in tqdm(range(total_frames)):
             )
 
     if i == total_frames - 1: 
-        fig.savefig(f'./{Path.cwd().name}.svg')
+        fig.savefig(f'./{Path.cwd().name}.svg', transparent = True)
         fig.savefig(f'./{Path.cwd().name}.pdf')
-    fig.savefig(f"animation/iteration_{i:03}.svg")
+    fig.savefig(f"animation/iteration_{i:03}.svg", transparent = True)
     plt.close(fig)
 
 print("Making the gif...")
-subprocess.run(["convert", "animation/*.svg", f'./{Path.cwd().name}.gif'])
+subprocess.run(["convert", "-dispose", "2", "animation/*.svg", f'./{Path.cwd().name}.gif'])
+subprocess.run(["convert", "-delay", "25", f'./{Path.cwd().name}.gif', f'./{Path.cwd().name}.gif'])
 subprocess.run(["rm", "-r", "./animation"])

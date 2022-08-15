@@ -112,5 +112,5 @@ ax.axis('off')
 fig.subplots_adjust(bottom = .2)
 
 fig.savefig(f'./{Path.cwd().name}.pdf')
-fig.savefig(f'./{Path.cwd().name}.svg')
+fig.savefig(f'./{Path.cwd().name}.svg', transparent = True)
 

@@ -128,4 +128,4 @@ plot_phase_diagram(ax[2])
 ##### end phase diagram plotting
 
 fig.savefig(f'./{Path.cwd().name}.pdf')
-fig.savefig(f'./{Path.cwd().name}.svg')
+fig.savefig(f'./{Path.cwd().name}.svg', transparent = True)

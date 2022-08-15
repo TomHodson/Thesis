@@ -18,6 +18,8 @@ filters:
 cite-method: biblatex
 # cite-method: natbib
 
+number-sections: true
+
 # # copy all images over to pandoc/figs/...
 # extract-media: ${.}/figs
 

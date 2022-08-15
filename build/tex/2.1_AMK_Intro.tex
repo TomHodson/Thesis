@@ -5,7 +5,7 @@ The material in this chapter expands on work presented in
 
 \textbf{Insert citation of amorphous Kitaev paper here}
 
-This project grew out of an interest Gino, Peru and I had in studying amorphous systems. Coupled with Johannes' expertise on the Kitaev model.
+which was a joint project of the first three authors with advice and guidance from Willian and Johannes. The project grew out of an interest Gino, Peru and I had in studying amorphous systems, coupled with Johannes' expertise on the Kitaev model. The idea to use voronoi partitions came from \autocite{marsalTopologicalWeaireThorpe2020} and Gino did the implementation of this. The idea and implementation of the edge colouring using SAT solvers, the mapping from flux sector to bond sector using A* search were both entirely my work. Peru came up with the ground state conjecture and implemented the local markers. Gino and I did much of the rest of the programming for Koala while pair programming and 'whiteboard'ing, this included the phase diagram, edge mode and finite temperature analyses as well as the derivation of the projector in the amorphous case.
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
@@ -49,19 +49,53 @@ The discussion considers possible physical realisations of this model and the mo
   The Hamiltonian: I will use model to refer to the underlying physics and Hamiltonian to refer to particular representations of the model.
 \end{itemize}
 
-\textbf{The Spin Hamiltonian} - Spin Bond Operators: \(\hat{k}_{ij} = \sigma_i^\alpha \sigma_j^\alpha\) - Loop Operators: \(\hat{W_p} = \prod_{<i,j>} k_{ij}\) - Plaquette Operators: Loops that enclose a single plaquette.
-
-\textbf{The Majorana Model} - Majorana Operators on site \(i\): \(\hat{b}^x_i, \hat{b}^y_i, \hat{b}^z_i, \hat{c}_i\) - Majorana Bond Operators: \(\hat{u}_{ij} = i \sigma_i^\alpha \sigma_j^\alpha\) - Loop Operators: \(\hat{W_p} = \prod_{<i,j>} u_{ij}\) - Plaquette Operators: Loops that enclose a single plaquette. - Gauge Operators: \(D_i = \hat{b}^x_i \hat{b}^y_i \hat{b}^z_i \hat{c}_i\) - The Extended Hilbert space: The larger Hilbert space spanned by the Majorana operators. - The physical subspace: The subspace of the extended Hilbert space that we identify with the Hilbert space of the original spin model.
+\textbf{The Spin Hamiltonian}
 
 \begin{itemize}
 \tightlist
 \item
+  Spin Bond Operators: \(\hat{k}_{ij} = \sigma_i^\alpha \sigma_j^\alpha\)
+\item
+  Loop Operators: \(\hat{W_p} = \prod_{<i,j>} k_{ij}\)
+\item
+  Plaquette Operators: Loops that enclose a single plaquette.
+\end{itemize}
+
+\textbf{The Majorana Model}
+
+\begin{itemize}
+\tightlist
+\item
+  Majorana Operators on site \(i\): \(\hat{b}^x_i, \hat{b}^y_i, \hat{b}^z_i, \hat{c}_i\)
+\item
+  Majorana Bond Operators: \(\hat{u}_{ij} = i \sigma_i^\alpha \sigma_j^\alpha\)
+\item
+  Loop Operators: \(\hat{W_p} = \prod_{<i,j>} u_{ij}\)
+\item
+  Plaquette Operators: Loops that enclose a single plaquette.
+\item
+  Gauge Operators: \(D_i = \hat{b}^x_i \hat{b}^y_i \hat{b}^z_i \hat{c}_i\)
+\item
+  The Extended Hilbert space: The larger Hilbert space spanned by the Majorana operators.
+\item
+  The physical subspace: The subspace of the extended Hilbert space that we identify with the Hilbert space of the original spin model.
+\item
   The Projector \(\hat{P}\): The projector onto the physical subspace.
 \end{itemize}
 
-\textbf{Flux Sectors} - Odd/Even Plaquettes: Plaquettes with an odd/even number of sides. - Fluxes \(\phi_i\): The expectation values of the plaquette operators \(\pm 1\) for even and \(\pm i\) for odd plaquettes. - Flux Sector: A subspace of Hilbert space in which the fluxes take particular values. - Ground state flux sector: The Flux Sector containing the lowest energy many body state. - Vortices: Flux excitations away from the ground state flux sector.
+\textbf{Flux Sectors}
 
 \begin{itemize}
+\item
+  Odd/Even Plaquettes: Plaquettes with an odd/even number of sides.
+\item
+  Fluxes \(\phi_i\): The expectation values of the plaquette operators \(\pm 1\) for even and \(\pm i\) for odd plaquettes.
+\item
+  Flux Sector: A subspace of Hilbert space in which the fluxes take particular values.
+\item
+  Ground state flux sector: The Flux Sector containing the lowest energy many body state.
+\item
+  Vortices: Flux excitations away from the ground state flux sector.
 \item
   Dual Loops: A set of \(u_{jk}\) that correspond to loops on the dual lattice.
 \item
@@ -72,7 +106,15 @@ The discussion considers possible physical realisations of this model and the mo
   Topological Transport Operators: \(\mathcal{T}_{x}, \mathcal{T}_{y}\): The two vortex-pair operations associated with the non-contractible \emph{dual} loops.
 \end{itemize}
 
-\textbf{Phases} - The A phase: The three anisotropic regions of the phase diagram \(A_x, A_y, A_z\) where \(A_\alpha\) means \(J_\alpha >> J_\beta, J_\gamma\). - The B phase: The roughly isotropic region of the phase diagram.
+\textbf{Phases}
+
+\begin{itemize}
+\tightlist
+\item
+  The A phase: The three anisotropic regions of the phase diagram \(A_x, A_y, A_z\) where \(A_\alpha\) means \(J_\alpha >> J_\beta, J_\gamma\).
+\item
+  The B phase: The roughly isotropic region of the phase diagram.
+\end{itemize}
 
 \hypertarget{the-kitaev-model}{%
 \subsection{The Kitaev Model}\label{the-kitaev-model}}
@@ -114,20 +156,20 @@ Once we involve multiple fermions, there is some freedom in how we can perform t
 
 \[ \{c_i, c_j\} = 2\delta_{ij}\]
 
+\begin{figure}
+\hypertarget{fig:visual_kitaev_1}{%
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/visual_kitaev_1.pdf}
+\caption{A visual introduction to the Kitaev Model.}\label{fig:visual_kitaev_1}
+}
+\end{figure}
+
 \hypertarget{the-hamiltonian}{%
 \subsubsection{The Hamiltonian}\label{the-hamiltonian}}
 
 To start from the fundamentals, the Kitaev Honeycomb model is a model of interacting spin\(-1/2\)s on the vertices of a honeycomb lattice. Each bond in the lattice is assigned a label \(\alpha \in \{ x, y, z\}\) and that bond couples its two spin neighbours along the \(\alpha\) axis. See \cref{fig:visual_kitaev_1} for a diagram.
 
 This gives us the Hamiltonian \[H =  - \sum_{\langle j,k\rangle_\alpha} J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha},\] where \(\sigma^\alpha_j\) is a Pauli matrix acting on site \(j\) and \(\langle j,k\rangle_\alpha\) is a pair of nearest-neighbour indices connected by an \(\alpha\)-bond with exchange coupling \(J^\alpha\) \textcite{kitaevAnyonsExactlySolved2006}. For notational brevity, it is useful to introduce the bond operators \(K_{ij} = \sigma_j^{\alpha}\sigma_k^{\alpha}\) where \(\alpha\) is a function of \(i,j\) that picks the correct bond type.
-
-\begin{figure}
-\hypertarget{fig:visual_kitaev_1}{%
-\centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/visual_kitaev_1.pdf}
-\caption{}\label{fig:visual_kitaev_1}
-}
-\end{figure}
 
 This Kitaev model has a set of conserved quantities that, in the spin language, take the form of Wilson loop operators \(W_p\) winding around a closed path on the lattice. The direction does not matter, but we will keep to clockwise here. We will use the term plaquette and the symbol \(\phi\) to refer to a Wilson loop operator that does not enclose any other sites, such as a single hexagon in a honeycomb lattice.
 
@@ -144,7 +186,7 @@ As the honeycomb lattice is bipartite, there are no closed loops that contain an
 \begin{figure}
 \hypertarget{fig:regular_plaquettes}{%
 \centering
-\includegraphics[width=0.86\textwidth,height=\textheight]{figure_code/amk_chapter/regular_plaquettes/regular_plaquettes.pdf}
+\includegraphics[width=0.86\textwidth,height=\textheight]{figure_code/amk_chapter/intro/regular_plaquettes/regular_plaquettes.pdf}
 \caption{The eigenvalues of a loop or plaquette operators depend on the number of bonds in its enclosing path.}\label{fig:regular_plaquettes}
 }
 \end{figure}
@@ -156,8 +198,8 @@ The first case is trivial. The other two require some algebra, outlined in \cref
 \begin{figure}
 \hypertarget{fig:visual_kitaev_2}{%
 \centering
-\includegraphics[width=1.43\textwidth,height=\textheight]{figure_code/amk_chapter/visual_kitaev_2.pdf}
-\caption{}\label{fig:visual_kitaev_2}
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/visual_kitaev_2.pdf}
+\caption{Plaquette operators are conserved.}\label{fig:visual_kitaev_2}
 }
 \end{figure}
 
@@ -249,7 +291,7 @@ The ground state \(|n_m = 0\rangle\) of the many body system at fixed \(u\) is t
 
 If we only care about the value of \(E_{u,0}\), it is possible to skip forming the fermionic operators. The eigenvalues obtained directly from diagonalising \(J^{\alpha} u_{ij}\) come in \(\pm \epsilon_m\) pairs. We can take half the absolute value of the whole set to recover \(\sum_m \epsilon_m\) easily.
 
-\textbf{The Majorana Hamiltonian is quadratic within a Bond Sector.}
+Takeaway: the Majorana Hamiltonian is quadratic within a Bond Sector.
 
 \hypertarget{mapping-back-from-bond-sectors-to-the-physical-subspace}{%
 \subsubsection{Mapping back from Bond Sectors to the Physical Subspace}\label{mapping-back-from-bond-sectors-to-the-physical-subspace}}
@@ -273,7 +315,7 @@ We can turn this into a symmetrisation procedure by taking a superposition of ev
 
 This gauge degeneracy leads us to the next topic of discussion, namely how to construct a set of gauge invariant quantities out of the \(u_{ij}\), these will turn out to just be the plaquette operators.
 
-\textbf{The Bond Sectors overlap with the physical subspace but are not contained within it.}
+Takeaway: The Bond Sectors overlap with the physical subspace but are not contained within it.
 
 \hypertarget{open-boundary-conditions}{%
 \subsubsection{Open boundary conditions}\label{open-boundary-conditions}}

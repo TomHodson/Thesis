@@ -20,7 +20,7 @@ In practice, we use a standard algorithm \textcite{barberQuickhullAlgorithmConve
 \hypertarget{fig:lattice_construction_animated}{%
 \centering
 \includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/lattice_construction_animated/lattice_construction_animated.pdf}
-\caption{(Left) Lattice construction begins with the Voronoi partition of the plane with respect to a set of seed points (black points) sampled uniformly from \(\mathbb{R}^2\). (Center) However, we want the Voronoi partition of the torus, so we tile the seed points into a three by three grid. The boundaries of each tile are shown in light grey. (Right) Finally, we identify edges corresponding to each other across the boundaries to produce a graph on the torus. An edge colouring is shown here to help the reader identify corresponding edges.}\label{fig:lattice_construction_animated}
+\caption{(Left) Lattice construction begins with the Voronoi partition of the plane with respect to a set of seed points (black points) sampled uniformly from \(\mathbb{R}^2\). (Center) However, we want the Voronoi partition of the torus, so we tile the seed points into a three by three grid. The boundaries of each tile are shown in light grey. (Right) Finally, we identify edges corresponding to each other across the boundaries to produce a graph on the torus. An edge colouring is shown here to help the reader identify corresponding edges. \href{http://thomashodson.com/assets/thesis/figure_code/amk_chapter/lattice_construction_animated/lattice_construction_animated.gif}{ Animated version online.}}\label{fig:lattice_construction_animated}
 }
 \end{figure}
 
@@ -40,21 +40,13 @@ This description of the lattice has a very nice relationship to Bloch's theorem.
 \begin{figure}
 \hypertarget{fig:bloch}{%
 \centering
-\includegraphics[width=0.57\textwidth,height=\textheight]{figure_code/amk_chapter/methods/bloch.png}
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/methods/bloch.png}
 \caption{Bloch's theorem can be thought of as transforming from a periodic Hamiltonian on the place to the unit cell defined an torus. In addition we get some phase factors \(e^{i\vec{k}\cdot\vec{r}}\) associated with bonds that cross unit cells that depend on the sense in which they do so \(\vec{r} = (\pm1, \pm1)\). Representing graphs on the torus turns out to require a similar idea, we unwrap the torus to one unit cell and keep track of which bonds cross the cell boundaries.}\label{fig:bloch}
 }
 \end{figure}
 
 \hypertarget{colouring-the-bonds}{%
 \subsection{Colouring the Bonds}\label{colouring-the-bonds}}
-
-\begin{figure}
-\hypertarget{fig:multiple_colourings}{%
-\centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/multiple_colourings/multiple_colourings.pdf}
-\caption{Three different valid 3-edge-colourings of amorphous lattices. Colors that differ from the leftmost panel are highlighted.}\label{fig:multiple_colourings}
-}
-\end{figure}
 
 The Kitaev Model requires that each edge in the lattice be assigned a label \(x\), \(y\) or \(z\), such that each vertex has exactly one edge of each type connected to it. Let \(\Delta\) be the maximum degree of a graph which, in our case, is 3. If \(\Delta > 3\), it is obviously not possible to three-colour the edges. However, the general theory of when this is and is not possible for graphs with \(\Delta \leq 3\) is more subtle.
 
@@ -67,6 +59,14 @@ The four-colour theorem applies to planar graphs, those that can be embedded ont
 \(\Delta + 1\) colours are enough to edge-colour any graph. An \(\mathcal{O}(mn)\) algorithm exists to do it for a graph with \(m\) edges and \(n\) vertices \textcite{gEstimateChromaticClass1964}. Restricting ourselves to graphs with \(\Delta = 3\) like ours, those can be four-edge-coloured in linear time \textcite{skulrattanakulchai4edgecoloringGraphsMaximum2002} .
 
 However, three-edge-colouring them is more difficult. Cubic, planar, bridgeless graphs can be three-edge-coloured if and only if they can be four-face-coloured \textcite{tait1880remarks}. An \(\mathcal{O}(n^2)\) algorithm robertson1996efficiently exists here. However, it is not clear whether this extends to cubic, \textbf{toroidal} bridgeless graphs.
+
+\begin{figure}
+\hypertarget{fig:multiple_colourings}{%
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/multiple_colourings/multiple_colourings.pdf}
+\caption{Three different valid 3-edge-colourings of amorphous lattices. Colors that differ from the leftmost panel are highlighted.}\label{fig:multiple_colourings}
+}
+\end{figure}
 
 \hypertarget{four-colourings-and-three-colourings}{%
 \subsubsection{Four-colourings and three-colourings}\label{four-colourings-and-three-colourings}}

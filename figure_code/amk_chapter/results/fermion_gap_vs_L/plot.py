@@ -74,5 +74,5 @@ ax.legend(frameon = False)
 
 fig.tight_layout()
 plt.subplots_adjust(hspace=.55, left=0.22)
-fig.savefig(f'./{Path.cwd().name}.svg')
+fig.savefig(f'./{Path.cwd().name}.svg', transparent = True)
 fig.savefig(f'./{Path.cwd().name}.pdf')

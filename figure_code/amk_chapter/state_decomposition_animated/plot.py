@@ -166,7 +166,7 @@ for i in tqdm(range(10)):
     fig.tight_layout()
 
     if i == 0: 
-        fig.savefig(f'./{Path.cwd().name}.svg')
+        fig.savefig(f'./{Path.cwd().name}.svg', transparent = True)
         fig.savefig(f'./{Path.cwd().name}.pdf')
     fig.savefig(f"animation/iteration_{i:03}.svg")
     plt.close(fig)

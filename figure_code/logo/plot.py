@@ -83,5 +83,5 @@ ax.text(*triangle_points[2], "$J_z$", va = "top", ha = "left")
 # fig.subplots_adjust(left = 0.01, wspace=.05, right = 1 - 0.01, top = 1 - 0.01, bottom = 0.01)
 
 fig.savefig(f'./{Path.cwd().name}.pdf')
-fig.savefig(f'./{Path.cwd().name}.svg')
+fig.savefig(f'./{Path.cwd().name}.svg', transparent = True)
 

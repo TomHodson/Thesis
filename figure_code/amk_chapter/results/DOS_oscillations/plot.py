@@ -86,5 +86,5 @@ right.set(xlabel = "$E/J$")
 fig.tight_layout()
 
 fig.savefig(f'./{Path.cwd().name}.pdf')
-fig.savefig(f'./{Path.cwd().name}.svg')
+fig.savefig(f'./{Path.cwd().name}.svg', transparent = True)
 

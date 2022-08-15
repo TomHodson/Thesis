@@ -21,7 +21,12 @@ def action(elem, doc):
 
         if img.url.endswith(".svg") or img.url.endswith(".gif"):
             src = src.parent / (src.stem + ".pdf")
-            
+        
+        if img.url.endswith(".gif"):
+            url = f"http://thomashodson.com/assets/thesis/{Path(img.url).relative_to(base)}"
+            # logging.warning(img)
+            img.content += [pf.Space, pf.Link(pf.Str(" Animated version online."), url = url),]
+
         img.url = str(src)
         return img
 
