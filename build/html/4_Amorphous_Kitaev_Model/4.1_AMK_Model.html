@@ -258,22 +258,47 @@ rest of the programming for Koala while pair programming and
 temperature analyses as well as the derivation of the projector in the
 amorphous case.</p>
 <h1 id="introduction">Introduction</h1>
-<p>The Kitaev Honeycomb model is remarkable because it combines three
-key properties.</p>
-<p>First, this model is a plausible tight binding Hamiltonian. The form
-of the Hamiltonian could be realised by a real material. Candidate
-materials are known that are expected to behave according to the Kitaev
-with small corrections such as <span
-class="math inline">\(\alpha\mathrm{-RuCl}_3\)</span><span
-class="citation"
+<div id="fig:intro_figure_by_hand" class="fignos">
+<figure>
+<img
+src="/assets/thesis/figure_code/amk_chapter/intro/honeycomb_zoom/intro_figure_by_hand.svg"
+data-short-caption="The Kitaev Honeycomb Model" style="width:100.0%"
+alt="Figure 1: (a) The standard Kitaev model is defined on a honeycomb lattice. The special feature of the honeycomb lattice that makes the model solvable is that each vertex is joined by exactly three bonds, i.e. the lattice is trivalent. One of three labels is assigned to each (b). We represent the antisymmetric gauge degree of freedom u_{jk} = \pm 1 with arrows that point in the direction u_{jk} = +1 (c). The Majorana transformation can be visualised as breaking each spin into four Majoranas which then pair along the bonds. The pairs of x,y and z Majoranas become part of the classical \mathbb{Z}_2 gauge field u_{ij}. This leavies a single Majorana c_i per site." />
+<figcaption aria-hidden="true"><span>Figure 1:</span>
+<strong>(a)</strong> The standard Kitaev model is defined on a honeycomb
+lattice. The special feature of the honeycomb lattice that makes the
+model solvable is that each vertex is joined by exactly three bonds,
+i.e. the lattice is trivalent. One of three labels is assigned to each
+<strong>(b)</strong>. We represent the antisymmetric gauge degree of
+freedom <span class="math inline">\(u_{jk} = \pm 1\)</span> with arrows
+that point in the direction <span class="math inline">\(u_{jk} =
++1\)</span> <strong>(c)</strong>. The Majorana transformation can be
+visualised as breaking each spin into four Majoranas which then pair
+along the bonds. The pairs of x,y and z Majoranas become part of the
+classical <span class="math inline">\(\mathbb{Z}_2\)</span> gauge field
+<span class="math inline">\(u_{ij}\)</span>. This leavies a single
+Majorana <span class="math inline">\(c_i\)</span> per site.</figcaption>
+</figure>
+</div>
+<p>The Kitaev Honeycomb model <span class="math display">\[H =  -
+\sum_{\langle j,k\rangle_\alpha}
+J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha},\]</span> is remarkable
+because it combines three key properties.</p>
+<p>First, the form of the Hamiltonian plausibly be realised by a real
+material. Candidate materials, such as <span
+class="math inline">\(\alpha\mathrm{-RuCl}_3\)</span>, are known to have
+sufficiently strong spin-orbit coupling and the correct lattice
+structure to behave according to the Kitaev Honeycomb model with small
+corrections<span class="citation"
 data-cites="banerjeeProximateKitaevQuantum2016 trebstKitaevMaterials2022"><sup><a
 href="#ref-banerjeeProximateKitaevQuantum2016"
 role="doc-biblioref">2</a>,<a href="#ref-trebstKitaevMaterials2022"
 role="doc-biblioref">3</a></sup></span>.</p>
-<p>Second, this model is deeply interesting to modern condensed matter
-theory. Its ground state is almost the canonical example of the long
-sought after quantum spin liquid state. Its excitations are anyons,
-particles that can only exist in two dimensions that break the normal
+<p><strong>expand later: Why do we need spin orbit coupling and what
+will the corrections be?</strong></p>
+<p>Second, its ground state is the canonical example of the long sought
+after quantum spin liquid state. Its excitations are anyons, particles
+that can only exist in two dimensions that break the normal
 fermion/boson dichotomy. Anyons have been the subject of much attention
 because, among other reasons, they can be braided through spacetime to
 achieve noise tolerant quantum computations<span class="citation"
@@ -286,9 +311,12 @@ exactly solvable. We can explicitly write down its many body ground
 states in terms of single particle states<span class="citation"
 data-cites="kitaevAnyonsExactlySolved2006"><sup><a
 href="#ref-kitaevAnyonsExactlySolved2006"
-role="doc-biblioref">5</a></sup></span>. Its solubility comes about
-because the model has many conserved degrees of freedom that mediate the
-interactions between quantum degrees of freedom.</p>
+role="doc-biblioref">5</a></sup></span>. The solubility of the Kitaev
+Honeycomb Model, like the Falikov-Kimball model of chapter 1, comes
+about because the model has extensively many conserved degrees of
+freedom. These conserved quantities can be factored out as classical
+degrees of freedom, leaving behind a non-interacting quantum model that
+is easy to solve.</p>
 <h2 id="amorphous-systems">Amorphous Systems</h2>
 <p><strong>Insert discussion of why a generalisation to the amorphous
 case is interesting</strong></p>
@@ -313,9 +341,8 @@ non-Abelian, phases that are present, characterising them by the
 presence of a gap and using local Chern markers. Next it looks at
 spontaneous chiral symmetry breaking and topological edge states. It
 also compares the zero temperature phase diagram to that of the Kitaev
-Honeycomb Model. Next, it takes the model to finite temperature and
-demonstrates that there is a phase transition to a thermal metal
-state.</p>
+Honeycomb Model. Finally, we introduce flux disorder and demonstrate
+that there is a phase transition to a thermal metal state.</p>
 <p>The discussion considers possible physical realisations of this model
 and the motivations for doing so. It also discusses how a well known
 quantum error correcting code defined on the Kitaev Honeycomb model
@@ -331,9 +358,6 @@ model that do not depend on the particular lattice.</p></li>
 lattice.</p></li>
 <li><p>The Amorphous model : The Kitaev Model defined on the amorphous
 lattices described here.</p></li>
-<li><p>The Hamiltonian: I will use model to refer to the underlying
-physics and Hamiltonian to refer to particular representations of the
-model.</p></li>
 </ul>
 <p><strong>The Spin Hamiltonian</strong></p>
 <ul>
@@ -467,8 +491,8 @@ however, is that the Majoranas still anticommute:</p>
 <img src="/assets/thesis/figure_code/amk_chapter/visual_kitaev_1.svg"
 data-short-caption="A Visual Intro to the Kitaev Model"
 style="width:100.0%"
-alt="Figure 1: A visual introduction to the Kitaev Model." />
-<figcaption aria-hidden="true"><span>Figure 1:</span> A visual
+alt="Figure 2: A visual introduction to the Kitaev Model." />
+<figcaption aria-hidden="true"><span>Figure 2:</span> A visual
 introduction to the Kitaev Model.</figcaption>
 </figure>
 </div>
@@ -479,7 +503,7 @@ vertices of a honeycomb lattice. Each bond in the lattice is assigned a
 label <span class="math inline">\(\alpha \in \{ x, y, z\}\)</span> and
 that bond couples its two spin neighbours along the <span
 class="math inline">\(\alpha\)</span> axis. See fig. <a
-href="#fig:visual_kitaev_1">1</a> for a diagram.</p>
+href="#fig:visual_kitaev_1">2</a> for a diagram.</p>
 <p>This gives us the Hamiltonian <span class="math display">\[H =  -
 \sum_{\langle j,k\rangle_\alpha}
 J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha},\]</span> where <span
@@ -537,8 +561,8 @@ i\)</span>.</p>
 <img
 src="/assets/thesis/figure_code/amk_chapter/intro/regular_plaquettes/regular_plaquettes.svg"
 data-short-caption="Plaquettes in the Kitaev Model" style="width:86.0%"
-alt="Figure 2: The eigenvalues of a loop or plaquette operators depend on the number of bonds in its enclosing path." />
-<figcaption aria-hidden="true"><span>Figure 2:</span> The eigenvalues of
+alt="Figure 3: The eigenvalues of a loop or plaquette operators depend on the number of bonds in its enclosing path." />
+<figcaption aria-hidden="true"><span>Figure 3:</span> The eigenvalues of
 a loop or plaquette operators depend on the number of bonds in its
 enclosing path.</figcaption>
 </figure>
@@ -546,7 +570,7 @@ enclosing path.</figcaption>
 <p>Remarkably, all of the spin bond operators <span
 class="math inline">\(K_{ij}\)</span> commute with all the Wilson loop
 operators <span class="math inline">\(W_p\)</span>. <span
-class="math display">\[[W_p, J_{ij}] = 0\]</span> We can prove this by
+class="math display">\[[W_p, K_{ij}] = 0\]</span> We can prove this by
 considering three cases: 1. neither <span
 class="math inline">\(i\)</span> nor <span
 class="math inline">\(j\)</span> is part of the loop 2. one of <span
@@ -554,14 +578,14 @@ class="math inline">\(i\)</span> or <span
 class="math inline">\(j\)</span> are part of the loop 3. both are part
 of the loop</p>
 <p>The first case is trivial. The other two require some algebra,
-outlined in fig. <a href="#fig:visual_kitaev_2">3</a>.</p>
+outlined in fig. <a href="#fig:visual_kitaev_2">4</a>.</p>
 <div id="fig:visual_kitaev_2" class="fignos">
 <figure>
 <img src="/assets/thesis/figure_code/amk_chapter/visual_kitaev_2.svg"
 data-short-caption="Plaquette Operators are Conserved"
 style="width:100.0%"
-alt="Figure 3: Plaquette operators are conserved." />
-<figcaption aria-hidden="true"><span>Figure 3:</span> Plaquette
+alt="Figure 4: Plaquette operators are conserved." />
+<figcaption aria-hidden="true"><span>Figure 4:</span> Plaquette
 operators are conserved.</figcaption>
 </figure>
 </div>
@@ -708,34 +732,12 @@ hamiltonian becomes a quadratic, free fermion problem <span
 class="math display">\[\tilde{H_u} =  \frac{i}{4} \sum_{\langle
 i,j\rangle_\alpha} 2J^{\alpha} u_{ij} c_i c_j\]</span> The ground state,
 <span class="math inline">\(|\psi_u\rangle\)</span> can be found easily
-via matrix diagonalisation. At this point, we may wonder whether the
-<span class="math inline">\(\mathcal{L}_u\)</span> are confined entirely
-within the physical subspace <span
+as will be explained in the next part. At this point, we may wonder
+whether the <span class="math inline">\(\mathcal{L}_u\)</span> are
+confined entirely within the physical subspace <span
 class="math inline">\(\mathcal{L}_p\)</span> and, indeed, we will see
 that they are not. However, it will be helpful to first develop the
 theory of the Majorana Hamiltonian further.</p>
-<div id="fig:intro_figure_by_hand" class="fignos">
-<figure>
-<img
-src="/assets/thesis/figure_code/amk_chapter/intro/honeycomb_zoom/intro_figure_by_hand.svg"
-data-short-caption="The Kitaev Honeycomb Model" style="width:100.0%"
-alt="Figure 4: (a) The standard Kitaev model is defined on a honeycomb lattice. The special feature of the honeycomb lattice that makes the model solvable is that each vertex is joined by exactly three bonds, i.e. the lattice is trivalent. One of three labels is assigned to each (b). We represent the antisymmetric gauge degree of freedom u_{jk} = \pm 1 with arrows that point in the direction u_{jk} = +1 (c). The Majorana transformation can be visualised as breaking each spin into four Majoranas which then pair along the bonds. The pairs of x,y and z Majoranas become part of the classical \mathbb{Z}_2 gauge field u_{ij}. This leavies a single Majorana c_i per site." />
-<figcaption aria-hidden="true"><span>Figure 4:</span>
-<strong>(a)</strong> The standard Kitaev model is defined on a honeycomb
-lattice. The special feature of the honeycomb lattice that makes the
-model solvable is that each vertex is joined by exactly three bonds,
-i.e. the lattice is trivalent. One of three labels is assigned to each
-<strong>(b)</strong>. We represent the antisymmetric gauge degree of
-freedom <span class="math inline">\(u_{jk} = \pm 1\)</span> with arrows
-that point in the direction <span class="math inline">\(u_{jk} =
-+1\)</span> <strong>(c)</strong>. The Majorana transformation can be
-visualised as breaking each spin into four Majoranas which then pair
-along the bonds. The pairs of x,y and z Majoranas become part of the
-classical <span class="math inline">\(\mathbb{Z}_2\)</span> gauge field
-<span class="math inline">\(u_{ij}\)</span>. This leavies a single
-Majorana <span class="math inline">\(c_i\)</span> per site.</figcaption>
-</figure>
-</div>
 <h2 id="the-majorana-hamiltonian">The Majorana Hamiltonian</h2>
 <p>We now have a quadratic Hamiltonian <span class="math display">\[
 \tilde{H} =  \frac{i}{4} \sum_{\langle i,j\rangle_\alpha} 2J^{\alpha}

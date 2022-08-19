@@ -10,13 +10,33 @@ which was a joint project of the first three authors with advice and guidance fr
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-The Kitaev Honeycomb model is remarkable because it combines three key properties.
+\begin{figure}
+\hypertarget{fig:intro_figure_by_hand}{%
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/intro/honeycomb_zoom/intro_figure_by_hand}
+\caption[The Kitaev Honeycomb Model]{\textbf{(a)} The standard Kitaev model is defined on a
+honeycomb lattice. The special feature of the honeycomb lattice that
+makes the model solvable is that each vertex is joined by exactly three
+bonds, i.e.~the lattice is trivalent. One of three labels is assigned to
+each \textbf{(b)}. We represent the antisymmetric gauge degree of
+freedom \(u_{jk} = \pm 1\) with arrows that point in the direction
+\(u_{jk} = +1\) \textbf{(c)}. The Majorana transformation can be
+visualised as breaking each spin into four Majoranas which then pair
+along the bonds. The pairs of x,y and z Majoranas become part of the
+classical \(\mathbb{Z}_2\) gauge field \(u_{ij}\). This leavies a single
+Majorana \(c_i\) per site.}\label{fig:intro_figure_by_hand}
+}
+\end{figure}
 
-First, this model is a plausible tight binding Hamiltonian. The form of the Hamiltonian could be realised by a real material. Candidate materials are known that are expected to behave according to the Kitaev with small corrections such as \(\alpha\mathrm{-RuCl}_3\) \autocite{banerjeeProximateKitaevQuantum2016,trebstKitaevMaterials2022}.
+The Kitaev Honeycomb model \[H =  - \sum_{\langle j,k\rangle_\alpha} J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha},\] is remarkable because it combines three key properties.
 
-Second, this model is deeply interesting to modern condensed matter theory. Its ground state is almost the canonical example of the long sought after quantum spin liquid state. Its excitations are anyons, particles that can only exist in two dimensions that break the normal fermion/boson dichotomy. Anyons have been the subject of much attention because, among other reasons, they can be braided through spacetime to achieve noise tolerant quantum computations \autocite{freedmanTopologicalQuantumComputation2003}.
+First, the form of the Hamiltonian plausibly be realised by a real material. Candidate materials, such as \(\alpha\mathrm{-RuCl}_3\), are known to have sufficiently strong spin-orbit coupling and the correct lattice structure to behave according to the Kitaev Honeycomb model with small corrections \autocite{banerjeeProximateKitaevQuantum2016,trebstKitaevMaterials2022}.
 
-Third, and perhaps most importantly, this model is a rare many body interacting quantum system that can be treated analytically. It is exactly solvable. We can explicitly write down its many body ground states in terms of single particle states \autocite{kitaevAnyonsExactlySolved2006}. Its solubility comes about because the model has many conserved degrees of freedom that mediate the interactions between quantum degrees of freedom.
+\textbf{expand later: Why do we need spin orbit coupling and what will the corrections be?}
+
+Second, its ground state is the canonical example of the long sought after quantum spin liquid state. Its excitations are anyons, particles that can only exist in two dimensions that break the normal fermion/boson dichotomy. Anyons have been the subject of much attention because, among other reasons, they can be braided through spacetime to achieve noise tolerant quantum computations \autocite{freedmanTopologicalQuantumComputation2003}.
+
+Third, and perhaps most importantly, this model is a rare many body interacting quantum system that can be treated analytically. It is exactly solvable. We can explicitly write down its many body ground states in terms of single particle states \autocite{kitaevAnyonsExactlySolved2006}. The solubility of the Kitaev Honeycomb Model, like the Falikov-Kimball model of chapter 1, comes about because the model has extensively many conserved degrees of freedom. These conserved quantities can be factored out as classical degrees of freedom, leaving behind a non-interacting quantum model that is easy to solve.
 
 \hypertarget{amorphous-systems}{%
 \subsection{Amorphous Systems}\label{amorphous-systems}}
@@ -29,7 +49,7 @@ It starts by expanding on the physics of the Kitaev model. It will look at the g
 
 The methods section discusses how to generate such lattices and colour them. It also explain how to map back and forth between configurations of the gauge field and configurations of the gauge invariant quantities.
 
-The results section begins by looking at the zero temperature physics. It presents numerical evidence that the ground state of the Kitaev model is given by a simple rule depending only on the number of sides of each plaquette. It assesses the gapless, Abelian and non-Abelian, phases that are present, characterising them by the presence of a gap and using local Chern markers. Next it looks at spontaneous chiral symmetry breaking and topological edge states. It also compares the zero temperature phase diagram to that of the Kitaev Honeycomb Model. Next, it takes the model to finite temperature and demonstrates that there is a phase transition to a thermal metal state.
+The results section begins by looking at the zero temperature physics. It presents numerical evidence that the ground state of the Kitaev model is given by a simple rule depending only on the number of sides of each plaquette. It assesses the gapless, Abelian and non-Abelian, phases that are present, characterising them by the presence of a gap and using local Chern markers. Next it looks at spontaneous chiral symmetry breaking and topological edge states. It also compares the zero temperature phase diagram to that of the Kitaev Honeycomb Model. Finally, we introduce flux disorder and demonstrate that there is a phase transition to a thermal metal state.
 
 The discussion considers possible physical realisations of this model and the motivations for doing so. It also discusses how a well known quantum error correcting code defined on the Kitaev Honeycomb model could be generalised to the amorphous case.
 
@@ -45,8 +65,6 @@ The discussion considers possible physical realisations of this model and the mo
   The Honeycomb model : The Kitaev Model defined on the honeycomb lattice.
 \item
   The Amorphous model : The Kitaev Model defined on the amorphous lattices described here.
-\item
-  The Hamiltonian: I will use model to refer to the underlying physics and Hamiltonian to refer to particular representations of the model.
 \end{itemize}
 
 \textbf{The Spin Hamiltonian}
@@ -193,7 +211,7 @@ number of bonds in its enclosing path.}\label{fig:regular_plaquettes}
 }
 \end{figure}
 
-Remarkably, all of the spin bond operators \(K_{ij}\) commute with all the Wilson loop operators \(W_p\). \[[W_p, J_{ij}] = 0\] We can prove this by considering three cases: 1. neither \(i\) nor \(j\) is part of the loop 2. one of \(i\) or \(j\) are part of the loop 3. both are part of the loop
+Remarkably, all of the spin bond operators \(K_{ij}\) commute with all the Wilson loop operators \(W_p\). \[[W_p, K_{ij}] = 0\] We can prove this by considering three cases: 1. neither \(i\) nor \(j\) is part of the loop 2. one of \(i\) or \(j\) are part of the loop 3. both are part of the loop
 
 The first case is trivial. The other two require some algebra, outlined in \cref{fig:visual_kitaev_2}.
 
@@ -266,25 +284,7 @@ In summary, Majorana bond operators \(u_{ij}\) are an emergent, classical, \(\ma
 
 Similarly to the story with the plaquette operators from the spin language, we can divide the Hilbert space \(\mathcal{L}\) into sectors labelled by a set of choices \(\{\pm 1\}\) for the value of each \(u_{ij}\) operator which we denote by \(\mathcal{L}_u\). Since \(u_{ij} = -u_{ji}\), we can represent the \(u_{ij}\) graphically with an arrow that points along each bond in the direction in which \(u_{ij} = 1\).
 
-Once confined to a particular \(\mathcal{L}_u\), we can `remove the hats' from the \(\hat{u}_{ij}\). The hamiltonian becomes a quadratic, free fermion problem \[\tilde{H_u} =  \frac{i}{4} \sum_{\langle i,j\rangle_\alpha} 2J^{\alpha} u_{ij} c_i c_j\] The ground state, \(|\psi_u\rangle\) can be found easily via matrix diagonalisation. At this point, we may wonder whether the \(\mathcal{L}_u\) are confined entirely within the physical subspace \(\mathcal{L}_p\) and, indeed, we will see that they are not. However, it will be helpful to first develop the theory of the Majorana Hamiltonian further.
-
-\begin{figure}
-\hypertarget{fig:intro_figure_by_hand}{%
-\centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/intro/honeycomb_zoom/intro_figure_by_hand}
-\caption[The Kitaev Honeycomb Model]{\textbf{(a)} The standard Kitaev model is defined on a
-honeycomb lattice. The special feature of the honeycomb lattice that
-makes the model solvable is that each vertex is joined by exactly three
-bonds, i.e.~the lattice is trivalent. One of three labels is assigned to
-each \textbf{(b)}. We represent the antisymmetric gauge degree of
-freedom \(u_{jk} = \pm 1\) with arrows that point in the direction
-\(u_{jk} = +1\) \textbf{(c)}. The Majorana transformation can be
-visualised as breaking each spin into four Majoranas which then pair
-along the bonds. The pairs of x,y and z Majoranas become part of the
-classical \(\mathbb{Z}_2\) gauge field \(u_{ij}\). This leavies a single
-Majorana \(c_i\) per site.}\label{fig:intro_figure_by_hand}
-}
-\end{figure}
+Once confined to a particular \(\mathcal{L}_u\), we can `remove the hats' from the \(\hat{u}_{ij}\). The hamiltonian becomes a quadratic, free fermion problem \[\tilde{H_u} =  \frac{i}{4} \sum_{\langle i,j\rangle_\alpha} 2J^{\alpha} u_{ij} c_i c_j\] The ground state, \(|\psi_u\rangle\) can be found easily as will be explained in the next part. At this point, we may wonder whether the \(\mathcal{L}_u\) are confined entirely within the physical subspace \(\mathcal{L}_p\) and, indeed, we will see that they are not. However, it will be helpful to first develop the theory of the Majorana Hamiltonian further.
 
 \hypertarget{the-majorana-hamiltonian}{%
 \subsection{The Majorana Hamiltonian}\label{the-majorana-hamiltonian}}

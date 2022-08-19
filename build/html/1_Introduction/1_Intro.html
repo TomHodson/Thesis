@@ -1,0 +1,476 @@
+---
+title: Introduction
+excerpt: Why do we do Condensed Matter theory at all?
+layout: none
+image: 
+
+---
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="description" content="Why do we do Condensed Matter theory at all?" />
+  <title>Introduction</title>
+  <!-- <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style> -->
+
+<!--   <script
+       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+       type="text/javascript"></script>
+ -->
+
+<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+   -->
+
+<script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+
+
+<!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+<![endif]-->
+<link rel="stylesheet" href="/assets/css/styles.css">
+<script src="/assets/js/index.js"></script>
+</head>
+<body>
+{% include header.html %}
+
+<main>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#outline" id="toc-outline">Outline</a></li>
+<li><a href="#interacting-quantum-many-body-systems"
+id="toc-interacting-quantum-many-body-systems">Interacting Quantum Many
+Body Systems</a></li>
+<li><a href="#mott-insulators-and-the-hubbard-model"
+id="toc-mott-insulators-and-the-hubbard-model">Mott Insulators and The
+Hubbard Model</a></li>
+<li><a href="#spin-liquids" id="toc-spin-liquids">Spin Liquids</a></li>
+<li><a href="#exactly-solvable-models"
+id="toc-exactly-solvable-models">Exactly Solvable Models</a></li>
+</ul>
+</nav>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>html</span></code></pre></div>
+<h1 id="outline">Outline</h1>
+<p>This thesis is composed of two main studies of separate but related
+physical models, The Falikov-Kimball Model and the Kitaev-Honeycomb
+Model. In this chapter I will discuss the overarching motivations for
+looking at these two physical models. I will then review the literature
+and methods that are common to both models.</p>
+<p>In Chapter 2 I will look at the Falikov-Kimball model. I will review
+what it is and why we would want to study it. I’ll survey what is
+already known about it and identify the gap in the research that we aim
+to fill, namely the model’s behaviour in one dimension. I’ll then
+introduce the modified model that we came up with to close this gap. I
+will present our results on the thermodynamic phase diagram and
+localisation properties of the model</p>
+<p>In Chapter 3 I’ll study the Kitaev Honeycomb Model, following the
+same structure as Chapter 2 I will motivate the study, survey the
+literature and identify a gap. I’ll introduce our Amorphous Kitaev Model
+designed to fill this gap and present the results.</p>
+<p>Finally in chapter 4 I will summarise the results and discuss what
+implications they have for our understanding interacting many-body
+quantum systems.</p>
+<p>One of the most interesting and perhaps surprising features of many
+body physics is the existence of distinct phases of matter.</p>
+<p>Why does liquid turn to ice? Well there are two key ingredients.
+First we need a system composed of a large number of objects and second
+we need those objects to interact with eachother.</p>
+<p>It turns out that the more objects there are, the greater the effect
+that their interactions has on the whole. A hundred <span
+class="math inline">\(H_2O\)</span> molecules can’t actually form the
+nice regular structure that characterises ice, instead you’d get more of
+a blob. However, any human scale amount of water contains an
+unimaginable huge number of molecules.</p>
+<p>Phases come about when the interactions between individuals
+components serve the reinforce</p>
+<p>When a many body, interacting system can display radically different
+properties depending on the system parameters</p>
+<p><strong>Themes</strong> - many body - interactions - quantum -
+topology - disorder</p>
+<ul>
+<li><p>quasiparticles</p></li>
+<li><p>topological order</p></li>
+<li><p>protected edge states</p></li>
+<li><p>Abelian and non-Abelian anyons</p></li>
+<li><p>localisation</p></li>
+<li><p>length scales</p></li>
+</ul>
+<h1 id="interacting-quantum-many-body-systems">Interacting Quantum Many
+Body Systems</h1>
+<p><strong>Interacting Many-Body Quantum Systems</strong></p>
+<p><em>Figure showing energy scales of interest on a log plot</em></p>
+<p>Condensed matter is called condensed because in the scheme of things
+it is the physics of objects that are quite cold. Working at high
+energies allows one to probe deeper and deeper into the substructure of
+things, from atoms to nuclei to nucleons to quarks to gluons. At one
+stage the behaviour may be well described by talking of protons and
+neutrons binding together, while at the next it is necessary to bring
+gluons and quarks into the picture.</p>
+<p>It is perhaps not surprising then, that going to lower energies
+produces the reverse effect. If we start with a gas of atoms and cool
+it, we will get a solid. In that solid, we find that the relevant
+objects are not even particles in the sense that one might imagine, they
+are instead collective motions (or excitations) of the constituent
+particles which we call quasiparticles.</p>
+<p>Sometimes it is said that quasiparticles are a bit like waves on the
+ocean. And in a sense they are, however because they live in the quantum
+realm they are far weirder and more diverse than ocean waves. Their
+quantumness gives them a distinct identity and indivisibility that waves
+do not have. They can interact both directly and, more strangely, simply
+by moving around one another.</p>
+<p>I will be looking at the behaviour of electrons in crystalline and
+amorphous materials. The ingredients that I will consider are:</p>
+<ul>
+<li>Interactions between particles</li>
+<li>Disorder or randomness in the system</li>
+<li>Symmetries of the system</li>
+<li>The dimensionality of the system</li>
+<li>Temperature</li>
+<li>While perhaps obvious, the fact of there being many bodies is itself
+a key ingredient.</li>
+</ul>
+<p>In keeping with the theme of trying to keep things simple, I will use
+the tight binding approximation of electrons moving against a fixed
+atomic background potential. I will discuss the advantages and
+disadvantages of this approximation in the next chapter but for now
+let’s say that it captures enough of the essence of reality to explain
+many physical phenomena.</p>
+<p><a href="venndiagram">Modelling reality requires three basic
+ingredients: we need quantum objects, we need a lot of them and we need
+them to interact. However these three properties taken together make for
+an almost completely intractable problem. Many approaches to modelling
+reality in condensed matter can be thought of as tackling this problem
+by going after one of these ingredients. Diagrammatic methods set
+interactions to zero and add them back in perturbatively. Mean field
+methods get rid of the many bodies. Condensed matter theorists are
+excited about ADS/CFT correspondences because the can map interacting
+quantum problems onto classical ones. The models I study in this thesis
+could be classified into this scheme as follows. The FK model model
+contains many interacting bodies but what makes it tractable is that we
+have classical species interacting with quantum ones, because the
+quantum particles never interact among one another we can still make
+progress with simulations. The Kitaev Honeycomb Model and our
+generalisations of it essentially rely on a similar trick, though in
+this case the classical degrees of freedom are emergent they still serve
+to decouple the quantum degrees of freedom from interacting with one
+another.</a></p>
+<p><strong>Spin-Orbit Coupling</strong></p>
+<p>Electronic wavefunctions can be understood as quantum extensions
+of</p>
+<p>This can be loosely understood as a consequence of that fact that
+electrons are ‘orbiting’ their host nucleus and in doing so they are
+moving with respect to an electric field generated by the positive
+charge of the nucleus. The electric field looks like a magnetic field in
+the rest frame of the electron and this magnetic field couples to the
+magnetic spin moment of the electron.</p>
+<p>This analogy is wrong on many levels but it suffices to understand
+that there should be such an effect.</p>
+<p>Going one level deeper we can estimate the scale of the effect by
+combining the non-relativistic quantum theory of a spin in a magnetic
+field with the classical relativistic electromagnetism prediction for
+how the electric field turns into a magnetic field in the rest frame of
+the electron. This gets us within a factor to two of the correct answer
+but it fails to account for an extra relativistic effect called Thomas
+Precession <strong>cite</strong>.</p>
+<p>The next level would be to compute this effect within relativistic QM
+using the Dirac equation. And finally, we could do the full calculation
+within Quantum Electrodynamics where we would find tiny corrections that
+come about from virtual processes involving particle-antiparticle pairs
+that spring form from the vacuum.</p>
+<h1 id="mott-insulators-and-the-hubbard-model">Mott Insulators and The
+Hubbard Model</h1>
+<figure>
+<img
+src="/assets/thesis/figure_code/5d575ef5-9414-4f30-a2cc-9a2b8cd44cc0.png"
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p>These are easiest to understand within the context of the Hubbard
+model, if we take spin <span class="math inline">\(1/2\)</span> fermions
+hopping on the lattice with hopping parameter <span
+class="math inline">\(t\)</span> and interaction strength <span
+class="math inline">\(U\)</span> <span class="math display">\[ H = -t
+\sum_{\langle i,j \rangle \alpha} c^\dagger_{i\alpha} c_{j\alpha} +
+\sum_i c^\dagger_{i\uparrow} c_{i\downarrow}\]</span></p>
+<p>where <span class="math inline">\(c^\dagger_{i\alpha}\)</span>
+creates a spin <span class="math inline">\(\alpha\)</span> electron at
+site <span class="math inline">\(i\)</span>. Pauli exclusion prevents
+two electrons with the same spin being at the same site so which is why
+the interaction term only couples opposite spin electrons. The only
+physically relevant parameter here is <span
+class="math inline">\(U/t\)</span> which compared the interaction
+strength <span class="math inline">\(U\)</span> to the importance of
+kinetic energy <span class="math inline">\(t\)</span>.</p>
+<p>In the free fermion limit <span class="math inline">\(U/t =
+0\)</span>, we can just find the single particle eigenstates and fill
+them up to the fermi level. The many body ground state has no particular
+electron-electron correlations.</p>
+<p>In the interacting limit, <span class="math inline">\(t/U =
+0\)</span>, there’s no hopping so electrons just site wherever we put
+them. We can fill the system up until there is one electron per site
+without any energy penalty at all. The maximum we can fill the system up
+to</p>
+<figure>
+<img
+src="/assets/thesis/figure_code/f25fb28d-4239-4184-9a9e-b6704189019d.png"
+alt="Stolen from https://arxiv.org/pdf/1701.07056.pdf" />
+<figcaption aria-hidden="true">Stolen from
+https://arxiv.org/pdf/1701.07056.pdf</figcaption>
+</figure>
+<p><strong>Condensed Matter Theory</strong></p>
+<p><a href="energy_scales">A collection of important energy scales
+plotted on a logarithmic scale. We can take room temperature somewhere
+in the middle of the plot as a reference point. Moving towards higher
+energies we’ll gradually probe deeper into the smaller and smaller
+structures of the universe, atoms, protons, quarks etc. While going to
+lower energies we move to larger and larger scales and objects made up
+of progressively more and more components.</a></p>
+<p>There’s a common joke among condensed matter physicists that the
+field is the study of dirt. I quite like this definition because within
+the average handful of dirt you’re not unlikely to find crystals,
+metals, glasses and all manner of other things that condensed matter
+physicists like to study.</p>
+<p>The second reason I like this definition is that dirt is complex. It
+has structure at many scales. It is heterogeneous and contaminated with
+traces of all manner of things. It’s dirty. When I talk about real
+physical things like this, I will use the word systems.</p>
+<p>On the other hand, we have mathematical tools at our disposal to
+describe and understand the world around us. I’ll use the word model
+whenever I am talking about these mathematical constructions that
+describe the real word.</p>
+<p>This leads one of the central tensions of condensed matter theory:
+our models are ill-equipped to deal with the complexity inherent in the
+real world. We may be able to write down a mathematical description of a
+handful of dirt, but we wouldn’t be able to solve it. And a model we
+cannot solve will not further our understanding.</p>
+<p>So what do we do? Well, we simplify. We try to ask “What are the
+essential ingredients required to model this particular phenomenon?”</p>
+<p>Answering this question lets us write down simpler models that we
+have a better chance of being able to solve. And by paring the
+description down to the bare minimum, it also gives us a better chance
+of being able to understand why these systems behave the way they
+do.</p>
+<p>I will therefore be focusing on highly simplified models of reality,
+each containing only a few ingredients. I will then investigate what
+phenomena can be observed in these models and try to relate the findings
+to more messy reality.</p>
+<h1 id="spin-liquids">Spin Liquids</h1>
+<h1 id="exactly-solvable-models">Exactly Solvable Models</h1>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+</main>
+</body>
+</html>

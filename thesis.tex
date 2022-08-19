@@ -32,30 +32,40 @@
 % \include{0_Preface/personal_contributions}
 
 \body
-% \chapter{Introduction}
-% \include{build/tex/1.1_Intro.tex}
+\chapter{Introduction}
+\include{build/latex/1_Introduction/1_Intro.tex}
 
-% \chapter{The Long-Range Falikov-Kimball Model}
-% \include{build/tex/1.1_FK_Intro.tex}
-% \include{build/tex/1.2_FK_Methods.tex}
-% \include{build/tex/1.3_FK_Results.tex}
+\chapter{Background}
+\include{build/latex/2_Background/2.1_FK_Model.tex}
+\include{build/latex/2_Background/2.2_HKM_Model.tex}
+\include{build/latex/2_Background/2.3_Disorder.tex}
 
+\chapter{The Long-Range Falikov-Kimball Model}
+% \include{build/latex/3_Long_Range_Falikov_Kimball/3.1_LRFK_Model.tex}
+% \include{build/latex/3_Long_Range_Falikov_Kimball/3.2_LRFK_Methods.tex}
+% \include{build/latex/3_Long_Range_Falikov_Kimball/3.3_LRFK_Results.tex}
 
 \chapter{The Amorphous Kitaev Honeycomb Model}
 \backgroundsetup{scale = 1, angle = 0, opacity = 0.2,
   contents = {\includegraphics[width=297mm, height=297mm]{figure_code/test.pdf}}}
 \BgThispage
-\include{build/tex/2.1_AMK_Intro}
-\include{build/tex/2.1.2_AMK_Intro}
-\include{build/tex/2.2_AMK_Methods}
-\include{build/tex/2.3_AMK_Results}
+\include{build/latex/4_Amorphous_Kitaev_Model/4.1_AMK_Model.tex}
+\include{build/latex/4_Amorphous_Kitaev_Model/4.1.2_AMK_Model.tex}
+\include{build/latex/4_Amorphous_Kitaev_Model/4.2_AMK_Methods.tex}
+\include{build/latex/4_Amorphous_Kitaev_Model/4.3_AMK_Results.tex}
 
-% \chapter{Conclusion \& Discussion}
-% \appendix
-%     \include{5_Appendices/appendices}
+\chapter{Conclusion}
+\include{build/latex/5_Conclusion/5_Conclusion.tex}
+
+\appendix
+\include{build/latex/6_Appendices/A.1_Markov_Chain_Monte_Carlo.tex}
+\include{build/latex/6_Appendices/A.2_Lattice_Generation.tex}
+\include{build/latex/6_Appendices/A.3_Lattice_Colouring.tex}
+\include{build/latex/6_Appendices/A.4_The_Projector.tex}
 
 \addcontentsline{toc}{chapter}{Bibliography}
 \printbibliography
+
 \addcontentsline{toc}{chapter}{Copyright}
 % \includepdf[pages=-]{5_Appendices/APS_copyright_permission.pdf}
 

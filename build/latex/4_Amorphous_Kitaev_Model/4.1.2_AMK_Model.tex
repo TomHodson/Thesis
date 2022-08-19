@@ -273,7 +273,7 @@ where \(p_x\;p_y\;p_z = \pm 1\) are lattice structure factors and \(\mathrm{det}
 
 \(\hat{\pi} = \prod{i}^{N} (1 - 2\hat{n}_i)\) is the parity of the particular many body state determined by fermionic occupation numbers \(n_i\). As discussed in \autocite{pedrocchiPhysicalSolutionsKitaev2011b}, \(\hat{\pi}\) is gauge invariant in the sense that \([\hat{\pi}, D_i] = 0\).
 
-This implies that \(det(Q^u) \prod -i u_{ij}\) is also a gauge invariant quantity. In translation invariant models this quantity which can be related to the parity of the number of vortex pairs in the system \autocite{yaoAlgebraicSpinLiquid2009}. I am unsure if this is true for the amorphous case.
+This implies that \(det(Q^u) \prod -i u_{ij}\) is also a gauge invariant quantity. In translation invariant models this quantity which can be related to the parity of the number of vortex pairs in the system \autocite{yaoAlgebraicSpinLiquid2009}.
 
 All these factors take values \(\pm 1\) so \(\mathcal{P}_0\) is 0 or 1 for a particular state. Since \(\mathcal{S}\) corresponds to symmetrising over all the gauge configurations and cannot be 0, once we have determined the single particle eigenstates of a bond sector, the true many body ground state has the same energy as either the empty state with \(n_i = 0\) or a state with a single fermion in the lowest level.
 
@@ -296,9 +296,9 @@ again.}\label{fig:loops_and_dual_loops}
 }
 \end{figure}
 
-More general arguments\autocite{chungExplicitMonodromyMoore2007,oshikawaTopologicalDegeneracyNonAbelian2007} imply that \(det(Q^u) \prod -i u_{ij}\) has an interesting relationship to the topological fluxes. In the non-Abelian phase, we expect that it will change sign in exactly one of the four topological sectors.
+More general arguments \autocite{chungExplicitMonodromyMoore2007,oshikawaTopologicalDegeneracyNonAbelian2007} imply that \(det(Q^u) \prod -i u_{ij}\) has an interesting relationship to the topological fluxes. In the non-Abelian phase, we expect that it will change sign in exactly one of the four topological sectors.
 
-This means that the lowest state in three of the topological sectors contain no fermions, while in one of them there must be one fermion to preserve product of fermion vortex parity. So overall the non-Abelian model has a three-fold degenerate ground state rather than the fourfold of the Abelian case (and of my intuition!). In the Abelian phase, this does not happen and we get a fourfold degenerate ground state. Whether this analysis generalises to the amorphous case is unclear.
+This means that the lowest state in three of the topological sectors contain no fermions, while in one of them there must be one fermion to preserve product of fermion vortex parity. So overall the non-Abelian model has a three-fold degenerate ground state rather than the fourfold of the Abelian case (and of my intuition!). In the Abelian phase, this does not happen and we get a fourfold degenerate ground state. \textbf{Whether this analysis generalises to the amorphous case is unclear.}
 
 An alternative way to view this is to imagine we start in one state of the ground state manifold. We then attempt to construct other ground states by creating vortex pairs, transporting one vortex around one or both non-contractible loops and then annihilating them. This works for either of the two non-contractible loops but when we try to do it for \emph{both} something strange happens. When we transport a vortex around \textbf{both} the major and minor axes of the torus this changes its fusion channel. Normally two vortices fuse to the vacuum but after this operation they fuse into a fermion excitation. And hence our attempt to construct that last ground state doesn't yield a ground state at all, leaving us with just three.
 
@@ -350,7 +350,7 @@ Powers of adjacency matrices have the property that the entry \((g^n)_{ij}\) cor
 
 Therefore, the trace of an adjacency matrix \[\mathrm{Tr}(g^n) = \sum_i (g^n)_{ii}\] counts the number of loops of size \(n\) that can be drawn on the graph.
 
-Applying the same treatment to our Majorana Hamiltonian, we can interpret \(u_ij\) to equal 0 if the two sites are not joined by a bond and we put ourselves in the isotropic phase where \(J^\alpha = 1\) \[ \tilde{H}_{ij} =  \tfrac{1}{2} i u_{ij}\]
+Applying the same treatment to our Majorana Hamiltonian, we can interpret \(u_{ij}\) to equal 0 if the two sites are not joined by a bond and we put ourselves in the isotropic phase where \(J^\alpha = 1\) \[ \tilde{H}_{ij} =  \tfrac{1}{2} i u_{ij}\]
 
 We then see that the trace of the nth power of H is a sum over Wilson loops of size \(n\) with an additional factor of \(2^{-n}\). We showed earlier that the Wilson loop operators can always be written as products of the plaquette operators that they enclose.
 
@@ -358,7 +358,7 @@ Lumping all the prefactors together, we will get something schematically like: \
 
 Where the \(c\) factors would be something like \[c_{ijk...} = \sum_n \tfrac{(-\beta)^n}{n!} \tfrac{1}{2^n} K_{ijk...}\] This is a sum over all loop lengths \(n\) with, for each, a combinatorial factor \(K_{ijk...}\) that counts how many ways exist to draw a loop of length \(n\) that only encloses plaquettes \(ijk...\).
 
-We also have the pesky topological fluxes \(Phi_x\) and \(\Phi_y\). Again, the prefactors for these are very complicated. However, we can intuitively see that for larger and larger loops lengths, there will be a combinatorial explosion of possible ways that they appear in these sums. We know that explosion will be suppressed exponentially for sufficiently large system sizes but for practical lattices they cause significant finite size effects.
+We also have the pesky topological fluxes \(\Phi_x\) and \(\Phi_y\). Again, the prefactors for these are very complicated. However, we can intuitively see that for larger and larger loops lengths, there will be a combinatorial explosion of possible ways that they appear in these sums. We know that explosion will be suppressed exponentially for sufficiently large system sizes but for practical lattices they cause significant finite size effects.
 
 We do not have much hope of actually evaluating this for an amorphous lattice. However, we can guess that the ground state vortex sector might be a simple function of the side length of each plaquette.
 

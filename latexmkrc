@@ -7,11 +7,11 @@ $ENV{'BSTINPUTS'}='./bst//:' . $ENV{'BSTINPUTS'};
 # Post processing of pdf file #
 ###############################
 
-# assume the jobname is 'output' for sharelatex
-my $ORIG_PDF_AGE = -M "output.pdf"; # get age of existing pdf if present
+# assume the jobname is 'thesis' for sharelatex
+my $ORIG_PDF_AGE = -M "thesis.pdf"; # get age of existing pdf if present
 
 END {
-    my $NEW_PDF_AGE = -M "output.pdf";
+    my $NEW_PDF_AGE = -M "thesis.pdf";
     return if !defined($NEW_PDF_AGE); # bail out if no pdf file
     return if defined($ORIG_PDF_AGE) && $NEW_PDF_AGE == $ORIG_PDF_AGE; # bail out if pdf was not updated
     $qpdf //= "/usr/local/bin/qpdf";
@@ -19,13 +19,13 @@ END {
     return if ! -x $qpdf; # check that qpdf exists
     $qpdf_opts //= "--linearize --newline-before-endstream";
     $qpdf_opts = $ENV{QPDF_OPTS} if defined($ENV{QPDF_OPTS});
-    my $status = system($qpdf, split(' ', $qpdf_opts), "output.pdf", "output.pdf.opt");
+    my $status = system($qpdf, split(' ', $qpdf_opts), "thesis.pdf", "thesis.pdf.opt");
     my $exitcode = ($status >> 8);
     print "qpdf exit code=$exitcode\n";
-    # qpdf returns 0 for success, 3 for warnings (output pdf still created)
+    # qpdf returns 0 for success, 3 for warnings (thesis pdf still created)
     return if !($exitcode == 0 || $exitcode == 3);
-    print "Renaming optimised file to output.pdf\n";
-    rename("output.pdf.opt", "output.pdf");
+    print "Renaming optimised file to thesis.pdf\n";
+    rename("thesis.pdf.opt", "thesis.pdf");
 }
 
 ##############
@@ -137,7 +137,7 @@ sub mpost {
 ##########
 # chktex #
 ##########
-unlink 'output.chktex' if -f 'output.chktex';
+unlink 'thesis.chktex' if -f 'thesis.chktex';
 if (defined $ENV{'CHKTEX_OPTIONS'}) {
     use File::Basename;
     use Cwd;
@@ -161,8 +161,8 @@ if (defined $ENV{'CHKTEX_OPTIONS'}) {
 
         if ($ENV{'CHKTEX_EXIT_ON_ERROR'} || $ENV{'CHKTEX_VALIDATE'}) {
             # chktex doesn't let us access the error info via exit status
-            # so look through the output
-            open(my $fh, "<", "output.chktex");
+            # so look through the thesis
+            open(my $fh, "<", "thesis.chktex");
             my $errors = 0;
             {
                 local $/ = "\n";

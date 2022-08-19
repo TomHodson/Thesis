@@ -1,5 +1,5 @@
 \hypertarget{contributions}{%
-\section{Contributions}\label{contributions}}
+\subsection{Contributions}\label{contributions}}
 
 This material is this chapter expands on work presented in
 
@@ -7,13 +7,33 @@ This material is this chapter expands on work presented in
 
 Johannes had the initial idea to use a long range Ising term to stablise order in a one dimension Falikov-Kimball model. Josef developed a proof of concept during a summer project at Imperial. The three of us brought the project to fruition.
 
-\hypertarget{summary}{%
-\subsection{Summary}\label{summary}}
+\hypertarget{chapter-summary}{%
+\subsection{Chapter Summary}\label{chapter-summary}}
 
 To evaluate thermodynamic averages we perform a classical Markov Chain Monte Carlo random walk over the space of ionic configurations, at each step diagonalising the effective electronic Hamiltonian \textcite{maskaThermodynamicsTwodimensionalFalicovKimball2006}\}. Using a binder-cumulant method \autocite{binderFiniteSizeScaling1981,musialMonteCarloSimulations2002}, we demonstrate the model has a finite temperature phase transition when the interaction is sufficiently long ranged. We then estimate the density of states and the inverse participation ratio as a function of energy to diagnose localisation properties. We show preliminary results that the in-gap states induced at finite temperature are localised while the states in the unperturbed bands remain extended, evidence for a mobility edge.
 
-\hypertarget{introduction}{%
-\section{Introduction}\label{introduction}}
+Despite its simplicity, the FK model has a rich phase diagram in \(D \geq 2\) dimensions. For example, it shows an interaction-induced gap opening even at high temperatures, similar to the corresponding Hubbard Model~\autocite{brandtThermodynamicsCorrelationFunctions1989}. In 1D, the ground state phenomenology as a function of filling can be rich~\autocite{gruberGroundStatesSpinless1990} but the system is disordered for all \(T > 0\)~\autocite{kennedyItinerantElectronModel1986}. Moreover, the model has been a test-bed for many-body methods, interest took off when an exact DMFT solution in the infinite dimensional case was found~\autocite{antipovCriticalExponentsStrongly2014,ribicNonlocalCorrelationsSpectral2016,freericksExactDynamicalMeanfield2003,herrmannNonequilibriumDynamicalCluster2016}.
+
+\hypertarget{the-model}{%
+\section{The Model}\label{the-model}}
+
+The Falikov-Kimball (FK) model \[\begin{aligned}
+H_{\mathrm{FK}} = & \;U \sum_{i} S_i\;(c^\dagger_{i}c_{i} - \tfrac{1}{2}) -\;t \sum_{i} (c^\dagger_{i}c_{i+1} + \textit{h.c.)}\\ 
+\end{aligned}\] is one of the simplest models of the correlated electron problem. It captures the essence of the interaction between itinerant \(c_i\) and localized electrons, equivalent to a model of hopping fermions coupled to a classical Ising field \(S_i = \pm 1\). It was originally introduced to explain the metal-insulator transition in f-electron systems but in its long history it has been interpreted variously as a model of electrons and ions, binary alloys or of crystal formation~\autocite{hubbardj.ElectronCorrelationsNarrow1963,falicovSimpleModelSemiconductorMetal1969,gruberFalicovKimballModelReview1996,gruberFalicovKimballModel2006}.
+
+One can look to the references above to see why one might write the FK Model down directly. Here, in order to motivate the connection to exactly solvable models, I will explain how the Falikov-Kimball model is a particular limit of the Hubbard Model \[\begin{aligned}
+H_{\mathrm{H}} = & \;U \sum_{i} n_{i\downarrow} n_{i\uparrow} -\;t \sum_{i\alpha} c^\dagger_{i,\alpha}c_{i+1,\alpha} + \mu \sum_{i\alpha} n_{i\alpha} + \textit{h.c.} \\ 
+\end{aligned}\]
+
+The Hubbard model is one of interacting spin-\(\tfrac{1}{2}\) electrons hopping on a lattice. It has been the subject of intense study for many years but, as an interacting many body quantum system, analytic handles on it are few and far between. There is still much we don't know about the Hubbard Model.
+
+Usually the Hubbard model is written with equal hopping for the two spins states \(t_\uparrow = t_\downarrow\) have included a spin dependent hopping term \(t_\alpha\)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{localisation}{%
 \subsection{Localisation}\label{localisation}}
@@ -250,10 +270,8 @@ lets cite Figure \ref{fig:binder}
 
 lets cite to person \textcite{trebstKitaevMaterials2022}. and then multple \autocite{banerjeeProximateKitaevQuantum2016,trebstKitaevMaterials2022}. what is we surround it by spaces? \textcite{trebstKitaevMaterials2022}
 
-\hypertarget{introduction-1}{%
-\section{Introduction}\label{introduction-1}}
-
-The FK model is one of the simplest models of the correlated electron problem. It captures the essence of the interaction between itinerant and localized electrons, equivalent to a model of hopping fermions coupled to a classical Ising field. It was originally introduced to explain the metal-insulator transition in f-electron systems but in its long history it has been interpreted variously as a model of electrons and ions, binary alloys or of crystal formation~\autocite{hubbardj.ElectronCorrelationsNarrow1963,falicovSimpleModelSemiconductorMetal1969,gruberFalicovKimballModelReview1996,gruberFalicovKimballModel2006}. Despite its simplicity, the FK model has a rich phase diagram in \(D \geq 2\) dimensions. For example, it shows an interaction-induced gap opening even at high temperatures, similar to the corresponding Hubbard Model~\autocite{brandtThermodynamicsCorrelationFunctions1989}. In 1D, the ground state phenomenology as a function of filling can be rich~\autocite{gruberGroundStatesSpinless1990} but the system is disordered for all \(T > 0\)~\autocite{kennedyItinerantElectronModel1986}. Moreover, the model has been a test-bed for many-body methods, interest took off when an exact DMFT solution in the infinite dimensional case was found~\autocite{antipovCriticalExponentsStrongly2014,ribicNonlocalCorrelationsSpectral2016,freericksExactDynamicalMeanfield2003,herrmannNonequilibriumDynamicalCluster2016}.
+\hypertarget{introduction}{%
+\subsection{Introduction}\label{introduction}}
 
 The presence of the classical field makes the model amenable to an exact numerical treatment at finite temperature via a sign problem free MCMC algorithm~\autocite{devriesGapsDensitiesStates1993,devriesSimplifiedHubbardModel1993,antipovInteractionTunedAndersonMott2016,debskiPossibilityDetectionFinite2016,herrmannSpreadingCorrelationsFalicovKimball2018,maskaThermodynamicsTwodimensionalFalicovKimball2006}. The MCMC treatment motivates a view of the classical background field as a disorder potential, which suggests an intimate link to localisation physics. Indeed, thermal fluctuations of the classical sector act as disorder potentials drawn from a thermal distribution and the emergence of disorder in a translationally invariant Hamiltonian links the FK model to recent interest in disorder-free localisation~\autocite{smithDisorderFreeLocalization2017,smithDynamicalLocalizationMathbbZ2018,brenesManyBodyLocalizationDynamics2018}.
 
@@ -264,7 +282,7 @@ Here, we construct a generalised one-dimensional FK model with long-range intera
 The paper is organised as follows. First, we introduce the model and present its phase diagram. Second, we present the methods used to solve it numerically. Last, we investigate the model's localisation properties and conclude.
 
 \hypertarget{the-long-ranged-falikov-kimball-model}{%
-\section{The Long-Ranged Falikov-Kimball Model}\label{the-long-ranged-falikov-kimball-model}}
+\subsection{The Long-Ranged Falikov-Kimball Model}\label{the-long-ranged-falikov-kimball-model}}
 
 We interpret the FK model as a model of spinless fermions, \(c^\dag_{i}\), hopping on a 1D lattice against a classical Ising spin background, \(S_i \in {\pm \frac{1}{2}}\). The fermions couple to the spins via an onsite interaction with strength \(U\) which we supplement by a long-range interaction, \(J_{ij} = 4\kappa J (-1)^{\abs{i-j}} \abs{i-j}^{-\alpha}\), between the spins. The normalisation, \(\kappa^{-1} = \sum_{i=1}^{N} i^{-\alpha}\), renders the 0th order mean field critical temperature independent of system size. The hopping strength of the electrons, \(t = 1\), sets the overall energy scale and we concentrate throughout on the particle-hole symmetric point at zero chemical potential and half filling~\autocite{gruberFalicovKimballModelReview1996}. ~ \[\begin{aligned}
 H_{\mathrm{FK}} = & \;U \sum_{i} S_i\;(c^\dag_{i}c_{i} - \tfrac{1}{2}) -\;t \sum_{i} (c^\dag_{i}c_{i+1} + \textit{h.c.)}\\ 
@@ -276,6 +294,57 @@ In two or more dimensions, the \(J\!=0\!\) FK model has a FTPT to the CDW phase 
 Taking the limit \(U = 0\) decouples the spins from the fermions, which gives a spin sector governed by a classical LRI model. Note, the transformation of the spins \(S_i \to (-1)^{i} S_i\) maps the AFM model to the FM one. We recall that Peierls' classic argument can be extended to show that, for the 1D LRI model, a power law decay of \(\alpha < 2\) is required for a FTPT as the energy of defect domain then scales with the system size and can overcome the entropic contribution. A renormalisation group analysis supports this finding and shows that the critical exponents are only universal for \(\alpha \leq 3/2\)~\autocite{ruelleStatisticalMechanicsOnedimensional1968,thoulessLongRangeOrderOneDimensional1969,angeliniRelationsShortrangeLongrange2014}. In the following, we choose \(\alpha = 5/4\) to avoid this additional complexity.
 
 To improve the scaling of finite size effects, we make the replacement \(\abs{i - j}^{-\alpha} \rightarrow \abs{f(i - j)}^{-\alpha}\), in both \(J_{ij}\) and \(\kappa\), where \(f(x) = \frac{N}{\pi}\sin \frac{\pi x}{N}\), which is smooth across the circular boundary~\autocite{fukuiOrderNClusterMonte2009}. We only consider even system sizes given that odd system sizes are not commensurate with a CDW state.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{introduction-and-motivation}{%
+\subsection{Introduction and Motivation}\label{introduction-and-motivation}}
+
+In this chapter I will introduce an extension of the celebrated Falikov-Kimball (FK) model. The FK model is a tight binding hamiltonian that models the interaction between two different species of particle. It makes the key approximation that one of the species has no quantum character at all, which makes it more tractable than a generic interacting many-body hamiltonian.
+
+Though the FK model is possibly one of the simplest lattice models you could think up, there is much that is still unknown about it. I will review what had already been learned about the model and identify gaps in the literature.
+
+I will then introduce an extension of the model that allows us to bring phenomena observed in the 2 and 3D FK model down to one dimension where the interplay of dimensionality, localisation and disorder can be explored.
+
+Next I will discuss how the Markov Chain Monte Carlo method introduced in can be applied to our Long-Range FK model.
+
+Finally I will present my results on the Long-Range FK model.
+
+\hypertarget{literature-review}{%
+\subsection{Literature Review}\label{literature-review}}
+
+\hypertarget{the-falikov-kimball-model-1}{%
+\subsection{The Falikov-Kimball model}\label{the-falikov-kimball-model-1}}
+
+Historically, a lot of progress was made in condensed matter with the band theory of solids. This theory models the interaction between a single electron and the ionic lattice but it neglects interactions between electrons. From band theory we get the concept of a valence band, a set of occupied electronic states, and a conduction band just above it, containing unoccupied states. Systems are predicted to be insulators when there is a large energy gap between the valence and conduction band and to be conductors when the gap is less that the thermal energy scale \(k_bT\). In many systems band theory is enough to make good predictions about electrical, mechanical and thermal properties~\autocite{neilw.ashcroftSolidStatePhysics1976}.
+
+Later, the development of Landau Fermi Liquid theory explained why band theory works so well even in cases where an analysis of the relevant energies suggests that it should not~\autocite{wenQuantumFieldTheory2007}. Landau Fermi Liquid theory demonstrates that in many cases where electron-electron interactions are significant, the system can still be described in terms on generalised non-interacting quasiparticles.
+
+However there are systems where even Landau Fermi Liquid theory fails. An effective theoretical description of these systems must include electron-electron correlations and they are thus called Strongly Correlated Materials~\autocite{morosanStronglyCorrelatedMaterials2012}, Correlated Electron systems or Quantum Materials. The canonical class of strongly correlated materials are the transition metal oxides.
+
+The transition metal oxides have half filled valence bands and hence are predicted to be electrically conductive by band theory. Experimentally they are of course found to be insulators, leading Mott and others in 1937 to suggest that their insulating character is caused by coulomb repulsion between electrons opening an energy gap that prevents conduction~\autocite{mottDiscussionPaperBoer1937}.
+
+However a firmer theoretical description of the Mott-transition had to wait until 1963 when Martin Gutzwiller~\autocite{gutzwillerEffectCorrelationFerromagnetism1963}, Junjiro Kanamori~\autocite{kanamoriElectronCorrelationFerromagnetism1963} and John Hubbard~\autocite{hubbardj.ElectronCorrelationsNarrow1963} independently proposed what would become known as the Hubbard Model.
+
+The Hubbard Model is about the simplest interacting tight-binding hamiltonian that could be written down. It is a tight binding model of spin half electrons with finite bandwidth \(t\) and a repulsive on-site interaction \(U > 0\). \[H = -t\sum_{<ij>}c^\dag_{i\sigma}c_{j\sigma} + U \sum_{i} (n_{i \uparrow} - 1/2)( n_{i\downarrow} - 1/2) - \mu \sum_i \left( n_{i \uparrow} + n_{i \downarrow} \right).\] Where as usual \(n_{i \sigma} = c^\dag_{i\sigma}c_{i\sigma}\) is the number operator. I'm using the particle-hole symmetric version of the interaction term which would otherwise be written as \(n_{i \uparrow} n_{i\downarrow}\). The difference just amounts to a redefinition of the chemical potential.
+
+While it was originally used to explain the Mott metal-insulator transition, the Hubbard Model has seen applications to high-temperature superconductivity and become the target for cold-atom optical trap experiments~\autocite{noauthor_hubbard_2013,greiner_quantum_2002,jordens_mott_2008}. Only a few analytic results exist, namely the Bethe ansatz \autocite{lieb_absence_1968} which proves the absence of even a zero temperature phase transition in the 1D model and Nagaoka's theorem \autocite{nagaoka_ferromagnetism_1966} which proves that the three dimensional model has a ferromagnetic ground state in the vicinity of half filling.
+
+A full theoretical treatment of the Hubbard Model remains elusive because it is an interacting quantum many-body system. Together these three properties make for a formidable theoretical challenge. It is for this reason that many approaches within condensed matter theory today can be interpreted as relaxing one of these three properties. While this may limit the applicability of these new models, they can still yield useful insights.
+
+Let's start with interactions, if we remove them entirely we end up back with band theory. If we make the interactions small we're now able to use perturbative methods to take the interactions into account. This is what is done in
+
+If we instead relax the requirement that the system be many-body we could say try direct simulations of small numbers of particles.
+
+Finally we can think about relaxing the requirement that the system be quantum. In the extreme case we could make the system entirely classical and be left with something like the Ising Model. However, there's another option that still yields something more tractable than the Hubbard Model. The trick is that interactions are only problematic if they are between quantum particles. Interactions between a quantum particle and a classical one are much easier to deal with. Now note that in the Hubbard model, electrons with the same spin are prevented from occupying the same site by the Pauli Exclusion Principle so the interactions are only ever between electrons of opposite spin. Now if we imagine splitting the spin half electron into two species and making one of them classsical we arrive directly at the Falikov-Kimball Model:
+
+The Falikov-Kimball (FK) model is one of the simplest models of the correlated electron problem. It captures the essence of the interaction between itinerant and localized electrons. More plainly, between electons that can move and those that can't.
+
+Particle hole symmetry
 
 \begin{Shaded}
 \begin{Highlighting}[]

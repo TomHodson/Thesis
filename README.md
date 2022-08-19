@@ -1,3 +1,34 @@
+# Building
+The current build process is labrinthine and I regret it somewhat, but it works. It's broken down into a series of steps:
+
+## Jupyter Notebooks -> Markdown
+Config files: dodo.py:task_markdown, pandoc/figure_to_markdown.py
+Uses NbConvert to convert notebooks to markdown.
+figure_to_markdown.py converts `<figure>` tags to markdown images and parses a bunch of metadata from the figure tags 
+```html
+<figure>
+<img src="src" style="max-width:700px;" title="title">
+<figcaption>
+Caption
+</figcaption>
+</figure>
+```
+giving output in the form:
+```markdown
+![alt_text](src)(href){#fig:label  width=100% short-caption="title"}
+```
+I use html `<figure>` tags in Jupyter rather than plain markdown image tags because it allows me to preview the captions and center them with css.
+
+## Markdown -> HTML
+Config files: dodo.py:task_html, pandoc/markdown_to_html.yml pandoc/html_filter.py
+For a jekyll website version. 
+html_filter fixes the relative image links.
+
+## Markdown -> Latex 
+Config files: dodo.py:task_latex, pandoc/markdown_to_latex.yml pandoc/latex_filter.py pandoc/latex_short_caption.lua
+For the PDF version
+latex_filter sorts out image paths and adds "Animated version online" to images that have a gif version.
+latex_short_caption.lua allows the title from markdown tags that look like `[alt_text](src){short-caption="title" extra = metadata}` to be incorporated into latex figures using `\caption[title]{alt_text}`
 
 ## Doing compilation locally
 Once:

@@ -8,9 +8,6 @@ import logging
 upto_level = 2 #show headings up to level 2
 output_type = "html"
 
-files = Path("./build/markdown/").glob("*.md")
-files = sorted(files)
-
 def html_heading(current_level, level, heading, url):
     if level > current_level:
         print("  "*level + "<ul>" * (level - current_level))
@@ -26,37 +23,40 @@ def markdown_heading(current_level, level, heading, url):
     return current_level
 
 base = Path("./build/markdown")
-chapters = [dict(
+chapters = [
+    dict(
     name = "Introduction",
-    contents = [
-        "0.1_Intro",
-    ]),
+    contents = "1_Introduction"
+    ),
     dict(
-    name = "Chapter 1: The Long Range Falikov-Kimball Model",
-    contents = [
-        "1.1_FK_Intro",
-    ]),
+    name = "Background",
+    contents = "2_Background"
+    ),
     dict(
-    name = "Chapter 2: The Amorphous Kitaev Model",
-    contents = [
-        "2.1_AMK_Intro",
-        "2.1.2_AMK_Intro",
-        "2.2_AMK_Methods",
-        "2.3_AMK_Results",
-    ]),
+    name = "Chapter 3: The Long Range Falikov-Kimball Model",
+    contents = "3_Long_Range_Falikov_Kimball"
+    ),
+    dict(
+    name = "Chapter 4: The Amorphous Kitaev Model",
+    contents = "4_Amorphous_Kitaev_Model",
+    ),
     dict(
     name = "Conclusion",
-    contents = [
-        "3.1_Conclusion",
-    ]),
+    contents = "5_Conclusion",
+    ),
+    dict(
+    name = "Appendices",
+    contents = "6_Appendices",
+    )
 ]
 
 current_level = 0
 for chapter in chapters:
     current_level = html_heading(current_level, 1, heading=chapter["name"], url = None)
-    for filename in chapter["contents"]:
-        filepath = base / (filename + ".md")
-        
+    chapter_filename = base / chapter["contents"]
+    chapter_files = sorted(chapter_filename.glob("*.md"))
+    
+    for filepath in chapter_files:        
         with open(filepath, 'r') as f:
             for i, line in enumerate(f):
                 if line.startswith('#'):
@@ -66,7 +66,7 @@ for chapter in chapters:
                         if level > upto_level: continue # Skip anything lower than this
 
                         heading = heading.strip()
-                        file_url = (filename + ".html")
+                        file_url = filepath.parent.relative_to(base) / (filepath.stem + ".html")
                         url_id = heading.lower().replace(" ", "-")
                         url = f"./{file_url}#{url_id}"
                         
