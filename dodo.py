@@ -28,7 +28,7 @@ def task_markdown():
             targets = [target,],
             actions = [
                 f'jupyter nbconvert --TagRemovePreprocessor.remove_cell_tags=\'{"remove_cell"}\' --to markdown "{f}" --output-dir={target.parent} --output "{target.name}"',
-                f'pandoc/figure_to_markdown_tag.py --input "{target}" --output "{target}"'
+                f'python pandoc/figure_to_markdown_tag.py --input "{target}" --output "{target}"'
                 ],
         )
 
@@ -36,8 +36,7 @@ def task_json():
     "convert .md files to json using pandoc"
     pandoc_config = 'pandoc/markdown_to_tex.yml'
     latex_filter = 'pandoc/latex_filter.py'
-    latex_filter_figure = 'pandoc/latex_filter_figure.py'
-    code_dependencies = [pandoc_config, latex_filter, latex_filter_figure]
+    code_dependencies = [pandoc_config, latex_filter]
     inputs = Path("./").glob("./build/markdown/*.md")
     for f in inputs:
         target = Path("./build/json") / (f.stem + ".json")
@@ -52,8 +51,7 @@ def task_latex():
     "convert .md files to .tex files using pandoc"
     pandoc_config = 'pandoc/markdown_to_tex.yml'
     latex_filter = 'pandoc/latex_filter.py'
-    latex_filter_figure = 'pandoc/latex_filter_figure.py'
-    code_dependencies = [pandoc_config, latex_filter, latex_filter_figure]
+    code_dependencies = [pandoc_config, latex_filter]
     markdown_files = Path("./").glob("./build/markdown/*.md")
     for f in markdown_files:
         target = Path("./build/tex") / (f.stem + ".tex")
@@ -91,7 +89,7 @@ def task_toc():
     return dict(
         file_dep = [script,] + list(markdown_files),
         targets = [target,],
-        actions = [f'./{script} > "{target}"',],
+        actions = [f'python ./{script} > "{target}"',],
     )
 def task_copy_html():
     yield dict(
@@ -115,16 +113,17 @@ def task_copy_html():
 
 def task_pdf():
     'compile the pdf output using latexmk'
-    latex_files = list(Path("./").glob("*/*.tex"))
+    static_latex_files = [Path("./thesis.preamble.tex"), Path("./thesis.tex")]
+    built_latex_files = list(Path("./").glob("./build/tex/*.tex"))
     t = 'thesis'
     jobname = Path("./build/pdf/thesis")
     return dict(
-        file_dep = ['pandoc/markdown_to_tex.yml',] + latex_files,
+        file_dep = ['pandoc/markdown_to_tex.yml',] + static_latex_files + built_latex_files,
         targets = ['{t}.pdf'],
-        actions = [f'latexmk -pdf -f -shell-escape -interaction=nonstopmode -jobname="{jobname}" {t}.tex',
+        actions = [f'latexmk -pdf -f -file-line-error -shell-escape -interaction=nonstopmode -jobname="{jobname}" {t}.tex',
                    f'rm -f {t}.aux {t}.bbl {t}.blg {t}.fdb_latexmk {t}.fls {t}.lof {t}.log {t}.lot {t}.out'
         ],
-        verbosity = 0,
+        # verbosity = 0,
     )
 
 def task_cleanup():

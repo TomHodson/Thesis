@@ -29,6 +29,8 @@ for a in tags:
     style = a.img.get('style', 'max-width:700px;')
     style = dict([l.split(':') for l in style.split(";") if l])
 
+    title = a.img.get("title", "no title")
+
     width = style.get('max-width', "700px")
     if width.endswith("px"):
         width = int(width[:-2]) / 700 * 100
@@ -36,7 +38,7 @@ for a in tags:
     else:
         width = "100%"
     
-    extra_info_string = f"{tag_id} {tag_class} width={width}".strip()
+    extra_info_string = f'{tag_id} {tag_class} width={width} short-caption="{title}"'.strip()
 
     markdown_tag = f'![{caption}]({src})'
     if extra_info_string: markdown_tag += f'{{{extra_info_string}}}'

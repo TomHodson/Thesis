@@ -8,9 +8,18 @@
 		},
 		{
 			"path": "../tomhodson.github.com"
+		},
+		{
+			"path": "../ReCoDE_MCMCFF"
 		}
 	],
 	"settings": {
-		"makefile.extensionOutputFolder": "./.vscode"
+		"makefile.extensionOutputFolder": "./.vscode",
+		"cSpell.words": [
+			"breakatwhitespace",
+			"eqnarray",
+			"Falikov",
+			"MCMC"
+		]
 	}
 }

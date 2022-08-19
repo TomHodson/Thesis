@@ -12,6 +12,7 @@ filters:
   # - ${.}/latex_filter_figure.py
   - ${.}/latex_filter.py
   - pandoc-xnos
+  - ${.}/latex_short_caption.lua
 
 # top-level-division: chapter
 
@@ -20,8 +21,12 @@ cite-method: biblatex
 
 number-sections: true
 
+# set fignos to only emit critical warnings not all (the default is 2)
+metadata:
+  fignos-warning-level: 1
+
 # # copy all images over to pandoc/figs/...
 # extract-media: ${.}/figs
 
-# when images don't have an extension, assume svg
-default-image-extension: pdf
+# when images don't have an extension, assume this one
+# default-image-extension: pdf

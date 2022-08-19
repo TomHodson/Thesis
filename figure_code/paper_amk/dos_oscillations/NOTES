@@ -1,0 +1,8 @@
+magnetic field Hamiltonian was probably wrong for the HLM
+
+we don't need magnetic field results for amorphous
+maybe don't need field free results for HLM?
+
+Might want to just compare magnetic field HLM + no field amo
+and we can implement the magnetic field term for HLM by hand
+to ensure it is correct.

@@ -20,7 +20,7 @@ def action(elem, doc):
             src = new_base / name
 
         if img.url.endswith(".svg") or img.url.endswith(".gif"):
-            src = src.parent / (src.stem + ".pdf")
+            src = src.parent / src.stem
         
         if img.url.endswith(".gif"):
             url = f"http://thomashodson.com/assets/thesis/{Path(img.url).relative_to(base)}"

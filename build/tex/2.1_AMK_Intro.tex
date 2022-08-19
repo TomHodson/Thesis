@@ -14,9 +14,9 @@ The Kitaev Honeycomb model is remarkable because it combines three key propertie
 
 First, this model is a plausible tight binding Hamiltonian. The form of the Hamiltonian could be realised by a real material. Candidate materials are known that are expected to behave according to the Kitaev with small corrections such as \(\alpha\mathrm{-RuCl}_3\) \autocite{banerjeeProximateKitaevQuantum2016,trebstKitaevMaterials2022}.
 
-Second, this model is deeply interesting to modern condensed matter theory. Its ground state is almost the canonical example of the long sought after quantum spin liquid state. Its excitations are anyons, particles that can only exist in two dimensions that break the normal fermion/boson dichotomy. Anyons have been the subject of much attention because, among other reasons, they can be braided through spacetime to achieve noise tolerant quantum computations \textcite{freedmanTopologicalQuantumComputation2003}.
+Second, this model is deeply interesting to modern condensed matter theory. Its ground state is almost the canonical example of the long sought after quantum spin liquid state. Its excitations are anyons, particles that can only exist in two dimensions that break the normal fermion/boson dichotomy. Anyons have been the subject of much attention because, among other reasons, they can be braided through spacetime to achieve noise tolerant quantum computations \autocite{freedmanTopologicalQuantumComputation2003}.
 
-Third, and perhaps most importantly, this model is a rare many body interacting quantum system that can be treated analytically. It is exactly solvable. We can explicitly write down its many body ground states in terms of single particle states \textcite{kitaevAnyonsExactlySolved2006}. Its solubility comes about because the model has many conserved degrees of freedom that mediate the interactions between quantum degrees of freedom.
+Third, and perhaps most importantly, this model is a rare many body interacting quantum system that can be treated analytically. It is exactly solvable. We can explicitly write down its many body ground states in terms of single particle states \autocite{kitaevAnyonsExactlySolved2006}. Its solubility comes about because the model has many conserved degrees of freedom that mediate the interactions between quantum degrees of freedom.
 
 \hypertarget{amorphous-systems}{%
 \subsection{Amorphous Systems}\label{amorphous-systems}}
@@ -159,8 +159,9 @@ Once we involve multiple fermions, there is some freedom in how we can perform t
 \begin{figure}
 \hypertarget{fig:visual_kitaev_1}{%
 \centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/visual_kitaev_1.pdf}
-\caption{A visual introduction to the Kitaev Model.}\label{fig:visual_kitaev_1}
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/visual_kitaev_1}
+\caption[A Visual Intro to the Kitaev Model]{A visual introduction to the Kitaev
+Model.}\label{fig:visual_kitaev_1}
 }
 \end{figure}
 
@@ -169,7 +170,7 @@ Once we involve multiple fermions, there is some freedom in how we can perform t
 
 To start from the fundamentals, the Kitaev Honeycomb model is a model of interacting spin\(-1/2\)s on the vertices of a honeycomb lattice. Each bond in the lattice is assigned a label \(\alpha \in \{ x, y, z\}\) and that bond couples its two spin neighbours along the \(\alpha\) axis. See \cref{fig:visual_kitaev_1} for a diagram.
 
-This gives us the Hamiltonian \[H =  - \sum_{\langle j,k\rangle_\alpha} J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha},\] where \(\sigma^\alpha_j\) is a Pauli matrix acting on site \(j\) and \(\langle j,k\rangle_\alpha\) is a pair of nearest-neighbour indices connected by an \(\alpha\)-bond with exchange coupling \(J^\alpha\) \textcite{kitaevAnyonsExactlySolved2006}. For notational brevity, it is useful to introduce the bond operators \(K_{ij} = \sigma_j^{\alpha}\sigma_k^{\alpha}\) where \(\alpha\) is a function of \(i,j\) that picks the correct bond type.
+This gives us the Hamiltonian \[H =  - \sum_{\langle j,k\rangle_\alpha} J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha},\] where \(\sigma^\alpha_j\) is a Pauli matrix acting on site \(j\) and \(\langle j,k\rangle_\alpha\) is a pair of nearest-neighbour indices connected by an \(\alpha\)-bond with exchange coupling \(J^\alpha\) \autocite{kitaevAnyonsExactlySolved2006}. For notational brevity, it is useful to introduce the bond operators \(K_{ij} = \sigma_j^{\alpha}\sigma_k^{\alpha}\) where \(\alpha\) is a function of \(i,j\) that picks the correct bond type.
 
 This Kitaev model has a set of conserved quantities that, in the spin language, take the form of Wilson loop operators \(W_p\) winding around a closed path on the lattice. The direction does not matter, but we will keep to clockwise here. We will use the term plaquette and the symbol \(\phi\) to refer to a Wilson loop operator that does not enclose any other sites, such as a single hexagon in a honeycomb lattice.
 
@@ -186,8 +187,9 @@ As the honeycomb lattice is bipartite, there are no closed loops that contain an
 \begin{figure}
 \hypertarget{fig:regular_plaquettes}{%
 \centering
-\includegraphics[width=0.86\textwidth,height=\textheight]{figure_code/amk_chapter/intro/regular_plaquettes/regular_plaquettes.pdf}
-\caption{The eigenvalues of a loop or plaquette operators depend on the number of bonds in its enclosing path.}\label{fig:regular_plaquettes}
+\includegraphics[width=0.86\textwidth,height=\textheight]{figure_code/amk_chapter/intro/regular_plaquettes/regular_plaquettes}
+\caption[Plaquettes in the Kitaev Model]{The eigenvalues of a loop or plaquette operators depend on the
+number of bonds in its enclosing path.}\label{fig:regular_plaquettes}
 }
 \end{figure}
 
@@ -198,8 +200,8 @@ The first case is trivial. The other two require some algebra, outlined in \cref
 \begin{figure}
 \hypertarget{fig:visual_kitaev_2}{%
 \centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/visual_kitaev_2.pdf}
-\caption{Plaquette operators are conserved.}\label{fig:visual_kitaev_2}
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/visual_kitaev_2}
+\caption[Plaquette Operators are Conserved]{Plaquette operators are conserved.}\label{fig:visual_kitaev_2}
 }
 \end{figure}
 
@@ -269,15 +271,25 @@ Once confined to a particular \(\mathcal{L}_u\), we can `remove the hats' from t
 \begin{figure}
 \hypertarget{fig:intro_figure_by_hand}{%
 \centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/intro/honeycomb_zoom/intro_figure_by_hand.pdf}
-\caption{\textbf{(a)} The standard Kitaev model is defined on a honeycomb lattice. The special feature of the honeycomb lattice that makes the model solvable is that each vertex is joined by exactly three bonds, i.e.~the lattice is trivalent. One of three labels is assigned to each \textbf{(b)}. We represent the antisymmetric gauge degree of freedom \(u_{jk} = \pm 1\) with arrows that point in the direction \(u_{jk} = +1\) \textbf{(c)}. The Majorana transformation can be visualised as breaking each spin into four Majoranas which then pair along the bonds. The pairs of x,y and z Majoranas become part of the classical \(\mathbb{Z}_2\) gauge field \(u_{ij}\). This leavies a single Majorana \(c_i\) per site.}\label{fig:intro_figure_by_hand}
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/intro/honeycomb_zoom/intro_figure_by_hand}
+\caption[The Kitaev Honeycomb Model]{\textbf{(a)} The standard Kitaev model is defined on a
+honeycomb lattice. The special feature of the honeycomb lattice that
+makes the model solvable is that each vertex is joined by exactly three
+bonds, i.e.~the lattice is trivalent. One of three labels is assigned to
+each \textbf{(b)}. We represent the antisymmetric gauge degree of
+freedom \(u_{jk} = \pm 1\) with arrows that point in the direction
+\(u_{jk} = +1\) \textbf{(c)}. The Majorana transformation can be
+visualised as breaking each spin into four Majoranas which then pair
+along the bonds. The pairs of x,y and z Majoranas become part of the
+classical \(\mathbb{Z}_2\) gauge field \(u_{ij}\). This leavies a single
+Majorana \(c_i\) per site.}\label{fig:intro_figure_by_hand}
 }
 \end{figure}
 
 \hypertarget{the-majorana-hamiltonian}{%
 \subsection{The Majorana Hamiltonian}\label{the-majorana-hamiltonian}}
 
-We now have a quadratic Hamiltonian \[ \tilde{H} =  \frac{i}{4} \sum_{\langle i,j\rangle_\alpha} 2J^{\alpha} u_{ij} c_i c_j\] in which most of the Majorana degrees of freedom have paired along bonds to become a classical gauge field \(u_{ij}\). What follows is relatively standard theory for quadratic Majorana Hamiltonians \textcite{BlaizotRipka1986}.
+We now have a quadratic Hamiltonian \[ \tilde{H} =  \frac{i}{4} \sum_{\langle i,j\rangle_\alpha} 2J^{\alpha} u_{ij} c_i c_j\] in which most of the Majorana degrees of freedom have paired along bonds to become a classical gauge field \(u_{ij}\). What follows is relatively standard theory for quadratic Majorana Hamiltonians \autocite{BlaizotRipka1986}.
 
 Because of the antisymmetry of the matrix with entries \(J^{\alpha} u_{ij}\), the eigenvalues of the Hamiltonian \(\tilde{H}_u\) come in pairs \(\pm \epsilon_m\). This redundant information is a consequence of the doubling of the Hilbert space which occurred when we transformed to the Majorana representation.
 

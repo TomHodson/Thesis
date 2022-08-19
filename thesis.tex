@@ -1,7 +1,7 @@
 \documentclass[a4paper,12pt]{report}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=3cm]{geometry}
 
-\include{thesis.preamble}
+\input{thesis.preamble}
 
 \begin{document}
 
@@ -16,10 +16,9 @@
 }
 \submitdate{June 2022}
 
-\normallinespacing
+% \normallinespacing
 
 \maketitle
-
 
 \preface
 \include{0_Preface/abstract}
@@ -36,20 +35,20 @@
 % \chapter{Introduction}
 % \include{build/tex/1.1_Intro.tex}
 
-\chapter{The Long-Range Falikov-Kimball Model}
-\include{build/tex/1.1_FK_Intro.tex}
-\include{build/tex/1.2_FK_Methods.tex}
-\include{build/tex/1.3_FK_Results.tex}
+% \chapter{The Long-Range Falikov-Kimball Model}
+% \include{build/tex/1.1_FK_Intro.tex}
+% \include{build/tex/1.2_FK_Methods.tex}
+% \include{build/tex/1.3_FK_Results.tex}
 
 
-% \chapter{The Amorphous Kitaev Honeycomb Model}
-% \backgroundsetup{scale = 1, angle = 0, opacity = 0.2,
-%   contents = {\includegraphics[width=297mm, height=297mm]{figure_code/test.pdf}}}
-% \BgThispage
-% \include{build/tex/2.1_AMK_Intro}
-% \include{build/tex/2.1.2_AMK_Intro}
-% \include{build/tex/2.2_AMK_Methods}
-% \include{build/tex/2.3_AMK_Results}
+\chapter{The Amorphous Kitaev Honeycomb Model}
+\backgroundsetup{scale = 1, angle = 0, opacity = 0.2,
+  contents = {\includegraphics[width=297mm, height=297mm]{figure_code/test.pdf}}}
+\BgThispage
+\include{build/tex/2.1_AMK_Intro}
+\include{build/tex/2.1.2_AMK_Intro}
+\include{build/tex/2.2_AMK_Methods}
+\include{build/tex/2.3_AMK_Results}
 
 % \chapter{Conclusion \& Discussion}
 % \appendix
@@ -57,7 +56,6 @@
 
 \addcontentsline{toc}{chapter}{Bibliography}
 \printbibliography
-
 \addcontentsline{toc}{chapter}{Copyright}
 % \includepdf[pages=-]{5_Appendices/APS_copyright_permission.pdf}
 

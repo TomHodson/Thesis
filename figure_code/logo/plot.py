@@ -75,9 +75,9 @@ for i, (s, e) in enumerate(lines):
     
 pd.plot_triangle(ax)
 triangle_points = np.array([[0,0], [np.cos(np.pi/3),np.sin(np.pi/3)], [1,0]])
-ax.text(*triangle_points[0], "$J_x$", va = "top", ha = "right")
-ax.text(*triangle_points[1] + [0,0.01], "$J_y$", va = "bottom", ha = "center")
-ax.text(*triangle_points[2], "$J_z$", va = "top", ha = "left")
+# ax.text(*triangle_points[0], "$J_x$", va = "top", ha = "right")
+# ax.text(*triangle_points[1] + [0,0.01], "$J_y$", va = "bottom", ha = "center")
+# ax.text(*triangle_points[2], "$J_z$", va = "top", ha = "left")
 
 # fig.tight_layout()
 # fig.subplots_adjust(left = 0.01, wspace=.05, right = 1 - 0.01, top = 1 - 0.01, bottom = 0.01)

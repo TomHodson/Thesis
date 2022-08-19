@@ -47,8 +47,23 @@ In the honeycomb model, the phase boundaries are located on the straight lines \
 \begin{figure}
 \hypertarget{fig:phase_diagram}{%
 \centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/results/phase_diagram/phase_diagram.pdf}
-\caption{(Center) We choose an energy scale for the Hamiltonian by setting \(J_x + J_y + J_z = 1\). This intersects a plane with the unit cube spanned by \(J_\alpha \in [0,1]\), giving a triangle with corners \((1,0,0), (0,1,0), (0,0,1)\). To compute critical lines efficiently in this space we evaluate the order parameter of interest along rays shooting from the corners. The ray highlighted in red defines the values of J used for the left figure. (Left) The fermion gap as a function of J for an amorphous system with 20 plaquettes, where the x axis is the position on the red line in the central figure from 0 to 1. For finite size systems the four topological sectors are not degenerate and only one of them has a true gap closing. (Right) The Abelian \(A_\alpha\) phases of the model and the non-Abelian B phase separated by critical lines where the fermion gap closes. Later we will show that the Chern number \(\nu\) changes from \(0\) to \(\pm 1\) from the A phases to the B phase. Indeed the gap \emph{must} close in order for the Chern number to change \textbf{citation}.}\label{fig:phase_diagram}
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/results/phase_diagram/phase_diagram}
+\caption[The Ground State Phase Diagram]{(Center) We choose an energy scale for the Hamiltonian by
+setting \(J_x + J_y + J_z = 1\). This intersects a plane with the unit
+cube spanned by \(J_\alpha \in [0,1]\), giving a triangle with corners
+\((1,0,0), (0,1,0), (0,0,1)\). To compute critical lines efficiently in
+this space we evaluate the order parameter of interest along rays
+shooting from the corners. The ray highlighted in red defines the values
+of J used for the left figure. (Left) The fermion gap as a function of J
+for an amorphous system with 20 plaquettes, where the x axis is the
+position on the red line in the central figure from 0 to 1. For finite
+size systems the four topological sectors are not degenerate and only
+one of them has a true gap closing. (Right) The Abelian \(A_\alpha\)
+phases of the model and the non-Abelian B phase separated by critical
+lines where the fermion gap closes. Later we will show that the Chern
+number \(\nu\) changes from \(0\) to \(\pm 1\) from the A phases to the
+B phase. Indeed the gap \emph{must} close in order for the Chern number
+to change \textbf{citation}.}\label{fig:phase_diagram}
 }
 \end{figure}
 
@@ -81,8 +96,23 @@ The B phase has \(\nu=\pm1\) so is a non-Abelian \emph{chiral spin liquid} (CSL)
 \begin{figure}
 \hypertarget{fig:phase_diagram_chern}{%
 \centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/results/phase_diagram_chern/phase_diagram_chern.pdf}
-\caption{(Center) The crosshair marker \textcite{peru_preprint}, a local topological marker, evaluated on the Amorphous Kitaev Model. The marker is defined around a point, denoted by the dotted crosshair. Information about the local topological properties of the system are encoded within a region around that point. (Left) Summing these contributions up to some finite radius (dotted line here, dotted circle in the centre) gives a generalised version of the Chern number for the system which becomes quantised in the thermodynamic limit. The radius must be chosen large enough to capture information about the local properties of the lattice while not so large as to include contributions from the edge states. The isotropic regime \(J_\alpha = 1\) in red has \(\nu = \pm 1\) implying it supports excitations with non-Abelian statistics, while the anisotropic regime in orange has \(\nu = \pm 0\) implying it has Abelian statistics. (Right) Extending this analysis to the whole \(J_\alpha\) phase diagram with fixed \(r = 0.3\) nicely confirms that the isotropic phase is non-Abelian.}\label{fig:phase_diagram_chern}
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/results/phase_diagram_chern/phase_diagram_chern}
+\caption[Local Chern Markers]{(Center) The crosshair marker @peru\_preprint, a local
+topological marker, evaluated on the Amorphous Kitaev Model. The marker
+is defined around a point, denoted by the dotted crosshair. Information
+about the local topological properties of the system are encoded within
+a region around that point. (Left) Summing these contributions up to
+some finite radius (dotted line here, dotted circle in the centre) gives
+a generalised version of the Chern number for the system which becomes
+quantised in the thermodynamic limit. The radius must be chosen large
+enough to capture information about the local properties of the lattice
+while not so large as to include contributions from the edge states. The
+isotropic regime \(J_\alpha = 1\) in red has \(\nu = \pm 1\) implying it
+supports excitations with non-Abelian statistics, while the anisotropic
+regime in orange has \(\nu = \pm 0\) implying it has Abelian statistics.
+(Right) Extending this analysis to the whole \(J_\alpha\) phase diagram
+with fixed \(r = 0.3\) nicely confirms that the isotropic phase is
+non-Abelian.}\label{fig:phase_diagram_chern}
 }
 \end{figure}
 
@@ -96,8 +126,14 @@ The localization of the edge modes can be quantified by their inverse participat
 \begin{figure}
 \hypertarget{fig:edge_modes}{%
 \centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/results/edge_modes/edge_modes.pdf}
-\caption{(a) The density of one of the topologically protected edge states in the B phase. (Below) the log density plotted along the black path showing that the state is exponentially localised. (a)/(b) The density of states of the corresponding lattice in (a) periodic boundary conditions, (b) open boundary conditions. The colour of the bars shows the mean log IPR for each energy window. Cutting the boundary fills the gap with localised states.}\label{fig:edge_modes}
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/results/edge_modes/edge_modes}
+\caption[Edges States and Density of States]{(a) The density of one of the topologically protected edge
+states in the B phase. (Below) the log density plotted along the black
+path showing that the state is exponentially localised. (a)/(b) The
+density of states of the corresponding lattice in (a) periodic boundary
+conditions, (b) open boundary conditions. The colour of the bars shows
+the mean log IPR for each energy window. Cutting the boundary fills the
+gap with localised states.}\label{fig:edge_modes}
 }
 \end{figure}
 
@@ -117,8 +153,22 @@ First we performed a finite size scaling to that the presence of a gap in the CS
 \begin{figure}
 \hypertarget{fig:fermion_gap_vs_L}{%
 \centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/results/fermion_gap_vs_L/fermion_gap_vs_L.pdf}
-\caption{Within a flux sector, the fermion gap \(\Delta_f\) measures the energy between the fermionic ground state and the first excited state. This graph shows the fermion gap as a function of system size for the ground state flux sector and for a configuration of random fluxes. We see that the disorder induced by an putting the Kitaev model on an amorphous lattice does not close the gap in the ground state. The gap closes in the flux disordered limit is good evidence that the system transitions to a gapless thermal metal state at high temperature. Each point shows an average over 100 lattice realisations. System size \(L\) is defined \(\sqrt{N}\) where N is the number of plaquettes in the system. Error bars shown are \(3\) times the standard error of the mean. The lines shown are fits of \(\tfrac{\Delta_f}{J} = aL ^ b\) with fit parameters: Ground State: \(a = 0.138 \pm 0.002, b = -0.0972 \pm 0.004\) Random Flux Sector: \(a = 1.8 \pm 0.2, b = -2.21 \pm 0.03\)}\label{fig:fermion_gap_vs_L}
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/results/fermion_gap_vs_L/fermion_gap_vs_L}
+\caption[Finite Size Scaing of the Fermion Gap]{Within a flux sector, the fermion gap \(\Delta_f\) measures the
+energy between the fermionic ground state and the first excited state.
+This graph shows the fermion gap as a function of system size for the
+ground state flux sector and for a configuration of random fluxes. We
+see that the disorder induced by an putting the Kitaev model on an
+amorphous lattice does not close the gap in the ground state. The gap
+closes in the flux disordered limit is good evidence that the system
+transitions to a gapless thermal metal state at high temperature. Each
+point shows an average over 100 lattice realisations. System size \(L\)
+is defined \(\sqrt{N}\) where N is the number of plaquettes in the
+system. Error bars shown are \(3\) times the standard error of the mean.
+The lines shown are fits of \(\tfrac{\Delta_f}{J} = aL ^ b\) with fit
+parameters: Ground State: \(a = 0.138 \pm 0.002, b = -0.0972 \pm 0.004\)
+Random Flux Sector:
+\(a = 1.8 \pm 0.2, b = -2.21 \pm 0.03\)}\label{fig:fermion_gap_vs_L}
 }
 \end{figure}
 
@@ -127,8 +177,19 @@ Next we evaluated the fermionic density of states (DOS), Inverse Participation R
 \begin{figure}
 \hypertarget{fig:DOS_vs_rho}{%
 \centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/results/DOS_vs_rho/DOS_vs_rho.pdf}
-\caption{(Top) Density of states and (Bottom) scaling exponent \(\tau\) of the amorphous Kitaev model as a vortex density \(\rho\) is increased. The scaling exponent \(\tau\) is the exponent with which the inverse participation ratio scales with system size. It gives a measure of the degree of localisation of the states in each \((E/J, \rho)\) bin. At zero \(\rho\) we have the gapped ground state. At small \(\rho\), states begin to populate the gap. These states have \(\tau\approx0\), indicating that they are localised states pinned to fluxes, and the system remains insulating. As \(\rho\) increases further, the in-gap states merge with the bulk band and become extensive, fully closing the gap, and the system transitions to a thermal metal phase.}\label{fig:DOS_vs_rho}
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/results/DOS_vs_rho/DOS_vs_rho}
+\caption[Transition to a Thermal Metal]{(Top) Density of states and (Bottom) scaling exponent \(\tau\)
+of the amorphous Kitaev model as a vortex density \(\rho\) is increased.
+The scaling exponent \(\tau\) is the exponent with which the inverse
+participation ratio scales with system size. It gives a measure of the
+degree of localisation of the states in each \((E/J, \rho)\) bin. At
+zero \(\rho\) we have the gapped ground state. At small \(\rho\), states
+begin to populate the gap. These states have \(\tau\approx0\),
+indicating that they are localised states pinned to fluxes, and the
+system remains insulating. As \(\rho\) increases further, the in-gap
+states merge with the bulk band and become extensive, fully closing the
+gap, and the system transitions to a thermal metal
+phase.}\label{fig:DOS_vs_rho}
 }
 \end{figure}
 
@@ -139,8 +200,16 @@ These signatures for our model and for the honeycomb model are shown in \cref{fi
 \begin{figure}
 \hypertarget{fig:DOS_oscillations}{%
 \centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/results/DOS_oscillations/DOS_oscillations.pdf}
-\caption{Density of states at high temperature showing the logarithmic divergence at zero energy and oscillations characteristic of the thermal metal state \autocite{bocquet_disordered_2000,selfThermallyInducedMetallic2019}. (a) shows the honeycomb lattice model in the B phase with magnetic field, while (b) shows that our model transitions to a thermal metal phase without an external magnetic field but rather due to the spontaneous chiral symmetry breaking. In both plots the density of vortices is \(\rho = 0.5\) corresponding to the \(T = \infty\) limit.}\label{fig:DOS_oscillations}
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/results/DOS_oscillations/DOS_oscillations}
+\caption[Distinctive Oscillations in the Density of States]{Density of states at high temperature showing the logarithmic
+divergence at zero energy and oscillations characteristic of the thermal
+metal state {[}@bocquet\_disordered\_2000;
+@selfThermallyInducedMetallic2019{]}. (a) shows the honeycomb lattice
+model in the B phase with magnetic field, while (b) shows that our model
+transitions to a thermal metal phase without an external magnetic field
+but rather due to the spontaneous chiral symmetry breaking. In both
+plots the density of vortices is \(\rho = 0.5\) corresponding to the
+\(T = \infty\) limit.}\label{fig:DOS_oscillations}
 }
 \end{figure}
 
@@ -177,7 +246,7 @@ This exactly solvable chiral QSL provides a first example of a topological quant
 
 The obvious question is whether amorphous Kitaev materials could be physically realised.
 
-Most crystals can as exists in a metastable amorphous state if they are cooled rapidly, freezing them into a disordered configuration \autocite{Weaire1976,Petrakovski1981,Kaneyoshi2018}. Indeed quenching has been used by humans to control the hardness of steel or iron for thousands of years. It would therefore be interesting to study amorphous version of candidate Kitaev materials \textcite{trebstKitaevMaterials2022} such as \(\alpha-\textrm{RuCl}_3\) to see whether they maintain even approximate fixed coordination number locally as is the case with amorphous Silicon and Germanium \autocite{Weaire1971,betteridge1973possible}.
+Most crystals can as exists in a metastable amorphous state if they are cooled rapidly, freezing them into a disordered configuration \autocite{Weaire1976,Petrakovski1981,Kaneyoshi2018}. Indeed quenching has been used by humans to control the hardness of steel or iron for thousands of years. It would therefore be interesting to study amorphous version of candidate Kitaev materials \autocite{trebstKitaevMaterials2022} such as \(\alpha-\textrm{RuCl}_3\) to see whether they maintain even approximate fixed coordination number locally as is the case with amorphous Silicon and Germanium \autocite{Weaire1971,betteridge1973possible}.
 
 Looking instead at more engineered realisation, metal organic frameworks have been shown to be capable of forming amorphous lattices~\autocite{bennett2014amorphous} and there are recent proposals for realizing strong Kitaev interactions~\autocite{yamadaDesigningKitaevSpin2017} as well as reports of QSL behavior~\autocite{misumiQuantumSpinLiquid2020}.
 
