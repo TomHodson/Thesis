@@ -17,7 +17,7 @@ toc: true
 # enable the bibliography
 citeproc: true
 metadata:
-  bibliography: entire_zotero_library.bib
+  bibliography: entire_zotero_library.json
   # csl: american-physics-society-without-titles.csl
   csl: nature.csl
   link-citations: true

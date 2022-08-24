@@ -1,5 +1,5 @@
 ---
-title: The Kitaev Honeycomb Model
+title: 2.2_HKM_Model
 excerpt: 
 layout: none
 image: 
@@ -11,7 +11,7 @@ image:
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>The Kitaev Honeycomb Model</title>
+  <title>2.2_HKM_Model</title>
   <!-- <style>
     html {
       line-height: 1.5;
@@ -222,9 +222,31 @@ image:
     code span.va { color: #19177c; } /* Variable */
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
   </style> -->
 
-<!--  -->
+<!--   <script
+       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+       type="text/javascript"></script>
+ -->
 
 <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
@@ -256,18 +278,74 @@ Fermions</a></li>
 <li><a href="#anyons-topology-and-the-chern-number"
 id="toc-anyons-topology-and-the-chern-number">Anyons, Topology and the
 Chern number</a></li>
+<li><a href="#phase-diagram" id="toc-phase-diagram">Phase
+Diagram</a></li>
 </ul></li>
 </ul>
 </nav>
 <h1 id="the-kitaev-honeycomb-model">The Kitaev Honeycomb Model</h1>
+<p><strong>intro</strong> - strong spin orbit coupling leads to
+anisotropic spin exchange (as opposed to isotropic exchange like the
+Heisenberg model) - geometrical frustration leads to QSL ground state
+with long range entanglement (not simple paramagnet)</p>
+<ul>
+<li>RuCl_3 is the classic QSL candidate material</li>
+<li>really follows the Kitaev-Heisenberg model</li>
+<li>experimental probes include inelastic neutron scattering, Raman
+scattering</li>
+</ul>
 <h2 id="the-model">The Model</h2>
+<div id="fig:intro_figure_by_hand" class="fignos">
+<figure>
+<img
+src="/assets/thesis/amk_chapter/intro/honeycomb_zoom/intro_figure_by_hand.svg"
+data-short-caption="The Kitaev Honeycomb Model" style="width:100.0%"
+alt="Figure 1: (a) The standard Kitaev model is defined on a honeycomb lattice. The special feature of the honeycomb lattice that makes the model solvable is that each vertex is joined by exactly three bonds, i.e. the lattice is trivalent. One of three labels is assigned to each (b). We represent the antisymmetric gauge degree of freedom u_{jk} = \pm 1 with arrows that point in the direction u_{jk} = +1 (c). The Majorana transformation can be visualised as breaking each spin into four Majoranas which then pair along the bonds. The pairs of x,y and z Majoranas become part of the classical \mathbb{Z}_2 gauge field u_{ij}. This leavies a single Majorana c_i per site." />
+<figcaption aria-hidden="true"><span>Figure 1:</span>
+<strong>(a)</strong> The standard Kitaev model is defined on a honeycomb
+lattice. The special feature of the honeycomb lattice that makes the
+model solvable is that each vertex is joined by exactly three bonds,
+i.e. the lattice is trivalent. One of three labels is assigned to each
+<strong>(b)</strong>. We represent the antisymmetric gauge degree of
+freedom <span class="math inline">\(u_{jk} = \pm 1\)</span> with arrows
+that point in the direction <span class="math inline">\(u_{jk} =
++1\)</span> <strong>(c)</strong>. The Majorana transformation can be
+visualised as breaking each spin into four Majoranas which then pair
+along the bonds. The pairs of x,y and z Majoranas become part of the
+classical <span class="math inline">\(\mathbb{Z}_2\)</span> gauge field
+<span class="math inline">\(u_{ij}\)</span>. This leavies a single
+Majorana <span class="math inline">\(c_i\)</span> per site.</figcaption>
+</figure>
+</div>
+<ul>
+<li>strong spin orbit coupling yields spatial anisotropic spin exchange
+leading to compass models<span class="citation"
+data-cites="kugelJahnTellerEffectMagnetism1982"><sup><a
+href="#ref-kugelJahnTellerEffectMagnetism1982"
+role="doc-biblioref">1</a></sup></span></li>
+<li>spin model of the Kitaev model is one</li>
+<li>has extensively many conserved fluxes</li>
+<li></li>
+</ul>
 <h2 id="a-mapping-to-majorana-fermions">A mapping to Majorana
 Fermions</h2>
 <h2 id="gauge-fields">Gauge Fields</h2>
 <h2 id="anyons-topology-and-the-chern-number">Anyons, Topology and the
 Chern number</h2>
+<h2 id="phase-diagram">Phase Diagram</h2>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div id="refs" class="references csl-bib-body" data-line-spacing="2"
+role="doc-bibliography">
+<div id="ref-kugelJahnTellerEffectMagnetism1982" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div
+class="csl-right-inline">Kugel’, K. I. &amp; Khomskiĭ, D. I. <a
+href="https://doi.org/10.1070/PU1982v025n04ABEH004537">The Jahn-Teller
+effect and magnetism: transition metal compounds</a>. <em>Sov. Phys.
+Usp.</em> <strong>25</strong>, 231 (1982).</div>
+</div>
+</div>
 </main>
 </body>
 </html>

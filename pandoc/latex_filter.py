@@ -3,7 +3,7 @@ import logging
 from pathlib import Path
 
 src = Path("../figure_code/amk_chapter/visual_kitaev_1.svg")
-base = Path("../")
+base = Path("../../")
 new_base = Path("./")
 
 def action(elem, doc):

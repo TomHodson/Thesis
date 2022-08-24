@@ -3,8 +3,8 @@ import logging
 from pathlib import Path
 
 src = Path("../figure_code/amk_chapter/visual_kitaev_1.svg")
-base = Path("../figure_code/")
-new_base = Path("/assets/thesis/figure_code/")
+base = Path("../../figure_code/")
+new_base = Path("/assets/thesis/")
 
 def action(elem, doc):
     # if type(elem) == pf.RawInline and elem.format == "html" and "<img " in elem.text:

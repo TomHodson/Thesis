@@ -234,24 +234,14 @@ Assuming \(\mathcal{T}\) has been chosen correctly, its single eigenvector with 
 \hypertarget{auto-correlation-time}{%
 \subsubsection{Auto-correlation Time}\label{auto-correlation-time}}
 
-\begin{figure}
 \hypertarget{fig:m_autocorr}{%
+\begin{figure}
 \centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/fk_chapter/lsr/figs/m_autocorr.png}
-\caption[no title]{(Upper) 10 MCMC chains starting from the same initial state for
-a system with \(N = 150\) sites and 3000 MCMC steps. At each MCMC step,
-n spins are flipped where n is drawn from Uniform(1,N) and this is
-repeated \(N^2/100\) times. The simulations therefore have the potential
-to necessitate \(10*N^2\) matrix diagonalisations for each 100 MCMC
-steps. (Lower) The normalised auto-correlation
-\((\expval{m_i m_{i-j}} - \expval{m_i}\expval{m_i}) / Var(m_i))\)
-averaged over \(i\). It can be seen that even with each MCMC step
-already being composed of many individual flip attempts, the
-auto-correlation is still non negligible and must be taken into account
-in the statistics.
-\(t = 1, \alpha = 1.25, T = 2.2, J = U = 5\)}\label{fig:m_autocorr}
-}
+\includegraphics[width=1\textwidth,height=\textheight]{../figure_code/fk_chapter/lsr/figs/m_autocorr.png}
+\caption[{no title}]{(Upper) 10 MCMC chains starting from the same initial state for a system with \(N = 150\) sites and 3000 MCMC steps. At each MCMC step, n spins are flipped where n is drawn from Uniform(1,N) and this is repeated \(N^2/100\) times. The simulations therefore have the potential to necessitate \(10*N^2\) matrix diagonalisations for each 100 MCMC steps. (Lower) The normalised auto-correlation \((\expval{m_i m_{i-j}} - \expval{m_i}\expval{m_i}) / Var(m_i))\) averaged over \(i\). It can be seen that even with each MCMC step already being composed of many individual flip attempts, the auto-correlation is still non negligible and must be taken into account in the statistics. \(t = 1, \alpha = 1.25, T = 2.2, J = U = 5\)}
+\label{fig:m_autocorr}
 \end{figure}
+}
 
 At this stage one might think we're done. We can indeed draw independent samples from \(P(\s; \beta)\) by starting from some arbitrary initial state and doing \(k\) steps to arrive at a sample. However a key insight is that after the convergence time, every state generated is a sample from \(P(\s; \beta)\)! They are not, however, independent samples. In Fig.\textasciitilde{}\ref{fig:raw} it is already clear that the samples of the order parameter m have some auto-correlation because only a few spins are flipped each step but even when the number of spins flipped per step is increased, Fig.\textasciitilde{}\ref{fig:m_autocorr} shows that it can be an important effect near the phase transition. Let's define the auto-correlation time \(\tau(O)\) informally as the number of MCMC samples of some observable O that are statistically equal to one independent sample or equivalently as the number of MCMC steps after which the samples are correlated below some cutoff, see \autocite{krauthIntroductionMonteCarlo1996} for a more rigorous definition involving a sum over the auto-correlation function. The auto-correlation time is generally shorter than the convergence time so it therefore makes sense from an efficiency standpoint to run a single walker for many MCMC steps rather than to run a huge ensemble for \(k\) steps each.
 
@@ -367,19 +357,14 @@ Our method already relies heavily on the split between the classical and quantum
 \hypertarget{tuning-the-proposal-distribution}{%
 \subsubsection{Tuning the proposal distribution}\label{tuning-the-proposal-distribution}}
 
-\begin{figure}
 \hypertarget{fig:autocorr_multiple_proposals}{%
+\begin{figure}
 \centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/fk_chapter/lsr/figs/autocorr_multiple_proposals.png}
-\caption[no title]{Simulations showing how the autocorrelation of the order
-parameter depends on the proposal distribution used at different
-temperatures, we see that at \(T = 1.5 < T_c\) a single spin flip is
-likely the best choice, while at the high temperature \(T = 2.5 > T_c\)
-flipping two sites or a mixture of flipping two and 1 sites is likely a
-better choice. \$t = 1, \alpha = 1.25, J = U = 5
-\$}\label{fig:autocorr_multiple_proposals}
-}
+\includegraphics[width=1\textwidth,height=\textheight]{../figure_code/fk_chapter/lsr/figs/autocorr_multiple_proposals.png}
+\caption[{no title}]{Simulations showing how the autocorrelation of the order parameter depends on the proposal distribution used at different temperatures, we see that at \(T = 1.5 < T_c\) a single spin flip is likely the best choice, while at the high temperature \(T = 2.5 > T_c\) flipping two sites or a mixture of flipping two and 1 sites is likely a better choice. \$t = 1, \alpha = 1.25, J = U = 5 \$}
+\label{fig:autocorr_multiple_proposals}
 \end{figure}
+}
 
 Now we can discuss how to minimise the auto-correlations. The general principle is that one must balance the proposal distribution between two extremes. Choose overlay small steps, like flipping only a single spin and the acceptance rate will be high because \(\Delta F\) will usually be small, but each state will be very similar to the previous and the auto-correlations will be high too, making sampling inefficient. On the other hand, overlay large steps, like randomising a large portion of the spins each step, will result in very frequent rejections, especially at low temperatures.
 

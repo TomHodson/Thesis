@@ -237,8 +237,8 @@ available as a Python package called Koala (Kitaev On Amorphous
 LAttices)<span class="citation"
 data-cites="tomImperialCMTHKoalaFirst2022"><sup><a
 href="#ref-tomImperialCMTHKoalaFirst2022"
-role="doc-biblioref">1</a></sup></span>. All results and figures were
-generated with Koala.</p>
+role="doc-biblioref"><strong>tomImperialCMTHKoalaFirst2022?</strong></a></sup></span>.
+All results and figures were generated with Koala.</p>
 <h2 id="voronisation">Voronisation</h2>
 <p>To study the properties of the amorphous Kitaev model, we need to
 sample from the space of possible trivalent graphs.</p>
@@ -246,8 +246,8 @@ sample from the space of possible trivalent graphs.</p>
 class="citation"
 data-cites="mitchellAmorphousTopologicalInsulators2018 marsalTopologicalWeaireThorpeModels2020 florescu_designer_2009"><sup><a
 href="#ref-mitchellAmorphousTopologicalInsulators2018"
-role="doc-biblioref">2</a>–<a href="#ref-florescu_designer_2009"
-role="doc-biblioref">4</a></sup></span>. We start by sampling <em>seed
+role="doc-biblioref">1</a>–<a href="#ref-florescu_designer_2009"
+role="doc-biblioref">3</a></sup></span>. We start by sampling <em>seed
 points</em> uniformly (or otherwise) on the torus. Then, we compute the
 partition of the torus into regions closest (with a Euclidean metric) to
 each seed point. The straight lines (if the torus is flattened out) at
@@ -262,16 +262,16 @@ trivalent graphs. Indeed, there has been some work on how to do this
 using a Markov Chain Monte Carlo approach<span class="citation"
 data-cites="alyamiUniformSamplingDirected2016"><sup><a
 href="#ref-alyamiUniformSamplingDirected2016"
-role="doc-biblioref">5</a></sup></span>. However, it does not guarantee
+role="doc-biblioref">4</a></sup></span>. However, it does not guarantee
 that the resulting graph is planar, which we must ensure so that the
 edges can be 3-coloured.</p>
 <p>In practice, we use a standard algorithm<span class="citation"
 data-cites="barberQuickhullAlgorithmConvex1996"><sup><a
 href="#ref-barberQuickhullAlgorithmConvex1996"
-role="doc-biblioref">6</a></sup></span> from Scipy<span class="citation"
-data-cites="virtanenSciPyFundamentalAlgorithms2020a"><sup><a
-href="#ref-virtanenSciPyFundamentalAlgorithms2020a"
-role="doc-biblioref">7</a></sup></span> which computes the Voronoi
+role="doc-biblioref">5</a></sup></span> from Scipy<span class="citation"
+data-cites="virtanenSciPyFundamentalAlgorithms2020"><sup><a
+href="#ref-virtanenSciPyFundamentalAlgorithms2020"
+role="doc-biblioref">6</a></sup></span> which computes the Voronoi
 partition of the plane. To compute the Voronoi partition of the torus,
 we take the seed points and replicate them into a repeating grid. This
 will be either 3x3 or, for very small numbers of seed points, 5x5. Then,
@@ -279,7 +279,7 @@ we identify edges in the output to construct a lattice on the torus.</p>
 <div id="fig:lattice_construction_animated" class="fignos">
 <figure>
 <img
-src="/assets/thesis/figure_code/amk_chapter/lattice_construction_animated/lattice_construction_animated.gif"
+src="/assets/thesis/amk_chapter/lattice_construction_animated/lattice_construction_animated.gif"
 data-short-caption="Lattice Construction" style="width:100.0%"
 alt="Figure 1: (Left) Lattice construction begins with the Voronoi partition of the plane with respect to a set of seed points (black points) sampled uniformly from \mathbb{R}^2. (Center) However, we want the Voronoi partition of the torus, so we tile the seed points into a three by three grid. The boundaries of each tile are shown in light grey. (Right) Finally, we identify edges corresponding to each other across the boundaries to produce a graph on the torus. An edge colouring is shown here to help the reader identify corresponding edges." />
 <figcaption aria-hidden="true"><span>Figure 1:</span> (Left) Lattice
@@ -334,7 +334,7 @@ class="math inline">\(\vec{r}\)</span> is exactly what we use to encode
 the topology of our lattices.</p>
 <div id="fig:bloch" class="fignos">
 <figure>
-<img src="/assets/thesis/figure_code/amk_chapter/methods/bloch.png"
+<img src="/assets/thesis/amk_chapter/methods/bloch.png"
 data-short-caption="Bloch&#39;s Theorem and the Torus"
 style="width:100.0%"
 alt="Figure 2: Bloch’s theorem can be thought of as transforming from a periodic Hamiltonian on the place to the unit cell defined an torus. In addition we get some phase factors e^{i\vec{k}\cdot\vec{r}} associated with bonds that cross unit cells that depend on the sense in which they do so \vec{r} = (\pm1, \pm1). Representing graphs on the torus turns out to require a similar idea, we unwrap the torus to one unit cell and keep track of which bonds cross the cell boundaries." />
@@ -371,7 +371,7 @@ disconnected components.</p>
 four-colour theorem<span class="citation"
 data-cites="appelEveryPlanarMap1989"><sup><a
 href="#ref-appelEveryPlanarMap1989"
-role="doc-biblioref">8</a></sup></span>. The 4-colour theorem is
+role="doc-biblioref">7</a></sup></span>. The 4-colour theorem is
 concerned with assigning colours to the <strong>vertices</strong> of a
 graph, such that no vertices that share an edge have the same colour.
 Here we are concerned with an edge colouring.</p>
@@ -382,7 +382,7 @@ without any edges crossing. In fact, toroidal graphs require up to seven
 colours<span class="citation"
 data-cites="heawoodMapColouringTheorems"><sup><a
 href="#ref-heawoodMapColouringTheorems"
-role="doc-biblioref">9</a></sup></span>. The complete graph <span
+role="doc-biblioref">8</a></sup></span>. The complete graph <span
 class="math inline">\(K_7\)</span> is a good example of a toroidal graph
 that requires seven colours.</p>
 <p><span class="math inline">\(\Delta + 1\)</span> colours are enough to
@@ -392,27 +392,27 @@ for a graph with <span class="math inline">\(m\)</span> edges and <span
 class="math inline">\(n\)</span> vertices<span class="citation"
 data-cites="gEstimateChromaticClass1964"><sup><a
 href="#ref-gEstimateChromaticClass1964"
-role="doc-biblioref">10</a></sup></span>. Restricting ourselves to
-graphs with <span class="math inline">\(\Delta = 3\)</span> like ours,
-those can be four-edge-coloured in linear time<span class="citation"
+role="doc-biblioref">9</a></sup></span>. Restricting ourselves to graphs
+with <span class="math inline">\(\Delta = 3\)</span> like ours, those
+can be four-edge-coloured in linear time<span class="citation"
 data-cites="skulrattanakulchai4edgecoloringGraphsMaximum2002"><sup><a
 href="#ref-skulrattanakulchai4edgecoloringGraphsMaximum2002"
-role="doc-biblioref">11</a></sup></span>.</p>
+role="doc-biblioref">10</a></sup></span>.</p>
 <p>However, three-edge-colouring them is more difficult. Cubic, planar,
 bridgeless graphs can be three-edge-coloured if and only if they can be
 four-face-coloured<span class="citation"
 data-cites="tait1880remarks"><sup><a href="#ref-tait1880remarks"
-role="doc-biblioref">12</a></sup></span>. An <span
+role="doc-biblioref">11</a></sup></span>. An <span
 class="math inline">\(\mathcal{O}(n^2)\)</span> algorithm exists
 here<span class="citation" data-cites="robertson1996efficiently"><sup><a
 href="#ref-robertson1996efficiently"
-role="doc-biblioref">13</a></sup></span>. However, it is not clear
+role="doc-biblioref">12</a></sup></span>. However, it is not clear
 whether this extends to cubic, <strong>toroidal</strong> bridgeless
 graphs.</p>
 <div id="fig:multiple_colourings" class="fignos">
 <figure>
 <img
-src="/assets/thesis/figure_code/amk_chapter/multiple_colourings/multiple_colourings.svg"
+src="/assets/thesis/amk_chapter/multiple_colourings/multiple_colourings.svg"
 data-short-caption="Colourings of an Amorphous Lattice"
 style="width:100.0%"
 alt="Figure 3: Three different valid 3-edge-colourings of amorphous lattices. Colors that differ from the leftmost panel are highlighted." />
@@ -469,20 +469,20 @@ not <span class="math inline">\(x_3\)</span> is true”, and looks for an
 assignment <span class="math inline">\(x_i \in {0,1}\)</span> that
 satisfies all the statements<span class="citation"
 data-cites="Karp1972"><sup><a href="#ref-Karp1972"
-role="doc-biblioref">14</a></sup></span>.</p>
+role="doc-biblioref">13</a></sup></span>.</p>
 <p>General purpose, high performance programs for solving SAT problems
 have been an area of active research for decades<span class="citation"
 data-cites="alounehComprehensiveStudyAnalysis2019"><sup><a
 href="#ref-alounehComprehensiveStudyAnalysis2019"
-role="doc-biblioref">15</a></sup></span>. Such programs are useful
+role="doc-biblioref">14</a></sup></span>. Such programs are useful
 because, by the Cook-Levin theorem, any NP problem can be encoded in
 polynomial time as an instance of a SAT problem . This property is what
 makes SAT one of the subset of NP problems called NP-Complete<span
 class="citation"
 data-cites="cookComplexityTheoremprovingProcedures1971 levin1973universal"><sup><a
 href="#ref-cookComplexityTheoremprovingProcedures1971"
-role="doc-biblioref">16</a>,<a href="#ref-levin1973universal"
-role="doc-biblioref">17</a></sup></span>.</p>
+role="doc-biblioref">15</a>,<a href="#ref-levin1973universal"
+role="doc-biblioref">16</a></sup></span>.</p>
 <p>Thus, it is a relatively standard technique in the computer science
 community to solve NP problems by first transforming them to SAT
 instances and then using an off the shelf SAT solver. The output of this
@@ -497,7 +497,7 @@ turned out to work well enough and looking for a better solution was not
 necessary.</p>
 <p>We use a solver called <code>MiniSAT</code><span class="citation"
 data-cites="imms-sat18"><sup><a href="#ref-imms-sat18"
-role="doc-biblioref">18</a></sup></span>. Like most modern SAT solvers,
+role="doc-biblioref">17</a></sup></span>. Like most modern SAT solvers,
 <code>MiniSAT</code> requires the input problem to be specified in
 Conjunctive Normal Form (CNF). CNF requires that the constraints be
 encoded as a set of <em>clauses</em> of the form <span
@@ -557,13 +557,12 @@ particular n-colouring. However, it does include the option of using a
 heuristic function that determine the order in which vertices will be
 coloured<span class="citation"
 data-cites="kosowski2004classical matulaSmallestlastOrderingClustering1983"><sup><a
-href="#ref-kosowski2004classical" role="doc-biblioref">19</a>,<a
+href="#ref-kosowski2004classical" role="doc-biblioref">18</a>,<a
 href="#ref-matulaSmallestlastOrderingClustering1983"
-role="doc-biblioref">20</a></sup></span>. Perhaps</p>
+role="doc-biblioref">19</a></sup></span>. Perhaps</p>
 <div id="fig:times" class="fignos">
 <figure>
-<img
-src="/assets/thesis/figure_code/amk_chapter/methods/times/times.svg"
+<img src="/assets/thesis/amk_chapter/methods/times/times.svg"
 data-short-caption="Computation Time Spent on Different Procedures."
 style="width:100.0%"
 alt="Figure 4: The proportion of computation time taken up by the four longest running steps when generating a lattice. For larger systems, the time taken to perform the diagonalisation dominates." />
@@ -618,8 +617,7 @@ to the other and annihilates them.</p></li>
 </ol>
 <div id="fig:flux_finding" class="fignos">
 <figure>
-<img
-src="/assets/thesis/figure_code/amk_chapter/flux_finding/flux_finding.svg"
+<img src="/assets/thesis/amk_chapter/flux_finding/flux_finding.svg"
 data-short-caption="Finding Bond Sectors from Flux Sectors"
 style="width:100.0%"
 alt="Figure 5: (Left) The ground state flux sector and bond sector for an amorphous lattice. Bond arrows indicate the direction in which u_{jk} = +1. Plaquettes are coloured blue when \hat{\phi}_i = -1 (-i) for even/odd plaquettes and orange when \hat{\phi}_i = +1 (+i) for even/odd plaquettes. (Centre) To transform this to the target flux sector (all +1/+i), we first flip any u_{jk} that are between two fluxes. This leaves a set of isolated fluxes that must be annihilated. Then, these are paired up as indicated by the black lines. (Right) A* search is used to find paths (coloured plaquettes) on the dual lattice between each pair of fluxes and the corresponding u_{jk} (shown in black) are flipped. One flux will remain because the starting and target flux sectors differed by an odd number of fluxes." />
@@ -662,16 +660,9 @@ system.</p>
 Statistics</strong></p>
 <div id="refs" class="references csl-bib-body" data-line-spacing="2"
 role="doc-bibliography">
-<div id="ref-tomImperialCMTHKoalaFirst2022" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline">Tom,
-dpreuo &amp; Cassella, G. Imperial-<span>CMTH</span>/koala:
-<span>First</span> release. (2022) doi:<a
-href="https://doi.org/10.5281/zenodo.6303276">10.5281/zenodo.6303276</a>.</div>
-</div>
 <div id="ref-mitchellAmorphousTopologicalInsulators2018"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">2. </div><div
+<div class="csl-left-margin">1. </div><div
 class="csl-right-inline">Mitchell, N. P., Nash, L. M., Hexner, D.,
 Turner, A. M. &amp; Irvine, W. T. M. <a
 href="https://doi.org/10.1038/s41567-017-0024-5">Amorphous topological
@@ -680,16 +671,15 @@ insulators constructed from random point sets</a>. <em>Nature Phys</em>
 </div>
 <div id="ref-marsalTopologicalWeaireThorpeModels2020" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">3. </div><div
+<div class="csl-left-margin">2. </div><div
 class="csl-right-inline">Marsal, Q., Varjas, D. &amp; Grushin, A. G. <a
-href="https://doi.org/10.1073/pnas.2007384117">Topological
-<span>Weaire-Thorpe</span> models of amorphous matter</a>. <em>Proc.
-Natl. Acad. Sci. U.S.A.</em> <strong>117</strong>, 30260–30265
-(2020).</div>
+href="https://doi.org/10.1073/pnas.2007384117">Topological Weaire-Thorpe
+models of amorphous matter</a>. <em>Proc. Natl. Acad. Sci. U.S.A.</em>
+<strong>117</strong>, 30260–30265 (2020).</div>
 </div>
 <div id="ref-florescu_designer_2009" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">4. </div><div
+<div class="csl-left-margin">3. </div><div
 class="csl-right-inline">Florescu, M., Torquato, S. &amp; Steinhardt, P.
 J. <a href="https://doi.org/10.1073/pnas.0907744106">Designer disordered
 materials with large, complete photonic band gaps</a>. <em>Proceedings
@@ -698,124 +688,120 @@ of the National Academy of Sciences</em> <strong>106</strong>,
 </div>
 <div id="ref-alyamiUniformSamplingDirected2016" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">5. </div><div
+<div class="csl-left-margin">4. </div><div
 class="csl-right-inline">Alyami, S. A., Azad, A. K. M. &amp; Keith, J.
-M. <a href="https://doi.org/10.1016/j.endm.2016.05.005">Uniform
-<span>Sampling</span> of <span>Directed</span> and <span>Undirected
-Graphs Conditional</span> on <span>Vertex Connectivity</span></a>.
-<em>Electronic Notes in Discrete Mathematics</em> <strong>53</strong>,
-43–55 (2016).</div>
+M. <a href="https://doi.org/10.1016/j.endm.2016.05.005">Uniform Sampling
+of Directed and Undirected Graphs Conditional on Vertex
+Connectivity</a>. <em>Electronic Notes in Discrete Mathematics</em>
+<strong>53</strong>, 43–55 (2016).</div>
 </div>
 <div id="ref-barberQuickhullAlgorithmConvex1996" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">6. </div><div
+<div class="csl-left-margin">5. </div><div
 class="csl-right-inline">Barber, C. B., Dobkin, D. P. &amp; Huhdanpaa,
 H. <a href="https://doi.org/10.1145/235815.235821">The quickhull
 algorithm for convex hulls</a>. <em>ACM Trans. Math. Softw.</em>
 <strong>22</strong>, 469–483 (1996).</div>
 </div>
-<div id="ref-virtanenSciPyFundamentalAlgorithms2020a" class="csl-entry"
+<div id="ref-virtanenSciPyFundamentalAlgorithms2020" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">7. </div><div
+<div class="csl-left-margin">6. </div><div
 class="csl-right-inline">Virtanen, P. <em>et al.</em> <a
-href="https://doi.org/10.1038/s41592-019-0686-2"><span>SciPy</span> 1.0:
-Fundamental algorithms for scientific computing in
-<span>Python</span></a>. <em>Nat Methods</em> <strong>17</strong>,
-261–272 (2020).</div>
+href="https://doi.org/10.1038/s41592-019-0686-2">SciPy 1.0: fundamental
+algorithms for scientific computing in Python</a>. <em>Nature
+Methods</em> <strong>17</strong>, 261–272 (2020).</div>
 </div>
 <div id="ref-appelEveryPlanarMap1989" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">8. </div><div
-class="csl-right-inline">Appel, K. &amp; Haken, W. Every <span>Planar
-Map Is Four Colorable</span>. in (1989). doi:<a
+<div class="csl-left-margin">7. </div><div
+class="csl-right-inline">Appel, K. &amp; Haken, W. Every Planar Map Is
+Four Colorable. in (1989). doi:<a
 href="https://doi.org/10.1090/conm/098">10.1090/conm/098</a>.</div>
 </div>
 <div id="ref-heawoodMapColouringTheorems" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">9. </div><div
+<div class="csl-left-margin">8. </div><div
 class="csl-right-inline">Heawood, P. J. Map colouring theorems.
 <em>Quarterly Journal of Mathematics</em> 322–339.</div>
 </div>
 <div id="ref-gEstimateChromaticClass1964" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">10. </div><div class="csl-right-inline">G,
-V. V. On an estimate of the chromatic class of a p-graph. <em>Discret
+<div class="csl-left-margin">9. </div><div class="csl-right-inline">G,
+V. V. <a href="https://cir.nii.ac.jp/crid/1571980075458819456">On an
+estimate of the chromatic class of a p-graph</a>. <em>Discret
 Analiz</em> <strong>3</strong>, 25–30 (1964).</div>
 </div>
 <div id="ref-skulrattanakulchai4edgecoloringGraphsMaximum2002"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">11. </div><div
+<div class="csl-left-margin">10. </div><div
 class="csl-right-inline">Skulrattanakulchai, S. <a
 href="https://doi.org/10.1016/S0020-0190(01)00221-6">4-edge-coloring
 graphs of maximum degree 3 in linear time</a>. <em>Inf. Process.
 Lett.</em> <strong>81</strong>, 191–195 (2002).</div>
 </div>
 <div id="ref-tait1880remarks" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">12. </div><div
+<div class="csl-left-margin">11. </div><div
 class="csl-right-inline">Tait, P. G. Remarks on the colouring of maps.
-in <em>Proc. <span>Roy</span>. <span>Soc</span>.
-<span>Edinburgh</span></em> vol. 10 501–503 (1880).</div>
+in <em>Proc. Roy. Soc. Edinburgh</em> vol. 10 501–503 (1880).</div>
 </div>
 <div id="ref-robertson1996efficiently" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">13. </div><div
+<div class="csl-left-margin">12. </div><div
 class="csl-right-inline">Robertson, N., Sanders, D. P., Seymour, P.
 &amp; Thomas, R. Efficiently four-coloring planar graphs. in
-<em>Proceedings of the twenty-eighth annual <span>ACM</span> symposium
-on <span>Theory</span> of computing</em> 571–575 (1996).</div>
+<em>Proceedings of the twenty-eighth annual ACM symposium on Theory of
+computing</em> 571–575 (1996).</div>
 </div>
 <div id="ref-Karp1972" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">14. </div><div
+<div class="csl-left-margin">13. </div><div
 class="csl-right-inline">Karp, R. M. Reducibility among combinatorial
 problems. in <em>Complexity of computer computations</em> (eds. Miller,
-R. E., Thatcher, J. W. &amp; Bohlinger, J. D.) 85–103 (<span>Springer
-US</span>, 1972). doi:<a
+R. E., Thatcher, J. W. &amp; Bohlinger, J. D.) 85–103 (Springer US,
+1972). doi:<a
 href="https://doi.org/10.1007/978-1-4684-2001-2_9">10.1007/978-1-4684-2001-2_9</a>.</div>
 </div>
 <div id="ref-alounehComprehensiveStudyAnalysis2019" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">15. </div><div
+<div class="csl-left-margin">14. </div><div
 class="csl-right-inline">Alouneh, S., Abed, S., Al Shayeji, M. H. &amp;
 Mesleh, R. <a href="https://doi.org/10.1007/s10462-018-9628-0">A
-comprehensive study and analysis on <span
-class="nocase">SAT-solvers</span>: Advances, usages and
+comprehensive study and analysis on SAT-solvers: advances, usages and
 achievements</a>. <em>Artif Intell Rev</em> <strong>52</strong>,
 2575–2601 (2019).</div>
 </div>
 <div id="ref-cookComplexityTheoremprovingProcedures1971"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">16. </div><div
+<div class="csl-left-margin">15. </div><div
 class="csl-right-inline">Cook, S. A. The complexity of theorem-proving
-procedures. in <em>Proceedings of the third annual <span>ACM</span>
-symposium on <span>Theory</span> of computing</em> 151–158
-(<span>Association for Computing Machinery</span>, 1971). doi:<a
+procedures. in <em>Proceedings of the third annual ACM symposium on
+Theory of computing</em> 151–158 (Association for Computing Machinery,
+1971). doi:<a
 href="https://doi.org/10.1145/800157.805047">10.1145/800157.805047</a>.</div>
 </div>
 <div id="ref-levin1973universal" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">17. </div><div
+<div class="csl-left-margin">16. </div><div
 class="csl-right-inline">Levin, L. A. Universal sequential search
 problems. <em>Problemy peredachi informatsii</em> <strong>9</strong>,
 115–116 (1973).</div>
 </div>
 <div id="ref-imms-sat18" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">18. </div><div
+<div class="csl-left-margin">17. </div><div
 class="csl-right-inline">Ignatiev, A., Morgado, A. &amp; Marques-Silva,
-J. <span>PySAT</span>: <span>A Python</span> toolkit for prototyping
-with <span>SAT</span> oracles. in <em><span>SAT</span></em> 428–437
-(2018). doi:<a
+J. PySAT: A Python toolkit for prototyping with SAT oracles. in
+<em>SAT</em> 428–437 (2018). doi:<a
 href="https://doi.org/10.1007/978-3-319-94144-8_26">10.1007/978-3-319-94144-8_26</a>.</div>
 </div>
 <div id="ref-kosowski2004classical" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">19. </div><div
+<div class="csl-left-margin">18. </div><div
 class="csl-right-inline">Kosowski, A. &amp; Manuszewski, K. Classical
 coloring of graphs. <em>Contemporary Mathematics</em>
 <strong>352</strong>, 1–20 (2004).</div>
 </div>
 <div id="ref-matulaSmallestlastOrderingClustering1983" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">20. </div><div
+<div class="csl-left-margin">19. </div><div
 class="csl-right-inline">Matula, D. W. &amp; Beck, L. L. <a
 href="https://doi.org/10.1145/2402.322385">Smallest-last ordering and
 clustering and graph coloring algorithms</a>. <em>J. ACM</em>

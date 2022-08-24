@@ -1,8 +1,112 @@
-\begin{Shaded}
-\begin{Highlighting}[]
-\OperatorTok{\%\%}\NormalTok{html}
-\end{Highlighting}
-\end{Shaded}
+\hypertarget{interacting-quantum-many-body-systems}{%
+\section{Interacting Quantum Many Body Systems}\label{interacting-quantum-many-body-systems}}
+
+When you take many objects and let them interact together, it is often simpler to describe the behaviour of the group differently than one would describe the individual objects. Consider a flock (technically called a \emph{murmuration}) of starlings like \cref{fig:Studland_Starlings}. Watching the flock you'll see that it has a distinct outline, that waves of density will sometimes propagate through the closely packed birds and that the flock seems to respond to predators as a distinct object. The natural description of this phenomena is couched in terms of the flock rather than the individual birds.
+
+The behaviours of the flock are an emergent phenomena. The starlings are only interacting with their immediate six or seven neighbours \autocite{king2012murmurations,balleriniInteractionRulingAnimal2008}. This is what a physicist would call a \emph{local interaction}. There is much philosophical debate about how exactly to define emergence \autocite{andersonMoreDifferent1972,kivelsonDefiningEmergencePhysics2016} but for our purposes it enough to say that emergence is the fact that the aggregate behaviour of many interacting objects may be very different from the individual behaviour of those objects.
+
+\hypertarget{fig:Studland_Starlings}{%
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/intro_chapter/Studland_Starlings.jpeg}
+\caption[{A murmuration of Starlings}]{A murmuration of starlings. Dorset, UK. Credit \href{twitter.com/arripay}{Tanya Hart}, ``Studland Starlings'', 2017, \href{creativecommons.org/licenses/by-sa/3.0/deed.en}{CC BY-SA 3.0}}
+\label{fig:Studland_Starlings}
+\end{figure}
+}
+
+To give another example, our understanding of thermodynamics began with bulk properties like heat, energy, pressure and temperature \autocite{saslowHistoryThermodynamicsMissing2020}. It was only later that we gained an understanding of how these properties emerge from microscopic interactions between very large numbers of particles \autocite{flammHistoryOutlookStatistical1998}.
+
+Condensed Matter is, at its heart, the study of what behaviours emerge from large numbers of interacting quantum objects at low energy. When these three properties are present together: a large number of objects, those objects being quantum and there are interaction between the objects, we call it an interacting quantum many body system. From these three ingredients nature builds all manner of weird and wonderful materials.
+
+Historically, we made initial headway in the study of many-body systems, ignoring interactions and quantum properties. The ideal gas law and the Drude classical electron gas \autocite{ashcroftSolidStatePhysics1976} are good examples. Including interactions into many-body physics leads to the Ising model \autocite{isingBeitragZurTheorie1925}, Landau theory \autocite{landau2013fluid} and the classical theory of phase transitions \autocite{jaegerEhrenfestClassificationPhase1998}. In contrast, condensed matter theory got it state in quantum many-body theory. Bloch's theorem \autocite{blochÜberQuantenmechanikElektronen1929} predicted the properties of non-interacting electrons in crystal lattices, leading to band theory. In the same vein, advances were made in understanding the quantum origins of magnetism, including ferromagnetism and antiferromagnetism \autocite{MagnetismCondensedMatter}.
+
+However, at some point we had to start on the interacting quantum many body systems. Some phenomena cannot be understood without a taking into account all three effects. The canonical examples are superconductivity \autocite{MicroscopicTheorySuperconductivity}, the fractional quantum hall effect \autocite{feldmanFractionalChargeFractional2021} and the Mott insulators \autocite{mottBasisElectronTheory1949,fisherMottInsulatorsSpin1999}. We will discuss the latter in more detail.
+
+Electrical conductivity, the bulk movement of electrons, requires both that there are electronic states very close in energy to the ground state and that those states are delocalised so that they can contribute to macroscopic transport. Band insulators are systems whose Fermi level falls within a gap in the density of states and thus fail the first criteria. Anderson Insulators have only localised electronic states near the fermi level and therefore fail the second criteria. We will discuss Anderson insulators and disorder in a later section.
+
+Both band and Anderson insulators occur without electron-electron interactions. Mott insulators, by contrast, are by these interactions and hence elude band theory and single-particle methods.
+
+\hypertarget{fig:venn_diagram}{%
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/intro_chapter/venn_diagram}
+\caption[{Interacting Quantum Many Body Systems Venn Diagram}]{Three key adjectives. Many Body, the fact of describing systems in the limit of large numbers of particles. Quantum, objects whose behaviour requires quantum mechanics to describe accurately. Interacting, the constituent particles of the system affect one another via forces, either directly or indirectly. When taken together, these three properties can give rise to what are called strongly correlated materials.}
+\label{fig:venn_diagram}
+\end{figure}
+}
+
+\hypertarget{mott-insulators-and-the-hubbard-model}{%
+\section{Mott Insulators and The Hubbard Model}\label{mott-insulators-and-the-hubbard-model}}
+
+The theory of Mott insulators developed out of the observation that many transition metal oxides are erroneously predicted by band theory to be conductive \autocite{boerSemiconductorsPartiallyCompletely1937} leading to the suggestion that electron-electron interactions were the cause of this effect \autocite{mottDiscussionPaperBoer1937}. Interest grew with the discovery of high temperature superconductivity in the cuprates in 1986 \autocite{bednorzPossibleHighTcSuperconductivity1986} which is believed to arise as the result of doping a Mott insulator state \autocite{leeDopingMottInsulator2006}.
+
+The canonical toy model of the Mott insulator is the Hubbard model \autocite{gutzwillerEffectCorrelationFerromagnetism1963,kanamoriElectronCorrelationFerromagnetism1963,hubbardj.ElectronCorrelationsNarrow1963} of \(1/2\) fermions hopping on the lattice with hopping parameter \(t\) and electron-electron repulsion \(U\)
+
+\[ H = -t \sum_{\langle i,j \rangle \alpha} c^\dagger_{i\alpha} c_{j\alpha} + U \sum_i n_{i\uparrow} n_{i\downarrow} - \mu \sum_{i,\alpha} n_{i\alpha}\]
+
+where \(c^\dagger_{i\alpha}\) creates a spin \(\alpha\) electron at site \(i\) and the number operator \(n_{i\alpha}\) measures the number of electrons with spin \(\alpha\) at site \(i\). In the non-interacting limit \(U << t\), the model reduces to free fermions and the many-body ground state is a separable product of Bloch waves filled up to the Fermi level. In the interacting limit \(U >> t\) on the other hand, the system breaks up into a product of local moments, each in one the four states \(|0\rangle, |\uparrow\rangle, |\downarrow\rangle, |\uparrow\downarrow\rangle\) depending on the filing.
+
+The Mott insulating phase occurs at half filling \(\mu = \tfrac{U}{2}\) where there is one electron per lattice site \autocite{hubbardElectronCorrelationsNarrow1964}. Here the model can be rewritten in a symmetric form \[ H = -t \sum_{\langle i,j \rangle \alpha} c^\dagger_{i\alpha} c_{j\alpha} + U \sum_i (n_{i\uparrow} - \tfrac{1}{2})(n_{i\downarrow} - \tfrac{1}{2})\]
+
+The basic reason that the half filled state is insulating seems is trivial. Any excitation must include states of double occupancy that cost energy \(U\), hence the system has a finite bandgap and is an interaction driven Mott insulator. Originally it was proposed that antiferromagnetic order was a necessary condition for the Mott insulator transition \autocite{mottMetalInsulatorTransitions1990} but later examples were found without magnetic order \textbf{cite}.
+
+Various theoretical treatments of the Hubbard model have been made, including those based on Fermi liquid theory, mean field treatments, the local density approximation (LDA) \autocite{slaterMagneticEffectsHartreeFock1951} and dynamical mean-field theory \autocite{greinerQuantumPhaseTransition2002}. None of these approaches is perfect. Strong correlations are poorly described by the Fermi liquid theory and the LDA approaches while mean field approximations do poorly in low dimensional systems. This theoretical difficulty has made the Hubbard model a target for cold atom simulations \autocite{mazurenkoColdatomFermiHubbard2017}.
+
+From here the discussion will branch two directions. First, we will discuss a limit of the Hubbard model called the Falikov Kimball Model. Second, we will go down the rabbit hole of strongly correlated systems without magnetic order. This will lead us to Quantum spin liquids and the Kitaev honeycomb model.
+
+\textbf{An exactly solvable model of the Mott Insulator} - demonstrate mott insulator in hubbard model, briefly tease the falikov kimball model in order to lay the ground work to talk about the falikov kimball model later
+
+\begin{itemize}
+\tightlist
+\item
+  FK model has extensively many conserved charges which makes it tractable
+\item
+  Disorder free localisation
+\end{itemize}
+
+\textbf{An exactly solvable Quantum Spin Liquid} - relationship between mott insulators and spin liquids: the electrons in a mott insulator form local moments that normally form an AFM ground state but if they don't, due to frustration or other reason, the local moments may form a QSL at T=0 instead. \autocite{law1TTaS2QuantumSpin2017,ribakGaplessExcitationsGround2017}
+
+\begin{itemize}
+\item
+  QSLs introduced by anderson 1973 \autocite{andersonResonatingValenceBonds1973}
+\item
+  Spin orbit effect is a relativistic effect that couples electron spin to orbital angular moment. Very roughly, an electron sees the electric field of the nucleus as a magnetic field due to its movement and the electron spin couples to this.
+\item
+  can be string in heavy elements
+\item
+  The Kitaev Model
+\item
+  Kitaev model has extensively many conserved charges too
+\item
+  Frustration
+\item
+  anyons
+\item
+  fractionalisation
+\item
+  Topology -\textgreater{} GS degeneracy depends on the genus of the surface
+\item
+  the chern number
+\item
+  quasiparticles
+\item
+  topological order
+\item
+  protected edge states
+\item
+  Abelian and non-Abelian anyons
+\end{itemize}
+
+\hypertarget{fig:correlation_spin_orbit_PT}{%
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/intro_chapter/correlation_spin_orbit_PT.png}
+\caption[{Phase Diagram}]{From \autocite{TrebstPhysRep2022}.}
+\label{fig:correlation_spin_orbit_PT}
+\end{figure}
+}
+
+kinds of mott insulators: Mott-Heisenberg (AFM order below Néel temperature) Mott-Hubbard (no long-range order of local magnetic moments) Mott-Anderson (disorder + correlations) Wigner Crystal
 
 \hypertarget{outline}{%
 \section{Outline}\label{outline}}
@@ -14,138 +118,3 @@ In Chapter 2 I will look at the Falikov-Kimball model. I will review what it is 
 In Chapter 3 I'll study the Kitaev Honeycomb Model, following the same structure as Chapter 2 I will motivate the study, survey the literature and identify a gap. I'll introduce our Amorphous Kitaev Model designed to fill this gap and present the results.
 
 Finally in chapter 4 I will summarise the results and discuss what implications they have for our understanding interacting many-body quantum systems.
-
-One of the most interesting and perhaps surprising features of many body physics is the existence of distinct phases of matter.
-
-Why does liquid turn to ice? Well there are two key ingredients. First we need a system composed of a large number of objects and second we need those objects to interact with eachother.
-
-It turns out that the more objects there are, the greater the effect that their interactions has on the whole. A hundred \(H_2O\) molecules can't actually form the nice regular structure that characterises ice, instead you'd get more of a blob. However, any human scale amount of water contains an unimaginable huge number of molecules.
-
-Phases come about when the interactions between individuals components serve the reinforce
-
-When a many body, interacting system can display radically different properties depending on the system parameters
-
-\textbf{Themes} - many body - interactions - quantum - topology - disorder
-
-\begin{itemize}
-\item
-  quasiparticles
-\item
-  topological order
-\item
-  protected edge states
-\item
-  Abelian and non-Abelian anyons
-\item
-  localisation
-\item
-  length scales
-\end{itemize}
-
-\hypertarget{interacting-quantum-many-body-systems}{%
-\section{Interacting Quantum Many Body Systems}\label{interacting-quantum-many-body-systems}}
-
-\textbf{Interacting Many-Body Quantum Systems}
-
-\emph{Figure showing energy scales of interest on a log plot}
-
-Condensed matter is called condensed because in the scheme of things it is the physics of objects that are quite cold. Working at high energies allows one to probe deeper and deeper into the substructure of things, from atoms to nuclei to nucleons to quarks to gluons. At one stage the behaviour may be well described by talking of protons and neutrons binding together, while at the next it is necessary to bring gluons and quarks into the picture.
-
-It is perhaps not surprising then, that going to lower energies produces the reverse effect. If we start with a gas of atoms and cool it, we will get a solid. In that solid, we find that the relevant objects are not even particles in the sense that one might imagine, they are instead collective motions (or excitations) of the constituent particles which we call quasiparticles.
-
-Sometimes it is said that quasiparticles are a bit like waves on the ocean. And in a sense they are, however because they live in the quantum realm they are far weirder and more diverse than ocean waves. Their quantumness gives them a distinct identity and indivisibility that waves do not have. They can interact both directly and, more strangely, simply by moving around one another.
-
-I will be looking at the behaviour of electrons in crystalline and amorphous materials. The ingredients that I will consider are:
-
-\begin{itemize}
-\tightlist
-\item
-  Interactions between particles
-\item
-  Disorder or randomness in the system
-\item
-  Symmetries of the system
-\item
-  The dimensionality of the system
-\item
-  Temperature
-\item
-  While perhaps obvious, the fact of there being many bodies is itself a key ingredient.
-\end{itemize}
-
-In keeping with the theme of trying to keep things simple, I will use the tight binding approximation of electrons moving against a fixed atomic background potential. I will discuss the advantages and disadvantages of this approximation in the next chapter but for now let's say that it captures enough of the essence of reality to explain many physical phenomena.
-
-\href{venndiagram}{Modelling reality requires three basic ingredients: we need quantum objects, we need a lot of them and we need them to interact. However these three properties taken together make for an almost completely intractable problem. Many approaches to modelling reality in condensed matter can be thought of as tackling this problem by going after one of these ingredients. Diagrammatic methods set interactions to zero and add them back in perturbatively. Mean field methods get rid of the many bodies. Condensed matter theorists are excited about ADS/CFT correspondences because the can map interacting quantum problems onto classical ones. The models I study in this thesis could be classified into this scheme as follows. The FK model model contains many interacting bodies but what makes it tractable is that we have classical species interacting with quantum ones, because the quantum particles never interact among one another we can still make progress with simulations. The Kitaev Honeycomb Model and our generalisations of it essentially rely on a similar trick, though in this case the classical degrees of freedom are emergent they still serve to decouple the quantum degrees of freedom from interacting with one another.}
-
-\textbf{Spin-Orbit Coupling}
-
-Electronic wavefunctions can be understood as quantum extensions of
-
-This can be loosely understood as a consequence of that fact that electrons are `orbiting' their host nucleus and in doing so they are moving with respect to an electric field generated by the positive charge of the nucleus. The electric field looks like a magnetic field in the rest frame of the electron and this magnetic field couples to the magnetic spin moment of the electron.
-
-This analogy is wrong on many levels but it suffices to understand that there should be such an effect.
-
-Going one level deeper we can estimate the scale of the effect by combining the non-relativistic quantum theory of a spin in a magnetic field with the classical relativistic electromagnetism prediction for how the electric field turns into a magnetic field in the rest frame of the electron. This gets us within a factor to two of the correct answer but it fails to account for an extra relativistic effect called Thomas Precession \textbf{cite}.
-
-The next level would be to compute this effect within relativistic QM using the Dirac equation. And finally, we could do the full calculation within Quantum Electrodynamics where we would find tiny corrections that come about from virtual processes involving particle-antiparticle pairs that spring form from the vacuum.
-
-\hypertarget{mott-insulators-and-the-hubbard-model}{%
-\section{Mott Insulators and The Hubbard Model}\label{mott-insulators-and-the-hubbard-model}}
-
-\begin{fignos:no-prefix-figure-caption}
-
-\begin{figure}
-\centering
-\includegraphics{5d575ef5-9414-4f30-a2cc-9a2b8cd44cc0.png}
-\caption{image.png}
-\end{figure}
-
-\end{fignos:no-prefix-figure-caption}
-
-These are easiest to understand within the context of the Hubbard model, if we take spin \(1/2\) fermions hopping on the lattice with hopping parameter \(t\) and interaction strength \(U\) \[ H = -t \sum_{\langle i,j \rangle \alpha} c^\dagger_{i\alpha} c_{j\alpha} + \sum_i c^\dagger_{i\uparrow} c_{i\downarrow}\]
-
-where \(c^\dagger_{i\alpha}\) creates a spin \(\alpha\) electron at site \(i\). Pauli exclusion prevents two electrons with the same spin being at the same site so which is why the interaction term only couples opposite spin electrons. The only physically relevant parameter here is \(U/t\) which compared the interaction strength \(U\) to the importance of kinetic energy \(t\).
-
-In the free fermion limit \(U/t = 0\), we can just find the single particle eigenstates and fill them up to the fermi level. The many body ground state has no particular electron-electron correlations.
-
-In the interacting limit, \(t/U = 0\), there's no hopping so electrons just site wherever we put them. We can fill the system up until there is one electron per site without any energy penalty at all. The maximum we can fill the system up to
-
-\begin{fignos:no-prefix-figure-caption}
-
-\begin{figure}
-\centering
-\includegraphics{f25fb28d-4239-4184-9a9e-b6704189019d.png}
-\caption{Stolen from https://arxiv.org/pdf/1701.07056.pdf}
-\end{figure}
-
-\end{fignos:no-prefix-figure-caption}
-
-\textbf{Condensed Matter Theory}
-
-\href{energy_scales}{A collection of important energy scales plotted on a logarithmic scale. We can take room temperature somewhere in the middle of the plot as a reference point. Moving towards higher energies we'll gradually probe deeper into the smaller and smaller structures of the universe, atoms, protons, quarks etc. While going to lower energies we move to larger and larger scales and objects made up of progressively more and more components.}
-
-There's a common joke among condensed matter physicists that the field is the study of dirt. I quite like this definition because within the average handful of dirt you're not unlikely to find crystals, metals, glasses and all manner of other things that condensed matter physicists like to study.
-
-The second reason I like this definition is that dirt is complex. It has structure at many scales. It is heterogeneous and contaminated with traces of all manner of things. It's dirty. When I talk about real physical things like this, I will use the word systems.
-
-On the other hand, we have mathematical tools at our disposal to describe and understand the world around us. I'll use the word model whenever I am talking about these mathematical constructions that describe the real word.
-
-This leads one of the central tensions of condensed matter theory: our models are ill-equipped to deal with the complexity inherent in the real world. We may be able to write down a mathematical description of a handful of dirt, but we wouldn't be able to solve it. And a model we cannot solve will not further our understanding.
-
-So what do we do? Well, we simplify. We try to ask ``What are the essential ingredients required to model this particular phenomenon?''
-
-Answering this question lets us write down simpler models that we have a better chance of being able to solve. And by paring the description down to the bare minimum, it also gives us a better chance of being able to understand why these systems behave the way they do.
-
-I will therefore be focusing on highly simplified models of reality, each containing only a few ingredients. I will then investigate what phenomena can be observed in these models and try to relate the findings to more messy reality.
-
-\hypertarget{spin-liquids}{%
-\section{Spin Liquids}\label{spin-liquids}}
-
-\hypertarget{exactly-solvable-models}{%
-\section{Exactly Solvable Models}\label{exactly-solvable-models}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-
-\end{Highlighting}
-\end{Shaded}

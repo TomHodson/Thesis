@@ -10,23 +10,14 @@ which was a joint project of the first three authors with advice and guidance fr
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-\begin{figure}
 \hypertarget{fig:intro_figure_by_hand}{%
+\begin{figure}
 \centering
 \includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/intro/honeycomb_zoom/intro_figure_by_hand}
-\caption[The Kitaev Honeycomb Model]{\textbf{(a)} The standard Kitaev model is defined on a
-honeycomb lattice. The special feature of the honeycomb lattice that
-makes the model solvable is that each vertex is joined by exactly three
-bonds, i.e.~the lattice is trivalent. One of three labels is assigned to
-each \textbf{(b)}. We represent the antisymmetric gauge degree of
-freedom \(u_{jk} = \pm 1\) with arrows that point in the direction
-\(u_{jk} = +1\) \textbf{(c)}. The Majorana transformation can be
-visualised as breaking each spin into four Majoranas which then pair
-along the bonds. The pairs of x,y and z Majoranas become part of the
-classical \(\mathbb{Z}_2\) gauge field \(u_{ij}\). This leavies a single
-Majorana \(c_i\) per site.}\label{fig:intro_figure_by_hand}
-}
+\caption[{The Kitaev Honeycomb Model}]{\textbf{(a)} The standard Kitaev model is defined on a honeycomb lattice. The special feature of the honeycomb lattice that makes the model solvable is that each vertex is joined by exactly three bonds, i.e.~the lattice is trivalent. One of three labels is assigned to each \textbf{(b)}. We represent the antisymmetric gauge degree of freedom \(u_{jk} = \pm 1\) with arrows that point in the direction \(u_{jk} = +1\) \textbf{(c)}. The Majorana transformation can be visualised as breaking each spin into four Majoranas which then pair along the bonds. The pairs of x,y and z Majoranas become part of the classical \(\mathbb{Z}_2\) gauge field \(u_{ij}\). This leavies a single Majorana \(c_i\) per site.}
+\label{fig:intro_figure_by_hand}
 \end{figure}
+}
 
 The Kitaev Honeycomb model \[H =  - \sum_{\langle j,k\rangle_\alpha} J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha},\] is remarkable because it combines three key properties.
 
@@ -174,14 +165,14 @@ Once we involve multiple fermions, there is some freedom in how we can perform t
 
 \[ \{c_i, c_j\} = 2\delta_{ij}\]
 
-\begin{figure}
 \hypertarget{fig:visual_kitaev_1}{%
+\begin{figure}
 \centering
 \includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/visual_kitaev_1}
-\caption[A Visual Intro to the Kitaev Model]{A visual introduction to the Kitaev
-Model.}\label{fig:visual_kitaev_1}
-}
+\caption[{A Visual Intro to the Kitaev Model}]{A visual introduction to the Kitaev Model.}
+\label{fig:visual_kitaev_1}
 \end{figure}
+}
 
 \hypertarget{the-hamiltonian}{%
 \subsubsection{The Hamiltonian}\label{the-hamiltonian}}
@@ -202,26 +193,27 @@ A bipartite lattice is composed of A and B sublattices with no intra-sublattice 
 
 As the honeycomb lattice is bipartite, there are no closed loops that contain an even number of edges. Therefore, all the \(W_p\) have eigenvalues \(\pm 1\) on bipartite lattices. Later, we will show that plaquettes with an odd number of sides (odd plaquettes for short) have eigenvalues \(\pm i\).
 
-\begin{figure}
 \hypertarget{fig:regular_plaquettes}{%
+\begin{figure}
 \centering
 \includegraphics[width=0.86\textwidth,height=\textheight]{figure_code/amk_chapter/intro/regular_plaquettes/regular_plaquettes}
-\caption[Plaquettes in the Kitaev Model]{The eigenvalues of a loop or plaquette operators depend on the
-number of bonds in its enclosing path.}\label{fig:regular_plaquettes}
-}
+\caption[{Plaquettes in the Kitaev Model}]{The eigenvalues of a loop or plaquette operators depend on the number of bonds in its enclosing path.}
+\label{fig:regular_plaquettes}
 \end{figure}
+}
 
 Remarkably, all of the spin bond operators \(K_{ij}\) commute with all the Wilson loop operators \(W_p\). \[[W_p, K_{ij}] = 0\] We can prove this by considering three cases: 1. neither \(i\) nor \(j\) is part of the loop 2. one of \(i\) or \(j\) are part of the loop 3. both are part of the loop
 
 The first case is trivial. The other two require some algebra, outlined in \cref{fig:visual_kitaev_2}.
 
-\begin{figure}
 \hypertarget{fig:visual_kitaev_2}{%
+\begin{figure}
 \centering
 \includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/visual_kitaev_2}
-\caption[Plaquette Operators are Conserved]{Plaquette operators are conserved.}\label{fig:visual_kitaev_2}
-}
+\caption[{Plaquette Operators are Conserved}]{Plaquette operators are conserved.}
+\label{fig:visual_kitaev_2}
 \end{figure}
+}
 
 Since the Hamiltonian is a linear combination of bond operators, it commutes with the plaquette operators. This is helpful because it leads to a simultaneous eigenbasis for the Hamiltonian and the plaquette operators. We can, thus, work in \emph{or ``on''???} a basis in which the eigenvalues of the plaquette operators take on a definite value and, for all intents and purposes, act like classical degrees of freedom. These are the extensively many conserved quantities that make the model tractable.
 

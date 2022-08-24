@@ -1,16 +1,17 @@
-\hypertarget{contributions}{%
-\subsection{Contributions}\label{contributions}}
+This chapter expands on work presented in
 
-This material is this chapter expands on work presented in
+\autocite{hodsonOnedimensionalLongrangeFalikovKimball2021} \href{https://link.aps.org/doi/10.1103/PhysRevB.104.045116}{One-dimensional long-range Falikov-Kimball model: Thermal phase transition and disorder-free localization}, Hodson, T. and Willsher, J. and Knolle, J., Phys. Rev.~B, \textbf{104}, 4, 2021,
 
-\autocite{hodsonOnedimensionalLongRangeFalikovKimball2021} \href{https://link.aps.org/doi/10.1103/PhysRevB.104.045116}{One-dimensional long-range Falikov-Kimball model: Thermal phase transition and disorder-free localization}, Hodson, T. and Willsher, J. and Knolle, J., Phys. Rev.~B, \textbf{104}, 4, 2021,
+the code for which is available is available at \autocite{hodsonMCMCFKModel2021}.
 
-Johannes had the initial idea to use a long range Ising term to stablise order in a one dimension Falikov-Kimball model. Josef developed a proof of concept during a summer project at Imperial. The three of us brought the project to fruition.
+\textbf{Contributions}
+
+Johannes had the initial idea to use a long range Ising term to stablise order in a one dimension Falikov-Kimball model. Josef developed a proof of concept during a summer project at Imperial. I wrote the simulation code and performed all the analysis presented here.
 
 \hypertarget{chapter-summary}{%
 \subsection{Chapter Summary}\label{chapter-summary}}
 
-To evaluate thermodynamic averages we perform a classical Markov Chain Monte Carlo random walk over the space of ionic configurations, at each step diagonalising the effective electronic Hamiltonian \textcite{maskaThermodynamicsTwodimensionalFalicovKimball2006}\}. Using a binder-cumulant method \autocite{binderFiniteSizeScaling1981,musialMonteCarloSimulations2002}, we demonstrate the model has a finite temperature phase transition when the interaction is sufficiently long ranged. We then estimate the density of states and the inverse participation ratio as a function of energy to diagnose localisation properties. We show preliminary results that the in-gap states induced at finite temperature are localised while the states in the unperturbed bands remain extended, evidence for a mobility edge.
+To evaluate thermodynamic averages we perform a classical Markov Chain Monte Carlo random walk over the space of ionic configurations, at each step diagonalising the effective electronic Hamiltonian \autocite{maskaThermodynamicsTwodimensionalFalicovKimball2006}. Using a binder-cumulant method \autocite{binderFiniteSizeScaling1981,musialMonteCarloSimulations2002}, we demonstrate the model has a finite temperature phase transition when the interaction is sufficiently long ranged. We then estimate the density of states and the inverse participation ratio as a function of energy to diagnose localisation properties. We show preliminary results that the in-gap states induced at finite temperature are localised while the states in the unperturbed bands remain extended, evidence for a mobility edge.
 
 Despite its simplicity, the FK model has a rich phase diagram in \(D \geq 2\) dimensions. For example, it shows an interaction-induced gap opening even at high temperatures, similar to the corresponding Hubbard Model~\autocite{brandtThermodynamicsCorrelationFunctions1989}. In 1D, the ground state phenomenology as a function of filling can be rich~\autocite{gruberGroundStatesSpinless1990} but the system is disordered for all \(T > 0\)~\autocite{kennedyItinerantElectronModel1986}. Moreover, the model has been a test-bed for many-body methods, interest took off when an exact DMFT solution in the infinite dimensional case was found~\autocite{antipovCriticalExponentsStrongly2014,ribicNonlocalCorrelationsSpectral2016,freericksExactDynamicalMeanfield2003,herrmannNonequilibriumDynamicalCluster2016}.
 
@@ -28,12 +29,6 @@ H_{\mathrm{H}} = & \;U \sum_{i} n_{i\downarrow} n_{i\uparrow} -\;t \sum_{i\alpha
 The Hubbard model is one of interacting spin-\(\tfrac{1}{2}\) electrons hopping on a lattice. It has been the subject of intense study for many years but, as an interacting many body quantum system, analytic handles on it are few and far between. There is still much we don't know about the Hubbard Model.
 
 Usually the Hubbard model is written with equal hopping for the two spins states \(t_\uparrow = t_\downarrow\) have included a spin dependent hopping term \(t_\alpha\)
-
-\begin{Shaded}
-\begin{Highlighting}[]
-
-\end{Highlighting}
-\end{Shaded}
 
 \hypertarget{localisation}{%
 \subsection{Localisation}\label{localisation}}
@@ -178,13 +173,14 @@ On bipartite lattices in dimensions 2 and above the FK model exhibits a finite t
 
 In 1D, however, Periel's argument \autocite{peierlsIsingModelFerromagnetism1936,kennedyItinerantElectronModel1986} states that domain walls only introduce a constant energy penalty into the free energy while bringing a entropic contribution logarithmic in system size. Hence the 1D model does not have a finite temperature phase transition. However 1D systems are much easier to study numerically and admit simpler realisations experimentally. We therefore introduce a long range coupling between the ions in order to stabilise a CDW phase in 1D. This leads to a disordered system that is gaped by the CDW background but with correlated fluctuations leading to a disorder-free correlation induced mobility edge in one dimension.
 
-\begin{figure}
 \hypertarget{fig:binder}{%
+\begin{figure}
 \centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/fk_chapter/binder.png}
-\caption[no title]{Hello I am the figure caption!}\label{fig:binder}
-}
+\includegraphics[width=1\textwidth,height=\textheight]{../figure_code/fk_chapter/binder.png}
+\caption[{no title}]{Hello I am the figure caption!}
+\label{fig:binder}
 \end{figure}
+}
 
 Macro definitions in this cell \[
 \newcommand{\expval}[1]{\langle #1 \rangle}
@@ -228,17 +224,17 @@ Intuitively, for thermalisation to happen, the degrees of freedom must be suffic
 \hypertarget{anderson-localisation}{%
 \subsubsection{Anderson Localisation}\label{anderson-localisation}}
 
-Localisation was first studied by Anderson in 1958 \textcite{andersonAbsenceDiffusionCertain1958} in the context of non-interacting fermions subject to a static or quenched disorder potential \(V_j\) drawn uniformly from the interval \([-W,W]\):
+Localisation was first studied by Anderson in 1958 \autocite{andersonAbsenceDiffusionCertain1958} in the context of non-interacting fermions subject to a static or quenched disorder potential \(V_j\) drawn uniformly from the interval \([-W,W]\):
 
 \[
 H = -t\sum_{\expval{jk}} c^\dagger_j c_k + \sum_j V_j c_j^\dagger c_j
 \]
 
-At sufficiently strong disorder the Anderson model exhibits exponentially localised eigenfunctions \(\psi(x) = f(x) e^{-x/\lambda}\) which cannot contribute to diffusive transport processes. Except in 1D where any disorder strength is sufficient. Intuitively this happens because hopping processes between nearby sites become off-resonant, hindering the hybridisation that would normally lead to extended Bloch states \textcite{kramerLocalizationTheoryExperiment1993}.
+At sufficiently strong disorder the Anderson model exhibits exponentially localised eigenfunctions \(\psi(x) = f(x) e^{-x/\lambda}\) which cannot contribute to diffusive transport processes. Except in 1D where any disorder strength is sufficient. Intuitively this happens because hopping processes between nearby sites become off-resonant, hindering the hybridisation that would normally lead to extended Bloch states \autocite{kramerLocalizationTheoryExperiment1993}.
 
-In one and two dimensions, all the states in the Anderson model are localised. In three dimensions there are mobility edges. Mobility edges are critical energies in the spectrum which separate delocalised states in a band from localised states which form a band tail \textcite{abaninRecentProgressManybody2017}. An argument due to Lifshitz shows that the density of state of the band tail should decay exponentially and localised and extended stats cannot co-exist at the same energy as they would hybridise into extended states \textcite{kramerLocalizationTheoryExperiment1993}.
+In one and two dimensions, all the states in the Anderson model are localised. In three dimensions there are mobility edges. Mobility edges are critical energies in the spectrum which separate delocalised states in a band from localised states which form a band tail \autocite{abaninRecentProgressManybody2017}. An argument due to Lifshitz shows that the density of state of the band tail should decay exponentially and localised and extended stats cannot co-exist at the same energy as they would hybridise into extended states \autocite{kramerLocalizationTheoryExperiment1993}.
 
-It was thought that mobility edges could not exist in 1D because all the states localised in the presence of any amount of disorder. This is true for uncorrelated potentials \textcite{goldshteinPurePointSpectrum1977}. However, it was shown that if the disorder potential \(V_j\) contains spatial correlations mobility edges do exist in 1D \textcite{izrailevLocalizationMobilityEdge1999}, izrailevAnomalousLocalizationLowDimensional2012. Ref. \textcite{croyAndersonLocalization1D2011} extends this work to look at power law decay of the correlations: \[ C(l) = \expval{V_i V_{i+l}} \propto l^{-\alpha} \] \% Figure \ref{fig:anderson_dos} shows numerical calculations of the Localisation length (see later) and density of states for the power law correlated Anderson model. At the unperturbed band edges \(\abs{E} = 2\), the states transition from extended to localised. The behaviour close to the edge takes a universal scaling form with exponents dependant on \(\alpha\).
+It was thought that mobility edges could not exist in 1D because all the states localised in the presence of any amount of disorder. This is true for uncorrelated potentials \autocite{goldshteinPurePointSpectrum1977}. However, it was shown that if the disorder potential \(V_j\) contains spatial correlations mobility edges do exist in 1D \autocite{izrailevLocalizationMobilityEdge1999,izrailevAnomalousLocalizationLowDimensional2012}. Ref. \autocite{croyAndersonLocalization1D2011} extends this work to look at power law decay of the correlations: \[ C(l) = \expval{V_i V_{i+l}} \propto l^{-\alpha} \] \% Figure fig:anderson\_dos shows numerical calculations of the Localisation length (see later) and density of states for the power law correlated Anderson model. At the unperturbed band edges \(\abs{E} = 2\), the states transition from extended to localised. The behaviour close to the edge takes a universal scaling form with exponents dependant on \(\alpha\).
 
 \hypertarget{many-body-localisation}{%
 \subsubsection{Many Body Localisation}\label{many-body-localisation}}
@@ -247,9 +243,9 @@ A related phenomena known as many body localisation (MBL) was found in interacti
 
 \[
 H = -t\sum_{\expval{jk}} c^\dagger_j c_k + \sum_j V_j c_j^\dagger c_j + U\sum_{jk} n_j n_k
-\] \% with \(n_j = c^\dagger_j c_j\) Here, in contrast to the Anderson model, localisation phenomena can be proven robust to weak perturbations of the Hamiltonian \textcite{imbrieManyBodyLocalizationQuantum2016}.
+\] \% with \(n_j = c^\dagger_j c_j\) Here, in contrast to the Anderson model, localisation phenomena can be proven robust to weak perturbations of the Hamiltonian \autocite{imbrieManyBodyLocalizationQuantum2016}.
 
-MBL is defined by the emergence of an extensive number of quasi-local operators called local integrals of motions (LIOMs) or l-bits. Following Ref. \textcite{abaninRecentProgressManybody2017}, using a spin system with variables \(\sigma^z_i\), any operator can be written in the general form:
+MBL is defined by the emergence of an extensive number of quasi-local operators called local integrals of motions (LIOMs) or l-bits. Following Ref. \autocite{abaninRecentProgressManybody2017}, using a spin system with variables \(\sigma^z_i\), any operator can be written in the general form:
 
 \[ \tau^z_i = \sigma^z_i + \sum_{\alpha\beta kl} f_{kl}^{\alpha\beta} \sigma^\alpha_{i+k} \sigma_z\beta_{i+k} + ...\] \% what defines a MBL system is that there exist extensively many \(\tau^z_i\) for which the coefficients decay exponentially with distance \(f_{kl}^{\alpha\beta} \propto e^{-\max(\abs{l},\abs{k}) / \xi}\). These LIOMs commute with the Hamiltonian and each other \([\hat{H}, \tau^z_i] = [\tau^z_i, \tau^z_j] = 0\). It is this extensive number of conserved local charges that leads to the localisation properties of MBL. It also has implications for the way entanglement grows over time in MBL systems.
 
@@ -257,7 +253,7 @@ Since the Hamiltonian commutes with all the LIOMs and they are a complete operat
 
 \[\hat{H} = \sum_{i} h_i \tau^z_i + \sum_{ij} J_{ij} \tau^z_i \tau^z_j + \sum_{ijk} J_{ij} \tau^z_i \tau^z_j \tau^z_k+ ...\] \% Where again the couplings decay exponentially, albeit with a different length scale \(\Bar{\xi}\). From this form we see that distant l-bits can only become entangled on a timescale of:
 
-\[ t_{\mathrm{ent}}(r) \propto \frac{\hbar}{J_0} e^{r/\Bar{\xi}} \] \% and hence quantum correlations and entanglement propagates logarithmically in MBL systems \textcite{imbrieDiagonalizationManyBodyLocalization2016}.
+\[ t_{\mathrm{ent}}(r) \propto \frac{\hbar}{J_0} e^{r/\Bar{\xi}} \] \% and hence quantum correlations and entanglement propagates logarithmically in MBL systems \autocite{imbrieDiagonalizationManyBodyLocalization2016}.
 
 \hypertarget{disorder-free-localisation}{%
 \subsubsection{Disorder Free localisation}\label{disorder-free-localisation}}
@@ -266,16 +262,12 @@ Both Anderson localisation and MBL depend on the presence of quenched disorder. 
 
 The idea was first proposed in the context of Helium mixtures \autocite{kagan1984localization} and then extended to heavy-light mixtures in which multiple species with large mass ratios interact, the idea being that the heavier particles act as an effective disorder potential for the lighter ones, inducing localisation. Two such models \autocite{yaoQuasiManyBodyLocalizationTranslationInvariant2016,schiulazDynamicsManybodyLocalized2015} instead find that the models thermalise exponentially slowly in system size, which Ref. \autocite{yaoQuasiManyBodyLocalizationTranslationInvariant2016} dubs Quasi-MBL. A. Smith, J. Knolle et al instead looked at models containing an extensive number of conserved quantities and demonstrated true disorder free localisation \autocite{smithDisorderFreeLocalization2017}.
 
-lets cite Figure \ref{fig:binder}
-
-lets cite to person \textcite{trebstKitaevMaterials2022}. and then multple \autocite{banerjeeProximateKitaevQuantum2016,trebstKitaevMaterials2022}. what is we surround it by spaces? \textcite{trebstKitaevMaterials2022}
-
 \hypertarget{introduction}{%
 \subsection{Introduction}\label{introduction}}
 
 The presence of the classical field makes the model amenable to an exact numerical treatment at finite temperature via a sign problem free MCMC algorithm~\autocite{devriesGapsDensitiesStates1993,devriesSimplifiedHubbardModel1993,antipovInteractionTunedAndersonMott2016,debskiPossibilityDetectionFinite2016,herrmannSpreadingCorrelationsFalicovKimball2018,maskaThermodynamicsTwodimensionalFalicovKimball2006}. The MCMC treatment motivates a view of the classical background field as a disorder potential, which suggests an intimate link to localisation physics. Indeed, thermal fluctuations of the classical sector act as disorder potentials drawn from a thermal distribution and the emergence of disorder in a translationally invariant Hamiltonian links the FK model to recent interest in disorder-free localisation~\autocite{smithDisorderFreeLocalization2017,smithDynamicalLocalizationMathbbZ2018,brenesManyBodyLocalizationDynamics2018}.
 
-Dimensionality is crucial for the physics of both localisation and FTPTs. In 1D, disorder generally dominates, even the weakest disorder exponentially localises \emph{all} single particle eigenstates. Only longer-range correlations of the disorder potential can potentially induce delocalization~\autocite{aubryAnalyticityBreakingAnderson1980,dassarmaLocalizationMobilityEdges1990,dunlapAbsenceLocalizationRandomdimer1990}. Thermodynamically, short-range interactions cannot overcome thermal defects in 1D which prevents ordered phases at nonzero temperature~\autocite{andersonAbsenceDiffusionCertain1958,goldshteinPurePointSpectrum1977,abrahamsScalingTheoryLocalization1979,kramerLocalizationTheoryExperiment1993}. However, the absence of an FTPT in the short ranged FK chain is far from obvious because the Ruderman-Kittel-Kasuya-Yosida (RKKY) interaction mediated by the fermions~\autocite{kasuyaTheoryMetallicFerro1956,rudermanIndirectExchangeCoupling1954,vanvleckNoteInteractionsSpins1962,yosidaMagneticPropertiesCuMn1957} decays as \(r^{-1}\) in 1D~\autocite{rusinCalculationRKKYRange2017a}. This could in principle induce the necessary long-range interactions for the classical Ising background~\autocite{thoulessLongRangeOrderOneDimensional1969,peierlsIsingModelFerromagnetism1936}. However, Kennedy and Lieb established rigorously that at half-filling a CDW phase only exists at \(T = 0\) for the 1D FK model~\autocite{kennedyItinerantElectronModel1986}.
+Dimensionality is crucial for the physics of both localisation and FTPTs. In 1D, disorder generally dominates, even the weakest disorder exponentially localises \emph{all} single particle eigenstates. Only longer-range correlations of the disorder potential can potentially induce delocalization~\autocite{aubryAnalyticityBreakingAnderson1980,dassarmaLocalizationMobilityEdges1990,dunlapAbsenceLocalizationRandomdimer1990}. Thermodynamically, short-range interactions cannot overcome thermal defects in 1D which prevents ordered phases at nonzero temperature~\autocite{andersonAbsenceDiffusionCertain1958,goldshteinPurePointSpectrum1977,abrahamsScalingTheoryLocalization1979,kramerLocalizationTheoryExperiment1993}. However, the absence of an FTPT in the short ranged FK chain is far from obvious because the Ruderman-Kittel-Kasuya-Yosida (RKKY) interaction mediated by the fermions~\autocite{kasuyaTheoryMetallicFerro1956,rudermanIndirectExchangeCoupling1954,vanvleckNoteInteractionsSpins1962,yosidaMagneticPropertiesCuMn1957} decays as \(r^{-1}\) in 1D~\autocite{rusinCalculationRKKYRange2017}. This could in principle induce the necessary long-range interactions for the classical Ising background~\autocite{thoulessLongRangeOrderOneDimensional1969,peierlsIsingModelFerromagnetism1936}. However, Kennedy and Lieb established rigorously that at half-filling a CDW phase only exists at \(T = 0\) for the 1D FK model~\autocite{kennedyItinerantElectronModel1986}.
 
 Here, we construct a generalised one-dimensional FK model with long-range interactions which induces the otherwise forbidden CDW phase at non-zero temperature. We find a rich phase diagram with a CDW FTPT and interaction-tuned Anderson versus Mott localized phases similar to the 2D FK model~\autocite{antipovInteractionTunedAndersonMott2016}. We explore the localization properties of the fermionic sector and find that the localisation lengths vary dramatically across the phases and for different energies. Although moderate system sizes indicate the coexistence of localized and delocalized states within the CDW phase, we find quantitatively similar behaviour in a model of uncorrelated binary disorder on a CDW background. For large system sizes, i.e.~for our 1D disorder model we can treat linear sizes of several thousand sites, we find that all states are eventually localized with a localization length which diverges towards zero temperature.
 
@@ -320,7 +312,7 @@ Finally I will present my results on the Long-Range FK model.
 \hypertarget{the-falikov-kimball-model-1}{%
 \subsection{The Falikov-Kimball model}\label{the-falikov-kimball-model-1}}
 
-Historically, a lot of progress was made in condensed matter with the band theory of solids. This theory models the interaction between a single electron and the ionic lattice but it neglects interactions between electrons. From band theory we get the concept of a valence band, a set of occupied electronic states, and a conduction band just above it, containing unoccupied states. Systems are predicted to be insulators when there is a large energy gap between the valence and conduction band and to be conductors when the gap is less that the thermal energy scale \(k_bT\). In many systems band theory is enough to make good predictions about electrical, mechanical and thermal properties~\autocite{neilw.ashcroftSolidStatePhysics1976}.
+Historically, a lot of progress was made in condensed matter with the band theory of solids. This theory models the interaction between a single electron and the ionic lattice but it neglects interactions between electrons. From band theory we get the concept of a valence band, a set of occupied electronic states, and a conduction band just above it, containing unoccupied states. Systems are predicted to be insulators when there is a large energy gap between the valence and conduction band and to be conductors when the gap is less that the thermal energy scale \(k_bT\). In many systems band theory is enough to make good predictions about electrical, mechanical and thermal properties~\autocite{ashcroftSolidStatePhysics1976}.
 
 Later, the development of Landau Fermi Liquid theory explained why band theory works so well even in cases where an analysis of the relevant energies suggests that it should not~\autocite{wenQuantumFieldTheory2007}. Landau Fermi Liquid theory demonstrates that in many cases where electron-electron interactions are significant, the system can still be described in terms on generalised non-interacting quasiparticles.
 

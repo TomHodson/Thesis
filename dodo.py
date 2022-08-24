@@ -1,6 +1,7 @@
 from pathlib import Path
+import itertools as it
+
 pandoc = '/usr/local/Cellar/pandoc/2.18/bin/pandoc'
-import logging
 
 def rebase(file, src_dir, target_dir, new_extension):
     """Takes a filepath file, makdirs' space for it in target
@@ -11,7 +12,8 @@ def rebase(file, src_dir, target_dir, new_extension):
 
 def task_svg_to_pdf():
     "convert inkscape .svg files to .pdf"
-    files = Path("./").glob("figure_code/amk_chapter/*.svg")
+    folders = ["intro_chapter", "fk_chapter", "amk_chapter"]
+    files = it.chain.from_iterable(Path("./").glob(f"figure_code/{folder}/*.svg") for folder in folders)
     for f in files:
         target = f.parent / (f.stem + ".pdf")
         yield dict(
@@ -25,6 +27,30 @@ def task_svg_to_pdf():
             clean = True,
         )
     
+def task_ipynb_check():
+    src_dir = Path("./src")
+    jupyter_files = src_dir.glob("**/*.ipynb")
+    for f in jupyter_files:
+        if any(p.startswith(".") for p in f.parts): continue
+        yield dict(
+            name = f"Check syntax of {f}",
+            file_dep = [f,],
+            actions = [f'python pandoc/syntax_checks.py "{f}"'],
+        )
+
+def task_latex_check():
+    name = 'thesis'
+    src_dir = Path("./build/latex/")
+    static_latex_files = [Path("./thesis.preamble.tex"), Path("./thesis.tex")]
+    built_latex_files = list(src_dir.glob("**/*.tex"))
+    tex_files = static_latex_files + built_latex_files
+    for f in tex_files:
+        if any(p.startswith(".") for p in f.parts): continue
+        yield dict(
+            name = f"Chktex on {f}",
+            file_dep = [f,],
+            actions = [f'chktex "{f}"'],
+        )
 
 def task_markdown():
     "convert .ipynb files to .md files using nbconvert"
@@ -156,21 +182,9 @@ def task_pdf():
         targets = [target_dir / f'{name}.pdf',],
         actions = [
                 f'mkdir -p "{target_dir}"',
-                f'latexmk -pdf -f -file-line-error -shell-escape -interaction=nonstopmode -jobname="{jobname}" {name}.tex',
+                f'latexmk -pdf -g -f -file-line-error -silent -shell-escape -interaction=nonstopmode -jobname="{jobname}" {name}.tex',
+                f'cat {jobname}.log | grep -e Warning -e Error',
         ],
         clean = True,
         # verbosity = 0,
     )
-
-# def task_rebuild():
-#     folders_to_wipe = [
-#         "./build",
-#         "/Users/tom/git/tomhodson.github.com/_thesis/",
-#         "/Users/tom/git/tomhodson.github.com/assets/thesis/",
-#     ]
-
-#     for f in folders_to_wipe:
-#         if 'src' in Path(f).resolve().parts: continue #extra protection!
-#         yield dict(
-#             name = f"Wipe {f}", actions = [f'rm -r "{f}"'],
-#         )

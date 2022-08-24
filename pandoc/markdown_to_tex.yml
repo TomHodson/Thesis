@@ -9,13 +9,14 @@ resource-path: ['pandoc', '.']
 
 # enable the bibliography
 filters:
-  # - ${.}/latex_filter_figure.py
-  - ${.}/latex_filter.py
   - pandoc-xnos
+  - ${.}/latex_filter.py
   - ${.}/latex_short_caption.lua
+  
 
 # top-level-division: chapter
 
+# citeproc: false #disable citeproc so it can be called manually as a filter
 cite-method: biblatex
 # cite-method: natbib
 

@@ -731,7 +731,7 @@ class="citation"
 data-cites="binderFiniteSizeScaling1981 musialMonteCarloSimulations2002"><sup><a
 href="#ref-binderFiniteSizeScaling1981" role="doc-biblioref">11</a>,<a
 href="#ref-musialMonteCarloSimulations2002"
-role="doc-biblioref">12</a></sup></span>.</p>
+role="doc-biblioref"><strong>musialMonteCarloSimulations2002?</strong></a></sup></span>.</p>
 <h2 id="markov-chain-monte-carlo-in-practice">Markov Chain Monte-Carlo
 in Practice</h2>
 <h3 id="quick-intro-to-mcmc">Quick Intro to MCMC</h3>
@@ -762,9 +762,9 @@ class="math inline">\(N^3\)</span> for a generic matrix<span
 class="citation"
 data-cites="bolchQueueingNetworksMarkov2006 usmaniInversionTridiagonalJacobi1994"><sup><a
 href="#ref-bolchQueueingNetworksMarkov2006"
-role="doc-biblioref">13</a>,<a
+role="doc-biblioref">12</a>,<a
 href="#ref-usmaniInversionTridiagonalJacobi1994"
-role="doc-biblioref">14</a></sup></span>.</p>
+role="doc-biblioref">13</a></sup></span>.</p>
 <p>c</p>
 <p>MCMC sidesteps these issues by defining a random walk that focuses on
 the states with the greatest Boltzmann weight. At low temperatures this
@@ -841,7 +841,7 @@ the target distribution.</p>
 <h3 id="auto-correlation-time">Auto-correlation Time</h3>
 <div id="fig:m_autocorr" class="fignos">
 <figure>
-<img src="/assets/thesis/figure_code/fk_chapter/lsr/figs/m_autocorr.png"
+<img src="../figure_code/fk_chapter/lsr/figs/m_autocorr.png"
 data-short-caption="no title" style="width:100.0%"
 alt="Figure 1: (Upper) 10 MCMC chains starting from the same initial state for a system with N = 150 sites and 3000 MCMC steps. At each MCMC step, n spins are flipped where n is drawn from Uniform(1,N) and this is repeated N^2/100 times. The simulations therefore have the potential to necessitate 10*N^2 matrix diagonalisations for each 100 MCMC steps. (Lower) The normalised auto-correlation (\expval{m_i m_{i-j}} - \expval{m_i}\expval{m_i}) / Var(m_i)) averaged over i. It can be seen that even with each MCMC step already being composed of many individual flip attempts, the auto-correlation is still non negligible and must be taken into account in the statistics. t = 1, \alpha = 1.25, T = 2.2, J = U = 5" />
 <figcaption aria-hidden="true"><span>Figure 1:</span> (Upper) 10 MCMC
@@ -881,7 +881,7 @@ number of MCMC steps after which the samples are correlated below some
 cutoff, see<span class="citation"
 data-cites="krauthIntroductionMonteCarlo1996"><sup><a
 href="#ref-krauthIntroductionMonteCarlo1996"
-role="doc-biblioref">15</a></sup></span> for a more rigorous definition
+role="doc-biblioref">14</a></sup></span> for a more rigorous definition
 involving a sum over the auto-correlation function. The auto-correlation
 time is generally shorter than the convergence time so it therefore
 makes sense from an efficiency standpoint to run a single walker for
@@ -962,14 +962,14 @@ than the current state.</p>
 Metropolis-Hastings algorithm <span class="citation"
 data-cites="hastingsMonteCarloSampling1970"><sup><a
 href="#ref-hastingsMonteCarloSampling1970"
-role="doc-biblioref">16</a></sup></span> gleaned from Krauth <span
+role="doc-biblioref">15</a></sup></span> gleaned from Krauth <span
 class="citation" data-cites="krauthIntroductionMonteCarlo1998"><sup><a
 href="#ref-krauthIntroductionMonteCarlo1998"
 role="doc-biblioref">7</a></sup></span>.</p>
 <p>In our computations <span class="citation"
 data-cites="hodsonMCMCFKModel2021"><sup><a
 href="#ref-hodsonMCMCFKModel2021"
-role="doc-biblioref">17</a></sup></span> we employ a modification of the
+role="doc-biblioref">16</a></sup></span> we employ a modification of the
 algorithm which is based on the observation that the free energy of the
 FK system is composed of a classical part which is much quicker to
 compute than the quantum part. Hence, we can obtain a computational
@@ -1097,7 +1097,7 @@ distribution</h3>
 <div id="fig:autocorr_multiple_proposals" class="fignos">
 <figure>
 <img
-src="/assets/thesis/figure_code/fk_chapter/lsr/figs/autocorr_multiple_proposals.png"
+src="../figure_code/fk_chapter/lsr/figs/autocorr_multiple_proposals.png"
 data-short-caption="no title" style="width:100.0%"
 alt="Figure 2: Simulations showing how the autocorrelation of the order parameter depends on the proposal distribution used at different temperatures, we see that at T = 1.5 &lt; T_c a single spin flip is likely the best choice, while at the high temperature T = 2.5 &gt; T_c flipping two sites or a mixture of flipping two and 1 sites is likely a better choice. $t = 1, = 1.25, J = U = 5 $" />
 <figcaption aria-hidden="true"><span>Figure 2:</span> Simulations
@@ -1144,7 +1144,7 @@ function <span class="math inline">\(\psi_i = \psi(x_i), \sum_i
 \abs{\psi_i}^2 = 1\)</span> as its fourth moment<span class="citation"
 data-cites="kramerLocalizationTheoryExperiment1993"><sup><a
 href="#ref-kramerLocalizationTheoryExperiment1993"
-role="doc-biblioref">18</a></sup></span>: <span class="math display">\[
+role="doc-biblioref">17</a></sup></span>: <span class="math display">\[
 P^{-1} = \sum_i \abs{\psi_i}^4
 \]</span> % It acts as a measure of the portion of space occupied by the
 wave function. For localised states it will be independent of system
@@ -1159,7 +1159,7 @@ P(L) \goeslike L^{d*}
 class="citation"
 data-cites="andersonAbsenceDiffusionCertain1958"><sup><a
 href="#ref-andersonAbsenceDiffusionCertain1958"
-role="doc-biblioref">19</a></sup></span>: <span class="math display">\[
+role="doc-biblioref">18</a></sup></span>: <span class="math display">\[
 DOS(\omega) = \sum_n \delta(\omega - \epsilon_n)
 IPR(\omega) = DOS(\omega)^{-1} \sum_{n,i} \delta(\omega - \epsilon_n)
 \abs{\psi_{n,i}}^4
@@ -1523,9 +1523,9 @@ role="doc-bibliography">
 <div id="ref-devroyeRandomSampling1986" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">1. </div><div
-class="csl-right-inline">Devroye, L. Random <span>Sampling</span>. in
-<em>Non-<span>Uniform Random Variate Generation</span></em> (ed.
-Devroye, L.) 611–641 (<span>Springer</span>, 1986). doi:<a
+class="csl-right-inline">Devroye, L. Random Sampling. in <em>Non-Uniform
+Random Variate Generation</em> (ed. Devroye, L.) 611–641 (Springer,
+1986). doi:<a
 href="https://doi.org/10.1007/978-1-4613-8643-8_12">10.1007/978-1-4613-8643-8_12</a>.</div>
 </div>
 <div id="ref-BMCP2021" class="csl-entry" role="doc-biblioentry">
@@ -1537,48 +1537,42 @@ class="csl-right-inline">Martin, O. A., Kumar, R. &amp; Lao, J.
 role="doc-biblioentry">
 <div class="csl-left-margin">3. </div><div
 class="csl-right-inline">Binder, K. &amp; Heermann, D. W. Guide to
-<span>Practical Work</span> with the <span>Monte Carlo Method</span>. in
-<em>Monte <span>Carlo Simulation</span> in <span>Statistical
-Physics</span>: <span>An Introduction</span></em> (eds. Binder, K. &amp;
-Heermann, D. W.) 68–112 (<span>Springer Berlin Heidelberg</span>, 1988).
-doi:<a
+Practical Work with the Monte Carlo Method. in <em>Monte Carlo
+Simulation in Statistical Physics: An Introduction</em> (eds. Binder, K.
+&amp; Heermann, D. W.) 68–112 (Springer Berlin Heidelberg, 1988). doi:<a
 href="https://doi.org/10.1007/978-3-662-08854-8_3">10.1007/978-3-662-08854-8_3</a>.</div>
 </div>
 <div id="ref-kerteszAdvancesComputerSimulation1998" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">4. </div><div
-class="csl-right-inline"><em>Advances in <span>Computer
-Simulation</span>: <span>Lectures Held</span> at the <span>Eötvös Summer
-School</span> in <span>Budapest</span>, <span>Hungary</span>, 16
-<span>July</span> 1996</em>. (<span>Springer-Verlag</span>, 1998).
-doi:<a
+class="csl-right-inline"><em>Advances in Computer Simulation: Lectures
+Held at the Eötvös Summer School in Budapest, Hungary, 16–20 July
+1996</em>. (Springer-Verlag, 1998). doi:<a
 href="https://doi.org/10.1007/BFb0105456">10.1007/BFb0105456</a>.</div>
 </div>
 <div id="ref-wolffMonteCarloErrors2004" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">5. </div><div
 class="csl-right-inline">Wolff, U. <a
-href="https://doi.org/10.1016/S0010-4655(03)00467-3">Monte
-<span>Carlo</span> errors with less errors</a>. <em>Computer Physics
-Communications</em> <strong>156</strong>, 143–153 (2004).</div>
+href="https://doi.org/10.1016/S0010-4655(03)00467-3">Monte Carlo errors
+with less errors</a>. <em>Computer Physics Communications</em>
+<strong>156</strong>, 143–153 (2004).</div>
 </div>
 <div id="ref-kellyReversibilityStochasticNetworks1981" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">6. </div><div
 class="csl-right-inline">Kelly, F. P. <a
 href="https://doi.org/10.2307/2287860">Reversibility and stochastic
-networks / <span>F</span>.<span>P</span>. <span>Kelly</span></a>.
-<em>SERBIULA (sistema Librum 2.0)</em> <strong>76</strong>,
-(1981).</div>
+networks / F.P. Kelly</a>. <em>SERBIULA (sistema Librum 2.0)</em>
+<strong>76</strong>, (1981).</div>
 </div>
 <div id="ref-krauthIntroductionMonteCarlo1998" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">7. </div><div
-class="csl-right-inline">Krauth, W. Introduction <span>To Monte Carlo
-Algorithms</span>. in <em>Advances in <span>Computer Simulation</span>:
-<span>Lectures Held</span> at the <span>Eötvös Summer School</span> in
-<span>Budapest</span>, <span>Hungary</span>, 16 <span>July</span>
-1996</em> (<span>Springer-Verlag</span>, 1998). doi:<a
+class="csl-right-inline">Krauth, W. Introduction To Monte Carlo
+Algorithms. in <em>Advances in Computer Simulation: Lectures Held at the
+Eötvös Summer School in Budapest, Hungary, 16–20 July 1996</em>
+(Springer-Verlag, 1998). doi:<a
 href="https://doi.org/10.1007/BFb0105456">10.1007/BFb0105456</a>.</div>
 </div>
 <div id="ref-kapferSamplingPolytopeHarddisk2013" class="csl-entry"
@@ -1586,25 +1580,24 @@ role="doc-biblioentry">
 <div class="csl-left-margin">8. </div><div
 class="csl-right-inline">Kapfer, S. C. &amp; Krauth, W. <a
 href="https://doi.org/10.1088/1742-6596/454/1/012031">Sampling from a
-polytope and hard-disk <span>Monte Carlo</span></a>. <em>J. Phys.: Conf.
-Ser.</em> <strong>454</strong>, 012031 (2013).</div>
+polytope and hard-disk Monte Carlo</a>. <em>J. Phys.: Conf. Ser.</em>
+<strong>454</strong>, 012031 (2013).</div>
 </div>
 <div id="ref-robertsWeakConvergenceOptimal1997" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">9. </div><div
 class="csl-right-inline">Roberts, G. O., Gelman, A. &amp; Gilks, W. R.
 <a href="https://doi.org/10.1214/aoap/1034625254">Weak convergence and
-optimal scaling of random walk <span>Metropolis</span> algorithms</a>.
-<em>Ann. Appl. Probab.</em> <strong>7</strong>, 110–120 (1997).</div>
+optimal scaling of random walk Metropolis algorithms</a>. <em>Ann. Appl.
+Probab.</em> <strong>7</strong>, 110–120 (1997).</div>
 </div>
 <div id="ref-huangAcceleratedMonteCarlo2017" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">10. </div><div
 class="csl-right-inline">Huang, L. &amp; Wang, L. <a
-href="https://doi.org/10.1103/PhysRevB.95.035105">Accelerated
-<span>Monte Carlo</span> simulations with restricted
-<span>Boltzmann</span> machines</a>. <em>Phys. Rev. B</em>
-<strong>95</strong>, 035105 (2017).</div>
+href="https://doi.org/10.1103/PhysRevB.95.035105">Accelerated Monte
+Carlo simulations with restricted Boltzmann machines</a>. <em>Phys. Rev.
+B</em> <strong>95</strong>, 035105 (2017).</div>
 </div>
 <div id="ref-binderFiniteSizeScaling1981" class="csl-entry"
 role="doc-biblioentry">
@@ -1614,71 +1607,59 @@ href="https://doi.org/10.1007/BF01293604">Finite size scaling analysis
 of ising model block distribution functions</a>. <em>Z. Physik B -
 Condensed Matter</em> <strong>43</strong>, 119–140 (1981).</div>
 </div>
-<div id="ref-musialMonteCarloSimulations2002" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">12. </div><div
-class="csl-right-inline">Musiał, G., Dȩbski, L. &amp; Kamieniarz, G. <a
-href="https://doi.org/10.1103/PhysRevB.66.012407">Monte
-<span>Carlo</span> simulations of <span class="nocase">Ising-like</span>
-phase transitions in the three-dimensional <span>Ashkin-Teller</span>
-model</a>. <em>Phys. Rev. B</em> <strong>66</strong>, 012407
-(2002).</div>
-</div>
 <div id="ref-bolchQueueingNetworksMarkov2006" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">13. </div><div
+<div class="csl-left-margin">12. </div><div
 class="csl-right-inline">Bolch, G., Greiner, S., Meer, H. de &amp;
-Trivedi, K. S. <em>Queueing <span>Networks</span> and <span>Markov
-Chains</span>: <span>Modeling</span> and <span>Performance
-Evaluation</span> with <span>Computer Science Applications</span></em>.
-(<span>John Wiley &amp; Sons</span>, 2006).</div>
+Trivedi, K. S. <em>Queueing Networks and Markov Chains: Modeling and
+Performance Evaluation with Computer Science Applications</em>. (John
+Wiley &amp; Sons, 2006).</div>
 </div>
 <div id="ref-usmaniInversionTridiagonalJacobi1994" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">14. </div><div
+<div class="csl-left-margin">13. </div><div
 class="csl-right-inline">Usmani, R. A. <a
 href="https://doi.org/10.1016/0024-3795(94)90414-6">Inversion of a
 tridiagonal jacobi matrix</a>. <em>Linear Algebra and its
-Applications</em> <strong>212–213</strong>, 413–414 (1994).</div>
+Applications</em> <strong>212-213</strong>, 413–414 (1994).</div>
 </div>
 <div id="ref-krauthIntroductionMonteCarlo1996" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">15. </div><div
-class="csl-right-inline">Krauth, W. Introduction <span>To Monte Carlo
-Algorithms</span>. <em>arXiv:cond-mat/9612186</em> (1996).</div>
+<div class="csl-left-margin">14. </div><div
+class="csl-right-inline">Krauth, W. <a
+href="http://arxiv.org/abs/cond-mat/9612186">Introduction To Monte Carlo
+Algorithms</a>. <em>arXiv:cond-mat/9612186</em> (1996).</div>
 </div>
 <div id="ref-hastingsMonteCarloSampling1970" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">16. </div><div
+<div class="csl-left-margin">15. </div><div
 class="csl-right-inline">Hastings, W. K. <a
-href="https://doi.org/10.1093/biomet/57.1.97">Monte <span>Carlo</span>
-sampling methods using <span>Markov</span> chains and their
-applications</a>. <em>Biometrika</em> <strong>57</strong>, 97–109
-(1970).</div>
+href="https://doi.org/10.1093/biomet/57.1.97">Monte Carlo sampling
+methods using Markov chains and their applications</a>.
+<em>Biometrika</em> <strong>57</strong>, 97–109 (1970).</div>
 </div>
 <div id="ref-hodsonMCMCFKModel2021" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">17. </div><div
-class="csl-right-inline">Hodson, T. <span>MCMC</span> for the <span>FK
-Model</span>, <span>Github TomHodson</span>/<span>FKMC</span>. (2021)
-doi:<a
+<div class="csl-left-margin">16. </div><div
+class="csl-right-inline">Hodson, T. Markov Chain Monte Carlo for the
+Kitaev Model. (2021) doi:<a
 href="https://doi.org/10.5281/zenodo.4593904">10.5281/zenodo.4593904</a>.</div>
 </div>
 <div id="ref-kramerLocalizationTheoryExperiment1993" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">18. </div><div
+<div class="csl-left-margin">17. </div><div
 class="csl-right-inline">Kramer, B. &amp; MacKinnon, A. <a
-href="https://doi.org/10.1088/0034-4885/56/12/001">Localization: Theory
+href="https://doi.org/10.1088/0034-4885/56/12/001">Localization: theory
 and experiment</a>. <em>Rep. Prog. Phys.</em> <strong>56</strong>,
 1469–1564 (1993).</div>
 </div>
 <div id="ref-andersonAbsenceDiffusionCertain1958" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">19. </div><div
+<div class="csl-left-margin">18. </div><div
 class="csl-right-inline">Anderson, P. W. <a
-href="https://doi.org/10.1103/PhysRev.109.1492">Absence of
-<span>Diffusion</span> in <span>Certain Random Lattices</span></a>.
-<em>Phys. Rev.</em> <strong>109</strong>, 1492–1505 (1958).</div>
+href="https://doi.org/10.1103/PhysRev.109.1492">Absence of Diffusion in
+Certain Random Lattices</a>. <em>Phys. Rev.</em> <strong>109</strong>,
+1492–1505 (1958).</div>
 </div>
 </div>
 <section class="footnotes footnotes-end-of-document"
@@ -1696,9 +1677,9 @@ class="math inline">\(N^3\)</span> for a generic matrix <span
 class="citation"
 data-cites="bolchQueueingNetworksMarkov2006 usmaniInversionTridiagonalJacobi1994"><sup><a
 href="#ref-bolchQueueingNetworksMarkov2006"
-role="doc-biblioref">13</a>,<a
+role="doc-biblioref">12</a>,<a
 href="#ref-usmaniInversionTridiagonalJacobi1994"
-role="doc-biblioref">14</a></sup></span>.<a href="#fnref2"
+role="doc-biblioref">13</a></sup></span>.<a href="#fnref2"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3" role="doc-endnote"><p>or, in the general case, any desired
 distribution. MCMC has found a lot of use in sampling from the
@@ -1710,7 +1691,7 @@ steps after which the samples are correlated below some cutoff,
 see <span class="citation"
 data-cites="krauthIntroductionMonteCarlo1996"><sup><a
 href="#ref-krauthIntroductionMonteCarlo1996"
-role="doc-biblioref">15</a></sup></span> for a more rigorous definition
+role="doc-biblioref">14</a></sup></span> for a more rigorous definition
 involving a sum over the auto-correlation function.<a href="#fnref4"
 class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>

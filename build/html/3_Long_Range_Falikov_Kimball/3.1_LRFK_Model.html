@@ -267,8 +267,6 @@ image:
 <main>
 <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#contributions"
-id="toc-contributions">Contributions</a></li>
 <li><a href="#chapter-summary" id="toc-chapter-summary">Chapter
 Summary</a></li>
 <li><a href="#the-model" id="toc-the-model">The Model</a>
@@ -321,20 +319,24 @@ id="toc-the-falikov-kimball-model-1">The Falikov-Kimball model</a></li>
 </ul></li>
 </ul>
 </nav>
-<h2 id="contributions">Contributions</h2>
-<p>This material is this chapter expands on work presented in</p>
+<p>This chapter expands on work presented in</p>
 <p><span class="citation"
-data-cites="hodsonOnedimensionalLongRangeFalikovKimball2021"><sup><a
-href="#ref-hodsonOnedimensionalLongRangeFalikovKimball2021"
+data-cites="hodsonOnedimensionalLongrangeFalikovKimball2021"><sup><a
+href="#ref-hodsonOnedimensionalLongrangeFalikovKimball2021"
 role="doc-biblioref">1</a></sup></span> <a
 href="https://link.aps.org/doi/10.1103/PhysRevB.104.045116">One-dimensional
 long-range Falikov-Kimball model: Thermal phase transition and
 disorder-free localization</a>, Hodson, T. and Willsher, J. and Knolle,
 J., Phys. Rev. B, <strong>104</strong>, 4, 2021,</p>
+<p>the code for which is available is available at<span class="citation"
+data-cites="hodsonMCMCFKModel2021"><sup><a
+href="#ref-hodsonMCMCFKModel2021"
+role="doc-biblioref">2</a></sup></span>.</p>
+<p><strong>Contributions</strong></p>
 <p>Johannes had the initial idea to use a long range Ising term to
 stablise order in a one dimension Falikov-Kimball model. Josef developed
-a proof of concept during a summer project at Imperial. The three of us
-brought the project to fruition.</p>
+a proof of concept during a summer project at Imperial. I wrote the
+simulation code and performed all the analysis presented here.</p>
 <h2 id="chapter-summary">Chapter Summary</h2>
 <p>To evaluate thermodynamic averages we perform a classical Markov
 Chain Monte Carlo random walk over the space of ionic configurations, at
@@ -342,18 +344,19 @@ each step diagonalising the effective electronic Hamiltonian<span
 class="citation"
 data-cites="maskaThermodynamicsTwodimensionalFalicovKimball2006"><sup><a
 href="#ref-maskaThermodynamicsTwodimensionalFalicovKimball2006"
-role="doc-biblioref">2</a></sup></span>}. Using a binder-cumulant
+role="doc-biblioref">3</a></sup></span>. Using a binder-cumulant
 method<span class="citation"
 data-cites="binderFiniteSizeScaling1981 musialMonteCarloSimulations2002"><sup><a
-href="#ref-binderFiniteSizeScaling1981" role="doc-biblioref">3</a>,<a
+href="#ref-binderFiniteSizeScaling1981" role="doc-biblioref">4</a>,<a
 href="#ref-musialMonteCarloSimulations2002"
-role="doc-biblioref">4</a></sup></span>, we demonstrate the model has a
-finite temperature phase transition when the interaction is sufficiently
-long ranged. We then estimate the density of states and the inverse
-participation ratio as a function of energy to diagnose localisation
-properties. We show preliminary results that the in-gap states induced
-at finite temperature are localised while the states in the unperturbed
-bands remain extended, evidence for a mobility edge.</p>
+role="doc-biblioref"><strong>musialMonteCarloSimulations2002?</strong></a></sup></span>,
+we demonstrate the model has a finite temperature phase transition when
+the interaction is sufficiently long ranged. We then estimate the
+density of states and the inverse participation ratio as a function of
+energy to diagnose localisation properties. We show preliminary results
+that the in-gap states induced at finite temperature are localised while
+the states in the unperturbed bands remain extended, evidence for a
+mobility edge.</p>
 <p>Despite its simplicity, the FK model has a rich phase diagram in
 <span class="math inline">\(D \geq 2\)</span> dimensions. For example,
 it shows an interaction-induced gap opening even at high temperatures,
@@ -414,8 +417,6 @@ Model.</p>
 spins states <span class="math inline">\(t_\uparrow =
 t_\downarrow\)</span> have included a spin dependent hopping term <span
 class="math inline">\(t_\alpha\)</span></p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 <h2 id="localisation">Localisation</h2>
 <p>The discovery of localisation in quantum systems surprising at the
 time given the seeming ubiquity of extended Bloch states. Later, when
@@ -660,7 +661,7 @@ density wave state in which the ions occupy one of the two sublattices A
 and B<span class="citation"
 data-cites="maskaThermodynamicsTwodimensionalFalicovKimball2006"><sup><a
 href="#ref-maskaThermodynamicsTwodimensionalFalicovKimball2006"
-role="doc-biblioref">2</a></sup></span>. The order parameter is the
+role="doc-biblioref">3</a></sup></span>. The order parameter is the
 square of the staggered magnetisation: <span class="math display">\[
 M = \sum_{i \in A} n_i - \sum_{i \in B} n_i
 \]</span> % In the disordered phase Ref.<span class="citation"
@@ -788,7 +789,7 @@ a finite temperature phase transition to an ordered charge density wave
 (CDW) phase<span class="citation"
 data-cites="maskaThermodynamicsTwodimensionalFalicovKimball2006"><sup><a
 href="#ref-maskaThermodynamicsTwodimensionalFalicovKimball2006"
-role="doc-biblioref">2</a></sup></span>. In this phase, the ions are
+role="doc-biblioref">3</a></sup></span>. In this phase, the ions are
 confined to one of the two sublattices, breaking the <span
 class="math inline">\(\mathbb{Z}_2\)</span> symmetry.</p>
 <p>In 1D, however, Periel’s argument<span class="citation"
@@ -808,7 +809,7 @@ fluctuations leading to a disorder-free correlation induced mobility
 edge in one dimension.</p>
 <div id="fig:binder" class="fignos">
 <figure>
-<img src="/assets/thesis/figure_code/fk_chapter/binder.png"
+<img src="../figure_code/fk_chapter/binder.png"
 data-short-caption="no title" style="width:100.0%"
 alt="Figure 1: Hello I am the figure caption!" />
 <figcaption aria-hidden="true"><span>Figure 1:</span> Hello I am the
@@ -950,22 +951,22 @@ href="#ref-goldshteinPurePointSpectrum1977"
 role="doc-biblioref">38</a></sup></span>. However, it was shown that if
 the disorder potential <span class="math inline">\(V_j\)</span> contains
 spatial correlations mobility edges do exist in 1D<span class="citation"
-data-cites="izrailevLocalizationMobilityEdge1999"><sup><a
+data-cites="izrailevLocalizationMobilityEdge1999 izrailevAnomalousLocalizationLowDimensional2012"><sup><a
 href="#ref-izrailevLocalizationMobilityEdge1999"
-role="doc-biblioref">19</a></sup></span>,
-izrailevAnomalousLocalizationLowDimensional2012. Ref.<span
-class="citation" data-cites="croyAndersonLocalization1D2011"><sup><a
+role="doc-biblioref">19</a>,<a
+href="#ref-izrailevAnomalousLocalizationLowDimensional2012"
+role="doc-biblioref">21</a></sup></span>. Ref.<span class="citation"
+data-cites="croyAndersonLocalization1D2011"><sup><a
 href="#ref-croyAndersonLocalization1D2011"
 role="doc-biblioref">20</a></sup></span> extends this work to look at
 power law decay of the correlations: <span class="math display">\[ C(l)
-= \expval{V_i V_{i+l}} \propto l^{-\alpha} \]</span> % Figure <span
-class="math inline">\(\ref{fig:anderson_dos}\)</span> shows numerical
-calculations of the Localisation length (see later) and density of
-states for the power law correlated Anderson model. At the unperturbed
-band edges <span class="math inline">\(\abs{E} = 2\)</span>, the states
-transition from extended to localised. The behaviour close to the edge
-takes a universal scaling form with exponents dependant on <span
-class="math inline">\(\alpha\)</span>.</p>
+= \expval{V_i V_{i+l}} \propto l^{-\alpha} \]</span> % Figure
+fig:anderson_dos shows numerical calculations of the Localisation length
+(see later) and density of states for the power law correlated Anderson
+model. At the unperturbed band edges <span class="math inline">\(\abs{E}
+= 2\)</span>, the states transition from extended to localised. The
+behaviour close to the edge takes a universal scaling form with
+exponents dependant on <span class="math inline">\(\alpha\)</span>.</p>
 <h3 id="many-body-localisation">Many Body Localisation</h3>
 <p>A related phenomena known as many body localisation (MBL) was found
 in interacting systems with quenched disorder. A simple example comes
@@ -1045,43 +1046,32 @@ localisation<span class="citation"
 data-cites="smithDisorderFreeLocalization2017"><sup><a
 href="#ref-smithDisorderFreeLocalization2017"
 role="doc-biblioref">26</a></sup></span>.</p>
-<p>lets cite Figure<a href="#fig:binder">1</a></p>
-<p>lets cite to person<span class="citation"
-data-cites="trebstKitaevMaterials2022"><sup><a
-href="#ref-trebstKitaevMaterials2022"
-role="doc-biblioref">40</a></sup></span>. and then multple<span
-class="citation"
-data-cites="banerjeeProximateKitaevQuantum2016 trebstKitaevMaterials2022"><sup><a
-href="#ref-trebstKitaevMaterials2022" role="doc-biblioref">40</a>,<a
-href="#ref-banerjeeProximateKitaevQuantum2016"
-role="doc-biblioref">41</a></sup></span>. what is we surround it by
-spaces?<span class="citation"
-data-cites="trebstKitaevMaterials2022"><sup><a
-href="#ref-trebstKitaevMaterials2022"
-role="doc-biblioref">40</a></sup></span></p>
 <h2 id="introduction">Introduction</h2>
 <p>The presence of the classical field makes the model amenable to an
 exact numerical treatment at finite temperature via a sign problem free
 MCMC algorithm <span class="citation"
 data-cites="devriesGapsDensitiesStates1993 devriesSimplifiedHubbardModel1993 antipovInteractionTunedAndersonMott2016 debskiPossibilityDetectionFinite2016 herrmannSpreadingCorrelationsFalicovKimball2018 maskaThermodynamicsTwodimensionalFalicovKimball2006"><sup><a
 href="#ref-maskaThermodynamicsTwodimensionalFalicovKimball2006"
-role="doc-biblioref">2</a>,<a href="#ref-devriesGapsDensitiesStates1993"
-role="doc-biblioref">42</a>–<a
+role="doc-biblioref">3</a>,<a href="#ref-devriesGapsDensitiesStates1993"
+role="doc-biblioref">40</a>–<a
 href="#ref-herrmannSpreadingCorrelationsFalicovKimball2018"
-role="doc-biblioref">46</a></sup></span>. The MCMC treatment motivates a
-view of the classical background field as a disorder potential, which
-suggests an intimate link to localisation physics. Indeed, thermal
-fluctuations of the classical sector act as disorder potentials drawn
-from a thermal distribution and the emergence of disorder in a
-translationally invariant Hamiltonian links the FK model to recent
-interest in disorder-free localisation <span class="citation"
+role="doc-biblioref">43</a>,<a
+href="#ref-debskiPossibilityDetectionFinite2016"
+role="doc-biblioref"><strong>debskiPossibilityDetectionFinite2016?</strong></a></sup></span>.
+The MCMC treatment motivates a view of the classical background field as
+a disorder potential, which suggests an intimate link to localisation
+physics. Indeed, thermal fluctuations of the classical sector act as
+disorder potentials drawn from a thermal distribution and the emergence
+of disorder in a translationally invariant Hamiltonian links the FK
+model to recent interest in disorder-free localisation <span
+class="citation"
 data-cites="smithDisorderFreeLocalization2017 smithDynamicalLocalizationMathbbZ2018 brenesManyBodyLocalizationDynamics2018"><sup><a
 href="#ref-smithDisorderFreeLocalization2017"
 role="doc-biblioref">26</a>,<a
 href="#ref-smithDynamicalLocalizationMathbbZ2018"
-role="doc-biblioref">47</a>,<a
+role="doc-biblioref">44</a>,<a
 href="#ref-brenesManyBodyLocalizationDynamics2018"
-role="doc-biblioref">48</a></sup></span>.</p>
+role="doc-biblioref">45</a></sup></span>.</p>
 <p>Dimensionality is crucial for the physics of both localisation and
 FTPTs. In 1D, disorder generally dominates, even the weakest disorder
 exponentially localises <em>all</em> single particle eigenstates. Only
@@ -1089,9 +1079,9 @@ longer-range correlations of the disorder potential can potentially
 induce delocalization <span class="citation"
 data-cites="aubryAnalyticityBreakingAnderson1980 dassarmaLocalizationMobilityEdges1990 dunlapAbsenceLocalizationRandomdimer1990"><sup><a
 href="#ref-aubryAnalyticityBreakingAnderson1980"
-role="doc-biblioref">49</a>–<a
+role="doc-biblioref">46</a>–<a
 href="#ref-dunlapAbsenceLocalizationRandomdimer1990"
-role="doc-biblioref">51</a></sup></span>. Thermodynamically, short-range
+role="doc-biblioref">48</a></sup></span>. Thermodynamically, short-range
 interactions cannot overcome thermal defects in 1D which prevents
 ordered phases at nonzero temperature <span class="citation"
 data-cites="andersonAbsenceDiffusionCertain1958 goldshteinPurePointSpectrum1977 abrahamsScalingTheoryLocalization1979 kramerLocalizationTheoryExperiment1993"><sup><a
@@ -1102,18 +1092,18 @@ role="doc-biblioref">37</a>,<a
 href="#ref-goldshteinPurePointSpectrum1977"
 role="doc-biblioref">38</a>,<a
 href="#ref-abrahamsScalingTheoryLocalization1979"
-role="doc-biblioref">52</a></sup></span>. However, the absence of an
+role="doc-biblioref">49</a></sup></span>. However, the absence of an
 FTPT in the short ranged FK chain is far from obvious because the
 Ruderman-Kittel-Kasuya-Yosida (RKKY) interaction mediated by the
 fermions <span class="citation"
 data-cites="kasuyaTheoryMetallicFerro1956 rudermanIndirectExchangeCoupling1954 vanvleckNoteInteractionsSpins1962 yosidaMagneticPropertiesCuMn1957"><sup><a
-href="#ref-kasuyaTheoryMetallicFerro1956" role="doc-biblioref">53</a>–<a
+href="#ref-kasuyaTheoryMetallicFerro1956" role="doc-biblioref">50</a>–<a
 href="#ref-yosidaMagneticPropertiesCuMn1957"
-role="doc-biblioref">56</a></sup></span> decays as <span
+role="doc-biblioref">53</a></sup></span> decays as <span
 class="math inline">\(r^{-1}\)</span> in 1D <span class="citation"
-data-cites="rusinCalculationRKKYRange2017a"><sup><a
-href="#ref-rusinCalculationRKKYRange2017a"
-role="doc-biblioref">57</a></sup></span>. This could in principle induce
+data-cites="rusinCalculationRKKYRange2017"><sup><a
+href="#ref-rusinCalculationRKKYRange2017"
+role="doc-biblioref">54</a></sup></span>. This could in principle induce
 the necessary long-range interactions for the classical Ising
 background <span class="citation"
 data-cites="thoulessLongRangeOrderOneDimensional1969 peierlsIsingModelFerromagnetism1936"><sup><a
@@ -1133,7 +1123,7 @@ and interaction-tuned Anderson versus Mott localized phases similar to
 the 2D FK model <span class="citation"
 data-cites="antipovInteractionTunedAndersonMott2016"><sup><a
 href="#ref-antipovInteractionTunedAndersonMott2016"
-role="doc-biblioref">44</a></sup></span>. We explore the localization
+role="doc-biblioref">42</a></sup></span>. We explore the localization
 properties of the fermionic sector and find that the localisation
 lengths vary dramatically across the phases and for different energies.
 Although moderate system sizes indicate the coexistence of localized and
@@ -1181,9 +1171,9 @@ N^{-1}\abs{\sum_i (-1)^i \; \expval{c^\dag_{i}c_{i}}}\)</span> <span
 class="citation"
 data-cites="antipovInteractionTunedAndersonMott2016 maskaThermodynamicsTwodimensionalFalicovKimball2006"><sup><a
 href="#ref-maskaThermodynamicsTwodimensionalFalicovKimball2006"
-role="doc-biblioref">2</a>,<a
+role="doc-biblioref">3</a>,<a
 href="#ref-antipovInteractionTunedAndersonMott2016"
-role="doc-biblioref">44</a></sup></span>. This only exists at zero
+role="doc-biblioref">42</a></sup></span>. This only exists at zero
 temperature in the short ranged 1D model <span class="citation"
 data-cites="kennedyItinerantElectronModel1986"><sup><a
 href="#ref-kennedyItinerantElectronModel1986"
@@ -1211,7 +1201,7 @@ role="doc-biblioref">32</a>,<a
 href="#ref-ruelleStatisticalMechanicsOnedimensional1968"
 role="doc-biblioref">33</a>,<a
 href="#ref-angeliniRelationsShortrangeLongrange2014"
-role="doc-biblioref">58</a></sup></span>. In the following, we choose
+role="doc-biblioref">55</a></sup></span>. In the following, we choose
 <span class="math inline">\(\alpha = 5/4\)</span> to avoid this
 additional complexity.</p>
 <p>To improve the scaling of finite size effects, we make the
@@ -1223,10 +1213,10 @@ class="math inline">\(f(x) = \frac{N}{\pi}\sin \frac{\pi x}{N}\)</span>,
 which is smooth across the circular boundary <span class="citation"
 data-cites="fukuiOrderNClusterMonte2009"><sup><a
 href="#ref-fukuiOrderNClusterMonte2009"
-role="doc-biblioref">59</a></sup></span>. We only consider even system
+role="doc-biblioref">56</a></sup></span>. We only consider even system
 sizes given that odd system sizes are not commensurate with a CDW
 state.</p>
-<div class="sourceCode" id="cb2"><pre
+<div class="sourceCode" id="cb1"><pre
 class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 <h2 id="introduction-and-motivation">Introduction and Motivation</h2>
 <p>In this chapter I will introduce an extension of the celebrated
@@ -1259,15 +1249,15 @@ conduction band and to be conductors when the gap is less that the
 thermal energy scale <span class="math inline">\(k_bT\)</span>. In many
 systems band theory is enough to make good predictions about electrical,
 mechanical and thermal properties <span class="citation"
-data-cites="neilw.ashcroftSolidStatePhysics1976"><sup><a
-href="#ref-neilw.ashcroftSolidStatePhysics1976"
-role="doc-biblioref">60</a></sup></span>.</p>
+data-cites="ashcroftSolidStatePhysics1976"><sup><a
+href="#ref-ashcroftSolidStatePhysics1976"
+role="doc-biblioref">57</a></sup></span>.</p>
 <p>Later, the development of Landau Fermi Liquid theory explained why
 band theory works so well even in cases where an analysis of the
 relevant energies suggests that it should not <span class="citation"
 data-cites="wenQuantumFieldTheory2007"><sup><a
 href="#ref-wenQuantumFieldTheory2007"
-role="doc-biblioref">61</a></sup></span>. Landau Fermi Liquid theory
+role="doc-biblioref">58</a></sup></span>. Landau Fermi Liquid theory
 demonstrates that in many cases where electron-electron interactions are
 significant, the system can still be described in terms on generalised
 non-interacting quasiparticles.</p>
@@ -1277,7 +1267,7 @@ include electron-electron correlations and they are thus called Strongly
 Correlated Materials <span class="citation"
 data-cites="morosanStronglyCorrelatedMaterials2012"><sup><a
 href="#ref-morosanStronglyCorrelatedMaterials2012"
-role="doc-biblioref">62</a></sup></span>, Correlated Electron systems or
+role="doc-biblioref">59</a></sup></span>, Correlated Electron systems or
 Quantum Materials. The canonical class of strongly correlated materials
 are the transition metal oxides.</p>
 <p>The transition metal oxides have half filled valence bands and hence
@@ -1288,16 +1278,16 @@ by coulomb repulsion between electrons opening an energy gap that
 prevents conduction <span class="citation"
 data-cites="mottDiscussionPaperBoer1937"><sup><a
 href="#ref-mottDiscussionPaperBoer1937"
-role="doc-biblioref">63</a></sup></span>.</p>
+role="doc-biblioref">60</a></sup></span>.</p>
 <p>However a firmer theoretical description of the Mott-transition had
 to wait until 1963 when Martin Gutzwiller <span class="citation"
 data-cites="gutzwillerEffectCorrelationFerromagnetism1963"><sup><a
 href="#ref-gutzwillerEffectCorrelationFerromagnetism1963"
-role="doc-biblioref">64</a></sup></span>, Junjiro Kanamori <span
+role="doc-biblioref">61</a></sup></span>, Junjiro Kanamori <span
 class="citation"
 data-cites="kanamoriElectronCorrelationFerromagnetism1963"><sup><a
 href="#ref-kanamoriElectronCorrelationFerromagnetism1963"
-role="doc-biblioref">65</a></sup></span> and John Hubbard <span
+role="doc-biblioref">62</a></sup></span> and John Hubbard <span
 class="citation"
 data-cites="hubbardj.ElectronCorrelationsNarrow1963"><sup><a
 href="#ref-hubbardj.ElectronCorrelationsNarrow1963"
@@ -1370,62 +1360,60 @@ correlated electron problem. It captures the essence of the interaction
 between itinerant and localized electrons. More plainly, between
 electons that can move and those that can’t.</p>
 <p>Particle hole symmetry</p>
-<div class="sourceCode" id="cb3"><pre
+<div class="sourceCode" id="cb2"><pre
 class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 <p></ij></ij></ij></ij></ij></ij></p>
 <div id="refs" class="references csl-bib-body" data-line-spacing="2"
 role="doc-bibliography">
-<div id="ref-hodsonOnedimensionalLongRangeFalikovKimball2021"
+<div id="ref-hodsonOnedimensionalLongrangeFalikovKimball2021"
 class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">1. </div><div
-class="csl-right-inline">Hodson, T., Wilsher, J. &amp; Knolle, J. The
-one-dimensional <span>Long-Range Falikov-Kimball Model</span>:
-<span>Thermal Phase Transition</span> and <span>Disorder-Free
-Localisation</span>. <em>arXiv:2103.11735 [cond-mat]</em> (2021).</div>
+class="csl-right-inline">Hodson, T., Willsher, J. &amp; Knolle, J. <a
+href="https://doi.org/10.1103/PhysRevB.104.045116">One-dimensional
+long-range Falikov-Kimball model: Thermal phase transition and
+disorder-free localization</a>. <em>Phys. Rev. B</em>
+<strong>104</strong>, 045116 (2021).</div>
+</div>
+<div id="ref-hodsonMCMCFKModel2021" class="csl-entry"
+role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div
+class="csl-right-inline">Hodson, T. Markov Chain Monte Carlo for the
+Kitaev Model. (2021) doi:<a
+href="https://doi.org/10.5281/zenodo.4593904">10.5281/zenodo.4593904</a>.</div>
 </div>
 <div id="ref-maskaThermodynamicsTwodimensionalFalicovKimball2006"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">2. </div><div
+<div class="csl-left-margin">3. </div><div
 class="csl-right-inline">Maśka, M. M. &amp; Czajka, K. <a
 href="https://doi.org/10.1103/PhysRevB.74.035109">Thermodynamics of the
-two-dimensional <span>Falicov-Kimball</span> model: <span>A</span>
-classical <span>Monte Carlo</span> study</a>. <em>Phys. Rev. B</em>
-<strong>74</strong>, 035109 (2006).</div>
+two-dimensional Falicov-Kimball model: A classical Monte Carlo
+study</a>. <em>Phys. Rev. B</em> <strong>74</strong>, 035109
+(2006).</div>
 </div>
 <div id="ref-binderFiniteSizeScaling1981" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">3. </div><div
+<div class="csl-left-margin">4. </div><div
 class="csl-right-inline">Binder, K. <a
 href="https://doi.org/10.1007/BF01293604">Finite size scaling analysis
 of ising model block distribution functions</a>. <em>Z. Physik B -
 Condensed Matter</em> <strong>43</strong>, 119–140 (1981).</div>
-</div>
-<div id="ref-musialMonteCarloSimulations2002" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">4. </div><div
-class="csl-right-inline">Musiał, G., Dȩbski, L. &amp; Kamieniarz, G. <a
-href="https://doi.org/10.1103/PhysRevB.66.012407">Monte
-<span>Carlo</span> simulations of <span class="nocase">Ising-like</span>
-phase transitions in the three-dimensional <span>Ashkin-Teller</span>
-model</a>. <em>Phys. Rev. B</em> <strong>66</strong>, 012407
-(2002).</div>
 </div>
 <div id="ref-brandtThermodynamicsCorrelationFunctions1989"
 class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">5. </div><div
 class="csl-right-inline">Brandt, U. &amp; Mielsch, C. <a
 href="https://doi.org/10.1007/BF01321824">Thermodynamics and correlation
-functions of the <span>Falicov-Kimball</span> model in large
-dimensions</a>. <em>Z. Physik B - Condensed Matter</em>
-<strong>75</strong>, 365–370 (1989).</div>
+functions of the Falicov-Kimball model in large dimensions</a>. <em>Z.
+Physik B - Condensed Matter</em> <strong>75</strong>, 365–370
+(1989).</div>
 </div>
 <div id="ref-gruberGroundStatesSpinless1990" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">6. </div><div
 class="csl-right-inline">Gruber, C., Iwanski, J., Jedrzejewski, J. &amp;
 Lemberger, P. <a href="https://doi.org/10.1103/PhysRevB.41.2198">Ground
-states of the spinless <span>Falicov-Kimball</span> model</a>. <em>Phys.
-Rev. B</em> <strong>41</strong>, 2198–2209 (1990).</div>
+states of the spinless Falicov-Kimball model</a>. <em>Phys. Rev. B</em>
+<strong>41</strong>, 2198–2209 (1990).</div>
 </div>
 <div id="ref-kennedyItinerantElectronModel1986" class="csl-entry"
 role="doc-biblioentry">
@@ -1440,26 +1428,26 @@ electron model with crystalline or magnetic long range order</a>.
 role="doc-biblioentry">
 <div class="csl-left-margin">8. </div><div
 class="csl-right-inline">Antipov, A. E., Gull, E. &amp; Kirchner, S. <a
-href="https://doi.org/10.1103/PhysRevLett.112.226401">Critical
-<span>Exponents</span> of <span>Strongly Correlated Fermion
-Systems</span> from <span>Diagrammatic Multiscale Methods</span></a>.
-<em>Phys. Rev. Lett.</em> <strong>112</strong>, 226401 (2014).</div>
+href="https://doi.org/10.1103/PhysRevLett.112.226401">Critical Exponents
+of Strongly Correlated Fermion Systems from Diagrammatic Multiscale
+Methods</a>. <em>Phys. Rev. Lett.</em> <strong>112</strong>, 226401
+(2014).</div>
 </div>
 <div id="ref-ribicNonlocalCorrelationsSpectral2016" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">9. </div><div
 class="csl-right-inline">Ribic, T., Rohringer, G. &amp; Held, K. <a
 href="https://doi.org/10.1103/PhysRevB.93.195105">Nonlocal correlations
-and spectral properties of the <span>Falicov-Kimball</span> model</a>.
-<em>Phys. Rev. B</em> <strong>93</strong>, 195105 (2016).</div>
+and spectral properties of the Falicov-Kimball model</a>. <em>Phys. Rev.
+B</em> <strong>93</strong>, 195105 (2016).</div>
 </div>
 <div id="ref-freericksExactDynamicalMeanfield2003" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">10. </div><div
 class="csl-right-inline">Freericks, J. K. &amp; Zlatić, V. <a
 href="https://doi.org/10.1103/RevModPhys.75.1333">Exact dynamical
-mean-field theory of the <span>Falicov-Kimball</span> model</a>.
-<em>Rev. Mod. Phys.</em> <strong>75</strong>, 1333–1382 (2003).</div>
+mean-field theory of the Falicov-Kimball model</a>. <em>Rev. Mod.
+Phys.</em> <strong>75</strong>, 1333–1382 (2003).</div>
 </div>
 <div id="ref-herrmannNonequilibriumDynamicalCluster2016"
 class="csl-entry" role="doc-biblioentry">
@@ -1467,9 +1455,8 @@ class="csl-entry" role="doc-biblioentry">
 class="csl-right-inline">Herrmann, A. J., Tsuji, N., Eckstein, M. &amp;
 Werner, P. <a
 href="https://doi.org/10.1103/PhysRevB.94.245114">Nonequilibrium
-<span>Dynamical Cluster Approximation</span> study of the
-<span>Falicov-Kimball Model</span></a>. <em>Phys. Rev. B</em>
-<strong>94</strong>, 245114 (2016).</div>
+Dynamical Cluster Approximation study of the Falicov-Kimball Model</a>.
+<em>Phys. Rev. B</em> <strong>94</strong>, 245114 (2016).</div>
 </div>
 <div id="ref-hubbardj.ElectronCorrelationsNarrow1963" class="csl-entry"
 role="doc-biblioentry">
@@ -1484,26 +1471,24 @@ Series A. Mathematical and Physical Sciences</em> <strong>276</strong>,
 role="doc-biblioentry">
 <div class="csl-left-margin">13. </div><div
 class="csl-right-inline">Falicov, L. M. &amp; Kimball, J. C. <a
-href="https://doi.org/10.1103/PhysRevLett.22.997">Simple
-<span>Model</span> for <span>Semiconductor-Metal Transitions</span>:
-<span>Sm</span>${\mathrm{{}{}_{6}$ and <span>Transition-Metal
-Oxides</span></a>. <em>Phys. Rev. Lett.</em> <strong>22</strong>,
-997–999 (1969).</div>
+href="https://doi.org/10.1103/PhysRevLett.22.997">Simple Model for
+Semiconductor-Metal Transitions: Sm${\mathrm{B}}_{6}$ and
+Transition-Metal Oxides</a>. <em>Phys. Rev. Lett.</em>
+<strong>22</strong>, 997–999 (1969).</div>
 </div>
 <div id="ref-gruberFalicovKimballModelReview1996" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">14. </div><div
-class="csl-right-inline">Gruber, C. &amp; Macris, N. The
-<span>Falicov-Kimball</span> model: <span>A</span> review of exact
-results and extensions. <em>Helvetica Physica Acta</em>
-<strong>69</strong>, (1996).</div>
+class="csl-right-inline">Gruber, C. &amp; Macris, N. The Falicov-Kimball
+model: A review of exact results and extensions. <em>Helvetica Physica
+Acta</em> <strong>69</strong>, (1996).</div>
 </div>
 <div id="ref-gruberFalicovKimballModel2006" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">15. </div><div
 class="csl-right-inline">Gruber, C. &amp; Ueltschi, D. The
-<span>Falicov-Kimball</span> model. in <em>Encyclopedia of mathematical
-physics. 1, 1,</em> (<span>Elsevier</span>, 2006).</div>
+Falicov-Kimball model. in <em>Encyclopedia of mathematical physics. 1,
+1,</em> (Elsevier, 2006).</div>
 </div>
 <div id="ref-abaninRecentProgressManybody2017" class="csl-entry"
 role="doc-biblioentry">
@@ -1517,51 +1502,50 @@ many-body localization</a>. <em>ANNALEN DER PHYSIK</em>
 role="doc-biblioentry">
 <div class="csl-left-margin">17. </div><div
 class="csl-right-inline">Srednicki, M. <a
-href="https://doi.org/10.1103/PhysRevE.50.888">Chaos and <span>Quantum
-Thermalization</span></a>. <em>Phys. Rev. E</em> <strong>50</strong>,
-888–901 (1994).</div>
+href="https://doi.org/10.1103/PhysRevE.50.888">Chaos and Quantum
+Thermalization</a>. <em>Phys. Rev. E</em> <strong>50</strong>, 888–901
+(1994).</div>
 </div>
 <div id="ref-andersonAbsenceDiffusionCertain1958" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">18. </div><div
 class="csl-right-inline">Anderson, P. W. <a
-href="https://doi.org/10.1103/PhysRev.109.1492">Absence of
-<span>Diffusion</span> in <span>Certain Random Lattices</span></a>.
-<em>Phys. Rev.</em> <strong>109</strong>, 1492–1505 (1958).</div>
+href="https://doi.org/10.1103/PhysRev.109.1492">Absence of Diffusion in
+Certain Random Lattices</a>. <em>Phys. Rev.</em> <strong>109</strong>,
+1492–1505 (1958).</div>
 </div>
 <div id="ref-izrailevLocalizationMobilityEdge1999" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">19. </div><div
 class="csl-right-inline">Izrailev, F. M. &amp; Krokhin, A. A. <a
 href="https://doi.org/10.1103/PhysRevLett.82.4062">Localization and the
-<span>Mobility Edge</span> in <span>One-Dimensional Potentials</span>
-with <span>Correlated Disorder</span></a>. <em>Phys. Rev. Lett.</em>
-<strong>82</strong>, 4062–4065 (1999).</div>
+Mobility Edge in One-Dimensional Potentials with Correlated
+Disorder</a>. <em>Phys. Rev. Lett.</em> <strong>82</strong>, 4062–4065
+(1999).</div>
 </div>
 <div id="ref-croyAndersonLocalization1D2011" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">20. </div><div
 class="csl-right-inline">Croy, A., Cain, P. &amp; Schreiber, M. <a
 href="https://doi.org/10.1140/epjb/e2011-20212-1">Anderson localization
-in <span>1D</span> systems with correlated disorder</a>. <em>Eur. Phys.
-J. B</em> <strong>82</strong>, 107 (2011).</div>
+in 1D systems with correlated disorder</a>. <em>Eur. Phys. J. B</em>
+<strong>82</strong>, 107 (2011).</div>
 </div>
 <div id="ref-izrailevAnomalousLocalizationLowDimensional2012"
 class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">21. </div><div
 class="csl-right-inline">Izrailev, F. M., Krokhin, A. A. &amp; Makarov,
 N. M. <a href="https://doi.org/10.1016/j.physrep.2011.11.002">Anomalous
-<span>Localization</span> in <span>Low-Dimensional Systems</span> with
-<span>Correlated Disorder</span></a>. <em>Physics Reports</em>
-<strong>512</strong>, 125–254 (2012).</div>
+Localization in Low-Dimensional Systems with Correlated Disorder</a>.
+<em>Physics Reports</em> <strong>512</strong>, 125–254 (2012).</div>
 </div>
 <div id="ref-imbrieManyBodyLocalizationQuantum2016" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">22. </div><div
 class="csl-right-inline">Imbrie, J. Z. <a
-href="https://doi.org/10.1007/s10955-016-1508-x">On <span>Many-Body
-Localization</span> for <span>Quantum Spin Chains</span></a>. <em>J Stat
-Phys</em> <strong>163</strong>, 998–1048 (2016).</div>
+href="https://doi.org/10.1007/s10955-016-1508-x">On Many-Body
+Localization for Quantum Spin Chains</a>. <em>J Stat Phys</em>
+<strong>163</strong>, 998–1048 (2016).</div>
 </div>
 <div id="ref-kagan1984localization" class="csl-entry"
 role="doc-biblioentry">
@@ -1574,11 +1558,11 @@ system of interacting particles diffusing in a regular crystal.
 <div id="ref-yaoQuasiManyBodyLocalizationTranslationInvariant2016"
 class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">24. </div><div
-class="csl-right-inline">Yao, N. Y., Laumann, C. R., Cirac, J. I.,
-Lukin, M. D. &amp; Moore, J. E. <a
-href="https://doi.org/10.1103/PhysRevLett.117.240601">Quasi-<span>Many-Body
-Localization</span> in <span>Translation-Invariant Systems</span></a>.
-<em>Phys. Rev. Lett.</em> <strong>117</strong>, 240601 (2016).</div>
+class="csl-right-inline">Yao, N.  Y., Laumann, C.  R., Cirac, J.  I.,
+Lukin, M.  D. &amp; Moore, J.  E. <a
+href="https://doi.org/10.1103/PhysRevLett.117.240601">Quasi-Many-Body
+Localization in Translation-Invariant Systems</a>. <em>Phys. Rev.
+Lett.</em> <strong>117</strong>, 240601 (2016).</div>
 </div>
 <div id="ref-schiulazDynamicsManybodyLocalized2015" class="csl-entry"
 role="doc-biblioentry">
@@ -1591,27 +1575,26 @@ localized quantum systems without disorder</a>. <em>Phys. Rev. B</em>
 <div id="ref-smithDisorderFreeLocalization2017" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">26. </div><div
-class="csl-right-inline">Smith, A., Knolle, J., Kovrizhin, D. L. &amp;
+class="csl-right-inline">Smith, A., Knolle, J., Kovrizhin, D.  L. &amp;
 Moessner, R. <a
-href="https://doi.org/10.1103/PhysRevLett.118.266601">Disorder-<span>Free
-Localization</span></a>. <em>Phys. Rev. Lett.</em> <strong>118</strong>,
-266601 (2017).</div>
+href="https://doi.org/10.1103/PhysRevLett.118.266601">Disorder-Free
+Localization</a>. <em>Phys. Rev. Lett.</em> <strong>118</strong>, 266601
+(2017).</div>
 </div>
 <div id="ref-HubbardModelHalf2013" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">27. </div><div class="csl-right-inline"><a
-href="https://doi.org/10.1038/nphys2759">The <span>Hubbard</span> model
-at half a century</a>. <em>Nature Physics</em> <strong>9</strong>,
-523–523 (2013).</div>
+href="https://doi.org/10.1038/nphys2759">The Hubbard model at half a
+century</a>. <em>Nature Physics</em> <strong>9</strong>, 523–523
+(2013).</div>
 </div>
 <div id="ref-liebAbsenceMottTransition1968" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">28. </div><div
 class="csl-right-inline">Lieb, E. H. &amp; Wu, F. Y. <a
-href="https://doi.org/10.1103/PhysRevLett.20.1445">Absence of <span>Mott
-Transition</span> in an <span>Exact Solution</span> of the
-<span>Short-Range</span>, <span>One-Band Model</span> in <span>One
-Dimension</span></a>. <em>Phys. Rev. Lett.</em> <strong>20</strong>,
+href="https://doi.org/10.1103/PhysRevLett.20.1445">Absence of Mott
+Transition in an Exact Solution of the Short-Range, One-Band Model in
+One Dimension</a>. <em>Phys. Rev. Lett.</em> <strong>20</strong>,
 1445–1448 (1968).</div>
 </div>
 <div id="ref-nagaokaFerromagnetismNarrowAlmost1966" class="csl-entry"
@@ -1619,76 +1602,74 @@ role="doc-biblioentry">
 <div class="csl-left-margin">29. </div><div
 class="csl-right-inline">Nagaoka, Y. <a
 href="https://doi.org/10.1103/PhysRev.147.392">Ferromagnetism in a
-<span>Narrow</span>, <span>Almost Half-Filled</span> $s$
-<span>Band</span></a>. <em>Phys. Rev.</em> <strong>147</strong>, 392–405
-(1966).</div>
+Narrow, Almost Half-Filled $s$ Band</a>. <em>Phys. Rev.</em>
+<strong>147</strong>, 392–405 (1966).</div>
 </div>
 <div id="ref-peierlsIsingModelFerromagnetism1936" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">30. </div><div
 class="csl-right-inline">Peierls, R. <a
-href="https://doi.org/10.1017/S0305004100019174">On <span>Ising</span>’s
-model of ferromagnetism</a>. <em>Mathematical Proceedings of the
-Cambridge Philosophical Society</em> <strong>32</strong>, 477–481
-(1936).</div>
+href="https://doi.org/10.1017/S0305004100019174">On Ising’s model of
+ferromagnetism</a>. <em>Mathematical Proceedings of the Cambridge
+Philosophical Society</em> <strong>32</strong>, 477–481 (1936).</div>
 </div>
 <div id="ref-dysonExistencePhasetransitionOnedimensional1969"
 class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">31. </div><div
 class="csl-right-inline">Dyson, F. J. <a
 href="https://doi.org/10.1007/BF01645907">Existence of a
-phase-transition in a one-dimensional <span>Ising</span>
-ferromagnet</a>. <em>Commun.Math. Phys.</em> <strong>12</strong>, 91–107
-(1969).</div>
+phase-transition in a one-dimensional Ising ferromagnet</a>.
+<em>Commun.Math. Phys.</em> <strong>12</strong>, 91–107 (1969).</div>
 </div>
 <div id="ref-thoulessLongRangeOrderOneDimensional1969" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">32. </div><div
 class="csl-right-inline">Thouless, D. J. <a
-href="https://doi.org/10.1103/PhysRev.187.732">Long-<span>Range
-Order</span> in <span>One-Dimensional Ising Systems</span></a>.
-<em>Phys. Rev.</em> <strong>187</strong>, 732–733 (1969).</div>
+href="https://doi.org/10.1103/PhysRev.187.732">Long-Range Order in
+One-Dimensional Ising Systems</a>. <em>Phys. Rev.</em>
+<strong>187</strong>, 732–733 (1969).</div>
 </div>
 <div id="ref-ruelleStatisticalMechanicsOnedimensional1968"
 class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">33. </div><div
-class="csl-right-inline">Ruelle, D. Statistical mechanics of a
-one-dimensional lattice gas. <em>Comm. Math. Phys.</em>
-<strong>9</strong>, 267–278 (1968).</div>
+class="csl-right-inline">Ruelle, D. <a
+href="https://mathscinet.ams.org/mathscinet-getitem?mr=0234697">Statistical
+mechanics of a one-dimensional lattice gas</a>. <em>Comm. Math.
+Phys.</em> <strong>9</strong>, 267–278 (1968).</div>
 </div>
 <div id="ref-lipkinValidityManybodyApproximation1965" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">34. </div><div
 class="csl-right-inline">Lipkin, H. J., Meshkov, N. &amp; Glick, A. J.
 <a href="https://doi.org/10.1016/0029-5582(65)90862-X">Validity of
-many-body approximation methods for a solvable model. (<span>I</span>).
-<span>Exact</span> solutions and perturbation theory</a>. <em>Nuclear
-Physics</em> <strong>62</strong>, 188–198 (1965).</div>
+many-body approximation methods for a solvable model. (I). Exact
+solutions and perturbation theory</a>. <em>Nuclear Physics</em>
+<strong>62</strong>, 188–198 (1965).</div>
 </div>
 <div id="ref-khatamiFluctuationDissipationTheoremIsolated2013"
 class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">35. </div><div
 class="csl-right-inline">Khatami, E., Pupillo, G., Srednicki, M. &amp;
 Rigol, M. <a
-href="https://doi.org/10.1103/PhysRevLett.111.050403">Fluctuation-<span>Dissipation
-Theorem</span> in an <span>Isolated System</span> of <span>Quantum
-Dipolar Bosons</span> after a <span>Quench</span></a>. <em>Physical
-review letters</em> <strong>111</strong>, 050403 (2013).</div>
+href="https://doi.org/10.1103/PhysRevLett.111.050403">Fluctuation-Dissipation
+Theorem in an Isolated System of Quantum Dipolar Bosons after a
+Quench</a>. <em>Physical review letters</em> <strong>111</strong>,
+050403 (2013).</div>
 </div>
 <div id="ref-dalessioQuantumChaosEigenstate2016" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">36. </div><div
 class="csl-right-inline">D’Alessio, L., Kafri, Y., Polkovnikov, A. &amp;
 Rigol, M. <a href="https://doi.org/10.1080/00018732.2016.1198134">From
-<span>Quantum Chaos</span> and <span>Eigenstate Thermalization</span> to
-<span>Statistical Mechanics</span> and <span>Thermodynamics</span></a>.
-<em>Advances in Physics</em> <strong>65</strong>, 239–362 (2016).</div>
+Quantum Chaos and Eigenstate Thermalization to Statistical Mechanics and
+Thermodynamics</a>. <em>Advances in Physics</em> <strong>65</strong>,
+239–362 (2016).</div>
 </div>
 <div id="ref-kramerLocalizationTheoryExperiment1993" class="csl-entry"
 role="doc-biblioentry">
 <div class="csl-left-margin">37. </div><div
 class="csl-right-inline">Kramer, B. &amp; MacKinnon, A. <a
-href="https://doi.org/10.1088/0034-4885/56/12/001">Localization: Theory
+href="https://doi.org/10.1088/0034-4885/56/12/001">Localization: theory
 and experiment</a>. <em>Rep. Prog. Phys.</em> <strong>56</strong>,
 1469–1564 (1993).</div>
 </div>
@@ -1705,98 +1686,71 @@ class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">39. </div><div
 class="csl-right-inline">Imbrie, J. Z. <a
 href="https://doi.org/10.1103/PhysRevLett.117.027201">Diagonalization
-and <span>Many-Body Localization</span> for a <span>Disordered Quantum
-Spin Chain</span></a>. <em>Phys. Rev. Lett.</em> <strong>117</strong>,
-027201 (2016).</div>
-</div>
-<div id="ref-trebstKitaevMaterials2022" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">40. </div><div
-class="csl-right-inline">Trebst, S. &amp; Hickey, C. <a
-href="https://doi.org/10.1016/j.physrep.2021.11.003">Kitaev
-materials</a>. <em>Physics Reports</em> <strong>950</strong>, 1–37
-(2022).</div>
-</div>
-<div id="ref-banerjeeProximateKitaevQuantum2016" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">41. </div><div
-class="csl-right-inline">Banerjee, A. <em>et al.</em> <a
-href="https://doi.org/10.1038/nmat4604">Proximate <span>Kitaev Quantum
-Spin Liquid Behaviour</span> in {\alpha}-<span>RuCl</span>$_3$</a>.
-<em>Nature Mater</em> <strong>15</strong>, 733–740 (2016).</div>
+and Many-Body Localization for a Disordered Quantum Spin Chain</a>.
+<em>Phys. Rev. Lett.</em> <strong>117</strong>, 027201 (2016).</div>
 </div>
 <div id="ref-devriesGapsDensitiesStates1993" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">42. </div><div class="csl-right-inline">de
+<div class="csl-left-margin">40. </div><div class="csl-right-inline">de
 Vries, P., Michielsen, K. &amp; De Raedt, H. <a
 href="https://doi.org/10.1103/PhysRevLett.70.2463">Gaps in densities of
-states of two <span class="nocase">Hubbard-like</span> models</a>.
-<em>Phys. Rev. Lett.</em> <strong>70</strong>, 2463–2466 (1993).</div>
+states of two Hubbard-like models</a>. <em>Phys. Rev. Lett.</em>
+<strong>70</strong>, 2463–2466 (1993).</div>
 </div>
 <div id="ref-devriesSimplifiedHubbardModel1993" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">43. </div><div class="csl-right-inline">de
+<div class="csl-left-margin">41. </div><div class="csl-right-inline">de
 Vries, P., Michielsen, K. &amp; De Raedt, H. <a
-href="https://doi.org/10.1007/BF01308754">The simplified
-<span>Hubbard</span> model in one and two dimensions</a>. <em>Z. Physik
-B - Condensed Matter</em> <strong>92</strong>, 353–362 (1993).</div>
+href="https://doi.org/10.1007/BF01308754">The simplified Hubbard model
+in one and two dimensions</a>. <em>Z. Physik B - Condensed Matter</em>
+<strong>92</strong>, 353–362 (1993).</div>
 </div>
 <div id="ref-antipovInteractionTunedAndersonMott2016" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">44. </div><div
+<div class="csl-left-margin">42. </div><div
 class="csl-right-inline">Antipov, A. E., Javanmard, Y., Ribeiro, P.
 &amp; Kirchner, S. <a
-href="https://doi.org/10.1103/PhysRevLett.117.146601">Interaction-<span>Tuned
-Anderson</span> versus <span>Mott Localization</span></a>. <em>Phys.
-Rev. Lett.</em> <strong>117</strong>, 146601 (2016).</div>
-</div>
-<div id="ref-debskiPossibilityDetectionFinite2016" class="csl-entry"
-role="doc-biblioentry">
-<div class="csl-left-margin">45. </div><div
-class="csl-right-inline">Dȩbski, L. <a
-href="https://doi.org/10.1080/01411594.2015.1080257">The possibility of
-detection of finite temperature stripe ordering in <span>2D</span>
-spinless <span>Falicov</span> model</a>. <em>Phase Transitions</em>
-<strong>89</strong>, 249–260 (2016).</div>
+href="https://doi.org/10.1103/PhysRevLett.117.146601">Interaction-Tuned
+Anderson versus Mott Localization</a>. <em>Phys. Rev. Lett.</em>
+<strong>117</strong>, 146601 (2016).</div>
 </div>
 <div id="ref-herrmannSpreadingCorrelationsFalicovKimball2018"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">46. </div><div
+<div class="csl-left-margin">43. </div><div
 class="csl-right-inline">Herrmann, A. J., Antipov, A. E. &amp; Werner,
 P. <a href="https://doi.org/10.1103/PhysRevB.97.165107">Spreading of
-correlations in the <span>Falicov-Kimball</span> model</a>. <em>Phys.
-Rev. B</em> <strong>97</strong>, 165107 (2018).</div>
+correlations in the Falicov-Kimball model</a>. <em>Phys. Rev. B</em>
+<strong>97</strong>, 165107 (2018).</div>
 </div>
 <div id="ref-smithDynamicalLocalizationMathbbZ2018" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">47. </div><div
+<div class="csl-left-margin">44. </div><div
 class="csl-right-inline">Smith, A., Knolle, J., Moessner, R. &amp;
 Kovrizhin, D. L. <a
-href="https://doi.org/10.1103/PhysRevB.97.245137">Dynamical
-<span>Localization</span> in $\mathbb{}<span>Z</span>{}_2$ <span>Lattice
-Gauge Theories</span></a>. <em>Phys. Rev. B</em> <strong>97</strong>,
-245137 (2018).</div>
+href="https://doi.org/10.1103/PhysRevB.97.245137">Dynamical Localization
+in $\mathbb{Z}_2$ Lattice Gauge Theories</a>. <em>Phys. Rev. B</em>
+<strong>97</strong>, 245137 (2018).</div>
 </div>
 <div id="ref-brenesManyBodyLocalizationDynamics2018" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">48. </div><div
+<div class="csl-left-margin">45. </div><div
 class="csl-right-inline">Brenes, M., Dalmonte, M., Heyl, M. &amp;
 Scardicchio, A. <a
-href="https://doi.org/10.1103/PhysRevLett.120.030601">Many-<span>Body
-Localization Dynamics</span> from <span>Gauge Invariance</span></a>.
-<em>Phys. Rev. Lett.</em> <strong>120</strong>, 030601 (2018).</div>
+href="https://doi.org/10.1103/PhysRevLett.120.030601">Many-Body
+Localization Dynamics from Gauge Invariance</a>. <em>Phys. Rev.
+Lett.</em> <strong>120</strong>, 030601 (2018).</div>
 </div>
 <div id="ref-aubryAnalyticityBreakingAnderson1980" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">49. </div><div
+<div class="csl-left-margin">46. </div><div
 class="csl-right-inline">Aubry, S. &amp; André, G. Analyticity breaking
-and <span>Anderson</span> localization in incommensurate lattices.
-<em>Proceedings, VIII International Colloquium on Group-Theoretical
-Methods in Physics</em> <strong>3</strong>, 18 (1980).</div>
+and Anderson localization in incommensurate lattices. <em>Proceedings,
+VIII International Colloquium on Group-Theoretical Methods in
+Physics</em> <strong>3</strong>, 18 (1980).</div>
 </div>
 <div id="ref-dassarmaLocalizationMobilityEdges1990" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">50. </div><div class="csl-right-inline">Das
+<div class="csl-left-margin">47. </div><div class="csl-right-inline">Das
 Sarma, S., He, S. &amp; Xie, X. C. <a
 href="https://doi.org/10.1103/PhysRevB.41.5544">Localization, mobility
 edges, and metal-insulator transition in a class of one-dimensional
@@ -1805,7 +1759,7 @@ slowly varying deterministic potentials</a>. <em>Phys. Rev. B</em>
 </div>
 <div id="ref-dunlapAbsenceLocalizationRandomdimer1990" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">51. </div><div
+<div class="csl-left-margin">48. </div><div
 class="csl-right-inline">Dunlap, D. H., Wu, H.-L. &amp; Phillips, P. W.
 <a href="https://doi.org/10.1103/PhysRevLett.65.88">Absence of
 localization in a random-dimer model</a>. <em>Phys. Rev. Lett.</em>
@@ -1813,124 +1767,115 @@ localization in a random-dimer model</a>. <em>Phys. Rev. Lett.</em>
 </div>
 <div id="ref-abrahamsScalingTheoryLocalization1979" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">52. </div><div
+<div class="csl-left-margin">49. </div><div
 class="csl-right-inline">Abrahams, E., Anderson, P. W., Licciardello, D.
 C. &amp; Ramakrishnan, T. V. <a
-href="https://doi.org/10.1103/PhysRevLett.42.673">Scaling
-<span>Theory</span> of <span>Localization</span>: <span>Absence</span>
-of <span>Quantum Diffusion</span> in <span>Two Dimensions</span></a>.
+href="https://doi.org/10.1103/PhysRevLett.42.673">Scaling Theory of
+Localization: Absence of Quantum Diffusion in Two Dimensions</a>.
 <em>Phys. Rev. Lett.</em> <strong>42</strong>, 673–676 (1979).</div>
 </div>
 <div id="ref-kasuyaTheoryMetallicFerro1956" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">53. </div><div
+<div class="csl-left-margin">50. </div><div
 class="csl-right-inline">Kasuya, T. <a
-href="https://doi.org/10.1143/PTP.16.45">A <span>Theory</span> of
-<span>Metallic Ferro-</span> and <span>Antiferromagnetism</span> on
-<span>Zener</span>’s <span>Model</span></a>. <em>Prog Theor Phys</em>
+href="https://doi.org/10.1143/PTP.16.45">A Theory of Metallic Ferro- and
+Antiferromagnetism on Zener’s Model</a>. <em>Prog Theor Phys</em>
 <strong>16</strong>, 45–57 (1956).</div>
 </div>
 <div id="ref-rudermanIndirectExchangeCoupling1954" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">54. </div><div
+<div class="csl-left-margin">51. </div><div
 class="csl-right-inline">Ruderman, M. A. &amp; Kittel, C. <a
-href="https://doi.org/10.1103/PhysRev.96.99">Indirect <span>Exchange
-Coupling</span> of <span>Nuclear Magnetic Moments</span> by
-<span>Conduction Electrons</span></a>. <em>Phys. Rev.</em>
-<strong>96</strong>, 99–102 (1954).</div>
+href="https://doi.org/10.1103/PhysRev.96.99">Indirect Exchange Coupling
+of Nuclear Magnetic Moments by Conduction Electrons</a>. <em>Phys.
+Rev.</em> <strong>96</strong>, 99–102 (1954).</div>
 </div>
 <div id="ref-vanvleckNoteInteractionsSpins1962" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">55. </div><div class="csl-right-inline">Van
+<div class="csl-left-margin">52. </div><div class="csl-right-inline">Van
 Vleck, J. H. <a href="https://doi.org/10.1103/RevModPhys.34.681">Note on
-the <span>Interactions</span> between the <span>Spins</span> of
-<span>Magnetic Ions</span> or <span>Nuclei</span> in
-<span>Metals</span></a>. <em>Rev. Mod. Phys.</em> <strong>34</strong>,
-681–686 (1962).</div>
+the Interactions between the Spins of Magnetic Ions or Nuclei in
+Metals</a>. <em>Rev. Mod. Phys.</em> <strong>34</strong>, 681–686
+(1962).</div>
 </div>
 <div id="ref-yosidaMagneticPropertiesCuMn1957" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">56. </div><div
+<div class="csl-left-margin">53. </div><div
 class="csl-right-inline">Yosida, K. <a
-href="https://doi.org/10.1103/PhysRev.106.893">Magnetic
-<span>Properties</span> of <span>Cu-Mn Alloys</span></a>. <em>Phys.
-Rev.</em> <strong>106</strong>, 893–898 (1957).</div>
+href="https://doi.org/10.1103/PhysRev.106.893">Magnetic Properties of
+Cu-Mn Alloys</a>. <em>Phys. Rev.</em> <strong>106</strong>, 893–898
+(1957).</div>
 </div>
-<div id="ref-rusinCalculationRKKYRange2017a" class="csl-entry"
+<div id="ref-rusinCalculationRKKYRange2017" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">57. </div><div
+<div class="csl-left-margin">54. </div><div
 class="csl-right-inline">Rusin, T. M. &amp; Zawadzki, W. <a
-href="https://doi.org/10.1016/j.jmmm.2017.06.007">On calculation of
-<span>RKKY</span> range function in one dimension</a>. <em>Journal of
-Magnetism and Magnetic Materials</em> <strong>441</strong>, 387–391
-(2017).</div>
+href="https://doi.org/10.1016/j.jmmm.2017.06.007">On calculation of RKKY
+range function in one dimension</a>. <em>Journal of Magnetism and
+Magnetic Materials</em> <strong>441</strong>, 387–391 (2017).</div>
 </div>
 <div id="ref-angeliniRelationsShortrangeLongrange2014" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">58. </div><div
+<div class="csl-left-margin">55. </div><div
 class="csl-right-inline">Angelini, M. C., Parisi, G. &amp;
 Ricci-Tersenghi, F. <a
 href="https://doi.org/10.1103/PhysRevE.89.062120">Relations between
-short-range and long-range <span>Ising</span> models</a>. <em>Phys. Rev.
-E</em> <strong>89</strong>, 062120 (2014).</div>
+short-range and long-range Ising models</a>. <em>Phys. Rev. E</em>
+<strong>89</strong>, 062120 (2014).</div>
 </div>
 <div id="ref-fukuiOrderNClusterMonte2009" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">59. </div><div
+<div class="csl-left-margin">56. </div><div
 class="csl-right-inline">Fukui, K. &amp; Todo, S. <a
-href="https://doi.org/10.1016/j.jcp.2008.12.022">Order-<span>N</span>
-cluster <span>Monte Carlo</span> method for spin systems with long-range
-interactions</a>. <em>Journal of Computational Physics</em>
-<strong>228</strong>, 2629–2642 (2009).</div>
+href="https://doi.org/10.1016/j.jcp.2008.12.022">Order-N cluster Monte
+Carlo method for spin systems with long-range interactions</a>.
+<em>Journal of Computational Physics</em> <strong>228</strong>,
+2629–2642 (2009).</div>
 </div>
-<div id="ref-neilw.ashcroftSolidStatePhysics1976" class="csl-entry"
+<div id="ref-ashcroftSolidStatePhysics1976" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">60. </div><div
-class="csl-right-inline">Neil W. Ashcroft. <em>Solid state physics</em>.
-(<span>Holt, Rinehart and Winston</span>, 1976).</div>
+<div class="csl-left-margin">57. </div><div
+class="csl-right-inline">Ashcroft, N. W. &amp; Mermin, N. D. <em>Solid
+State Physics</em>. (Holt, Rinehart and Winston, 1976).</div>
 </div>
 <div id="ref-wenQuantumFieldTheory2007" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">61. </div><div
-class="csl-right-inline">Wen, X.-G. <em>Quantum <span>Field
-Theory</span> of <span>Many-Body Systems</span>: <span>From</span> the
-<span>Origin</span> of <span>Sound</span> to an <span>Origin</span> of
-<span>Light</span> and <span>Electrons</span></em>. (<span>Oxford
-University Press</span>, 2007). doi:<a
+<div class="csl-left-margin">58. </div><div
+class="csl-right-inline">Wen, X.-G. <em>Quantum Field Theory of
+Many-Body Systems: From the Origin of Sound to an Origin of Light and
+Electrons</em>. (Oxford University Press, 2007). doi:<a
 href="https://doi.org/10.1093/acprof:oso/9780199227259.001.0001">10.1093/acprof:oso/9780199227259.001.0001</a>.</div>
 </div>
 <div id="ref-morosanStronglyCorrelatedMaterials2012" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">62. </div><div
+<div class="csl-left-margin">59. </div><div
 class="csl-right-inline">Morosan, E., Natelson, D., Nevidomskyy, A. H.
 &amp; Si, Q. <a href="https://doi.org/10.1002/adma.201202018">Strongly
-<span>Correlated Materials</span></a>. <em>Adv. Mater.</em>
-<strong>24</strong>, 4896–4923 (2012).</div>
+Correlated Materials</a>. <em>Adv. Mater.</em> <strong>24</strong>,
+4896–4923 (2012).</div>
 </div>
 <div id="ref-mottDiscussionPaperBoer1937" class="csl-entry"
 role="doc-biblioentry">
-<div class="csl-left-margin">63. </div><div
+<div class="csl-left-margin">60. </div><div
 class="csl-right-inline">Mott, N. F. &amp; Peierls, R. <a
 href="https://doi.org/10.1088/0959-5309/49/4S/308">Discussion of the
-paper by de <span>Boer</span> and <span>Verwey</span></a>. <em>Proc.
-Phys. Soc.</em> <strong>49</strong>, 72–73 (1937).</div>
+paper by de Boer and Verwey</a>. <em>Proc. Phys. Soc.</em>
+<strong>49</strong>, 72–73 (1937).</div>
 </div>
 <div id="ref-gutzwillerEffectCorrelationFerromagnetism1963"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">64. </div><div
+<div class="csl-left-margin">61. </div><div
 class="csl-right-inline">Gutzwiller, M. C. <a
-href="https://doi.org/10.1103/PhysRevLett.10.159">Effect of
-<span>Correlation</span> on the <span>Ferromagnetism</span> of
-<span>Transition Metals</span></a>. <em>Phys. Rev. Lett.</em>
-<strong>10</strong>, 159–162 (1963).</div>
+href="https://doi.org/10.1103/PhysRevLett.10.159">Effect of Correlation
+on the Ferromagnetism of Transition Metals</a>. <em>Phys. Rev.
+Lett.</em> <strong>10</strong>, 159–162 (1963).</div>
 </div>
 <div id="ref-kanamoriElectronCorrelationFerromagnetism1963"
 class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">65. </div><div
+<div class="csl-left-margin">62. </div><div
 class="csl-right-inline">Kanamori, J. <a
-href="https://doi.org/10.1143/PTP.30.275">Electron
-<span>Correlation</span> and <span>Ferromagnetism</span> of
-<span>Transition Metals</span></a>. <em>Progress of Theoretical
+href="https://doi.org/10.1143/PTP.30.275">Electron Correlation and
+Ferromagnetism of Transition Metals</a>. <em>Progress of Theoretical
 Physics</em> <strong>30</strong>, 275–289 (1963).</div>
 </div>
 </div>
