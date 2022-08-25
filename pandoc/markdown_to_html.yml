@@ -1,13 +1,12 @@
 # dir to  keep all pandoc related files
 data-dir: 'pandoc'
-resource-path: ['pandoc', '.', '/Users/tom/.local/share/pandoc']
+resource-path: ['pandoc', 'pandoc/csl', '.', '/Users/tom/.local/share/pandoc']
 
 # input and output formats
 from: markdown
 to: html5
 template: ${.}/jekyll_template.html
 
-# a filter to prepend '/pandoc/figs/' before all image tag urls, may bite me later
 filters:
   - pandoc-xnos
   - ${.}/html_filter.py
@@ -18,9 +17,10 @@ toc: true
 citeproc: true
 metadata:
   bibliography: entire_zotero_library.json
-  # csl: american-physics-society-without-titles.csl
-  csl: nature.csl
+  csl: american-physics-society.csl
   link-citations: true
+  link-bibliography: true
+  reference-section-title: Bibliography
 
 # use mathjax for math
 html-math-method:
