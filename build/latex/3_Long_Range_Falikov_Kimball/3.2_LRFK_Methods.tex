@@ -1,5 +1,8 @@
+\hypertarget{sec:FK-Methods}{%
+\section{Methods}\label{sec:FK-Methods}}
+
 \hypertarget{markov-chain-monte-carlo}{%
-\section{Markov Chain Monte Carlo}\label{markov-chain-monte-carlo}}
+\subsection{Markov Chain Monte Carlo}\label{markov-chain-monte-carlo}}
 
 \hypertarget{sampling}{%
 \subsection{Sampling}\label{sampling}}
@@ -112,41 +115,6 @@ By choosing the proposal distribution such that \(f(x,x')\) is as close as possi
 \subsection{Convergence, Auto-correlation and Binning}\label{convergence-auto-correlation-and-binning}}
 
 \%Thinning, burn in, multiple runs
-
-\hypertarget{applying-mcmc-to-the-fk-model}{%
-\subsection{Applying MCMC to the FK model}\label{applying-mcmc-to-the-fk-model}}
-
-MCMC can be applied to sample over the classical degrees of freedom of the model. We take the full Hamiltonian and split it into a classical and a quantum part: \[\begin{aligned}
-    H_{\mathrm{FK}} &= -\sum_{<ij>} c^\dagger_{i}c_{j} + U \sum_{i} (c^\dagger_{i}c_{i} - 1/2)( n_i - 1/2) \\
-    &+ \sum_{ij} J_{ij} (n_i - 1/2) (n_j - 1/2)  - \mu \sum_i (c^\dagger_{i}c_{i} + n_i)\\
-    H_q &= -\sum_{<ij>} c^\dagger_{i}c_{j} + \sum_{i} \left(U(n_i - 1/2) - \mu\right) c^\dagger_{i}c_{i}\\
-    H_c &= \sum_i \mu n_i - \frac{U}{2}(n_i - 1/2) + \sum_{ij}J_{ij}(n_i - 1/2)(n_j - 1/2)
-\end{aligned}
-\] \% There are \(2^N\) possible ion configurations \(\{ n_i \}\), we define \(n^k_i\) to be the occupation of the ith site of the kth configuration. The quantum part of the free energy can then be defined through the quantum partition function \(\mathcal{Z}^k\) associated with each ionic state \(n^k_i\): \[\begin{aligned}
-F^k &= -1/\beta \ln{\mathcal{Z}^k} \\
-\end{aligned}\] \% Such that the overall partition function is: \[\begin{aligned}
-\mathcal{Z} &= \sum_k e^{- \beta H^k} Z^k \\
-&= \sum_k e^{-\beta (H^k + F^k)} \\
-\end{aligned}\] \% Because fermions are limited to occupation numbers of 0 or 1 \(Z^k\) simplifies nicely. If \(m^j_i = \{0,1\}\) is defined as the occupation of the level with energy \(\epsilon^k_i\) then the partition function is a sum over all the occupation states labelled by j: \[\begin{aligned}
-Z^k    &= \Tr e^{-\beta F^k} = \sum_j e^{-\beta \sum_i m^j_i \epsilon^k_i}\\
-       &= \sum_j \prod_i e^{- \beta m^j_i \epsilon^k_i}= \prod_i \sum_j e^{- \beta m^j_i \epsilon^k_i}\\
-       &= \prod_i (1 + e^{- \beta \epsilon^k_i})\\
-F^k    &= -1/\beta \sum_k \ln{(1 + e^{- \beta \epsilon^k_i})}
-\end{aligned}\] \% Observables can then be calculated from the partition function, for examples the occupation numbers:
-
-\[\begin{aligned}
-\tex{N} &= \frac{1}{\beta} \frac{1}{Z} \frac{\partial Z}{\partial \mu} = - \frac{\partial F}{\partial \mu}\\
-    &= \frac{1}{\beta} \frac{1}{Z} \frac{\partial}{\partial \mu} \sum_k e^{-\beta (H^k + F^k)}\\
-    &= 1/Z \sum_k (N^k_{\mathrm{ion}} + N^k_{\mathrm{electron}}) e^{-\beta (H^k + F^k)}\\
-\end{aligned}\] \% with the definitions:
-
-\[\begin{aligned}
-N^k_{\mathrm{ion}} &= - \frac{\partial H^k}{\partial \mu} = \sum_i n^k_i\\
-N^k_{\mathrm{electron}} &= - \frac{\partial F^k}{\partial \mu} = \sum_i \left(1 + e^{\beta \epsilon^k_i}\right)^{-1}\\
-\end{aligned}\] \% The MCMC algorithm consists of performing a random walk over the states \(\{ n^k_i \}\). In the simplest case the proposal distribution corresponds to flipping a random site from occupied to unoccupied or vice versa, since this proposal is symmetric the acceptance function becomes: \[\begin{aligned} 
-P(k) &= \mathcal{Z}^{-1} e^{-\beta(H^k + F^k)} \\
-\mathcal{A}(k \to k') &= \min\left(1, \frac{P(k')}{P(k)}\right) = \min\left(1, e^{\beta(H^{k'} + F^{k'})-\beta(H^k + F^k)}\right)
-\end{aligned}\] \% At each step \(F^k\) is calculated by diagonalising the tri-diagonal matrix representation of \(H_q\) with open boundary conditions. Observables are simply averages over the their value at each step of the random walk. The full spectrum and eigenbasis is too large to save to disk so usually running averages of key observables are taken as the walk progresses.
 
 \hypertarget{proposal-distributions}{%
 \subsection{Proposal Distributions}\label{proposal-distributions}}
@@ -558,11 +526,5 @@ Our method already relies heavily on the split between the classical and quantum
     
 \NormalTok{        states[i] }\OperatorTok{=}\NormalTok{ current\_state}
     
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-
 \end{Highlighting}
 \end{Shaded}

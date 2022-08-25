@@ -1,5 +1,5 @@
-\hypertarget{disorder-localisation}{%
-\section{Disorder \& Localisation}\label{disorder-localisation}}
+\hypertarget{disorder-and-localisation}{%
+\section{Disorder and Localisation}\label{disorder-and-localisation}}
 
 \hypertarget{localisation-anderson-many-body-and-disorder-free}{%
 \subsection{Localisation: Anderson, Many Body and Disorder-Free}\label{localisation-anderson-many-body-and-disorder-free}}
@@ -15,3 +15,36 @@
 
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{localisation}{%
+\subsection{Localisation}\label{localisation}}
+
+The discovery of localisation in quantum systems surprising at the time given the seeming ubiquity of extended Bloch states. Later, when thermalisation in quantum systems gained interest, localisation phenomena again stood out as counterexamples to the eigenstate thermalisation hypothesis~\autocite{abaninRecentProgressManybody2017,srednickiChaosQuantumThermalization1994}, allowing quantum systems to avoid to retain memory of their initial conditions in the face of thermal noise.
+
+The simplest and first discovered kind is Anderson localisation, first studied in 1958~\autocite{andersonAbsenceDiffusionCertain1958} in the context of non-interacting fermions subject to a static or quenched disorder potential \(V_j\) drawn uniformly from the interval \([-W,W]\)
+
+\[
+H = -t\sum_{\langle jk \rangle} c^\dagger_j c_k + \sum_j V_j c_j^\dagger c_j
+\]
+
+this model exhibits exponentially localised eigenfunctions \(\psi(x) = f(x) e^{-x/\lambda}\) which cannot contribute to transport processes. Initially it was thought that in one dimensional disordered models, all states would be localised, however it was later shown that in the presence of correlated disorder, bands of extended states can exist~\autocite{izrailevLocalizationMobilityEdge1999,croyAndersonLocalization1D2011,izrailevAnomalousLocalizationLowDimensional2012}.
+
+Later localisation was found in interacting many-body systems with quenched disorder:
+
+\[
+H = -t\sum_{\langle jk \rangle} c^\dagger_j c_k + \sum_j V_j c_j^\dagger c_j + U\sum_{jk} n_j n_k
+\]
+
+where the number operators \(n_j = c^\dagger_j c_j\). Here, in contrast to the Anderson model, localisation phenomena can be proven robust to weak perturbations of the Hamiltonian. This is called many-body localisation (MBL)~\autocite{imbrieManyBodyLocalizationQuantum2016}.
+
+Both MBL and Anderson localisation depend crucially on the presence of quenched disorder. This has led to ongoing interest in the possibility of disorder-free localisation, in which the disorder necessary to generate localisation is generated entirely from the dynamics of the model. This contracts with typical models of disordered systems in which disorder is explicitly introduced into the Hamilton or the initial state.
+
+The concept of disorder-free localisation was first proposed in the context of Helium mixtures~\autocite{kagan1984localization} and then extended to heavy-light mixtures in which multiple species with large mass ratios interact. The idea is that the heavier particles act as an effective disorder potential for the lighter ones, inducing localisation. Two such models~\autocite{yaoQuasiManyBodyLocalizationTranslationInvariant2016,schiulazDynamicsManybodyLocalized2015} instead find that the models thermalise exponentially slowly in system size, which Ref.~\autocite{yaoQuasiManyBodyLocalizationTranslationInvariant2016} dubs Quasi-MBL.
+
+True disorder-free localisation does occur in exactly solvable models with extensively many conserved quantities~\autocite{smithDisorderFreeLocalization2017}. As conserved quantities have no time dynamics this can be thought of as taking the separation of timescales to the infinite limit.
+
+-link to the FK model
+
+-link to the Kitaev Model
+
+-link to the physics of amorphous systems

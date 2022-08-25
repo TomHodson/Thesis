@@ -1,3 +1,6 @@
+\hypertarget{sec:FK-results}{%
+\section{Results}\label{sec:FK-results}}
+
 \begin{figure}
 \hypertarget{fig:phase_diagram}{%
 \centering
@@ -6,8 +9,17 @@
 }
 \end{figure}
 
-\hypertarget{the-phase-diagram}{%
-\section{The Phase Diagram}\label{the-phase-diagram}}
+\hypertarget{fig:binder}{%
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/fk_chapter/binder.png}
+\caption[{no title}]{Hello I am the figure caption!}
+\label{fig:binder}
+\end{figure}
+}
+
+\hypertarget{phase-diagram}{%
+\subsection{Phase Diagram}\label{phase-diagram}}
 
 Figs.~{[}\protect\hyperlink{fig:phase_diagram}{1}a{]} and {[}\protect\hyperlink{fig:phase_diagram}{1}b{]} show the phase diagram for constant \(U=5\) and constant \(J=5\), respectively. We determined the transition temperatures from the crossings of the Binder cumulants \(B_4 = \tex{m^4}/\tex{m^2}^2\)~\autocite{binderFiniteSizeScaling1981}. For a representative set of parameters, Fig.~{[}\protect\hyperlink{fig:phase_diagram}{1}c{]} shows the order parameter \(\tex{m}^2\). Fig.~{[}\protect\hyperlink{fig:phase_diagram}{1}d{]} shows the Binder cumulants, both as functions of system size and temperature. The crossings confirm that the system has a FTPT and that the ordered phase is not a finite size effect.
 
@@ -16,7 +28,7 @@ The CDW transition temperature is largely independent from the strength of the i
 Our main interest concerns the additional structure of the fermionic sector in the high temperature phase. Following Ref.~\autocite{antipovInteractionTunedAndersonMott2016}, we can distinguish between the Mott and Anderson insulating phases. The former is characterised by a gapped DOS in the absence of a CDW. Thus, the opening of a gap for large \(U\) is distinct from the gap-opening induced by the translational symmetry breaking in the CDW state below \(T_c\), see also Fig.~{[}\protect\hyperlink{fig:band_opening}{3}a{]}. The Anderson phase is gapless but, as we explain below, shows localised fermionic eigenstates.
 
 \hypertarget{localisation-properties}{%
-\section{Localisation Properties}\label{localisation-properties}}
+\subsection{Localisation Properties}\label{localisation-properties}}
 
 The MCMC formulation suggests viewing the spin configurations as a form of annealed binary disorder whose probability distribution is given by the Boltzmann weight \(e^{-\beta H_S[\vec{S}] - \beta F_c[\vec{S}]}\). This makes apparent the link to the study of disordered systems and Anderson localisation. While these systems are typically studied by defining the probability distribution for the quenched disorder potential externally, here we have a translation invariant system with disorder as a natural consequence of the Ising background field conserved under the dynamics.
 
@@ -64,20 +76,14 @@ Next, we use the DOS and the scaling exponent \(\tau\) to explore the localisati
 
 In order to understand the localization properties we can compare the behaviour of our model with that of a simpler Anderson disorder model (DM) in which the spins are replaced by a CDW background with uncorrelated binary defect potentials, see Appendix~\protect\hyperlink{app:disorder_model}{{[}app:disorder\_model{]}}. Fig.~{[}\protect\hyperlink{fig:indiv_IPR_disorder}{4}{]} compares the FK model to the disorder model at different system sizes, matching the defect densities of the disorder model to the FK model at \(N = 270\) above and below the CDW transition. We find very good, even quantitative, agreement between the FK and disorder models, which suggests that correlations in the spin sector do not play a significant role. As we can sample directly from the disorder model, rather than through MCMC, the samples are uncorrelated. Hence we can evaluate much larger system sizes with the disorder model which enables us to pin down the correct localisation effects. In particular, what appear to be delocalized states for small system sizes eventually turn out to be states with large localization length. The localization length diverges towards the ordered zero temperature CDW state. Overall, we see that the interplay of interactions, here manifest as a peculiar binary potential, and localization can be very intricate and the added advantage of our 1D model is that we can explore very large system sizes for a complete understanding.
 
-\hypertarget{discussion-conclusion}{%
-\section{Discussion \& Conclusion}\label{discussion-conclusion}}
+\hypertarget{discussion-and-conclusion-secamk-conclusion}{%
+\section{Discussion and Conclusion \{sec:AMK-Conclusion\}}\label{discussion-and-conclusion-secamk-conclusion}}
 
 The FK model is one of the simplest non-trivial models of interacting fermions. We studied its thermodynamic and localisation properties brought down in dimensionality to 1D by adding a novel long-ranged coupling designed to stabilise the CDW phase present in dimension two and above. Our hybrid MCMC approach elucidates a disorder-free localization mechanism within our translationally invariant system. Further, we demonstrate a significant speedup over the naive method. We show that our long-range FK in 1D retains much of the rich phase diagram of its higher dimensional cousins. Careful scaling analysis indicates that all the single particle eigenstates eventually localise at nonzero temperature albeit only for very large system sizes of several thousand.
 
 Our work raises a number of interesting questions for future research. A straightforward but numerically challenging problem is to pin down the model's behaviour closer to the critical point where correlations in the spin sector would become significant. Would this modify the localisation behaviour? Similar to other soluble models of disorder-free localisation, we expect intriguing out-of equilibrium physics, for example slow entanglement dynamics akin to more generic interacting systems~\autocite{hartLogarithmicEntanglementGrowth2020}. One could also investigate whether the rich ground state phenomenology of the FK model as a function of filling~\autocite{gruberGroundStatesSpinless1990} such as the devil's staircase~\autocite{michelettiCompleteDevilTextquotesingles1997} could be stabilised at finite temperature. In a broader context, we envisage that long-range interactions can also be used to gain a deeper understanding of the temperature evolution of topological phases. One example would be a long-ranged FK version of the celebrated Su-Schrieffer-Heeger model where one could explore the interplay of topological bound states and thermal domain wall defects. Finally, the rich physics of our model should be realizable in systems with long-range interactions, such as trapped ion quantum simulators, where one can also explore the fully interacting regime with a dynamical background field.
 
-\hypertarget{acknowledgments}{%
-\section{Acknowledgments}\label{acknowledgments}}
-
-We wish to acknowledge the support of Alexander Belcik who was involved with the initial stages of the project. We thank Angus MacKinnon for helpful discussions, Sophie Nadel for input when preparing the figures and acknowledge support from the Imperial-TUM flagship partnership. This work was supported in part by the Engineering and Physical Sciences Research Council (EPSRC) \href{https://gtr.ukri.org/project/145404DD-ABAD-4CFB-A2D8-152A6AFCCEB7\#/tabOverview}{Project No.~2120140}.
-
-\hypertarget{uncorrelated-disorder-model}{%
-\section[ UNCORRELATED DISORDER MODEL]{\texorpdfstring{\protect\hypertarget{app:disorder_model}{}{} UNCORRELATED DISORDER MODEL}{ UNCORRELATED DISORDER MODEL}}\label{uncorrelated-disorder-model}}
+\textbf{UNCORRELATED DISORDER MODEL}
 
 The disorder model referred to in the main text is defined by replacing the spin degree of freedom in the FK model \(S_i = \pm \tfrac{1}{2}\) with a disorder potential \(d_i = \pm \tfrac{1}{2}\) controlled by a defect density \(\rho\) such that \(d_i = -\tfrac{1}{2}\) with probability \(\rho/2\) and \(d_i = \tfrac{1}{2}\) otherwise. \(\rho/2\) is used rather than \(\rho\) so that the disorder potential takes on the zero temperature CDW ground state at \(\rho = 0\) and becomes a random choice over spin states at \(\rho = 1\) i.e the infinite temperature limit. ~ \[\begin{aligned}
 H_{\mathrm{DM}} = & \;U \sum_{i} (-1)^i \; d_i \;(c^\dag_{i}c_{i} - \tfrac{1}{2}) \\

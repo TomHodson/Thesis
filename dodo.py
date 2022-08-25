@@ -2,6 +2,10 @@ from pathlib import Path
 import itertools as it
 from collections import defaultdict
 
+DOIT_CONFIG = {
+               'continue': True,
+               'reporter': 'executed-only'}
+
 pandoc = '/usr/local/Cellar/pandoc/2.18/bin/pandoc'
 
 def rebase(file, src_dir, target_dir, new_extension):

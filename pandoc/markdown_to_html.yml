@@ -12,6 +12,7 @@ filters:
   - ${.}/html_filter.py
 
 toc: true
+section-divs: true #wrap each logical section in <section id=""></section> tags
 
 # enable the bibliography
 citeproc: true

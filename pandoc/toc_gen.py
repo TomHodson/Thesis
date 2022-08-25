@@ -5,7 +5,7 @@ import sys
 import logging
 
 ## User defined variables ##
-upto_level = 2 #show headings up to level 2
+upto_level = 1 #show headings up to level 2
 output_type = "html"
 
 def html_heading(current_level, level, heading, url):
@@ -21,6 +21,10 @@ def html_heading(current_level, level, heading, url):
 def markdown_heading(current_level, level, heading, url):
     print(f'{"  "*level}{"#"*level} [{heading}]({url})')
     return current_level
+
+def emit_heading(current_level, level, heading, url, format):
+    func = dict(html = html_heading, markdown = markdown_heading)[format]
+    return func(current_level, level, heading, url)
 
 base = Path("./build/markdown")
 chapters = [
@@ -50,31 +54,37 @@ chapters = [
     )
 ]
 
+pattern = re.compile(r"(#+)\s+([^{]+)\s*?(\{#sec:[^}]+\})?")
+
 current_level = 0
 for chapter in chapters:
-    current_level = html_heading(current_level, 1, heading=chapter["name"], url = None)
     chapter_filename = base / chapter["contents"]
     chapter_files = sorted(chapter_filename.glob("*.md"))
+    first_thing_in_chapter = True
     
     for filepath in chapter_files:        
         with open(filepath, 'r') as f:
             for i, line in enumerate(f):
                 if line.startswith('#'):
                     try:
-                        level, heading = line.split(' ', maxsplit = 1)
-                        level = len(level)
-                        if level > upto_level: continue # Skip anything lower than this
-
+                        m = re.match(pattern, line)
+                        level, heading, section_id = m.groups()
                         heading = heading.strip()
+                        level = len(level)
+                        if section_id is not None: section_id = re.match(r"\{#sec:([^\}]+)\}", section_id).group(1)
+                        
                         file_url = filepath.parent.relative_to(base) / (filepath.stem + ".html")
                         url_id = heading.lower().replace(" ", "-")
                         url = f"./{file_url}#{url_id}"
                         
-                        if output_type == "markdown":
-                            current_level = markdown_heading(current_level, level+1, heading, url)
-                        elif output_type == "html":
-                            current_level = html_heading(current_level, level+1, heading, url)
-                        else: 
-                            sys.exit()
+                        if first_thing_in_chapter:
+                            current_level = emit_heading(current_level, 1, heading=chapter["name"], url = url, format=output_type)
+                            first_thing_in_chapter = False
+
+                        
+                        if level > upto_level: continue # Skip anything lower than this
+
+                        current_level = emit_heading(current_level, level+1, heading, url, output_type)
+
                     except Exception as e:
                         logging.warning(f"Exception {e} on line {i} of {filepath}: {line}")
