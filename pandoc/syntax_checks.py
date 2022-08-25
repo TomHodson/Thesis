@@ -58,19 +58,26 @@ if __name__ == "__main__":
         src_lines = cell['source']
         # print(src)
         for line_number, src_line in enumerate(src_lines):
+            error_msgs = []
             errors = []
             for cite_key in cite_keys:
                 i = src_line.find(cite_key)
                 if i > 0:
                     # print(cite_key, src_line[i-1:i+len(cite_key)+1], src_line[i-1], src_line[i + len(cite_key)])
                     citekeys_found.add(cite_key)
-                    if src_line[i-1] != "@" or src_line[i + len(cite_key)] not in ["]", ";"]:
+                    if not (src_line[i-3:i] == "; @" or src_line[i-4:i] == r'\ [@'):
+                        # breakpoint()
+                        error_msgs.append(f"'{src_line[i-3:i].encode('unicode-escape')}' != '; @' or '\xa0[@'")
+                        errors.append((i, i+len(cite_key)))
+                    
+                    if src_line[i + len(cite_key)] not in ["]", ";"]:
+                        error_msgs.append(f"Ending is '{src_line[i + len(cite_key)]}' when it should be ']' or ';'")
                         errors.append((i, i+len(cite_key)))
             
             if errors:
                 logging.warning(f"""{file.name} Line {line_number} of cell {cell_number}
-
-    {highlight_matches(src_line, errors)}""")
+                Errors: {', '.join(error_msgs)}
+                {highlight_matches(src_line, errors)}""")
 
     with open("build/pdf/for_zotero_import.aux", 'a') as f:
         f.write("\n".join(f"\citation{{{citekey}}}" for citekey in citekeys_found))
