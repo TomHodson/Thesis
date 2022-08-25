@@ -175,16 +175,28 @@ def task_pdf():
     src_dir = Path("./build/latex/")
     target_dir = Path("./build/pdf/")
     static_latex_files = [Path("./thesis.preamble.tex"), Path("./thesis.tex")]
-    built_latex_files = list(src_dir.glob("**/*.tex"))
+    
+    src_dir = Path("./src")
+    target_dir = Path("./build/latex")
+    src_files = src_dir.glob("**/*.ipynb")
+    built_latex_files = []
+    for f in src_files:
+        if any(p.startswith(".") for p in f.parts): continue
+        _, target = rebase(f, src_dir, target_dir, new_extension = ".tex")
+        built_latex_files.append(target)
+    # built_latex_files = list(src_dir.glob("**/*.tex"))
     jobname = target_dir / name # tells latexmk to make all the files look like /target/dir/thesis.*
     return dict(
         file_dep = ['pandoc/markdown_to_tex.yml',] + static_latex_files + built_latex_files,
         targets = [target_dir / f'{name}.pdf',],
         actions = [
                 f'mkdir -p "{target_dir}"',
-                f'latexmk -pdf -g -f -file-line-error -silent -shell-escape -interaction=nonstopmode -jobname="{jobname}" {name}.tex',
+                f'latexmk -pdf -g -f -file-line-error -silent -shell-escape -interaction=nonstopmode -jobname="{jobname}" {name}.tex || exit 0',
                 f'cat {jobname}.log | grep -e Warning -e Error',
         ],
-        clean = True,
-        # verbosity = 0,
+        clean = [
+            "latexmk -c",
+            "rm -rf `biber --cache`",
+        ],
+        verbosity = 2,
     )
