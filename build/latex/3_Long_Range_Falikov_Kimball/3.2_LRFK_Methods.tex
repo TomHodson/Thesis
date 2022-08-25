@@ -6,7 +6,7 @@
 
 Markov Chain Monte Carlo (MCMC) is a useful method whenever we have a probability distribution that we want to sample from but there is not direct sampling way to do so.
 
-In almost any computer simulation the ultimate source of randomness is a stream of (close to) uniform, uncorrelated bits generated from a pseudo random number generator. A direct sampling method takes such a source and outputs uncorrelated samples from the target distribution. The fact they're uncorrelated is key as we'll see later. Examples of direct sampling methods range from the trivial: take n random bits to generate integers uniformly between 0 and \(2^n\) to more complex methods such as inverse transform sampling and rejection sampling \autocite{devroyeRandomSampling1986}.
+In almost any computer simulation the ultimate source of randomness is a stream of (close to) uniform, uncorrelated bits generated from a pseudo random number generator. A direct sampling method takes such a source and outputs uncorrelated samples from the target distribution. The fact they're uncorrelated is key as we'll see later. Examples of direct sampling methods range from the trivial: take n random bits to generate integers uniformly between 0 and \(2^n\) to more complex methods such as inverse transform sampling and rejection sampling~\autocite{devroyeRandomSampling1986}.
 
 In physics the distribution we usually want to sample from is the Boltzmann probability over states of the system \(S\): \[
 \begin{aligned}
@@ -14,14 +14,14 @@ p(S)  &= \frac{1}{\mathcal{Z}} e^{-\beta H(S)} \\
 \end{aligned}
 \] where \(\mathcal{Z} = \sum_S e^{-\beta H(S)}\) is the normalisation factor and ubiquitous partition function. In principle we could directly sample from this, for a discrete system there are finitely many choices. We could calculate the probability of each one and assign each a region of the unit interval which we could then sample uniformly from.
 
-However if we actually try to do this we will run into two problems, we can't calculate \(\mathcal{Z}\) for any reasonably sized systems because the state space grows exponentially with system size. Even if we could calculate \(\mathcal{Z}\), sampling from an exponentially large number of options quickly become tricky. This kind of problem happens in many other disciplines too, particularly when fitting statistical models using Bayesian inference \autocite{BMCP2021}.
+However if we actually try to do this we will run into two problems, we can't calculate \(\mathcal{Z}\) for any reasonably sized systems because the state space grows exponentially with system size. Even if we could calculate \(\mathcal{Z}\), sampling from an exponentially large number of options quickly become tricky. This kind of problem happens in many other disciplines too, particularly when fitting statistical models using Bayesian inference~\autocite{BMCP2021}.
 
 \hypertarget{markov-chains}{%
 \subsection{Markov Chains}\label{markov-chains}}
 
 So what can we do? Well it turns out that if we're willing to give up in the requirement that the samples be uncorrelated then we can use MCMC instead.
 
-MCMC defines a weighted random walk over the states \((S_0, S_1, S_2, ...)\), such that in the long time limit, states are visited according to their probability \(p(S)\). \autocite{binderGuidePracticalWork1988,kerteszAdvancesComputerSimulation1998,wolffMonteCarloErrors2004}.
+MCMC defines a weighted random walk over the states \((S_0, S_1, S_2, ...)\), such that in the long time limit, states are visited according to their probability \(p(S)\).~\autocite{binderGuidePracticalWork1988,kerteszAdvancesComputerSimulation1998,wolffMonteCarloErrors2004}.
 
 In a physics context this lets us evaluate any observable with a mean over the states visited by the walk. \[\begin{aligned}
 \langle O \rangle & = \sum_{S} p(S) \langle O \rangle_{S} = \sum_{i = 0}^{M} \expval{O}_{S_i} + \mathcal{O}(\tfrac{1}{\sqrt{M}})\\
@@ -47,7 +47,7 @@ H_c& = \sum_i U S_i c^\dagger_{i}c_{i} -t(c^\dagger_{i}c_{i+1} + c^\dagger_{i+1}
 \hypertarget{markov-chain-monte-carlo-1}{%
 \subsubsection{Markov Chain Monte Carlo}\label{markov-chain-monte-carlo-1}}
 
-Markov Chain Monte Carlo (MCMC) is a technique for evaluating thermal expectation values \(\expval{O}\) with respect to some physical system defined by a set of states \(\{x: x \in S\}\) and a free energy \(F(x)\) \autocite{krauthIntroductionMonteCarlo1998}. The thermal expectation value is defined via a Boltzmann weighted sum over the entire states: \[
+Markov Chain Monte Carlo (MCMC) is a technique for evaluating thermal expectation values \(\expval{O}\) with respect to some physical system defined by a set of states \(\{x: x \in S\}\) and a free energy \(F(x)\)~\autocite{krauthIntroductionMonteCarlo1998}. The thermal expectation value is defined via a Boltzmann weighted sum over the entire states: \[
 \begin{aligned}
     \expval{O} &= \frac{1}{\mathcal{Z}} \sum_{x \in S} O(x) P(x) \\
     P(x) &= \frac{1}{\mathcal{Z}} e^{-\beta F(x)} \\
@@ -85,7 +85,7 @@ A sufficient but not necessary condition for global balance to hold is detailed 
 
 \[
 P(x) \mathcal{T}(x \rightarrow x') = P(x') \mathcal{T}(x' \rightarrow x)
-\] \% In practice most algorithms are constructed to satisfy detailed balance though there are arguments that relaxing the condition can lead to faster algorithms \autocite{kapferSamplingPolytopeHarddisk2013}.
+\] \% In practice most algorithms are constructed to satisfy detailed balance though there are arguments that relaxing the condition can lead to faster algorithms~\autocite{kapferSamplingPolytopeHarddisk2013}.
 
 The goal of MCMC is then to choose \(\mathcal{T}\) so that it has the desired thermal distribution \(P(x)\) as its fixed point and that it converges quickly onto it. This boils down to requiring that the matrix representation of \(T_{ij} = \mathcal{T}(x_i \to x_j)\) has an eigenvector equal to \(P_i = P(x_i)\) with eigenvalue 1 and all other eigenvalues with magnitude less than one. The convergence time depends on the magnitude of the second largest eigenvalue.
 
@@ -94,7 +94,7 @@ The goal of MCMC is then to choose \(\mathcal{T}\) so that it has the desired th
 
 In order to actually choose new states according to \(\mathcal{T}\) one chooses states from a proposal distribution \(q(x_i \to x')\) that can be directly sampled from. For instance, this might mean flipping a single random spin in a spin chain, in which case \(q(x'\to x_i)\) is the uniform distribution on states reachable by one spin flip from \(x_i\). The proposal \(x'\) is then accepted or rejected with an acceptance probability \(\mathcal{A}(x'\to x_{i+1})\), if the proposal is rejected then \(x_{i+1} = x_{i}\). Now \(\mathcal{T}(x\to x') = q(x\to x')\mathcal{A}(x \to x')\).
 
-The Metropolis-Hasting algorithm is a slight extension of the original Metropolis algorithm that allows for non-symmetric proposal distributions \$q(x\to x') \neq q(x'\to x) \$. It can be derived starting from detailed balance \autocite{krauthIntroductionMonteCarlo1998}: \[\begin{aligned}
+The Metropolis-Hasting algorithm is a slight extension of the original Metropolis algorithm that allows for non-symmetric proposal distributions \$q(x\to x') \neq q(x'\to x) \$. It can be derived starting from detailed balance~\autocite{krauthIntroductionMonteCarlo1998}: \[\begin{aligned}
 P(x)\mathcal{T}(x \to x') &= P(x')\mathcal{T}(x' \to x) \\
 P(x)q(x \to x')\mathcal{A}(x \to x') &= P(x')q(x' \to x)\mathcal{A}(x' \to x) \\
 \label{eq:db2} \frac{\mathcal{A}(x \to x')}{\mathcal{A}(x' \to x)} &= \frac{P(x')q(x' \to x)}{P(x)q(x \to x')} = f(x, x')\\
@@ -151,20 +151,20 @@ P(k) &= \mathcal{Z}^{-1} e^{-\beta(H^k + F^k)} \\
 \hypertarget{proposal-distributions}{%
 \subsection{Proposal Distributions}\label{proposal-distributions}}
 
-In a MCMC method a key property is the proportion of the time that proposals are accepted, the acceptance rate. If this rate is too low the random walk is trying to take overly large steps in energy space which problematic because it means very few new samples will be generated. If it is too high it implies the steps are too small, a problem because then the walk will take longer to explore the state space and the samples will be highly correlated. Ideal values for the acceptance rate can be calculated under certain assumptions \autocite{robertsWeakConvergenceOptimal1997}. Here we monitor the acceptance rate and if it is too high we re-run the MCMC with a modified proposal distribution that has a chance to propose moves that flip multiple sites at a time.
+In a MCMC method a key property is the proportion of the time that proposals are accepted, the acceptance rate. If this rate is too low the random walk is trying to take overly large steps in energy space which problematic because it means very few new samples will be generated. If it is too high it implies the steps are too small, a problem because then the walk will take longer to explore the state space and the samples will be highly correlated. Ideal values for the acceptance rate can be calculated under certain assumptions~\autocite{robertsWeakConvergenceOptimal1997}. Here we monitor the acceptance rate and if it is too high we re-run the MCMC with a modified proposal distribution that has a chance to propose moves that flip multiple sites at a time.
 
 In addition we exploit the particle-hole symmetry of the problem by occasionally proposing a flip of the entire state. This works because near half-filling, flipping the occupations of all the sites will produce a state at or near the energy of the current one.
 
 \hypertarget{perturbation-mcmc}{%
 \subsection{Perturbation MCMC}\label{perturbation-mcmc}}
 
-The matrix diagonalisation is the most computationally expensive step of the process, a speed up can be obtained by modifying the proposal distribution to depend on the classical part of the energy, a trick gleaned from Ref. \autocite{krauthIntroductionMonteCarlo1998}: \[
+The matrix diagonalisation is the most computationally expensive step of the process, a speed up can be obtained by modifying the proposal distribution to depend on the classical part of the energy, a trick gleaned from Ref.~\autocite{krauthIntroductionMonteCarlo1998}: \[
 \begin{aligned}
 q(k \to k') &= \min\left(1, e^{\beta (H^{k'} - H^k)}\right) \\
 \mathcal{A}(k \to k') &= \min\left(1, e^{\beta(F^{k'}- F^k)}\right)
 \end{aligned}\] \% This allows the method to reject some states without performing the diagonalisation at no cost to the accuracy of the MCMC method.
 
-An extension of this idea is to try to define a classical model with a similar free energy dependence on the classical state as the full quantum, Ref. \autocite{huangAcceleratedMonteCarlo2017} does this with restricted Boltzmann machines whose form is very similar to a classical spin model.
+An extension of this idea is to try to define a classical model with a similar free energy dependence on the classical state as the full quantum, Ref.~\autocite{huangAcceleratedMonteCarlo2017} does this with restricted Boltzmann machines whose form is very similar to a classical spin model.
 
 \hypertarget{scaling}{%
 \subsection{Scaling}\label{scaling}}
@@ -180,7 +180,7 @@ J(x) &= \frac{J_0 J'(x)}{\sum_y J'(y)}
 \hypertarget{binder-cumulants}{%
 \subsection{Binder Cumulants}\label{binder-cumulants}}
 
-The Binder cumulant is defined as: \[U_B = 1 - \frac{\tex{\mu_4}}{3\tex{\mu_2}^2}\] \% where \[\mu_n = \tex{(m - \tex{m})^n}\] \% are the central moments of the order parameter m: \[m = \sum_i (-1)^i (2n_i - 1) / N\] \% The Binder cumulant evaluated against temperature can be used as a diagnostic for the existence of a phase transition. If multiple such curves are plotted for different system sizes, a crossing indicates the location of a critical point \autocite{binderFiniteSizeScaling1981,musialMonteCarloSimulations2002}.
+The Binder cumulant is defined as: \[U_B = 1 - \frac{\tex{\mu_4}}{3\tex{\mu_2}^2}\] \% where \[\mu_n = \tex{(m - \tex{m})^n}\] \% are the central moments of the order parameter m: \[m = \sum_i (-1)^i (2n_i - 1) / N\] \% The Binder cumulant evaluated against temperature can be used as a diagnostic for the existence of a phase transition. If multiple such curves are plotted for different system sizes, a crossing indicates the location of a critical point~\autocite{binderFiniteSizeScaling1981,musialMonteCarloSimulations2002}.
 
 \hypertarget{markov-chain-monte-carlo-in-practice}{%
 \subsection{Markov Chain Monte-Carlo in Practice}\label{markov-chain-monte-carlo-in-practice}}
@@ -192,7 +192,7 @@ The main paper relies on \ac{MCMC} extensively to evaluate thermal expectation v
     \tex{O} &= \frac{1}{\mathcal{Z}} \sum_{\s \in S} O(x) P(x) \\
     P(x) &= \frac{1}{\mathcal{Z}} e^{-\beta F(x)} \\
     \mathcal{Z} &= \sum_{\s \in S} e^{-\beta F(x)}
-\end{aligned}\] While for a quantum system these sums are replaced by equivalent traces. The obvious approach to evaluate these sums numerically would be to directly loop over all the classical states in the system and perform the sum. But we all know know why this isn't feasible: the state space is too large! Indeed even if we could do it, it would still be computationally wasteful since at low temperatures the sums are dominated by low energy excitations about the ground states of the system. Even worse, in our case we must fully solve the fermionic system via exact diagonalisation for each classical state in the sum, a very expensive operation!\textasciitilde\textbackslash footnote\{The effort involved in exact diagonalisation scales like \(N^2\) for systems with a tri-diagonal matrix representation (open boundary conditions and nearest neighbour hopping) and like \(N^3\) for a generic matrix \autocite{bolchQueueingNetworksMarkov2006,usmaniInversionTridiagonalJacobi1994}.
+\end{aligned}\] While for a quantum system these sums are replaced by equivalent traces. The obvious approach to evaluate these sums numerically would be to directly loop over all the classical states in the system and perform the sum. But we all know know why this isn't feasible: the state space is too large! Indeed even if we could do it, it would still be computationally wasteful since at low temperatures the sums are dominated by low energy excitations about the ground states of the system. Even worse, in our case we must fully solve the fermionic system via exact diagonalisation for each classical state in the sum, a very expensive operation!\textasciitilde\textbackslash footnote\{The effort involved in exact diagonalisation scales like \(N^2\) for systems with a tri-diagonal matrix representation (open boundary conditions and nearest neighbour hopping) and like \(N^3\) for a generic matrix~\autocite{bolchQueueingNetworksMarkov2006,usmaniInversionTridiagonalJacobi1994}.
 
 c
 
@@ -243,7 +243,7 @@ Assuming \(\mathcal{T}\) has been chosen correctly, its single eigenvector with 
 \end{figure}
 }
 
-At this stage one might think we're done. We can indeed draw independent samples from \(P(\s; \beta)\) by starting from some arbitrary initial state and doing \(k\) steps to arrive at a sample. However a key insight is that after the convergence time, every state generated is a sample from \(P(\s; \beta)\)! They are not, however, independent samples. In Fig.\textasciitilde{}\ref{fig:raw} it is already clear that the samples of the order parameter m have some auto-correlation because only a few spins are flipped each step but even when the number of spins flipped per step is increased, Fig.\textasciitilde{}\ref{fig:m_autocorr} shows that it can be an important effect near the phase transition. Let's define the auto-correlation time \(\tau(O)\) informally as the number of MCMC samples of some observable O that are statistically equal to one independent sample or equivalently as the number of MCMC steps after which the samples are correlated below some cutoff, see \autocite{krauthIntroductionMonteCarlo1996} for a more rigorous definition involving a sum over the auto-correlation function. The auto-correlation time is generally shorter than the convergence time so it therefore makes sense from an efficiency standpoint to run a single walker for many MCMC steps rather than to run a huge ensemble for \(k\) steps each.
+At this stage one might think we're done. We can indeed draw independent samples from \(P(\s; \beta)\) by starting from some arbitrary initial state and doing \(k\) steps to arrive at a sample. However a key insight is that after the convergence time, every state generated is a sample from \(P(\s; \beta)\)! They are not, however, independent samples. In Fig.\textasciitilde{}\ref{fig:raw} it is already clear that the samples of the order parameter m have some auto-correlation because only a few spins are flipped each step but even when the number of spins flipped per step is increased, Fig.\textasciitilde{}\ref{fig:m_autocorr} shows that it can be an important effect near the phase transition. Let's define the auto-correlation time \(\tau(O)\) informally as the number of MCMC samples of some observable O that are statistically equal to one independent sample or equivalently as the number of MCMC steps after which the samples are correlated below some cutoff, see~\autocite{krauthIntroductionMonteCarlo1996} for a more rigorous definition involving a sum over the auto-correlation function. The auto-correlation time is generally shorter than the convergence time so it therefore makes sense from an efficiency standpoint to run a single walker for many MCMC steps rather than to run a huge ensemble for \(k\) steps each.
 
 Once the random walk has been carried out for many steps, the expectation values of \(O\) can be estimated from the MCMC samples \(\s_i\): \[
     \tex{O} = \sum_{i = 0}^{N} O(\s_i) + \mathcal{O}(\frac{1}{\sqrt{N}})
@@ -295,7 +295,7 @@ Our two-step method should be distinguished from the more common method for spee
 \hypertarget{detailed-balance-for-the-two-step-method}{%
 \subsection{Detailed Balance for the two step method}\label{detailed-balance-for-the-two-step-method}}
 
-Given a MCMC algorithm with target distribution \(\pi(a)\) and transition function \(\mathcal{T}\) the detailed balance condition is sufficient (along with some technical constraints \autocite{wolffMonteCarloErrors2004}) to guarantee that in the long time limit the algorithm produces samples from \(\pi\). \[\pi(a)\mathcal{T}(a \to b) = \pi(b)\mathcal{T}(b \to a)\]
+Given a MCMC algorithm with target distribution \(\pi(a)\) and transition function \(\mathcal{T}\) the detailed balance condition is sufficient (along with some technical constraints~\autocite{wolffMonteCarloErrors2004}) to guarantee that in the long time limit the algorithm produces samples from \(\pi\). \[\pi(a)\mathcal{T}(a \to b) = \pi(b)\mathcal{T}(b \to a)\]
 
 In pseudo-code, our two step method corresponds to two nested comparisons with the majority of the work only occurring if the first test passes:
 
@@ -391,11 +391,11 @@ Fro Figure\textasciitilde{}\ref{fig:comparison} we see that even at moderately h
 \hypertarget{inverse-participation-ratio}{%
 \subsubsection{Inverse Participation Ratio}\label{inverse-participation-ratio}}
 
-The inverse participation ratio is defined for a normalised wave function \(\psi_i = \psi(x_i), \sum_i \abs{\psi_i}^2 = 1\) as its fourth moment \autocite{kramerLocalizationTheoryExperiment1993}: \[
+The inverse participation ratio is defined for a normalised wave function \(\psi_i = \psi(x_i), \sum_i \abs{\psi_i}^2 = 1\) as its fourth moment~\autocite{kramerLocalizationTheoryExperiment1993}: \[
 P^{-1} = \sum_i \abs{\psi_i}^4
 \] \% It acts as a measure of the portion of space occupied by the wave function. For localised states it will be independent of system size while for plane wave states in d dimensions \$P = L\^{}d \$. States may also be intermediate between localised and extended, described by their fractal dimensionality \(d > d* > 0\): \[
 P(L) \goeslike L^{d*} 
-\] \% For extended states \(d* = 0\) while for localised ones \(d* = 0\). In this work we take use an energy resolved IPR \autocite{andersonAbsenceDiffusionCertain1958}: \[
+\] \% For extended states \(d* = 0\) while for localised ones \(d* = 0\). In this work we take use an energy resolved IPR~\autocite{andersonAbsenceDiffusionCertain1958}: \[
 DOS(\omega) = \sum_n \delta(\omega - \epsilon_n)
 IPR(\omega) = DOS(\omega)^{-1} \sum_{n,i} \delta(\omega - \epsilon_n) \abs{\psi_{n,i}}^4
 \] Where \(\psi_{n,i}\) is the wavefunction corresponding to the energy \(\epsilon_n\) at the ith site. In practice we bin the energies and IPRs into a fine energy grid and use Lorentzian smoothing if necessary.

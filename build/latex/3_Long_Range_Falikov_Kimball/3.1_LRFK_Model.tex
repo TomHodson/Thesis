@@ -1,8 +1,8 @@
 This chapter expands on work presented in
 
-\autocite{hodsonOnedimensionalLongrangeFalikovKimball2021} \href{https://link.aps.org/doi/10.1103/PhysRevB.104.045116}{One-dimensional long-range Falikov-Kimball model: Thermal phase transition and disorder-free localization}, Hodson, T. and Willsher, J. and Knolle, J., Phys. Rev.~B, \textbf{104}, 4, 2021,
+~\autocite{hodsonOnedimensionalLongrangeFalikovKimball2021} \href{https://link.aps.org/doi/10.1103/PhysRevB.104.045116}{One-dimensional long-range Falikov-Kimball model: Thermal phase transition and disorder-free localization}, Hodson, T. and Willsher, J. and Knolle, J., Phys. Rev.~B, \textbf{104}, 4, 2021,
 
-the code for which is available is available at \autocite{hodsonMCMCFKModel2021}.
+the code for which is available is available at~\autocite{hodsonMCMCFKModel2021}.
 
 \textbf{Contributions}
 
@@ -11,7 +11,7 @@ Johannes had the initial idea to use a long range Ising term to stablise order i
 \hypertarget{chapter-summary}{%
 \subsection{Chapter Summary}\label{chapter-summary}}
 
-To evaluate thermodynamic averages we perform a classical Markov Chain Monte Carlo random walk over the space of ionic configurations, at each step diagonalising the effective electronic Hamiltonian \autocite{maskaThermodynamicsTwodimensionalFalicovKimball2006}. Using a binder-cumulant method \autocite{binderFiniteSizeScaling1981,musialMonteCarloSimulations2002}, we demonstrate the model has a finite temperature phase transition when the interaction is sufficiently long ranged. We then estimate the density of states and the inverse participation ratio as a function of energy to diagnose localisation properties. We show preliminary results that the in-gap states induced at finite temperature are localised while the states in the unperturbed bands remain extended, evidence for a mobility edge.
+To evaluate thermodynamic averages we perform a classical Markov Chain Monte Carlo random walk over the space of ionic configurations, at each step diagonalising the effective electronic Hamiltonian~\autocite{maskaThermodynamicsTwodimensionalFalicovKimball2006}. Using a binder-cumulant method~\autocite{binderFiniteSizeScaling1981,musialMonteCarloSimulations2002}, we demonstrate the model has a finite temperature phase transition when the interaction is sufficiently long ranged. We then estimate the density of states and the inverse participation ratio as a function of energy to diagnose localisation properties. We show preliminary results that the in-gap states induced at finite temperature are localised while the states in the unperturbed bands remain extended, evidence for a mobility edge.
 
 Despite its simplicity, the FK model has a rich phase diagram in \(D \geq 2\) dimensions. For example, it shows an interaction-induced gap opening even at high temperatures, similar to the corresponding Hubbard Model~\autocite{brandtThermodynamicsCorrelationFunctions1989}. In 1D, the ground state phenomenology as a function of filling can be rich~\autocite{gruberGroundStatesSpinless1990} but the system is disordered for all \(T > 0\)~\autocite{kennedyItinerantElectronModel1986}. Moreover, the model has been a test-bed for many-body methods, interest took off when an exact DMFT solution in the infinite dimensional case was found~\autocite{antipovCriticalExponentsStrongly2014,ribicNonlocalCorrelationsSpectral2016,freericksExactDynamicalMeanfield2003,herrmannNonequilibriumDynamicalCluster2016}.
 
@@ -33,15 +33,15 @@ Usually the Hubbard model is written with equal hopping for the two spins states
 \hypertarget{localisation}{%
 \subsection{Localisation}\label{localisation}}
 
-The discovery of localisation in quantum systems surprising at the time given the seeming ubiquity of extended Bloch states. Later, when thermalisation in quantum systems gained interest, localisation phenomena again stood out as counterexamples to the eigenstate thermalisation hypothesis \autocite{abaninRecentProgressManybody2017,srednickiChaosQuantumThermalization1994}, allowing quantum systems to avoid to retain memory of their initial conditions in the face of thermal noise.
+The discovery of localisation in quantum systems surprising at the time given the seeming ubiquity of extended Bloch states. Later, when thermalisation in quantum systems gained interest, localisation phenomena again stood out as counterexamples to the eigenstate thermalisation hypothesis~\autocite{abaninRecentProgressManybody2017,srednickiChaosQuantumThermalization1994}, allowing quantum systems to avoid to retain memory of their initial conditions in the face of thermal noise.
 
-The simplest and first discovered kind is Anderson localisation, first studied in 1958 \autocite{andersonAbsenceDiffusionCertain1958} in the context of non-interacting fermions subject to a static or quenched disorder potential \(V_j\) drawn uniformly from the interval \([-W,W]\)
+The simplest and first discovered kind is Anderson localisation, first studied in 1958~\autocite{andersonAbsenceDiffusionCertain1958} in the context of non-interacting fermions subject to a static or quenched disorder potential \(V_j\) drawn uniformly from the interval \([-W,W]\)
 
 \[
 H = -t\sum_{\langle jk \rangle} c^\daggerger_j c_k + \sum_j V_j c_j^\daggerger c_j
 \]
 
-this model exhibits exponentially localised eigenfunctions \(\psi(x) = f(x) e^{-x/\lambda}\) which cannot contribute to transport processes. Initially it was thought that in one dimensional disordered models, all states would be localised, however it was later shown that in the presence of correlated disorder, bands of extended states can exist \autocite{izrailevLocalizationMobilityEdge1999,croyAndersonLocalization1D2011,izrailevAnomalousLocalizationLowDimensional2012}.
+this model exhibits exponentially localised eigenfunctions \(\psi(x) = f(x) e^{-x/\lambda}\) which cannot contribute to transport processes. Initially it was thought that in one dimensional disordered models, all states would be localised, however it was later shown that in the presence of correlated disorder, bands of extended states can exist~\autocite{izrailevLocalizationMobilityEdge1999,croyAndersonLocalization1D2011,izrailevAnomalousLocalizationLowDimensional2012}.
 
 Later localisation was found in interacting many-body systems with quenched disorder:
 
@@ -49,13 +49,13 @@ Later localisation was found in interacting many-body systems with quenched diso
 H = -t\sum_{\langle jk \rangle} c^\daggerger_j c_k + \sum_j V_j c_j^\daggerger c_j + U\sum_{jk} n_j n_k
 \]
 
-where the number operators \(n_j = c^\dagger_j c_j\). Here, in contrast to the Anderson model, localisation phenomena can be proven robust to weak perturbations of the Hamiltonian. This is called many-body localisation (MBL) \autocite{imbrieManyBodyLocalizationQuantum2016}.
+where the number operators \(n_j = c^\dagger_j c_j\). Here, in contrast to the Anderson model, localisation phenomena can be proven robust to weak perturbations of the Hamiltonian. This is called many-body localisation (MBL)~\autocite{imbrieManyBodyLocalizationQuantum2016}.
 
 Both MBL and Anderson localisation depend crucially on the presence of quenched disorder. This has led to ongoing interest in the possibility of disorder-free localisation, in which the disorder necessary to generate localisation is generated entirely from the dynamics of the model. This contracts with typical models of disordered systems in which disorder is explicielty introduced into the Hamilton or the initial state.
 
-The concept of disorder-free localisation was first proposed in the context of Helium mixtures \autocite{kagan1984localization} and then extended to heavy-light mixtures in which multiple species with large mass ratios interact. The idea is that the heavier particles act as an effective disorder potential for the lighter ones, inducing localisation. Two such models \autocite{yaoQuasiManyBodyLocalizationTranslationInvariant2016,schiulazDynamicsManybodyLocalized2015} instead find that the models thermalise exponentially slowly in system size, which Ref. \autocite{yaoQuasiManyBodyLocalizationTranslationInvariant2016} dubs Quasi-MBL.
+The concept of disorder-free localisation was first proposed in the context of Helium mixtures~\autocite{kagan1984localization} and then extended to heavy-light mixtures in which multiple species with large mass ratios interact. The idea is that the heavier particles act as an effective disorder potential for the lighter ones, inducing localisation. Two such models~\autocite{yaoQuasiManyBodyLocalizationTranslationInvariant2016,schiulazDynamicsManybodyLocalized2015} instead find that the models thermalise exponentially slowly in system size, which Ref.~\autocite{yaoQuasiManyBodyLocalizationTranslationInvariant2016} dubs Quasi-MBL.
 
-True disorder-free localisation does occur in exactly solveable models with extensively many conserved quantities \autocite{smithDisorderFreeLocalization2017}. As conserved quantites have no time dynamics this can be thought of as taking the separation of timescales to the infinite limit.
+True disorder-free localisation does occur in exactly solveable models with extensively many conserved quantities~\autocite{smithDisorderFreeLocalization2017}. As conserved quantites have no time dynamics this can be thought of as taking the separation of timescales to the infinite limit.
 
 \hypertarget{the-falikov-kimball-model}{%
 \subsubsection{The Falikov Kimball Model}\label{the-falikov-kimball-model}}
@@ -67,7 +67,7 @@ H &= -t \sum_{<ij>} c^\daggerger_{i\uparrow}c_{j\uparrow} + U \sum_{i} (n_{i \up
        & - \mu \sum_i \left( n_{i \uparrow} + n_{i \downarrow} \right) + \sum_{ij} V_{ij} (n_{i\downarrow} - 1/2)(n_{j\downarrow} - 1/2) 
 \end{aligned}\] \textbf{replace with hamiltonian from the paper}
 
-This notation emphasises that this can also be thought of as an asymmetric Hubbard model in which the spin down electrons cannot hop and are subject to an additional long range potential. However, to avoid the confusion of talking about two distinct species of spinless electrons we will use a different interpretation and refer to the classical degrees of freedom as the ``ionic sector'' and the quantum degrees of freedom as the ``electronic sector''. The final term that induces interactions between the classical particles has been added by us to stabilise the formation of an ordered phase in 1D. The classical variables commute with the Hamiltonian \([H, n_{i\downarrow}] = 0\) so like the lattice gauge model in Ref \autocite{smithDisorderFreeLocalization2017} the FK model has extensively many conserved quantities which can act as an effective disorder potential for the electronic sector.
+This notation emphasises that this can also be thought of as an asymmetric Hubbard model in which the spin down electrons cannot hop and are subject to an additional long range potential. However, to avoid the confusion of talking about two distinct species of spinless electrons we will use a different interpretation and refer to the classical degrees of freedom as the ``ionic sector'' and the quantum degrees of freedom as the ``electronic sector''. The final term that induces interactions between the classical particles has been added by us to stabilise the formation of an ordered phase in 1D. The classical variables commute with the Hamiltonian \([H, n_{i\downarrow}] = 0\) so like the lattice gauge model in Ref~\autocite{smithDisorderFreeLocalization2017} the FK model has extensively many conserved quantities which can act as an effective disorder potential for the electronic sector.
 
 Due to Pauli exclusion, the maximum filling occurs when one of each species occupies each lattice site such that \(\sum_i (n_{i\downarrow} + n_{i\uparrow} )/ N = 2\). Here we focus on the half filled case which also displays particle-hole symmetry (see later).
 
@@ -87,7 +87,7 @@ The Hubbard model gives a very simple setting in which to study interacting, iti
 
 in standard notation. The standard Hubbard model corresponds to the case \(t_{\uparrow} = t_{\downarrow}\). Here we have used the particle-hole symmetric version of the interaction term, which is more often given as \(n_{i \uparrow} n_{i\downarrow}\). The difference just amounts to a redefinition of the chemical potential.
 
-Hubbard originally used the model at half filling \(\mu = 0\) to explain the Mott metal-insulator (MI) transition, however it has seen applications to high-temperature superconductivity and become target for cold-atom optical trap experiments. \autocite{HubbardModelHalf2013,greiner_quantum_2002,jordens_mott_2008}. While simple, only a few analytic results exist, namely the Bethe ansatz \autocite{liebAbsenceMottTransition1968} which proves the absence of even a zero temperature phase transition in the 1D model and Nagaoka's theorem \autocite{nagaokaFerromagnetismNarrowAlmost1966} which proves that the three dimensional model has a ferromagnetic ground state in the vicinity of half filling.
+Hubbard originally used the model at half filling \(\mu = 0\) to explain the Mott metal-insulator (MI) transition, however it has seen applications to high-temperature superconductivity and become target for cold-atom optical trap experiments. ~\autocite{HubbardModelHalf2013,greiner_quantum_2002,jordens_mott_2008}. While simple, only a few analytic results exist, namely the Bethe ansatz~\autocite{liebAbsenceMottTransition1968} which proves the absence of even a zero temperature phase transition in the 1D model and Nagaoka's theorem~\autocite{nagaokaFerromagnetismNarrowAlmost1966} which proves that the three dimensional model has a ferromagnetic ground state in the vicinity of half filling.
 
 \hypertarget{falikov-kimball-model}{%
 \subsubsection{Falikov-Kimball model}\label{falikov-kimball-model}}
@@ -99,7 +99,7 @@ Hubbard originally used the model at half filling \(\mu = 0\) to explain the Mot
   \label{fig:fk_dos}
 \end{figure}
 
-The Falikov-Kimball model corresponds to the case \(t_{\downarrow} = 0\). It can be interpreted as two coupled spinless electron bands with infinite mass ratio. An itinerant light species with creation operator \(c^\dagger_{i\uparrow}\) coupled to an infinitely heavy, immobile species with density operator \(n_{i\downarrow}\). These are often called c and f electrons or electrons and ions. The model was first introduced by Hubbard in 1963 as a model of interacting localised and de-localised electron bands and gained its name from Falikov and Kimball's use of it to study the MI transition in rare-earth materials \autocite{hubbardj.ElectronCorrelationsNarrow1963,falicov_simple_1969}.
+The Falikov-Kimball model corresponds to the case \(t_{\downarrow} = 0\). It can be interpreted as two coupled spinless electron bands with infinite mass ratio. An itinerant light species with creation operator \(c^\dagger_{i\uparrow}\) coupled to an infinitely heavy, immobile species with density operator \(n_{i\downarrow}\). These are often called c and f electrons or electrons and ions. The model was first introduced by Hubbard in 1963 as a model of interacting localised and de-localised electron bands and gained its name from Falikov and Kimball's use of it to study the MI transition in rare-earth materials~\autocite{hubbardj.ElectronCorrelationsNarrow1963,falicov_simple_1969}.
 
 Here we will use refer to the light spinless species as \emph{electrons} with creation operator \(c^\dagger_{i}\) and the heavy species as \emph{ions} with density operator \(n_i\). When the the density operator of the electrons is needed I'll always use \(c^\dagger_{i}c_{i}\). We also set \(t = 1\).
 
@@ -118,15 +118,15 @@ Defining the particle density \(\rho\) as the number of fermions per site: \[
 
 \textbackslash begin\{figure\} \centering \includegraphics[width=0.8\textwidth]{figs/phase_diagram}
 
-\caption{Phases of the 2D Falikov Kimball Model, showing the ordered charge density wave phase at low temperatures and the interaction mediated transition between Anderson localisation and Mott insulating phases in the disordered phase. [@andersonAbsenceDiffusionCertain1958]}
+\caption{Phases of the 2D Falikov Kimball Model, showing the ordered charge density wave phase at low temperatures and the interaction mediated transition between Anderson localisation and Mott insulating phases in the disordered phase.\ [@andersonAbsenceDiffusionCertain1958]}
 
 \} \label{fig:FK_phase_diagram} \textbackslash end\{figure\}
 
-At half filling and in dimensions greater than one, the FK model exhibits a phase transition at some \(U\) dependent critical temperature \(T_c(U)\) to a low temperature charge density wave state in which the ions occupy one of the two sublattices A and B \autocite{maskaThermodynamicsTwodimensionalFalicovKimball2006}. The order parameter is the square of the staggered magnetisation: \[
+At half filling and in dimensions greater than one, the FK model exhibits a phase transition at some \(U\) dependent critical temperature \(T_c(U)\) to a low temperature charge density wave state in which the ions occupy one of the two sublattices A and B~\autocite{maskaThermodynamicsTwodimensionalFalicovKimball2006}. The order parameter is the square of the staggered magnetisation: \[
 M = \sum_{i \in A} n_i - \sum_{i \in B} n_i
-\] \% In the disordered phase Ref. \autocite{andersonAbsenceDiffusionCertain1958} identifies an interplay between Anderson localisation at weak interaction and a Mott insulator phase in the strongly interacting regime.
+\] \% In the disordered phase Ref.~\autocite{andersonAbsenceDiffusionCertain1958} identifies an interplay between Anderson localisation at weak interaction and a Mott insulator phase in the strongly interacting regime.
 
-In the one dimensional FK model, however, Peierls' argument \autocite{peierlsIsingModelFerromagnetism1936,kennedyItinerantElectronModel1986} and the Bethe ansatz \autocite{liebAbsenceMottTransition1968} make it clear that there is no ordered CDW phase. Peierls' argument is that one should consider the difference in free energy \(\Delta F = \Delta E - T\Delta S\) between an ordered state and a state with single domain wall in the order parameter. In the Ising model this would be having the spins pointing up in one part of the model and down in the other, for a CDW phase it means having the ions occupy the A sublattice in one part and the B sublattice in the other.
+In the one dimensional FK model, however, Peierls' argument~\autocite{peierlsIsingModelFerromagnetism1936,kennedyItinerantElectronModel1986} and the Bethe ansatz~\autocite{liebAbsenceMottTransition1968} make it clear that there is no ordered CDW phase. Peierls' argument is that one should consider the difference in free energy \(\Delta F = \Delta E - T\Delta S\) between an ordered state and a state with single domain wall in the order parameter. In the Ising model this would be having the spins pointing up in one part of the model and down in the other, for a CDW phase it means having the ions occupy the A sublattice in one part and the B sublattice in the other.
 
 Short range interactions will produce a constant energy penalty for such a domain wall that does not scale with system size while in 1D there are \(L\) such states so the domain wall is associated with entropy \(S \propto \ln L\) which dominates in the thermodynamic limit. The slow logarithmic scaling suggests we should be wary of finite size scaling effects.
 
@@ -143,7 +143,7 @@ One dimensional systems are more amenable to numerical and experimental study so
 
 Our extension to the FK model could now be though of as spinless fermions coupled to a long range Ising (LRI) model. The LRI model has been extensively studied and its behaviour may be bear relation to the behaviour of our modified FK model.
 
-\[H_{\mathrm{LRI}} = \sum_{ij} J(\abs{i-j}) \tau_i \tau_j = J \sum_{i\neq j} |i - j|^{-\alpha} \tau_i \tau_j\] \% Rigorous renormalisation group arguments show that the LRI model has an ordered phase in 1D for \$1 \textless{} \alpha \textless{} 2 \$ \autocite{dysonExistencePhasetransitionOnedimensional1969}. Peierls' argument can be extended \autocite{thoulessLongRangeOrderOneDimensional1969} to provide intuition for why this is the case. Again considering the energy difference between the ordered state \(\ket{\ldots\uparrow\uparrow\uparrow\uparrow\ldots}\) and a domain wall state \(\ket{\ldots\uparrow\uparrow\downarrow\downarrow\ldots}\). In the case of the LRI model, careful counting shows that this energy penalty is: \[\Delta E \propto \sum_{n=1}^{\infty} n J(n)\] \% because each interaction between spins separated across the domain by a bond length \(n\) can be drawn between \(n\) equivalent pairs of sites. Ruelle proved rigorously for a very general class of 1D systems, that if \(\Delta E\) or its many-body generalisation converges in the thermodynamic limit then the free energy is analytic \autocite{ruelleStatisticalMechanicsOnedimensional1968}. This rules out a finite order phase transition, though not one of the Kosterlitz-Thouless type. Dyson also proves this though with a slightly different condition on \(J(n)\) \autocite{dysonExistencePhasetransitionOnedimensional1969}.
+\[H_{\mathrm{LRI}} = \sum_{ij} J(\abs{i-j}) \tau_i \tau_j = J \sum_{i\neq j} |i - j|^{-\alpha} \tau_i \tau_j\] \% Rigorous renormalisation group arguments show that the LRI model has an ordered phase in 1D for \$1 \textless{} \alpha \textless{} 2 \$~\autocite{dysonExistencePhasetransitionOnedimensional1969}. Peierls' argument can be extended~\autocite{thoulessLongRangeOrderOneDimensional1969} to provide intuition for why this is the case. Again considering the energy difference between the ordered state \(\ket{\ldots\uparrow\uparrow\uparrow\uparrow\ldots}\) and a domain wall state \(\ket{\ldots\uparrow\uparrow\downarrow\downarrow\ldots}\). In the case of the LRI model, careful counting shows that this energy penalty is: \[\Delta E \propto \sum_{n=1}^{\infty} n J(n)\] \% because each interaction between spins separated across the domain by a bond length \(n\) can be drawn between \(n\) equivalent pairs of sites. Ruelle proved rigorously for a very general class of 1D systems, that if \(\Delta E\) or its many-body generalisation converges in the thermodynamic limit then the free energy is analytic~\autocite{ruelleStatisticalMechanicsOnedimensional1968}. This rules out a finite order phase transition, though not one of the Kosterlitz-Thouless type. Dyson also proves this though with a slightly different condition on \(J(n)\)~\autocite{dysonExistencePhasetransitionOnedimensional1969}.
 
 With a power law form for \(J(n)\), there are three cases to consider:
 
@@ -155,13 +155,13 @@ With a power law form for \(J(n)\), there are three cases to consider:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \$ \alpha = 0\$ For infinite range interactions the Ising model is exactly solveable and mean field theory is exact \autocite{lipkinValidityManybodyApproximation1965}.
+  \$ \alpha = 0\$ For infinite range interactions the Ising model is exactly solveable and mean field theory is exact~\autocite{lipkinValidityManybodyApproximation1965}.
 \item
   \$ \alpha \le 1\$ For slowly decaying interactions \(\sum_n J(n)\) does not converge so the Hamiltonian is non-extensive, a case which won't be further considered here.
 \item
   \$ 1 \textless{} \alpha \textless{} 2 \$ A phase transition to an ordered state at a finite temperature.
 \item
-  \$ \alpha = 2 \$ The energy of domain walls diverges logarithmically, and this turns out to be a Kostelitz-Thouless transition \autocite{thoulessLongRangeOrderOneDimensional1969}.
+  \$ \alpha = 2 \$ The energy of domain walls diverges logarithmically, and this turns out to be a Kostelitz-Thouless transition~\autocite{thoulessLongRangeOrderOneDimensional1969}.
 \item
   \$ 2 \textless{} \alpha \$ For quickly decaying interactions, domain walls have a finite energy penalty, hence Peirels' argument holds and there is no phase transition.
 \end{enumerate}
@@ -169,9 +169,9 @@ With a power law form for \(J(n)\), there are three cases to consider:
 \hypertarget{thermodynamics}{%
 \subsubsection{Thermodynamics}\label{thermodynamics}}
 
-On bipartite lattices in dimensions 2 and above the FK model exhibits a finite temperature phase transition to an ordered charge density wave (CDW) phase \autocite{maskaThermodynamicsTwodimensionalFalicovKimball2006}. In this phase, the ions are confined to one of the two sublattices, breaking the \(\mathbb{Z}_2\) symmetry.
+On bipartite lattices in dimensions 2 and above the FK model exhibits a finite temperature phase transition to an ordered charge density wave (CDW) phase~\autocite{maskaThermodynamicsTwodimensionalFalicovKimball2006}. In this phase, the ions are confined to one of the two sublattices, breaking the \(\mathbb{Z}_2\) symmetry.
 
-In 1D, however, Periel's argument \autocite{peierlsIsingModelFerromagnetism1936,kennedyItinerantElectronModel1986} states that domain walls only introduce a constant energy penalty into the free energy while bringing a entropic contribution logarithmic in system size. Hence the 1D model does not have a finite temperature phase transition. However 1D systems are much easier to study numerically and admit simpler realisations experimentally. We therefore introduce a long range coupling between the ions in order to stabilise a CDW phase in 1D. This leads to a disordered system that is gaped by the CDW background but with correlated fluctuations leading to a disorder-free correlation induced mobility edge in one dimension.
+In 1D, however, Periel's argument~\autocite{peierlsIsingModelFerromagnetism1936,kennedyItinerantElectronModel1986} states that domain walls only introduce a constant energy penalty into the free energy while bringing a entropic contribution logarithmic in system size. Hence the 1D model does not have a finite temperature phase transition. However 1D systems are much easier to study numerically and admit simpler realisations experimentally. We therefore introduce a long range coupling between the ions in order to stabilise a CDW phase in 1D. This leads to a disordered system that is gaped by the CDW background but with correlated fluctuations leading to a disorder-free correlation induced mobility edge in one dimension.
 
 \hypertarget{fig:binder}{%
 \begin{figure}
@@ -203,9 +203,9 @@ Isolated classical systems generally thermalise if they are large enough. Since 
 
 A potential solution lies in the eigenstate thermalisation hypothesis. It states that if a system thermalises, then we can isolate small patches of a larger system, trace everyhing else out, and get a thermal density matrix.
 
-Following Ref. \autocite{abaninRecentProgressManybody2017}, consider the time evolution of a local operator \(\hat{O}\) \[ \expval{\hat{O}}{\psi(t)} = \sum_{\alpha \beta} C^*_\alpha C_\beta e^{i(E_\alpha - E_\beta)} O_{\alpha \beta}\]
+Following Ref.~\autocite{abaninRecentProgressManybody2017}, consider the time evolution of a local operator \(\hat{O}\) \[ \expval{\hat{O}}{\psi(t)} = \sum_{\alpha \beta} C^*_\alpha C_\beta e^{i(E_\alpha - E_\beta)} O_{\alpha \beta}\]
 
-Where \(C_\alpha\) are determined by the initial state and \(O_{\alpha \beta} = \expval{\alpha | \hat{O} | \beta}\) are the matrix elements of \(\hat{O}\) with respect to the energy eigenstates. Srednicki \autocite{srednickiChaosQuantumThermalization1994} introduced the ansatz that for local operators:
+Where \(C_\alpha\) are determined by the initial state and \(O_{\alpha \beta} = \expval{\alpha | \hat{O} | \beta}\) are the matrix elements of \(\hat{O}\) with respect to the energy eigenstates. Srednicki~\autocite{srednickiChaosQuantumThermalization1994} introduced the ansatz that for local operators:
 
 \[O_{\alpha \beta} = O(E)\delta_{\alpha\beta} + e^{-S(E)/2} f(E,\omega) R_{\alpha\beta}\]
 
@@ -213,7 +213,7 @@ with \(E = (E_\alpha + E_\beta)\), \(\omega = (E_\alpha - E_\beta)\) and \(R_{\a
 
 The second term deals with thermodynamic fluctuations scaled by the entropy \(S(E) = -Tr(\rho \log \rho)\) where \(\rho = e^{-\beta \hat{H}}\) and \(\mathcal{Z} = Tr[e^{-\beta \hat{H}}]\).
 
-With this ansatz the long time average of the observable becomes equal to the thermal expectations with fluctuations suppressed by the entropic term \(e^{-S(E)}\) and the rapidly varying phase factors \(e^{i(E_\alpha - E_\beta)}\). This statement of the ETH has verified for the quantum hard sphere model \autocite{srednickiChaosQuantumThermalization1994} and numerically for other models \autocite{khatamiFluctuationDissipationTheoremIsolated2013,dalessioQuantumChaosEigenstate2016}.
+With this ansatz the long time average of the observable becomes equal to the thermal expectations with fluctuations suppressed by the entropic term \(e^{-S(E)}\) and the rapidly varying phase factors \(e^{i(E_\alpha - E_\beta)}\). This statement of the ETH has verified for the quantum hard sphere model~\autocite{srednickiChaosQuantumThermalization1994} and numerically for other models~\autocite{khatamiFluctuationDissipationTheoremIsolated2013,dalessioQuantumChaosEigenstate2016}.
 
 An alternate view on ETH is the statement that in thermalising systems individual eigenstates look thermal when viewed locally. Take a eigenstate \(|\alpha\rangle\) with energy \(E_\alpha\) and as before define an effective temperature with \(E_\alpha = Tr[H e^{-\beta \hat{H}}/\mathcal{Z}]\). This statement of the ETH says that if we partition the system into subsystems A and B with a limit taken as B becomes very large, B will act as a heat bath for A. Specifically the reduced density matrix \(\rho_A = Tr_B \op{\alpha}{\alpha}\) is equal to the thermal density matrix:
 
@@ -224,17 +224,17 @@ Intuitively, for thermalisation to happen, the degrees of freedom must be suffic
 \hypertarget{anderson-localisation}{%
 \subsubsection{Anderson Localisation}\label{anderson-localisation}}
 
-Localisation was first studied by Anderson in 1958 \autocite{andersonAbsenceDiffusionCertain1958} in the context of non-interacting fermions subject to a static or quenched disorder potential \(V_j\) drawn uniformly from the interval \([-W,W]\):
+Localisation was first studied by Anderson in 1958~\autocite{andersonAbsenceDiffusionCertain1958} in the context of non-interacting fermions subject to a static or quenched disorder potential \(V_j\) drawn uniformly from the interval \([-W,W]\):
 
 \[
 H = -t\sum_{\expval{jk}} c^\dagger_j c_k + \sum_j V_j c_j^\dagger c_j
 \]
 
-At sufficiently strong disorder the Anderson model exhibits exponentially localised eigenfunctions \(\psi(x) = f(x) e^{-x/\lambda}\) which cannot contribute to diffusive transport processes. Except in 1D where any disorder strength is sufficient. Intuitively this happens because hopping processes between nearby sites become off-resonant, hindering the hybridisation that would normally lead to extended Bloch states \autocite{kramerLocalizationTheoryExperiment1993}.
+At sufficiently strong disorder the Anderson model exhibits exponentially localised eigenfunctions \(\psi(x) = f(x) e^{-x/\lambda}\) which cannot contribute to diffusive transport processes. Except in 1D where any disorder strength is sufficient. Intuitively this happens because hopping processes between nearby sites become off-resonant, hindering the hybridisation that would normally lead to extended Bloch states~\autocite{kramerLocalizationTheoryExperiment1993}.
 
-In one and two dimensions, all the states in the Anderson model are localised. In three dimensions there are mobility edges. Mobility edges are critical energies in the spectrum which separate delocalised states in a band from localised states which form a band tail \autocite{abaninRecentProgressManybody2017}. An argument due to Lifshitz shows that the density of state of the band tail should decay exponentially and localised and extended stats cannot co-exist at the same energy as they would hybridise into extended states \autocite{kramerLocalizationTheoryExperiment1993}.
+In one and two dimensions, all the states in the Anderson model are localised. In three dimensions there are mobility edges. Mobility edges are critical energies in the spectrum which separate delocalised states in a band from localised states which form a band tail~\autocite{abaninRecentProgressManybody2017}. An argument due to Lifshitz shows that the density of state of the band tail should decay exponentially and localised and extended stats cannot co-exist at the same energy as they would hybridise into extended states~\autocite{kramerLocalizationTheoryExperiment1993}.
 
-It was thought that mobility edges could not exist in 1D because all the states localised in the presence of any amount of disorder. This is true for uncorrelated potentials \autocite{goldshteinPurePointSpectrum1977}. However, it was shown that if the disorder potential \(V_j\) contains spatial correlations mobility edges do exist in 1D \autocite{izrailevLocalizationMobilityEdge1999,izrailevAnomalousLocalizationLowDimensional2012}. Ref. \autocite{croyAndersonLocalization1D2011} extends this work to look at power law decay of the correlations: \[ C(l) = \expval{V_i V_{i+l}} \propto l^{-\alpha} \] \% Figure fig:anderson\_dos shows numerical calculations of the Localisation length (see later) and density of states for the power law correlated Anderson model. At the unperturbed band edges \(\abs{E} = 2\), the states transition from extended to localised. The behaviour close to the edge takes a universal scaling form with exponents dependant on \(\alpha\).
+It was thought that mobility edges could not exist in 1D because all the states localised in the presence of any amount of disorder. This is true for uncorrelated potentials~\autocite{goldshteinPurePointSpectrum1977}. However, it was shown that if the disorder potential \(V_j\) contains spatial correlations mobility edges do exist in 1D~\autocite{izrailevLocalizationMobilityEdge1999,izrailevAnomalousLocalizationLowDimensional2012}. Ref.~\autocite{croyAndersonLocalization1D2011} extends this work to look at power law decay of the correlations: \[ C(l) = \expval{V_i V_{i+l}} \propto l^{-\alpha} \] \% Figure fig:anderson\_dos shows numerical calculations of the Localisation length (see later) and density of states for the power law correlated Anderson model. At the unperturbed band edges \(\abs{E} = 2\), the states transition from extended to localised. The behaviour close to the edge takes a universal scaling form with exponents dependant on \(\alpha\).
 
 \hypertarget{many-body-localisation}{%
 \subsubsection{Many Body Localisation}\label{many-body-localisation}}
@@ -243,9 +243,9 @@ A related phenomena known as many body localisation (MBL) was found in interacti
 
 \[
 H = -t\sum_{\expval{jk}} c^\dagger_j c_k + \sum_j V_j c_j^\dagger c_j + U\sum_{jk} n_j n_k
-\] \% with \(n_j = c^\dagger_j c_j\) Here, in contrast to the Anderson model, localisation phenomena can be proven robust to weak perturbations of the Hamiltonian \autocite{imbrieManyBodyLocalizationQuantum2016}.
+\] \% with \(n_j = c^\dagger_j c_j\) Here, in contrast to the Anderson model, localisation phenomena can be proven robust to weak perturbations of the Hamiltonian~\autocite{imbrieManyBodyLocalizationQuantum2016}.
 
-MBL is defined by the emergence of an extensive number of quasi-local operators called local integrals of motions (LIOMs) or l-bits. Following Ref. \autocite{abaninRecentProgressManybody2017}, using a spin system with variables \(\sigma^z_i\), any operator can be written in the general form:
+MBL is defined by the emergence of an extensive number of quasi-local operators called local integrals of motions (LIOMs) or l-bits. Following Ref.~\autocite{abaninRecentProgressManybody2017}, using a spin system with variables \(\sigma^z_i\), any operator can be written in the general form:
 
 \[ \tau^z_i = \sigma^z_i + \sum_{\alpha\beta kl} f_{kl}^{\alpha\beta} \sigma^\alpha_{i+k} \sigma_z\beta_{i+k} + ...\] \% what defines a MBL system is that there exist extensively many \(\tau^z_i\) for which the coefficients decay exponentially with distance \(f_{kl}^{\alpha\beta} \propto e^{-\max(\abs{l},\abs{k}) / \xi}\). These LIOMs commute with the Hamiltonian and each other \([\hat{H}, \tau^z_i] = [\tau^z_i, \tau^z_j] = 0\). It is this extensive number of conserved local charges that leads to the localisation properties of MBL. It also has implications for the way entanglement grows over time in MBL systems.
 
@@ -253,14 +253,14 @@ Since the Hamiltonian commutes with all the LIOMs and they are a complete operat
 
 \[\hat{H} = \sum_{i} h_i \tau^z_i + \sum_{ij} J_{ij} \tau^z_i \tau^z_j + \sum_{ijk} J_{ij} \tau^z_i \tau^z_j \tau^z_k+ ...\] \% Where again the couplings decay exponentially, albeit with a different length scale \(\Bar{\xi}\). From this form we see that distant l-bits can only become entangled on a timescale of:
 
-\[ t_{\mathrm{ent}}(r) \propto \frac{\hbar}{J_0} e^{r/\Bar{\xi}} \] \% and hence quantum correlations and entanglement propagates logarithmically in MBL systems \autocite{imbrieDiagonalizationManyBodyLocalization2016}.
+\[ t_{\mathrm{ent}}(r) \propto \frac{\hbar}{J_0} e^{r/\Bar{\xi}} \] \% and hence quantum correlations and entanglement propagates logarithmically in MBL systems~\autocite{imbrieDiagonalizationManyBodyLocalization2016}.
 
 \hypertarget{disorder-free-localisation}{%
 \subsubsection{Disorder Free localisation}\label{disorder-free-localisation}}
 
 Both Anderson localisation and MBL depend on the presence of quenched disorder. Recently the idea of disorder-free localisation has gained traction, asking whether the disorder necessary to generate localisation can be generated entirely from the dynamics of a model itself.
 
-The idea was first proposed in the context of Helium mixtures \autocite{kagan1984localization} and then extended to heavy-light mixtures in which multiple species with large mass ratios interact, the idea being that the heavier particles act as an effective disorder potential for the lighter ones, inducing localisation. Two such models \autocite{yaoQuasiManyBodyLocalizationTranslationInvariant2016,schiulazDynamicsManybodyLocalized2015} instead find that the models thermalise exponentially slowly in system size, which Ref. \autocite{yaoQuasiManyBodyLocalizationTranslationInvariant2016} dubs Quasi-MBL. A. Smith, J. Knolle et al instead looked at models containing an extensive number of conserved quantities and demonstrated true disorder free localisation \autocite{smithDisorderFreeLocalization2017}.
+The idea was first proposed in the context of Helium mixtures~\autocite{kagan1984localization} and then extended to heavy-light mixtures in which multiple species with large mass ratios interact, the idea being that the heavier particles act as an effective disorder potential for the lighter ones, inducing localisation. Two such models~\autocite{yaoQuasiManyBodyLocalizationTranslationInvariant2016,schiulazDynamicsManybodyLocalized2015} instead find that the models thermalise exponentially slowly in system size, which Ref.~\autocite{yaoQuasiManyBodyLocalizationTranslationInvariant2016} dubs Quasi-MBL. A. Smith, J. Knolle et al instead looked at models containing an extensive number of conserved quantities and demonstrated true disorder free localisation~\autocite{smithDisorderFreeLocalization2017}.
 
 \hypertarget{introduction}{%
 \subsection{Introduction}\label{introduction}}
@@ -324,7 +324,7 @@ However a firmer theoretical description of the Mott-transition had to wait unti
 
 The Hubbard Model is about the simplest interacting tight-binding hamiltonian that could be written down. It is a tight binding model of spin half electrons with finite bandwidth \(t\) and a repulsive on-site interaction \(U > 0\). \[H = -t\sum_{<ij>}c^\dag_{i\sigma}c_{j\sigma} + U \sum_{i} (n_{i \uparrow} - 1/2)( n_{i\downarrow} - 1/2) - \mu \sum_i \left( n_{i \uparrow} + n_{i \downarrow} \right).\] Where as usual \(n_{i \sigma} = c^\dag_{i\sigma}c_{i\sigma}\) is the number operator. I'm using the particle-hole symmetric version of the interaction term which would otherwise be written as \(n_{i \uparrow} n_{i\downarrow}\). The difference just amounts to a redefinition of the chemical potential.
 
-While it was originally used to explain the Mott metal-insulator transition, the Hubbard Model has seen applications to high-temperature superconductivity and become the target for cold-atom optical trap experiments~\autocite{noauthor_hubbard_2013,greiner_quantum_2002,jordens_mott_2008}. Only a few analytic results exist, namely the Bethe ansatz \autocite{lieb_absence_1968} which proves the absence of even a zero temperature phase transition in the 1D model and Nagaoka's theorem \autocite{nagaoka_ferromagnetism_1966} which proves that the three dimensional model has a ferromagnetic ground state in the vicinity of half filling.
+While it was originally used to explain the Mott metal-insulator transition, the Hubbard Model has seen applications to high-temperature superconductivity and become the target for cold-atom optical trap experiments~\autocite{noauthor_hubbard_2013,greiner_quantum_2002,jordens_mott_2008}. Only a few analytic results exist, namely the Bethe ansatz~\autocite{lieb_absence_1968} which proves the absence of even a zero temperature phase transition in the 1D model and Nagaoka's theorem~\autocite{nagaoka_ferromagnetism_1966} which proves that the three dimensional model has a ferromagnetic ground state in the vicinity of half filling.
 
 A full theoretical treatment of the Hubbard Model remains elusive because it is an interacting quantum many-body system. Together these three properties make for a formidable theoretical challenge. It is for this reason that many approaches within condensed matter theory today can be interpreted as relaxing one of these three properties. While this may limit the applicability of these new models, they can still yield useful insights.
 

@@ -5,7 +5,7 @@ The material in this chapter expands on work presented in
 
 \textbf{Insert citation of amorphous Kitaev paper here}
 
-which was a joint project of the first three authors with advice and guidance from Willian and Johannes. The project grew out of an interest Gino, Peru and I had in studying amorphous systems, coupled with Johannes' expertise on the Kitaev model. The idea to use voronoi partitions came from \autocite{marsalTopologicalWeaireThorpe2020} and Gino did the implementation of this. The idea and implementation of the edge colouring using SAT solvers, the mapping from flux sector to bond sector using A* search were both entirely my work. Peru came up with the ground state conjecture and implemented the local markers. Gino and I did much of the rest of the programming for Koala while pair programming and 'whiteboard'ing, this included the phase diagram, edge mode and finite temperature analyses as well as the derivation of the projector in the amorphous case.
+which was a joint project of the first three authors with advice and guidance from Willian and Johannes. The project grew out of an interest Gino, Peru and I had in studying amorphous systems, coupled with Johannes' expertise on the Kitaev model. The idea to use voronoi partitions came from~\autocite{marsalTopologicalWeaireThorpe2020} and Gino did the implementation of this. The idea and implementation of the edge colouring using SAT solvers, the mapping from flux sector to bond sector using A* search were both entirely my work. Peru came up with the ground state conjecture and implemented the local markers. Gino and I did much of the rest of the programming for Koala while pair programming and 'whiteboard'ing, this included the phase diagram, edge mode and finite temperature analyses as well as the derivation of the projector in the amorphous case.
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
@@ -21,13 +21,13 @@ which was a joint project of the first three authors with advice and guidance fr
 
 The Kitaev Honeycomb model \[H =  - \sum_{\langle j,k\rangle_\alpha} J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha},\] is remarkable because it combines three key properties.
 
-First, the form of the Hamiltonian plausibly be realised by a real material. Candidate materials, such as \(\alpha\mathrm{-RuCl}_3\), are known to have sufficiently strong spin-orbit coupling and the correct lattice structure to behave according to the Kitaev Honeycomb model with small corrections \autocite{banerjeeProximateKitaevQuantum2016,trebstKitaevMaterials2022}.
+First, the form of the Hamiltonian plausibly be realised by a real material. Candidate materials, such as \(\alpha\mathrm{-RuCl}_3\), are known to have sufficiently strong spin-orbit coupling and the correct lattice structure to behave according to the Kitaev Honeycomb model with small corrections~\autocite{banerjeeProximateKitaevQuantum2016,trebstKitaevMaterials2022}.
 
 \textbf{expand later: Why do we need spin orbit coupling and what will the corrections be?}
 
-Second, its ground state is the canonical example of the long sought after quantum spin liquid state. Its excitations are anyons, particles that can only exist in two dimensions that break the normal fermion/boson dichotomy. Anyons have been the subject of much attention because, among other reasons, they can be braided through spacetime to achieve noise tolerant quantum computations \autocite{freedmanTopologicalQuantumComputation2003}.
+Second, its ground state is the canonical example of the long sought after quantum spin liquid state. Its excitations are anyons, particles that can only exist in two dimensions that break the normal fermion/boson dichotomy. Anyons have been the subject of much attention because, among other reasons, they can be braided through spacetime to achieve noise tolerant quantum computations~\autocite{freedmanTopologicalQuantumComputation2003}.
 
-Third, and perhaps most importantly, this model is a rare many body interacting quantum system that can be treated analytically. It is exactly solvable. We can explicitly write down its many body ground states in terms of single particle states \autocite{kitaevAnyonsExactlySolved2006}. The solubility of the Kitaev Honeycomb Model, like the Falikov-Kimball model of chapter 1, comes about because the model has extensively many conserved degrees of freedom. These conserved quantities can be factored out as classical degrees of freedom, leaving behind a non-interacting quantum model that is easy to solve.
+Third, and perhaps most importantly, this model is a rare many body interacting quantum system that can be treated analytically. It is exactly solvable. We can explicitly write down its many body ground states in terms of single particle states~\autocite{kitaevAnyonsExactlySolved2006}. The solubility of the Kitaev Honeycomb Model, like the Falikov-Kimball model of chapter 1, comes about because the model has extensively many conserved degrees of freedom. These conserved quantities can be factored out as classical degrees of freedom, leaving behind a non-interacting quantum model that is easy to solve.
 
 \hypertarget{amorphous-systems}{%
 \subsection{Amorphous Systems}\label{amorphous-systems}}
@@ -36,7 +36,7 @@ Third, and perhaps most importantly, this model is a rare many body interacting 
 
 This chapter details the physics of the Kitaev model on amorphous lattices.
 
-It starts by expanding on the physics of the Kitaev model. It will look at the gauge symmetries of the model as well as its solution via a transformation to a Majorana hamiltonian. This discussion shows that, for the the model to be solvable, it needs only be defined on a trivalent, tri-edge-colourable lattice \autocite{Nussinov2009}.
+It starts by expanding on the physics of the Kitaev model. It will look at the gauge symmetries of the model as well as its solution via a transformation to a Majorana hamiltonian. This discussion shows that, for the the model to be solvable, it needs only be defined on a trivalent, tri-edge-colourable lattice~\autocite{Nussinov2009}.
 
 The methods section discusses how to generate such lattices and colour them. It also explain how to map back and forth between configurations of the gauge field and configurations of the gauge invariant quantities.
 
@@ -179,7 +179,7 @@ Once we involve multiple fermions, there is some freedom in how we can perform t
 
 To start from the fundamentals, the Kitaev Honeycomb model is a model of interacting spin\(-1/2\)s on the vertices of a honeycomb lattice. Each bond in the lattice is assigned a label \(\alpha \in \{ x, y, z\}\) and that bond couples its two spin neighbours along the \(\alpha\) axis. See \cref{fig:visual_kitaev_1} for a diagram.
 
-This gives us the Hamiltonian \[H =  - \sum_{\langle j,k\rangle_\alpha} J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha},\] where \(\sigma^\alpha_j\) is a Pauli matrix acting on site \(j\) and \(\langle j,k\rangle_\alpha\) is a pair of nearest-neighbour indices connected by an \(\alpha\)-bond with exchange coupling \(J^\alpha\) \autocite{kitaevAnyonsExactlySolved2006}. For notational brevity, it is useful to introduce the bond operators \(K_{ij} = \sigma_j^{\alpha}\sigma_k^{\alpha}\) where \(\alpha\) is a function of \(i,j\) that picks the correct bond type.
+This gives us the Hamiltonian \[H =  - \sum_{\langle j,k\rangle_\alpha} J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha},\] where \(\sigma^\alpha_j\) is a Pauli matrix acting on site \(j\) and \(\langle j,k\rangle_\alpha\) is a pair of nearest-neighbour indices connected by an \(\alpha\)-bond with exchange coupling \(J^\alpha\)~\autocite{kitaevAnyonsExactlySolved2006}. For notational brevity, it is useful to introduce the bond operators \(K_{ij} = \sigma_j^{\alpha}\sigma_k^{\alpha}\) where \(\alpha\) is a function of \(i,j\) that picks the correct bond type.
 
 This Kitaev model has a set of conserved quantities that, in the spin language, take the form of Wilson loop operators \(W_p\) winding around a closed path on the lattice. The direction does not matter, but we will keep to clockwise here. We will use the term plaquette and the symbol \(\phi\) to refer to a Wilson loop operator that does not enclose any other sites, such as a single hexagon in a honeycomb lattice.
 
@@ -281,7 +281,7 @@ Once confined to a particular \(\mathcal{L}_u\), we can `remove the hats' from t
 \hypertarget{the-majorana-hamiltonian}{%
 \subsection{The Majorana Hamiltonian}\label{the-majorana-hamiltonian}}
 
-We now have a quadratic Hamiltonian \[ \tilde{H} =  \frac{i}{4} \sum_{\langle i,j\rangle_\alpha} 2J^{\alpha} u_{ij} c_i c_j\] in which most of the Majorana degrees of freedom have paired along bonds to become a classical gauge field \(u_{ij}\). What follows is relatively standard theory for quadratic Majorana Hamiltonians \autocite{BlaizotRipka1986}.
+We now have a quadratic Hamiltonian \[ \tilde{H} =  \frac{i}{4} \sum_{\langle i,j\rangle_\alpha} 2J^{\alpha} u_{ij} c_i c_j\] in which most of the Majorana degrees of freedom have paired along bonds to become a classical gauge field \(u_{ij}\). What follows is relatively standard theory for quadratic Majorana Hamiltonians~\autocite{BlaizotRipka1986}.
 
 Because of the antisymmetry of the matrix with entries \(J^{\alpha} u_{ij}\), the eigenvalues of the Hamiltonian \(\tilde{H}_u\) come in pairs \(\pm \epsilon_m\). This redundant information is a consequence of the doubling of the Hilbert space which occurred when we transformed to the Majorana representation.
 
