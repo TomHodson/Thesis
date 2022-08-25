@@ -1,5 +1,6 @@
 from pathlib import Path
 import itertools as it
+from collections import defaultdict
 
 pandoc = '/usr/local/Cellar/pandoc/2.18/bin/pandoc'
 
@@ -9,6 +10,30 @@ def rebase(file, src_dir, target_dir, new_extension):
     parent_relative_to_src = file.relative_to(src_dir).parent
     new_parent = target_dir / parent_relative_to_src
     return new_parent, new_parent / (file.stem + new_extension)
+
+#compute all the dependent files here
+src_dir = Path("./src")
+src_files = src_dir.glob("**/*.ipynb")
+static_latex_files = [Path("./thesis.preamble.tex"), Path("./thesis.tex")]
+
+target_dir = Path("./build/latex")
+
+to_build = [
+    [Path("./build/latex/"), ".tex"],
+    [Path("./build/markdown/"), ".md"],
+    [Path("./build/html/"), ".html"],
+]
+built_filepaths = []
+
+for src_file in src_files:
+    if any(p.startswith(".") for p in src_file.parts): continue
+    this_file = {".ipynb" : src_file}
+    for target_dir, extension in to_build:
+        _, target = rebase(src_file, src_dir, target_dir, new_extension = extension)
+        this_file[extension] = target
+    built_filepaths.append(this_file)
+
+built_tex = [file['.tex'] for file in built_filepaths]  
 
 def task_svg_to_pdf():
     "convert inkscape .svg files to .pdf"
@@ -28,24 +53,16 @@ def task_svg_to_pdf():
         )
     
 def task_ipynb_check():
-    src_dir = Path("./src")
-    jupyter_files = src_dir.glob("**/*.ipynb")
-    for f in jupyter_files:
-        if any(p.startswith(".") for p in f.parts): continue
+    for file in built_filepaths:
+        f = file['.ipynb']
         yield dict(
             name = f"Check syntax of {f}",
             file_dep = [f,],
             actions = [f'python pandoc/syntax_checks.py "{f}"'],
         )
 
-def task_latex_check():
-    name = 'thesis'
-    src_dir = Path("./build/latex/")
-    static_latex_files = [Path("./thesis.preamble.tex"), Path("./thesis.tex")]
-    built_latex_files = list(src_dir.glob("**/*.tex"))
-    tex_files = static_latex_files + built_latex_files
-    for f in tex_files:
-        if any(p.startswith(".") for p in f.parts): continue
+def task_latex_check(): 
+    for f in built_tex + static_latex_files:
         yield dict(
             name = f"Chktex on {f}",
             file_dep = [f,],
@@ -54,43 +71,20 @@ def task_latex_check():
 
 def task_markdown():
     "convert .ipynb files to .md files using nbconvert"
-    src_dir = Path("./src")
-    target_dir = Path("./build/markdown")
-    jupyter_files = src_dir.glob("**/*.ipynb")
-    for f in jupyter_files:
-        if any(p.startswith(".") for p in f.parts): continue
-        new_parents, target = rebase(f, src_dir, target_dir, new_extension = ".md")
+    for file in built_filepaths:
+        f = file['.ipynb']
+        target = file['.md']
         yield dict(
             name = str(f),
             file_dep = [f,],
             targets = [target,],
             actions = [
-                f'mkdir -p {new_parents}',
+                f'mkdir -p {target.parent}',
                 f'jupyter nbconvert --TagRemovePreprocessor.remove_cell_tags=\'{"remove_cell"}\' --to markdown "{f}" --output-dir={target.parent} --output "{target.name}"',
                 f'python pandoc/figure_to_markdown_tag.py --input "{target}" --output "{target}"'
                 ],
             clean = True,
-        )
-
-def task_json():
-    "convert .md files to json using pandoc"
-    pandoc_config = 'pandoc/markdown_to_tex.yml'
-    latex_filter = 'pandoc/latex_filter.py'
-    code_dependencies = [pandoc_config, latex_filter]
-    src_dir = Path("./build/markdown/")
-    target_dir = Path("./build/json/")
-    inputs = src_dir.glob("**/*.md")
-    for f in inputs:
-        if any(p.startswith(".") for p in f.parts): continue
-        new_parents, target = rebase(f, src_dir, target_dir, new_extension = ".md")
-        yield dict(
-            name = str(f),
-            file_dep = [f,] + code_dependencies,
-            targets = [target,],
-            actions = [
-                f'mkdir -p {new_parents}',
-                f'{pandoc} -d {pandoc_config} --to json "{f}" -o "{target}"',],
-            clean = True,
+            verbosity = 0,
         )
 
 def task_latex():
@@ -98,18 +92,15 @@ def task_latex():
     pandoc_config = 'pandoc/markdown_to_tex.yml'
     latex_filter = 'pandoc/latex_filter.py'
     code_dependencies = [pandoc_config, latex_filter]
-    src_dir = Path("./build/markdown/")
-    target_dir = Path("./build/latex/")
-    inputs = src_dir.glob("**/*.md")
-    for f in inputs:
-        new_parents, target = rebase(f, src_dir, target_dir, new_extension = ".tex")
-        # target = target_dir / target.name
+    for file in built_filepaths:
+        f = file[".md"]
+        target = file[".tex"]
         yield dict(
             name = str(f),
             file_dep = [f,] + code_dependencies,
             targets = [target,],
             actions = [
-                f'mkdir -p {new_parents}',
+                f'mkdir -p {target.parent}',
                 f'{pandoc} -d {pandoc_config} "{f}" -o "{target}"',],
             clean = True,
         )
@@ -120,17 +111,15 @@ def task_html():
     pandoc_config = 'pandoc/markdown_to_html.yml'
     filter_file = 'pandoc/html_filter.py'
     template = 'pandoc/jekyll_template.html'
-    src_dir = Path("./build/markdown/")
-    target_dir = Path("./build/html/")
-    inputs = src_dir.glob("**/*.md")
-    for f in inputs:
-        new_parents, target = rebase(f, src_dir, target_dir, new_extension = ".html")
+    for file in built_filepaths:
+        f = file[".md"]
+        target = file[".html"]
         yield dict(
             name = str(f),
             file_dep = [pandoc_config, filter_file, template, f,],
             targets = [target,],
             actions = [
-                f'mkdir -p {new_parents}',
+                f'mkdir -p {target.parent}',
                 f'{pandoc} -d {pandoc_config} "{f}" -o "{target}"',
                 ],
             clean = True,
@@ -139,7 +128,7 @@ def task_html():
 def task_toc():
     ""
     script = 'pandoc/toc_gen.py'
-    markdown_files = Path("./").glob("./build/markdown/*.md")
+    markdown_files = [file['.md'] for file in built_filepaths]  
     target = Path("./build/html") / ("toc.html")
     return dict(
         file_dep = [script,] + list(markdown_files),
@@ -153,7 +142,9 @@ def task_copy_html():
     image_src_dir = Path("./figure_code/")
     image_target_dir = Path("/Users/tom/git/tomhodson.github.com/assets/thesis/")
 
-    built_html = list(src_dir.glob("**/*.html"))
+    html_files = [file['.html'] for file in built_filepaths]  
+    html_files.append(Path("./build/html") / ("toc.html"))
+
     images = [f for t in ['jpeg', 'jpg', 'png', 'svg', 'gif'] for f in image_src_dir.glob(f"**/*.{t}")]
     def copy_job(f, t): 
         return dict(
@@ -161,7 +152,7 @@ def task_copy_html():
             targets = [t,], actions = [f'mkdir -p {t.parent}', f'cp "{f}" "{t}"'],
         )
 
-    for f in built_html:
+    for f in html_files:
         t = target_dir / f.relative_to(src_dir)
         yield copy_job(f, t)
     
@@ -172,22 +163,12 @@ def task_copy_html():
 def task_pdf():
     'compile the pdf output using latexmk'
     name = 'thesis'
-    src_dir = Path("./build/latex/")
     target_dir = Path("./build/pdf/")
-    static_latex_files = [Path("./thesis.preamble.tex"), Path("./thesis.tex")]
-    
-    src_dir = Path("./src")
-    target_dir = Path("./build/latex")
-    src_files = src_dir.glob("**/*.ipynb")
-    built_latex_files = []
-    for f in src_files:
-        if any(p.startswith(".") for p in f.parts): continue
-        _, target = rebase(f, src_dir, target_dir, new_extension = ".tex")
-        built_latex_files.append(target)
+
     # built_latex_files = list(src_dir.glob("**/*.tex"))
     jobname = target_dir / name # tells latexmk to make all the files look like /target/dir/thesis.*
     return dict(
-        file_dep = ['pandoc/markdown_to_tex.yml',] + static_latex_files + built_latex_files,
+        file_dep = ['pandoc/markdown_to_tex.yml',] + static_latex_files + built_tex,
         targets = [target_dir / f'{name}.pdf',],
         actions = [
                 f'mkdir -p "{target_dir}"',
@@ -195,7 +176,7 @@ def task_pdf():
                 f'cat {jobname}.log | grep -e Warning -e Error',
         ],
         clean = [
-            "latexmk -c",
+            'latexmk -c -jobname="{jobname}" {name}.tex',
             "rm -rf `biber --cache`",
         ],
         verbosity = 2,
