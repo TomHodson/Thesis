@@ -57,9 +57,19 @@
 % \chapter{Conclusion}
 % \include{build/latex/5_Conclusion/5_Conclusion.tex}
 
-% \appendix
-% \include{build/latex/6_Appendices/A.1_Markov_Chain_Monte_Carlo.tex}
-% \include{build/latex/6_Appendices/A.2_Lattice_Generation.tex}
+%if you don't want it to put "A Appendices" in the TOC
+\setcounter{chapter}{1}
+\setcounter{section}{0}
+\renewcommand{\thechapter}{\Alph{chapter}}%switch to alphabet counters
+\chapter*{Appendices}
+\addcontentsline{toc}{chapter}{Appendices}
+
+%if you're fine with "A Appendices"
+%\appendix
+%\chapter{Appendices}
+
+\include{build/latex/6_Appendices/A.1_Particle_Hole_Symmetry.tex}
+\include{build/markdown/6_Appendices/A.2_Markov_Chain_Monte_Carlo.md}
 % \include{build/latex/6_Appendices/A.3_Lattice_Colouring.tex}
 % \include{build/latex/6_Appendices/A.4_The_Projector.tex}
 

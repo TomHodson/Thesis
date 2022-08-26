@@ -3,6 +3,7 @@ from pathlib import Path
 import re
 import sys
 import logging
+import json
 
 ## User defined variables ##
 upto_level = 1 #show headings up to level 2
@@ -54,7 +55,8 @@ chapters = [
     )
 ]
 
-pattern = re.compile(r"(#+)\s+([^{]+)\s*?(\{#sec:[^}]+\})?")
+pattern = re.compile(r"(#+)\s+([^{]+)\s*?(\{#[^}]+\})?")
+lookup_table = dict()
 
 current_level = 0
 for chapter in chapters:
@@ -71,7 +73,18 @@ for chapter in chapters:
                         level, heading, section_id = m.groups()
                         heading = heading.strip()
                         level = len(level)
-                        if section_id is not None: section_id = re.match(r"\{#sec:([^\}]+)\}", section_id).group(1)
+                        if section_id is not None: section_id = re.match(r"\{#([^\}]+)\}", section_id).group(1)
+                        else: section_id = heading.lower().replace(" ", "-")
+                        
+                        # save the section ids to a python dict for later lookup
+                        # this enables cross file links later
+                        if section_id in lookup_table: logging.warning(f"Repeated section id '{section_id} in {f} line {i}'")
+                        lookup_table[section_id] = dict(
+                            filepath = str(filepath.relative_to("build/markdown/")),
+                            section_id = section_id,
+                            level = level,
+                            heading = heading
+                        )
                         
                         file_url = filepath.parent.relative_to(base) / (filepath.stem + ".html")
                         url_id = heading.lower().replace(" ", "-")
@@ -88,3 +101,6 @@ for chapter in chapters:
 
                     except Exception as e:
                         logging.warning(f"Exception {e} on line {i} of {filepath}: {line}")
+
+with open("./build/html/section_id_lookup_table.json", 'w') as f:
+    json.dump(lookup_table, f, indent=4, sort_keys=True) 

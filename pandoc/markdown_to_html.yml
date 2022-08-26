@@ -10,12 +10,12 @@ template: ${.}/jekyll_template.html
 filters:
   - pandoc-xnos
   - ${.}/html_filter.py
+  - citeproc
 
 toc: true
 section-divs: true #wrap each logical section in <section id=""></section> tags
 
 # enable the bibliography
-citeproc: true
 metadata:
   bibliography: entire_zotero_library.json
   csl: american-physics-society.csl

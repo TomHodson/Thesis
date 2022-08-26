@@ -1,13 +1,28 @@
 import panflute as pf
 import logging
 from pathlib import Path
+import json
 
 src = Path("../figure_code/amk_chapter/visual_kitaev_1.svg")
 base = Path("../../figure_code/")
 new_base = Path("/assets/thesis/")
 
+with open("./build/html/section_id_lookup_table.json", 'r') as f:
+    lookup_table = json.load(f)
+
 def action(elem, doc):
-    # if type(elem) == pf.RawInline and elem.format == "html" and "<img " in elem.text:
+    if type(elem) == pf.Link:
+        if elem.url.startswith("#") and ':' not in elem.url:
+            if elem.url[1:] not in lookup_table:
+                logging.warning(f"Can't find section ref to {elem.url}")
+            else:
+                info = lookup_table[elem.url[1:]]
+                filepath = Path(info['filepath'])
+                new_url = "../" + str(filepath.parent / filepath.stem) + ".html#" + info['section_id']
+                logging.warning(f"Rewriting {elem} to have url = {new_url}")
+                elem.url = new_url
+        # 6_Appendices/A.1_Particle_Hole_Symmetry.html#particle-hole-symmetry
+        return elem
     if type(elem) == pf.Image:
         # img = pf.convert_text(elem.text, "html")[0].content[0]
         img = elem

@@ -16,18 +16,11 @@ filters:
 
 # top-level-division: chapter
 
-# citeproc: false #disable citeproc so it can be called manually as a filter
 cite-method: biblatex
-# cite-method: natbib
 
 number-sections: true
 
 # set fignos to only emit critical warnings not all (the default is 2)
 metadata:
   fignos-warning-level: 1
-
-# # copy all images over to pandoc/figs/...
-# extract-media: ${.}/figs
-
-# when images don't have an extension, assume this one
-# default-image-extension: pdf
+  secnos-warning-level: 2

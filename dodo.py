@@ -68,13 +68,13 @@ def task_ipynb_check():
             actions = [f'python pandoc/syntax_checks.py "{f}"'],
         )
 
-def task_latex_check(): 
-    for f in built_tex + static_latex_files:
-        yield dict(
-            name = f"Chktex on {f}",
-            file_dep = [f,],
-            actions = [f'chktex "{f}"'],
-        )
+# def task_latex_check(): 
+#     for f in built_tex + static_latex_files:
+#         yield dict(
+#             name = f"Chktex on {f}",
+#             file_dep = [f,],
+#             actions = [f'chktex "{f}"'],
+#         )
 
 def task_markdown():
     "convert .ipynb files to .md files using nbconvert"
@@ -90,7 +90,7 @@ def task_markdown():
                 f'jupyter nbconvert --TagRemovePreprocessor.remove_cell_tags=\'{"remove_cell"}\' --to markdown "{f}" --output-dir={target.parent} --output "{target.name}"',
                 f'python pandoc/figure_to_markdown_tag.py --input "{target}" --output "{target}"'
                 ],
-            clean = True,
+            clean = ['rm -rf ./build/markdown',],
             verbosity = 0,
         )
 
@@ -109,7 +109,7 @@ def task_latex():
             actions = [
                 f'mkdir -p {target.parent}',
                 f'{pandoc} -d {pandoc_config} "{f}" -o "{target}"',],
-            clean = True,
+            clean = ['rm -rf ./build/latex',],
         )
 
 
@@ -129,7 +129,7 @@ def task_html():
                 f'mkdir -p {target.parent}',
                 f'{pandoc} -d {pandoc_config} "{f}" -o "{target}"',
                 ],
-            clean = True,
+            clean = ['rm -rf ./build/html',],
         )
 
 def task_toc():
