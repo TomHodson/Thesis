@@ -19,6 +19,7 @@ def rebase(file, src_dir, target_dir, new_extension):
 src_dir = Path("./src")
 src_files = src_dir.glob("**/*.ipynb")
 static_latex_files = [Path("./thesis.preamble.tex"), Path("./thesis.tex")]
+bibliography_files = [Path("./entire_zotero_library.bib"), Path("./entire_zotero_library.json")]
 
 target_dir = Path("./build/latex")
 
@@ -28,6 +29,7 @@ to_build = [
     [Path("./build/html/"), ".html"],
 ]
 built_filepaths = []
+
 
 for src_file in src_files:
     if any(p.startswith(".") for p in src_file.parts): continue
@@ -57,11 +59,12 @@ def task_svg_to_pdf():
         )
     
 def task_ipynb_check():
+    r"Currently just checks citations are in the format\ [@key1; @key2]"
     for file in built_filepaths:
         f = file['.ipynb']
         yield dict(
             name = f"Check syntax of {f}",
-            file_dep = [f,],
+            file_dep = [f,] + bibliography_files,
             actions = [f'python pandoc/syntax_checks.py "{f}"'],
         )
 
@@ -120,7 +123,7 @@ def task_html():
         target = file[".html"]
         yield dict(
             name = str(f),
-            file_dep = [pandoc_config, filter_file, template, f,],
+            file_dep = [pandoc_config, filter_file, template, f,] + bibliography_files,
             targets = [target,],
             actions = [
                 f'mkdir -p {target.parent}',
@@ -172,7 +175,7 @@ def task_pdf():
     # built_latex_files = list(src_dir.glob("**/*.tex"))
     jobname = target_dir / name # tells latexmk to make all the files look like /target/dir/thesis.*
     return dict(
-        file_dep = ['pandoc/markdown_to_tex.yml',] + static_latex_files + built_tex,
+        file_dep = ['pandoc/markdown_to_tex.yml',] + static_latex_files + built_tex + bibliography_files,
         targets = [target_dir / f'{name}.pdf',],
         actions = [
                 f'mkdir -p "{target_dir}"',

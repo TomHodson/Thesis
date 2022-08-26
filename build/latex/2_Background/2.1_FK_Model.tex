@@ -12,9 +12,9 @@ H_{\mathrm{FK}} = & \;U \sum_{i} (d^\dagger_{i}d_{i} - \tfrac{1}{2})\;(c^\dagger
 
 The connection to the Hubbard model is that we have relabel the up and down spin electron states and removed the hopping term for one species, the equivalent of taking the limit of infinite mass ratio~\autocite{devriesSimplifiedHubbardModel1993}.
 
-Like other exactly solvable models \autocite{smithDisorderFreeLocalization2017} and the Kitaev Model, the FK model possesses extensively many conserved degrees of freedom \([d^\dagger_{i}d_{i}, H] = 0\). The Hilbert space therefore breaks up into a set of sectors in which these operators take a definite value. Crucially, this reduces the interaction term \((d^\dagger_{i}d_{i} - \tfrac{1}{2})\;(c^\dagger_{i}c_{i} - \tfrac{1}{2})\) from being quartic in fermion operators to quadratic. This is what makes the FK model exactly solvable, in contrast to the Hubbard model.
+Like other exactly solvable models~\autocite{smithDisorderFreeLocalization2017} and the Kitaev Model, the FK model possesses extensively many conserved degrees of freedom \([d^\dagger_{i}d_{i}, H] = 0\). The Hilbert space therefore breaks up into a set of sectors in which these operators take a definite value. Crucially, this reduces the interaction term \((d^\dagger_{i}d_{i} - \tfrac{1}{2})\;(c^\dagger_{i}c_{i} - \tfrac{1}{2})\) from being quartic in fermion operators to quadratic. This is what makes the FK model exactly solvable, in contrast to the Hubbard model.
 
-Due to Pauli exclusion, maximum filling occurs when each lattice site is fully occupied, \(\langle n_c + n_d \rangle = 2\). Here we will focus on the half filled case \(\langle n_c + n_d \rangle = 1\). Doping the model away from the half-filled point leads to rich physics including superconductivity \autocite{jedrzejewskiFalicovKimballModels2001}.
+Due to Pauli exclusion, maximum filling occurs when each lattice site is fully occupied, \(\langle n_c + n_d \rangle = 2\). Here we will focus on the half filled case \(\langle n_c + n_d \rangle = 1\). Doping the model away from the half-filled point leads to rich physics including superconductivity~\autocite{jedrzejewskiFalicovKimballModels2001}.
 
 At half-filling and on bipartite lattices, FK the model is particle-hole symmetric. That is, the Hamiltonian anticommutes with the particle hole operator \(\mathcal{P}H\mathcal{P}^{-1} = -H\). As a consequence the energy spectrum is symmetric about \(E = 0\) and this is the Fermi energy. The particle hole operator corresponds to the substitution \(c^\dagger_i \rightarrow \epsilon_i c_i, d^\dagger_i \rightarrow d_i\) where \(\epsilon_i = +1\) for the A sublattice and \(-1\) for the even sublattice~\autocite{gruberFalicovKimballModel2005}. The absence of a hopping term for the heavy electrons means they do not need the factor of \(\epsilon_i\).
 
@@ -48,7 +48,7 @@ The FK model can be solved exaclty with dynamic mean field theory in the infinit
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,height=\textheight]{figure_code/background_chapter/fk_phase_diagram}
-\caption[{Fermi-Hubbard and Falikov-Kimball Temperatue-Interaction Phase Diagrams}]{Schematic Phase diagrams of the Fermi-Hubbard (left) and Falikov-Kimball model (right) showing temperature (T) and repulsive interaction strength (U). Hubbard model diagram adapted from~\autocite{micnasSuperconductivityNarrowbandSystems1990}, Falikov-Kimball model from \autocite{antipovInteractionTunedAndersonMott2016,antipovCriticalExponentsStrongly2014a}}
+\caption[{Fermi-Hubbard and Falikov-Kimball Temperatue-Interaction Phase Diagrams}]{Schematic Phase diagrams of the Fermi-Hubbard (left) and Falikov-Kimball model (right) showing temperature (T) and repulsive interaction strength (U). Hubbard model diagram adapted from~\autocite{micnasSuperconductivityNarrowbandSystems1990}, Falikov-Kimball model from~\autocite{antipovInteractionTunedAndersonMott2016,antipovCriticalExponentsStrongly2014}}
 \label{fig:fk_phase_diagram}
 \end{figure}
 }
@@ -80,26 +80,21 @@ Our extension to the FK model could now be though of as spinless fermions couple
 
 \[H_{\mathrm{LRI}} = \sum_{ij} J(|i-j|) \tau_i \tau_j = J \sum_{i\neq j} |i - j|^{-\alpha} \tau_i \tau_j\]
 
-Renormalisation group analyses show that the LRI model has an ordered phase in 1D for \$1 \textless{} \alpha \textless{} 2 \$~\autocite{dysonExistencePhasetransitionOnedimensional1969}. Peierls' argument can be extended~\autocite{thoulessLongRangeOrderOneDimensional1969} to long range interactions to provide intuition for why this is the case. Again considering the energy difference between the ordered state \(\ket{\ldots\uparrow\uparrow\uparrow\uparrow\ldots}\) and a domain wall state \(\ket{\ldots\uparrow\uparrow\downarrow\downarrow\ldots}\). In the case of the LRI model, careful counting shows that this energy penalty is: \[\Delta E \propto \sum_{n=1}^{\infty} n J(n)\]
+Renormalisation group analyses show that the LRI model has an ordered phase in 1D for \$1 \textless{} \alpha \textless{} 2 \$~\autocite{dysonExistencePhasetransitionOnedimensional1969}. Peierls' argument can be extended~\autocite{thoulessLongRangeOrderOneDimensional1969} to long range interactions to provide intuition for why this is the case. Again considering the energy difference between the ordered state \(|\ldots\uparrow\uparrow\uparrow\uparrow\ldots\rangle\) and a domain wall state \(|\ldots\uparrow\uparrow\downarrow\downarrow\ldots\rangle\). In the case of the LRI model, careful counting shows that this energy penalty is: \[\Delta E \propto \sum_{n=1}^{\infty} n J(n)\]
 
 because each interaction between spins separated across the domain by a bond length \(n\) can be drawn between \(n\) equivalent pairs of sites. Ruelle proved rigorously for a very general class of 1D systems, that if \(\Delta E\) or its many-body generalisation converges in the thermodynamic limit then the free energy is analytic~\autocite{ruelleStatisticalMechanicsOnedimensional1968}. This rules out a finite order phase transition, though not one of the Kosterlitz-Thouless type. Dyson also proves this though with a slightly different condition on \(J(n)\)~\autocite{dysonExistencePhasetransitionOnedimensional1969}.
 
 With a power law form for \(J(n)\), there are three cases to consider:
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \$ \alpha = 0\$ For infinite range interactions the Ising model is exactly solveable and mean field theory is exact~\autocite{lipkinValidityManybodyApproximation1965}.
-\item
-  \$ \alpha \le 1\$ For slowly decaying interactions \(\sum_n J(n)\) does not converge so the Hamiltonian is non-extensive, a case which won't be further considered here.
-\item
-  \$ 1 \textless{} \alpha \textless{} 2 \$ A phase transition to an ordered state at a finite temperature.
-\item
-  \$ \alpha = 2 \$ The energy of domain walls diverges logarithmically, and this turns out to be a Kostelitz-Thouless transition~\autocite{thoulessLongRangeOrderOneDimensional1969}.
-\item
-  \$ 2 \textless{} \alpha \$ For quickly decaying interactions, domain walls have a finite energy penalty, hence Peirels' argument holds and there is no phase transition.
-\end{enumerate}
+\$ \alpha = 0\$ For infinite range interactions the Ising model is exactly solveable and mean field theory is exact~\autocite{lipkinValidityManybodyApproximation1965}. This limit is the same as the infinite dimensional limit.
+
+\$ \alpha \le 1\$ For slowly decaying interactions \(\sum_n J(n)\) does not converge so the Hamiltonian is non-extensive, a case which won't be further considered here. \textbf{cite}
+
+\$ 1 \textless{} \alpha \textless{} 2 \$ A phase transition to an ordered state at a finite temperature.
+
+\$ \alpha = 2 \$ The energy of domain walls diverges logarithmically, and this turns out to be a Kostelitz-Thouless transition~\autocite{thoulessLongRangeOrderOneDimensional1969}.
+
+\$ 2 \textless{} \alpha \$ For quickly decaying interactions, domain walls have a finite energy penalty, hence Peirels' argument holds and there is no phase transition.
 
 \hypertarget{fig:alpha_diagram}{%
 \begin{figure}
