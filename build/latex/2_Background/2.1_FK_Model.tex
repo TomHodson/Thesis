@@ -47,11 +47,11 @@ The FK model can be solved exactly with dynamic mean field theory in the infinit
 \end{figure}
 }
 
-In dimensions greater than one, the FK model exhibits a phase transition at some \(U\) dependent critical temperature \(T_c(U)\) to a low temperature ordered phase \autocite{maskaThermodynamicsTwodimensionalFalicovKimball2006}. In terms of the immobile electrons this corresponds to them occupying only one of the two sublattices A and B this is known as a charge density wave (CDW) phase. In terms of spins this is an AFM phase.
+In dimensions greater than one, the FK model exhibits a phase transition at some \(U\) dependent critical temperature \(T_c(U)\) to a low temperature ordered phase~\autocite{maskaThermodynamicsTwodimensionalFalicovKimball2006}. In terms of the immobile electrons this corresponds to them occupying only one of the two sublattices A and B this is known as a charge density wave (CDW) phase. In terms of spins this is an AFM phase.
 
 In the disordered region above \(T_c(U)\) there are two insulating phases. For weak interactions \(U << t\), thermal fluctuations in the spins act as an effective disorder potential for the fermions, causing them to localise and giving rise to an Anderson insulating state~\autocite{andersonAbsenceDiffusionCertain1958} which we will discuss more in section~\protect\hyperlink{bg-disorder-and-localisation}{2.3}. For strong interactions \(U >> t\), the spins are not ordered but nevertheless their interaction with the electrons opens a gap, leading a Mott insulator analogous to that of the Hubbard model~\autocite{brandtThermodynamicsCorrelationFunctions1989}.
 
-By contrast, in the one dimensional FK model there is no finite-temperature phase transition (FTPT) to an ordered CDW phase~\autocite{liebAbsenceMottTransition1968}. Indeed dimensionality is crucial for the physics of both localisation and FTPTs. In one dimension, disorder generally dominates: even the weakest disorder exponentially localises \emph{all} single particle eigenstates. Only longer-range correlations of the disorder potential can potentially induce localisation-delocalisation transitions in one dimension~\autocite{aubryAnalyticityBreakingAnderson1980,dassarmaLocalizationMobilityEdges1990,dunlapAbsenceLocalizationRandomdimer1990}. Thermodynamically, short-range interactions cannot overcome thermal defects in one dimension which prevents ordered phases at non-zero temperature~\autocite{goldshteinPurePointSpectrum1977a,abrahamsScalingTheoryLocalization1979,kramerLocalizationTheoryExperiment1993}.
+By contrast, in the one dimensional FK model there is no finite-temperature phase transition (FTPT) to an ordered CDW phase~\autocite{liebAbsenceMottTransition1968}. Indeed dimensionality is crucial for the physics of both localisation and FTPTs. In one dimension, disorder generally dominates: even the weakest disorder exponentially localises \emph{all} single particle eigenstates. Only longer-range correlations of the disorder potential can potentially induce localisation-delocalisation transitions in one dimension~\autocite{aubryAnalyticityBreakingAnderson1980,dassarmaLocalizationMobilityEdges1990,dunlapAbsenceLocalizationRandomdimer1990}. Thermodynamically, short-range interactions cannot overcome thermal defects in one dimension which prevents ordered phases at non-zero temperature~\autocite{goldshteinPurePointSpectrum1977,abrahamsScalingTheoryLocalization1979,kramerLocalizationTheoryExperiment1993}.
 
 However, the absence of an FTPT in the short ranged FK chain is far from obvious because the Ruderman-Kittel-Kasuya-Yosida (RKKY) interaction mediated by the fermions~\autocite{kasuyaTheoryMetallicFerro1956,rudermanIndirectExchangeCoupling1954,vanvleckNoteInteractionsSpins1962,yosidaMagneticPropertiesCuMn1957} decays as \(r^{-1}\) in one dimension~\autocite{rusinCalculationRKKYRange2017}. This could in principle induce the necessary long-range interactions for the classical Ising background to order at low temperatures~\autocite{thoulessLongRangeOrderOneDimensional1969,peierlsIsingModelFerromagnetism1936}. However, Kennedy and Lieb established rigorously that at half-filling a CDW phase only exists at \(T = 0\) for the one dimensional FK model~\autocite{kennedyItinerantElectronModel1986}.
 
@@ -72,7 +72,7 @@ In contrast the long range Ising (LRI) model \(H_{\mathrm{LRI}}\) can have an FT
 
 \[H_{\mathrm{LRI}} = \sum_{ij} J(|i-j|) S_i S_j = J \sum_{i\neq j} |i - j|^{-\alpha} S_i S_j\]
 
-Renormalisation group analyses show that the LRI model has an ordered phase in 1D for \$1 \textless{} \alpha \textless{} 2 \$~\autocite{dysonExistencePhasetransitionOnedimensional1969}. Peierls' argument can be extended~\autocite{thoulessLongRangeOrderOneDimensional1969} to long range interactions to provide intuition for why this is the case. Again considering the energy difference between the ordered state \(|\ldots\uparrow\uparrow\uparrow\uparrow\ldots\rangle\) and a domain wall state \(|\ldots\uparrow\uparrow\downarrow\downarrow\ldots\rangle\). In the case of the LRI model, careful counting shows that this energy penalty is \[\Delta E \propto \sum_{n=1}^{\infty} n J(n)\]
+Renormalisation group analyses show that the LRI model has an ordered phase in 1D for \(1 < \alpha < 2\) ~\autocite{dysonExistencePhasetransitionOnedimensional1969}. Peierls' argument can be extended~\autocite{thoulessLongRangeOrderOneDimensional1969} to long range interactions to provide intuition for why this is the case. Again considering the energy difference between the ordered state \(|\ldots\uparrow\uparrow\uparrow\uparrow\ldots\rangle\) and a domain wall state \(|\ldots\uparrow\uparrow\downarrow\downarrow\ldots\rangle\). In the case of the LRI model, careful counting shows that this energy penalty is \[\Delta E \propto \sum_{n=1}^{\infty} n J(n)\]
 
 because each interaction between spins separated across the domain by a bond length \(n\) can be drawn between \(n\) equivalent pairs of sites. The behaviour then depends crucially on the sum scales with system size. Ruelle proved rigorously for a very general class of 1D systems, that if \(\Delta E\) or its many-body generalisation converges to a constant in the thermodynamic limit then the free energy is analytic~\autocite{ruelleStatisticalMechanicsOnedimensional1968}. This rules out a finite order phase transition, though not one of the Kosterlitz-Thouless type. Dyson also proves this though with a slightly different condition on \(J(n)\)~\autocite{dysonExistencePhasetransitionOnedimensional1969}.
 
@@ -80,17 +80,17 @@ With a power law form for \(J(n)\), there are a few cases to consider:
 
 For \(\alpha = 0\) i.e~infinite range interactions, the Ising model is exactly solvable and mean field theory is exact~\autocite{lipkinValidityManybodyApproximation1965}. This limit is the same as the infinite dimensional limit.
 
-For \$ \alpha \le 1\$ we have very slowly decaying interactions. \(\Delta E\) does not converge as a function of system size so the Hamiltonian is non-extensive, a topic not without some considerable controversy~\autocite{grossNonextensiveHamiltonianSystems2002,lutskoQuestioningValidityNonextensive2011,wangCommentNonextensiveHamiltonian2003} that we will not consider further here.
+For \(\alpha \leq 1\) we have very slowly decaying interactions. \(\Delta E\) does not converge as a function of system size so the Hamiltonian is non-extensive, a topic not without some considerable controversy~\autocite{grossNonextensiveHamiltonianSystems2002,lutskoQuestioningValidityNonextensive2011,wangCommentNonextensiveHamiltonian2003} that we will not consider further here.
 
-For \(1 \lt \alpha \lt 2\), we get a phase transition to an ordered state at a finite temperature, this is what we want!
+For \(1 < \alpha < 2\), we get a phase transition to an ordered state at a finite temperature, this is what we want!
 
-For \$ \alpha = 2 \$, the energy of domain walls diverges logarithmically, and this turns out to be a Kostelitz-Thouless transition~\autocite{thoulessLongRangeOrderOneDimensional1969}.
+For \(\alpha = 2\), the energy of domain walls diverges logarithmically, and this turns out to be a Kostelitz-Thouless transition~\autocite{thoulessLongRangeOrderOneDimensional1969}.
 
-Finally, for \$ 2 \textless{} \alpha \$ we have very quickly decaying interactions and domain walls again have a finite energy penalty, hence Peirels' argument holds and there is no phase transition.
+Finally, for \(2 < \alpha\) we have very quickly decaying interactions and domain walls again have a finite energy penalty, hence Peirels' argument holds and there is no phase transition.
 
-One final complexity is that for \(\tfrac{3/2} \lt \alpha \lt 2\) renormalisation group methods show that the critical point has non-universal critical exponents that depend on \(\alpha\)~\autocite{fisherCriticalExponentsLongRange1972}. To avoid this potential confounding factors we will park ourselves at \(\alpha = 1.25\) when we apply these ideas to the FK model.
+One final complexity is that for \(\tfrac{3}{2} < \alpha < 2\) renormalisation group methods show that the critical point has non-universal critical exponents that depend on \(\alpha\) ~\autocite{fisherCriticalExponentsLongRange1972}. To avoid this potential confounding factors we will park ourselves at \(\alpha = 1.25\) when we apply these ideas to the FK model.
 
-Were we to extend this to arbitrary dimension \(d\) we would find that thermodynamics properties generally both \(d\) and \(alpha\), long range interactions can modify the `effective dimension' of thermodynamic systems~\autocite{angeliniRelationsShortrangeLongrange2014}.
+Were we to extend this to arbitrary dimension \(d\) we would find that thermodynamics properties generally both \(d\) and \(\alpha\), long range interactions can modify the `effective dimension' of thermodynamic systems~\autocite{angeliniRelationsShortrangeLongrange2014}.
 
 \hypertarget{fig:alpha_diagram}{%
 \begin{figure}
@@ -100,9 +100,3 @@ Were we to extend this to arbitrary dimension \(d\) we would find that thermodyn
 \label{fig:alpha_diagram}
 \end{figure}
 }
-
-\begin{Shaded}
-\begin{Highlighting}[]
-
-\end{Highlighting}
-\end{Shaded}

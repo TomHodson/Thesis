@@ -78,7 +78,7 @@ for chapter in chapters:
                         
                         # save the section ids to a python dict for later lookup
                         # this enables cross file links later
-                        if section_id in lookup_table: logging.warning(f"Repeated section id '{section_id} in {f} line {i}'")
+                        if section_id in lookup_table: logging.warning(f"Repeated section id '{section_id} in {filepath.name} line {i}'")
                         lookup_table[section_id] = dict(
                             filepath = str(filepath.relative_to("build/markdown/")),
                             section_id = section_id,
