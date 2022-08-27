@@ -4,6 +4,7 @@ import re
 import sys
 import logging
 import json
+from collections import OrderedDict
 
 ## User defined variables ##
 upto_level = 1 #show headings up to level 2
@@ -27,26 +28,43 @@ def emit_heading(current_level, level, heading, url, format):
     func = dict(html = html_heading, markdown = markdown_heading)[format]
     return func(current_level, level, heading, url)
 
+def add_to_section_list(id, chapter_id, path, line, level, heading, index):
+    if id in lookup_table: 
+        logging.warning(f"Repeated id '{id} in {path.name} line {line}'")
+    else:
+        lookup_table[id] = dict(
+            filepath = str(path),
+            section_id = id,
+            chapter_id = chapter_id,
+            level = level,
+            heading = heading,
+            index = index,
+            line = line,
+        )
+        index += 1
+    return index
+
+
 base = Path("./build/markdown")
 chapters = [
     dict(
-    name = "Introduction",
+    name = "1 Introduction",
     contents = "1_Introduction"
     ),
     dict(
-    name = "Background",
+    name = "2 Background",
     contents = "2_Background"
     ),
     dict(
-    name = "Chapter 3: The Long Range Falikov-Kimball Model",
+    name = "3 The Long Range Falikov-Kimball Model",
     contents = "3_Long_Range_Falikov_Kimball"
     ),
     dict(
-    name = "Chapter 4: The Amorphous Kitaev Model",
+    name = "4 The Amorphous Kitaev Model",
     contents = "4_Amorphous_Kitaev_Model",
     ),
     dict(
-    name = "Conclusion",
+    name = "5 Conclusion",
     contents = "5_Conclusion",
     ),
     dict(
@@ -56,13 +74,25 @@ chapters = [
 ]
 
 pattern = re.compile(r"(#+)\s+([^{]+)\s*?(\{#[^}]+\})?")
-lookup_table = dict()
+lookup_table = OrderedDict()
 
 current_level = 0
+index = 0 #a monotonic increasing ordering for every heading
 for chapter in chapters:
     chapter_filename = base / chapter["contents"]
+    chapter_id = chapter["name"].lower().replace(" ", "-")
     chapter_files = sorted(chapter_filename.glob("*.md"))
     first_thing_in_chapter = True
+
+    #Add the chapter to our table of contents datastructure
+    index = add_to_section_list(
+        id = chapter_id,
+        chapter_id = chapter_id,
+        path = Path(chapter["contents"]),
+        line = 0, 
+        level = 0,
+        heading = chapter["name"], 
+        index = index)
     
     for filepath in chapter_files:        
         with open(filepath, 'r') as f:
@@ -78,18 +108,22 @@ for chapter in chapters:
                         
                         # save the section ids to a python dict for later lookup
                         # this enables cross file links later
-                        if section_id in lookup_table: logging.warning(f"Repeated section id '{section_id} in {filepath.name} line {i}'")
-                        lookup_table[section_id] = dict(
-                            filepath = str(filepath.relative_to("build/markdown/")),
-                            section_id = section_id,
+                        index = add_to_section_list(id = section_id,
+                            chapter_id=chapter_id,
+                            path = filepath.relative_to("build/markdown/"),
+                            line = i, 
                             level = level,
-                            heading = heading
-                        )
+                            heading = heading, 
+                            index = index)
                         
                         file_url = filepath.parent.relative_to(base) / (filepath.stem + ".html")
                         url_id = heading.lower().replace(" ", "-")
-                        url = f"./{file_url}#{url_id}"
                         
+                        #use fragments in the url if it's not the first thing on the page that 
+                        #we're linking to
+                        url = f"./{file_url}" if first_thing_in_chapter else f"./{file_url}#{url_id}"
+                        
+                        #output a chapter heading too
                         if first_thing_in_chapter:
                             current_level = emit_heading(current_level, 1, heading=chapter["name"], url = url, format=output_type)
                             first_thing_in_chapter = False
@@ -103,4 +137,4 @@ for chapter in chapters:
                         logging.warning(f"Exception {e} on line {i} of {filepath}: {line}")
 
 with open("./build/html/section_id_lookup_table.json", 'w') as f:
-    json.dump(lookup_table, f, indent=4, sort_keys=True) 
+    json.dump(lookup_table, f, indent=4) 

@@ -33,29 +33,45 @@
 
 \body
 \chapter{Introduction}
+\begin{refsection}
 \include{build/latex/1_Introduction/1_Intro.tex}
+\printbibliography[heading=subbibintoc]
+\end{refsection}
+
 
 \chapter{Background}
+\begin{refsection}
 \include{build/latex/2_Background/2.1_FK_Model.tex}
 \include{build/latex/2_Background/2.2_HKM_Model.tex}
 \include{build/latex/2_Background/2.3_Disorder.tex}
+\printbibliography[heading=subbibintoc]
+\end{refsection}
 
 \chapter{The Long-Range Falikov-Kimball Model}
+\begin{refsection}
 \include{build/latex/3_Long_Range_Falikov_Kimball/3.1_LRFK_Model.tex}
 \include{build/latex/3_Long_Range_Falikov_Kimball/3.2_LRFK_Methods.tex}
 \include{build/latex/3_Long_Range_Falikov_Kimball/3.3_LRFK_Results.tex}
+\printbibliography[heading=subbibintoc]
+\end{refsection}
 
 \chapter{The Amorphous Kitaev Honeycomb Model}
 \backgroundsetup{scale = 1, angle = 0, opacity = 0.2,
   contents = {\includegraphics[width=297mm, height=297mm]{figure_code/test.pdf}}}
 \BgThispage
+\begin{refsection}
 \include{build/latex/4_Amorphous_Kitaev_Model/4.1_AMK_Model.tex}
 \include{build/latex/4_Amorphous_Kitaev_Model/4.1.2_AMK_Model.tex}
 \include{build/latex/4_Amorphous_Kitaev_Model/4.2_AMK_Methods.tex}
 \include{build/latex/4_Amorphous_Kitaev_Model/4.3_AMK_Results.tex}
+\printbibliography[heading=subbibintoc]
+\end{refsection}
 
 \chapter{Conclusion}
+\begin{refsection}
 \include{build/latex/5_Conclusion/5_Conclusion.tex}
+\printbibliography[heading=subbibintoc]
+\end{refsection}
 
 %if you don't want it to put "A Appendices" in the TOC
 \setcounter{chapter}{1}
@@ -65,18 +81,20 @@
 \addcontentsline{toc}{chapter}{Appendices}
 
 %if you're fine with "A Appendices" then do this instead
-%\appendix
-%\chapter{Appendices}
+% \appendix
+% \chapter{Appendices}
 
+\begin{refsection}
 \include{build/latex/6_Appendices/A.1_Particle_Hole_Symmetry.tex}
 \include{build/markdown/6_Appendices/A.2_Markov_Chain_Monte_Carlo.md}
 \include{build/latex/6_Appendices/A.3_Lattice_Generation.tex}
 \include{build/latex/6_Appendices/A.4_Lattice_Colouring.tex}
 \include{build/latex/6_Appendices/A.5_The_Projector.tex}
+\printbibliography[heading=subbibintoc]
+\end{refsection}
 
 % \addcontentsline{toc}{chapter}
-\printbibliography[heading=bibintoc,title={Bibliography}]
+% \printbibliography[heading=bibintoc,title={Bibliography}] %don't need an overall bibligraphy
 \addcontentsline{toc}{chapter}{Copyright}
 % \includepdf[pages=-]{5_Appendices/APS_copyright_permission.pdf}
-
 \end{document}

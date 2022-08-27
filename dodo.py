@@ -18,8 +18,9 @@ def rebase(file, src_dir, target_dir, new_extension):
 #compute all the dependent files here
 src_dir = Path("./src")
 src_files = src_dir.glob("**/*.ipynb")
-static_latex_files = [Path("./thesis.preamble.tex"), Path("./thesis.tex")]
+static_latex_files = [Path("./thesis.preamble.tex"), Path("./thesis.tex")] + list(Path("./tex").glob("*.sty"))
 bibliography_files = [Path("./entire_zotero_library.bib"), Path("./entire_zotero_library.json")]
+doc_structure = [Path("./build/html/section_id_lookup_table.json"),]
 
 target_dir = Path("./build/latex")
 
@@ -123,7 +124,7 @@ def task_html():
         target = file[".html"]
         yield dict(
             name = str(f),
-            file_dep = [pandoc_config, filter_file, template, f,] + bibliography_files,
+            file_dep = [pandoc_config, filter_file, template, f,] + bibliography_files + doc_structure,
             targets = [target,],
             actions = [
                 f'mkdir -p {target.parent}',
@@ -139,7 +140,7 @@ def task_toc():
     target = Path("./build/html") / ("toc.html")
     return dict(
         file_dep = [script,] + list(markdown_files),
-        targets = [target,],
+        targets = [target,] + doc_structure,
         actions = [f'mkdir -p {target.parent}', f'python ./{script} > "{target}"',],
         clean = True,
     )
