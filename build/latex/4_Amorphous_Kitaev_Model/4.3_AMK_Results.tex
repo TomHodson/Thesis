@@ -42,7 +42,7 @@ Similar to the Kitaev Honeycomb model with a magnetic field, we find that the am
 
 Interestingly, the gap closing exists in only one of the four topological sectors, though this is certainly a finite size effect as the sectors must become degenerate in the thermodynamic limit. Nevertheless this could be a useful way to define the (0, 0) topological flux sector for the amorphous model.
 
-In the honeycomb model, the phase boundaries are located on the straight lines \(|J^x| = |J^y| + |J^x|\) and permutations of \(x,y,z\), shown as dotted line on \textasciitilde{}\ref{fig:phase_diagram} (Right). We find that on the amorphous lattice these boundaries exhibit an inward curvature, similar to honeycomb Kitaev models with flux~\autocite{Nasu_Thermal_2015} or bond~\autocite{knolle_dynamics_2016} disorder.
+In the honeycomb model, the phase boundaries are located on the straight lines \(|J^x| = |J^y| + |J^x|\) and permutations of \(x,y,z\), shown as dotted line on \textasciitilde{}\cref{fig:phase_diagram} (Right). We find that on the amorphous lattice these boundaries exhibit an inward curvature, similar to honeycomb Kitaev models with flux~\autocite{Nasu_Thermal_2015} or bond~\autocite{knolle_dynamics_2016} disorder.
 
 \hypertarget{fig:phase_diagram}{%
 \begin{figure}
@@ -91,7 +91,7 @@ The B phase has \(\nu=\pm1\) so is a non-Abelian \emph{chiral spin liquid} (CSL)
 \hypertarget{edge-modes}{%
 \subsubsection{Edge Modes}\label{edge-modes}}
 
-Chiral Spin Liquids support topological protected edge modes on open boundary conditions~\autocite{qi_general_2006}. \cref{fig:edge_modes} shows the probability density of one such edge mode. It is near zero energy and exponentially localised to the boundary of the system. While the model is gapped in periodic boundary conditions (i.e on the torus) these edge modes appear in the gap when the boundary is cut.
+Chiral Spin Liquids support topological protected edge modes on open boundary conditions~\autocite{qi_general_2006}. \Cref{fig:edge_modes} shows the probability density of one such edge mode. It is near zero energy and exponentially localised to the boundary of the system. While the model is gapped in periodic boundary conditions (i.e on the torus) these edge modes appear in the gap when the boundary is cut.
 
 The localization of the edge modes can be quantified by their inverse participation ratio (IPR), \[\mathrm{IPR} = \int d^2r|\psi(\mathbf{r})|^4  \propto L^{-\tau},\] where \(L\sim\sqrt{N}\) is the linear dimension of the amorphous lattices and \(\tau\) the dimensional scaling exponent of IPR. This is relevant because localised in-gap states do not participate in transport and hence do not turn band insulators into metals. It is only when the gap fills with extended states that we get a metallic state.
 
@@ -184,9 +184,11 @@ This exactly solvable chiral QSL provides a first example of a topological quant
 
 The obvious question is whether amorphous Kitaev materials could be physically realised.
 
-Most crystals can as exists in a metastable amorphous state if they are cooled rapidly, freezing them into a disordered configuration~\autocite{Weaire1976,Petrakovski1981,Kaneyoshi2018}. Indeed quenching has been used by humans to control the hardness of steel or iron for thousands of years. It would therefore be interesting to study amorphous version of candidate Kitaev materials~\autocite{trebstKitaevMaterials2022} such as \(\alpha-\textrm{RuCl}_3\) to see whether they maintain even approximate fixed coordination number locally as is the case with amorphous Silicon and Germanium~\autocite{Weaire1971,betteridge1973possible}.
+Most crystals can as exists in a metastable amorphous state if they are cooled rapidly, freezing them into a disordered configuration~\autocite{Weaire1976,Petrakovski1981,Kaneyoshi2018}. Indeed quenching has been used by humans to control the hardness of steel or iron for thousands of years. It would therefore be interesting to study amorphous version of candidate Kitaev materials~\autocite{TrebstPhysRep2022} such as \(\alpha-\textrm{RuCl}_3\) to see whether they maintain even approximate fixed coordination number locally as is the case with amorphous Silicon and Germanium~\autocite{Weaire1971,betteridge1973possible}.
 
 Looking instead at more engineered realisation, metal organic frameworks have been shown to be capable of forming amorphous lattices~\autocite{bennett2014amorphous} and there are recent proposals for realizing strong Kitaev interactions~\autocite{yamadaDesigningKitaevSpin2017} as well as reports of QSL behavior~\autocite{misumiQuantumSpinLiquid2020}.
+
+half-integer thermal quantum Hall effect~\autocite{kasaharaMajoranaQuantizationHalfinteger2018,yokoiHalfintegerQuantizedAnomalous2021}
 
 \textbf{Generalisations}
 
@@ -199,3 +201,15 @@ Second, one could investigate whether a QSL phase may exist for for other models
 Finally it might be possible to look at generalizations to higher-spin models or those on random networks with different coordination numbers~\autocite{Baskaran2008,Yao2009,Nussinov2009,Yao2011,Chua2011,Natori2020,Chulliparambil2020,Chulliparambil2021,Seifert2020,WangHaoranPRB2021,Wu2009}
 
 Overall, there has been surprisingly little research on amorphous quantum many body phases albeit material candidates aplenty. We expect our exact chiral amorphous spin liquid to find many generalisation to realistic amorphous quantum magnets and beyond.
+
+Vortex creation and control with local perturbations:~\autocite{jangVortexCreationControl2021}
+
+Could look at how local disorder effects the dynamics of vortices in perturbed models~\autocite{joyDynamicsVisonsThermal2022}
+
+The Kitaev model is one of spin-\(\tfrac{1}{2}\) particles with a Hilbert space of dimension \(2l + 1 = 2\) which we represent with three \(2x2\) Pauli matrices. This can be generalised to an exactly solvable spin-\(\tfrac{3}{2}\) model on four-coordinate lattices~\autocite{yaoAlgebraicSpinLiquid2009,wenQuantumOrderStringnet2003}. In~\autocite{yaoAlgebraicSpinLiquid2009} the two dimensional square lattice with 4 bond types (\(J_x, J_{x'},J_y, J_{y'}\)) is considered. Since Voronoi partitions in three dimensions produce lattices of degree four, one interesting generalisation of this work would be to look at the spin-\(\tfrac{3}{2}\) Kitaev model on amorphous lattices.
+
+Optical lattice proposals~\autocite{duanControllingSpinExchange2003,micheliToolboxLatticespinModels2006}
+
+Could do full montecarlo .
+
+Could look more closely at the topological effects during the phase transition.

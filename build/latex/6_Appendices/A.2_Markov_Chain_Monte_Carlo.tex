@@ -158,8 +158,8 @@ To implement the acceptance function in practice we pick a random number in the 
 
 In order to actually choose new states according to \(\mathcal{T}\) one chooses states from a proposal distribution \(q(S_i \to S')\) that can be directly sampled from. For instance, this might mean flipping a single random spin in a spin chain, in which case \(q(x_i\to x_i)\) is the uniform distribution on states reachable by one spin flip from \(x_i\). The proposal \(S'\) is then accepted or rejected with an acceptance probability \(\mathcal{A}(x_i\to x_{i+1})\), if the proposal is rejected then \(x_{i+1} = x_{i}\). Now \(\mathcal{T}(S\to S') = q(S\to S')\mathcal{A}(S \to S')\).
 
-\hypertarget{the-metropolis-hastings-algorithm-1}{%
-\subsubsection{The Metropolis-Hastings Algorithm}\label{the-metropolis-hastings-algorithm-1}}
+\hypertarget{dup1-the-metropolis-hastings-algorithm}{%
+\subsubsection{dup1 The Metropolis-Hastings Algorithm}\label{dup1-the-metropolis-hastings-algorithm}}
 
 MH breaks up the transition function into a proposal distribution \(q(S \to S')\) and an acceptance function \(\mathcal{A}(S \to S')\). \(q\) needs to be something that we can directly sample from, and in our case generally takes the form of flipping some number of spins in \(S\), i.e if we're flipping a single random spin in the spin chain, \(q(S \to S')\) is the uniform distribution on states reachable by one spin flip from \(S\). This also gives the nice symmetry property that \(q(S \to S') = q(S' \to S)\).
 
@@ -188,8 +188,8 @@ To implement the acceptance function in practice we pick a random number in the 
 
 This has the effect of always accepting proposed states that are lower in energy and sometimes accepting those that are higher in energy than the current state.
 
-\hypertarget{two-step-trick}{%
-\subsection{Two Step Trick}\label{two-step-trick}}
+\hypertarget{app-mcmc-two-step-trick}{%
+\subsection{Two Step Trick}\label{app-mcmc-two-step-trick}}
 
 Our method already relies heavily on the split between the classical and quantum sector to derive a sign problem free MCMC algorithm but it turns out that there is a further trick we can play with it. The free energy term is the sum of an easy to compute classical energy and a more expensive quantum free energy, we can split the acceptance function into two in such as way as to avoid having to compute the full exact diagonalisation some of the time:
 
@@ -249,8 +249,8 @@ Taking the LHS and substituting in our transition function: \[\begin{aligned}
 
 which simplifies to \(r_c r_q\) as \(\min(1,r)/\min(1,1/r) = r\) for \(r > 0\).
 
-\hypertarget{two-step-trick-1}{%
-\subsubsection{Two Step Trick}\label{two-step-trick-1}}
+\hypertarget{get-rid-of-me-two-step-trick}{%
+\subsubsection{get rid of me Two Step Trick}\label{get-rid-of-me-two-step-trick}}
 
 Our method already relies heavily on the split between the classical and quantum sector to derive a sign problem free MCMC algorithm but it turns out that there is a further trick we can play with it. The free energy term is the sum of an easy to compute classical energy and a more expensive quantum free energy, we can split the acceptance function into two in such as way as to avoid having to compute the full exact diagonalisation some of the time:
 
@@ -274,8 +274,8 @@ Our method already relies heavily on the split between the classical and quantum
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{auto-correlation-time}{%
-\subsubsection{Auto-correlation Time}\label{auto-correlation-time}}
+\hypertarget{app-mcmc-autocorrelation}{%
+\subsubsection{Auto-correlation Time}\label{app-mcmc-autocorrelation}}
 
 \hypertarget{fig:m_autocorr}{%
 \begin{figure}
@@ -368,8 +368,8 @@ q(k \to k') &= \min\left(1, e^{\beta (H^{k'} - H^k)}\right) \\
 
 An extension of this idea is to try to define a classical model with a similar free energy dependence on the classical state as the full quantum, Ref.~\autocite{huangAcceleratedMonteCarlo2017} does this with restricted Boltzmann machines whose form is very similar to a classical spin model.
 
-\hypertarget{convergence-time}{%
-\subsubsection{Convergence Time}\label{convergence-time}}
+\hypertarget{app-mcmc-convergence}{%
+\subsubsection{Convergence Time}\label{app-mcmc-convergence}}
 
 Considering \(p(S)\) as a vector \(\vec{p}\) whose jth entry is the probability of the jth state \(p_j = p(S_j)\), and writing \(\mathcal{T}\) as the matrix with entries \(T_{ij} = \mathcal{T}(S_j \rightarrow S_i)\) we can write the update rule for the ensemble probability as: \[\vec{p}_{t+1} = \mathcal{T} \vec{p}_t \implies \vec{p}_{t} = \mathcal{T}^t \vec{p}_0\] where \(\vec{p}_0\) is vector which is one on the starting state and zero everywhere else. Since all states must transition to somewhere with probability one: \(\sum_i T_{ij} = 1\).
 
@@ -377,10 +377,10 @@ Matrices that satisfy this are called stochastic matrices exactly because they m
 
 Assuming \(\mathcal{T}\) has been chosen correctly, its single eigenvector with eigenvalue 1 will be the thermal distribution \footnote{or, in the general case, any desired distribution. MCMC has found a lot of use in sampling from the complicated distributions that arise when taking a Bayesian approach to statistics.} so repeated application of the transition function eventually leads there, while memory of the initial conditions decays exponentially with a convergence time \(k\) determined by \(\lambda_1\). In practice this means that one throws away the data from the beginning of the random walk in order reduce the dependence on the initial conditions and be close enough to the target distribution.
 
-\hypertarget{appbalance-detailed-balance}{%
-\section[ DETAILED BALANCE]{\texorpdfstring{\protect\hypertarget{app:balance}{}{{[}app:balance{]}} DETAILED BALANCE}{{[}app:balance{]} DETAILED BALANCE}}\label{appbalance-detailed-balance}}
+\hypertarget{detailed-balance}{%
+\subsection{Detailed Balance}\label{detailed-balance}}
 
-Given a {MCMC} algorithm with target distribution \(\pi(a)\) and transition function \(\T\) the detailed balance condition is sufficient (along with some technical constraints \autocite{wolffMonteCarloErrors2004}) to guarantee that in the long time limit the algorithm produces samples from \(\pi\). \[\pi(a)\T(a \to b) = \pi(b)\T(b \to a)\]
+Given a MCMC algorithm with target distribution \(\pi(a)\) and transition function \(\T\) the detailed balance condition is sufficient (along with some technical constraints~\autocite{wolffMonteCarloErrors2004}) to guarantee that in the long time limit the algorithm produces samples from \(\pi\). \[\pi(a)\T(a \to b) = \pi(b)\T(b \to a)\]
 
 In pseudo-code, our two step method corresponds to two nested comparisons with the majority of the work only occurring if the first test passes:
 

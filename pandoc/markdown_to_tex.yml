@@ -9,7 +9,7 @@ resource-path: ['pandoc', '.']
 
 # enable the bibliography
 filters:
-  - pandoc-xnos
+  - pandoc-crossref
   - ${.}/latex_filter.py
   - ${.}/latex_short_caption.lua
   
@@ -22,5 +22,4 @@ number-sections: true
 
 # set fignos to only emit critical warnings not all (the default is 2)
 metadata:
-  fignos-warning-level: 1
-  secnos-warning-level: 2
+  cref: true

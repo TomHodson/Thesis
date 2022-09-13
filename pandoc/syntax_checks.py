@@ -65,7 +65,7 @@ if __name__ == "__main__":
                 if i > 0:
                     # print(cite_key, src_line[i-1:i+len(cite_key)+1], src_line[i-1], src_line[i + len(cite_key)])
                     citekeys_found.add(cite_key)
-                    if not (src_line[i-3:i] == "; @" or src_line[i-4:i] == r'\ [@'):
+                    if not (src_line[i-3:i] == "; @" or src_line[i-4:i] == r'\ [@' or src_line[i-4:i] == '\\\xa0[@'):
                         # breakpoint()
                         error_msgs.append(f"'{src_line[i-3:i].encode('unicode-escape')}' != '; @' or '\xa0[@'")
                         errors.append((i, i+len(cite_key)))

@@ -32,22 +32,29 @@
 % \include{0_Preface/personal_contributions}
 
 \body
-\chapter{Introduction}
+
+\hypersetup{
+  linkcolor  = urlblue,
+  citecolor  = black,
+  urlcolor   = urlblue,
+  }
+
+\hypertarget{chap:1-introduction}{\chapter{Introduction}}
 \begin{refsection}
 \include{build/latex/1_Introduction/1_Intro.tex}
 \printbibliography[heading=subbibintoc]
 \end{refsection}
 
-
-\chapter{Background}
+\hypertarget{chap:2-background}{\chapter{Background}}
 \begin{refsection}
 \include{build/latex/2_Background/2.1_FK_Model.tex}
 \include{build/latex/2_Background/2.2_HKM_Model.tex}
-\include{build/latex/2_Background/2.3_Disorder.tex}
+\include{build/latex/2_Background/2.3_Anyons.tex}
+\include{build/latex/2_Background/2.4_Disorder.tex}
 \printbibliography[heading=subbibintoc]
 \end{refsection}
 
-\chapter{The Long-Range Falikov-Kimball Model}
+\hypertarget{chap:3-the-long-range-falikov-kimball-model}{\chapter{The Long-Range Falikov-Kimball Model}}
 \begin{refsection}
 \include{build/latex/3_Long_Range_Falikov_Kimball/3.1_LRFK_Model.tex}
 \include{build/latex/3_Long_Range_Falikov_Kimball/3.2_LRFK_Methods.tex}
@@ -55,7 +62,7 @@
 \printbibliography[heading=subbibintoc]
 \end{refsection}
 
-\chapter{The Amorphous Kitaev Honeycomb Model}
+\hypertarget{chap:4-the-amorphous-kitaev-model}{\chapter{The Amorphous Kitaev Honeycomb Model}}
 \backgroundsetup{scale = 1, angle = 0, opacity = 0.2,
   contents = {\includegraphics[width=297mm, height=297mm]{figure_code/test.pdf}}}
 \BgThispage
@@ -67,7 +74,7 @@
 \printbibliography[heading=subbibintoc]
 \end{refsection}
 
-\chapter{Conclusion}
+\hypertarget{chap:5-conclusion}{\chapter{Conclusion}}
 \begin{refsection}
 \include{build/latex/5_Conclusion/5_Conclusion.tex}
 \printbibliography[heading=subbibintoc]
@@ -77,7 +84,7 @@
 \setcounter{chapter}{1}
 \setcounter{section}{0}
 \renewcommand{\thechapter}{\Alph{chapter}}%switch to alphabet counters
-\chapter*{Appendices}
+\hyptertargert{chap:appendices}{\chapter*{Appendices}}
 \addcontentsline{toc}{chapter}{Appendices}
 
 %if you're fine with "A Appendices" then do this instead

@@ -80,7 +80,7 @@ current_level = 0
 index = 0 #a monotonic increasing ordering for every heading
 for chapter in chapters:
     chapter_filename = base / chapter["contents"]
-    chapter_id = chapter["name"].lower().replace(" ", "-")
+    chapter_id = "chap:" + chapter["name"].lower().replace(" ", "-")
     chapter_files = sorted(chapter_filename.glob("*.md"))
     first_thing_in_chapter = True
 

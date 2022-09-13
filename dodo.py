@@ -6,7 +6,7 @@ DOIT_CONFIG = {
                'continue': True,
                'reporter': 'executed-only'}
 
-pandoc = '/usr/local/Cellar/pandoc/2.18/bin/pandoc'
+pandoc = 'pandoc'
 
 def rebase(file, src_dir, target_dir, new_extension):
     """Takes a filepath file, makdirs' space for it in target

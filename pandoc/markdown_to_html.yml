@@ -8,12 +8,14 @@ to: html5
 template: ${.}/jekyll_template.html
 
 filters:
-  - pandoc-xnos
+  - pandoc-crossref
   - ${.}/html_filter.py
   - citeproc
 
 toc: true
 section-divs: true #wrap each logical section in <section id=""></section> tags
+
+wrap: none
 
 # enable the bibliography
 metadata:
@@ -22,6 +24,9 @@ metadata:
   link-citations: true
   link-bibliography: true
   reference-section-title: Bibliography
+
+  #for pandoc-crossref
+  linkReferences: true
 
 # use mathjax for math
 html-math-method:
