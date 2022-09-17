@@ -26,6 +26,15 @@ The \protect\hyperlink{anyonic-statistics}{next section} will discuss anyons, to
 \hypertarget{the-spin-model}{%
 \subsection{The Spin Model}\label{the-spin-model}}
 
+\hypertarget{fig:visual_kitaev_1}{%
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/visual_kitaev_1}
+\caption[{A Visual Intro to the Kitaev Model}]{A visual introduction to the Kitaev Model.}
+\label{fig:visual_kitaev_1}
+\end{figure}
+}
+
 As discussed in the introduction, spin hamiltonians like that of the Kitaev model arise in electronic systems as the result the balance of multiple effects~\autocite{TrebstPhysRep2022}. For instance, in certain transition metal systems with \(d^5\) valence electrons, crystal field and spin-orbit couplings conspire to shift and split the \(d\) orbitals into moments with spin \(j = 1/2\) and \(j = 3/2\). Of these, the bandwidth \(t\) of the \(j= 1/2\) band is small, meaning that even relatively meagre electron correlations (such those induced by the \(U\) term in the Hubbard model) can lead to the opening of a Mott gap. From there we have a \(j = 1/2\) Mott insulator whose effective spin-spin interactions are again shaped by the lattice geometry and spin-orbit coupling leading some materials to have strong bond-directional Ising-type interactions~\autocite{jackeliMottInsulatorsStrong2009,khaliullinOrbitalOrderFluctuations2005}. In the Kitaev Model the bond directionality refers to the fact that the coupling axis \(\alpha\) in terms like \(\sigma_j^{\alpha}\sigma_k^{\alpha}\) is strongly bond dependent.
 
 In the spin hamiltonian \cref{eq:bg-kh-model} we can already tease out a set of conserved fluxes that will be key to the model's solution. These fluxes are the expectations of Wilson loop operators
@@ -50,15 +59,6 @@ As with the Falikov-Kimball model, the KH model has a extensive number of conser
 \hypertarget{the-majorana-model}{%
 \subsection{The Majorana Model}\label{the-majorana-model}}
 
-\hypertarget{fig:visual_kitaev_1}{%
-\begin{figure}
-\centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/visual_kitaev_1}
-\caption[{A Visual Intro to the Kitaev Model}]{A visual introduction to the Kitaev Model.}
-\label{fig:visual_kitaev_1}
-\end{figure}
-}
-
 Majorana fermions are something like `half of a complex fermion' and are their own antiparticle. From a set of \(N\) fermionic creation \(f_i^\dagger\) and anhilation \(f_i\) operators we can construct \(2N\) Majorana operators \(c_m\). We can do this construction in multiple ways subject to only mild constraints required to keep the overall commutations relations correct~\autocite{kitaevAnyonsExactlySolved2006}. Majorana operators square to one but otherwise have standard fermionic commutation relations.
 
 \(N\) spins can be mapped to \(N\) fermions with the well known Jordan-Wigner transformation and indeed this approach can be used to solve the Kitaev model~\autocite{chenExactResultsKitaev2008}. Here I will introduce the method Kitaev used in the original paper as this forms the basis for the results that will be presented in this thesis. Rather than mapping to \(N\) fermions, Kitaev maps to \(4N\) Majoranas, effectively \(2N\) fermions. In contrast to the Jordan-Wigner approach which makes fermions out of strings of spin operators in order to correctly produce fermionic commutation relations, the Kitaev transformation maps each spin locally to four Majoranas. The downside is that this enlarges the Hilbert space from \(2^N\) to \(4^N\). We will have to employ a projector \(\hat{P}\) to come back down to the physical Hilbert space later. As everything is local, I will drop the site indices \(ijk\) in expressions that refer to only a single site.
@@ -71,7 +71,7 @@ The tildes on the spin operators \(\tilde{\sigma_i^\alpha}\) emphasis that they 
 
 The Pauli matrices, however, have the additional property that the \emph{chiral element} \(\sigma^x \sigma^y \sigma^z = i\), this relation is not determined by the group properties of \(G_{3,0}\). Therefore to fully reproduce the algebra of the Pauli matrices we must project into the subspace where \(\tilde{\sigma}^x \tilde{\sigma}^y \tilde{\sigma}^z = i\). The chiral element of the gamma matrices for instance \(\gamma_5 = i\gamma^0 \gamma^1 \gamma^2 \gamma^3\) is of central importance in quantum field theory. See~\autocite{petitjeanChiralityDiracSpinors2020} for more discussion of this group theoretic view.
 
-The projector must project onto the subspace where \(\tilde{\sigma}^x \tilde{\sigma}^y \tilde{\sigma}^z = i\). If we work this through we find that in general \$\tilde{\sigma}\textsuperscript{x\tilde{\sigma}}y\tilde{\sigma}\^{}z = iD \$ where \(D = b^x b^y b^z c\) must be the identity for every site. In other words, we can only work with \emph{physical states} \(|\phi\rangle\) that satisfy \$ D\_i\textbar{}\phi\rangle = \textbar{}\phi\rangle\$ for all sites \(i\). From this we construct an on-site projector \(P_i = \frac{1 + D_i}{2}\) and the overall projector is simply \(P = \prod_i P_i\).
+The projector must project onto the subspace where \(\tilde \sigma^x \tilde \sigma^y \tilde \sigma^z = i\). If we work this through we find that in general \$\tilde \sigma\^{}x \tilde \sigma\^{}y \tilde\sigma\^{}z = iD \$ where \(D = b^x b^y b^z c\) must be the identity for every site. In other words, we can only work with \emph{physical states} \(|\phi\rangle\) that satisfy \$ D\_i\textbar{}\phi\rangle = \textbar{}\phi\rangle\$ for all sites \(i\). From this we construct an on-site projector \(P_i = \frac{1 + D_i}{2}\) and the overall projector is simply \(P = \prod_i P_i\).
 
 Another way to see what this is doing physically is to explicitly construct the two intermediate fermionic operators \(f\) and \(g\) that give rise to these four Majoranas. Working through the algebra we see that the \(D\) operator corresponds to the fermion parity \(D = -(2n_f - 1)(2n_g - 1)\) where \(n_f,\; n_g\) are the number operators. Expanding the product \(\prod_i P_i\) out, we find that the projector corresponds to a symmetrisation over \(\{u_{ij}\}\) states within a flux sector and and overall fermion parity \(\prod_i D_i\). This tells us that any arbitrary state can be made to have non-zero overlap with the physical subspace via the addition or removal of a single fermion. This implies that in the thermodynamic limit the projection step is not generally necessary to extract physical results, see~\autocite{pedrocchiPhysicalSolutionsKitaev2011} or \protect\hyperlink{app-the-projector}{appendix A.5} for more details.
 
@@ -198,6 +198,10 @@ An external magnetic can be used to break chiral symmetry. The lowest order term
 
 At finite temperatures, recent work has shown that the KH model undergoes a transition to a thermal metal phase.
 
+\textbf{Summary}
+
+We have seen that\ldots{}
+
 \textbf{Summary} The Kitaev Honeycomb model is remarkable because it combines three key properties. First, the form of the Hamiltonian plausibly be realised by a real material. Candidate materials, such as \(\alpha\mathrm{-RuCl}_3\), are known to have sufficiently strong spin-orbit coupling and the correct lattice structure to behave according to the Kitaev Honeycomb model with small corrections~\autocite{banerjeeProximateKitaevQuantum2016,TrebstPhysRep2022}. Second, its ground state is the canonical example of the long sought after quantum spin liquid state. Its excitations are anyons, particles that can only exist in two dimensions that break the normal fermion/boson dichotomy.
 
 Third, and perhaps most importantly, this model is a rare many body interacting quantum system that can be treated analytically. It is exactly solvable. We can explicitly write down its many body ground states in terms of single particle states~\autocite{kitaevAnyonsExactlySolved2006}. The solubility of the Kitaev Honeycomb Model, like the Falikov-Kimball model of chapter 1, comes about because the model has extensively many conserved degrees of freedom. These conserved quantities can be factored out as classical degrees of freedom, leaving behind a non-interacting quantum model that is easy to solve.
@@ -213,104 +217,3 @@ Third, and perhaps most importantly, this model is a rare many body interacting 
 \item
   experimental probes include inelastic neutron scattering, Raman scattering
 \end{itemize}
-
-\hypertarget{glossary}{%
-\subsection{Glossary}\label{glossary}}
-
-\begin{itemize}
-\item
-  Lattice: The underlying graph on which the models are defined. Composed of sites (vertices), bonds (edges) and plaquettes (faces).
-\item
-  The model : Used when I refer to properties of the the Kitaev model that do not depend on the particular lattice.
-\item
-  The Honeycomb model : The Kitaev Model defined on the honeycomb lattice.
-\item
-  The Amorphous model : The Kitaev Model defined on the amorphous lattices described here.
-\end{itemize}
-
-\textbf{The Spin Hamiltonian}
-
-\begin{itemize}
-\tightlist
-\item
-  Spin Bond Operators: \(\hat{k}_{ij} = \sigma_i^\alpha \sigma_j^\alpha\)
-\item
-  Loop Operators: \(\hat{W_p} = \prod_{<i,j>} k_{ij}\)
-\item
-  Plaquette Operators: Loops that enclose a single plaquette.
-\end{itemize}
-
-\textbf{The Majorana Model}
-
-\begin{itemize}
-\tightlist
-\item
-  Majorana Operators on site \(i\): \(\hat{b}^x_i, \hat{b}^y_i, \hat{b}^z_i, \hat{c}_i\)
-\item
-  Majorana Bond Operators: \(\hat{u}_{ij} = i b_i^\alpha b_j^\alpha\)
-\item
-  Loop Operators: \(\hat{W_p} = \prod_{<i,j>} u_{ij}\)
-\item
-  Plaquette Operators: Loops that enclose a single plaquette.
-\item
-  Gauge Operators: \(D_i = \hat{b}^x_i \hat{b}^y_i \hat{b}^z_i \hat{c}_i\)
-\item
-  The Extended Hilbert space: The larger Hilbert space spanned by the Majorana operators.
-\item
-  The physical subspace: The subspace of the extended Hilbert space that we identify with the Hilbert space of the original spin model.
-\item
-  The Projector \(\hat{P}\): The projector onto the physical subspace.
-\end{itemize}
-
-\textbf{Flux Sectors}
-
-\begin{itemize}
-\item
-  Odd/Even Plaquettes: Plaquettes with an odd/even number of sides.
-\item
-  Fluxes \(\phi_i\): The expectation values of the plaquette operators \(\pm 1\) for even and \(\pm i\) for odd plaquettes.
-\item
-  Flux Sector: A subspace of Hilbert space in which the fluxes take particular values.
-\item
-  Ground state flux sector: The Flux Sector containing the lowest energy many body state.
-\item
-  Vortices: Flux excitations away from the ground state flux sector.
-\item
-  Dual Loops: A set of \(u_{jk}\) that correspond to loops on the dual lattice.
-\item
-  non-contractible loops or dual loops: The two loops topologically distinct loops on the torus that cannot be smoothly deformed to a point.
-\item
-  Topological Fluxes \(\Phi_{x}, \Phi_{y}\): The two fluxes associated with the two non-contractible loops.
-\item
-  Topological Transport Operators: \(\mathcal{T}_{x}, \mathcal{T}_{y}\): The two vortex-pair operations associated with the non-contractible \emph{dual} loops.
-\end{itemize}
-
-\textbf{Phases}
-
-\begin{itemize}
-\tightlist
-\item
-  The A phase: The three anisotropic regions of the phase diagram \(A_x, A_y, A_z\) where \(A_\alpha\) means \(J_\alpha >> J_\beta, J_\gamma\).
-\item
-  The B phase: The roughly isotropic region of the phase diagram.
-\end{itemize}
-
-\textbf{Vortices and their movements}
-
-See \cref{fig:types_of_dual_loops_animated} for a diagram of the next three paragraphs.
-
-We started from the ground state of the model and flipped the sign of a single bond (\cref{fig:types_of_dual_loops_animated} (a)). In doing so, we will flip the sign of the two plaquettes adjacent to that bond. We will call these disturbed plaquettes \emph{vortices}. We will refer to a particular choice values for the plaquette operators as a \emph{vortex sector}.
-
-If we chain multiple bond flips, we can create a pair of vortices at arbitrary locations (\cref{fig:types_of_dual_loops_animated} (b)). The chain of bonds that we must flip corresponds to a path on the dual of the lattice.
-
-We can also create a pair of vortices, move one around a loop and finally annihilate it with its partner (\cref{fig:types_of_dual_loops_animated} (c)). This corresponds to a closed loop on the dual lattice. Applying such a bond flip leaves the vortex sector unchanged. We can also do the same thing but move the vortex around one the non-contractible loops of the lattice (\cref{fig:types_of_dual_loops_animated} (d)).
-
-There is one kind of dual loop that we cannot build out of \(D_j\)s, the non-contractible loops.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-
-\end{Highlighting}
-\end{Shaded}
-
-\textless/i,j\textgreater\textless/i,j\textgreater{}

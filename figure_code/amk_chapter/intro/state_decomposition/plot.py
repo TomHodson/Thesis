@@ -19,10 +19,6 @@ import sys, os
 sys.path.append(os.path.join(os.path.dirname(__file__), os.path.expanduser('~/git/Thesis/figure_code')))
 from plot_settings import bond_colors, line_colors, plaq_color_scheme
 
-
-import pylustrator
-pylustrator.start()
-
 rng = np.random.default_rng(222424252565)
 lattice, colouring, ujk_ground_state = eg.make_amorphous(8, rng = rng)
 # lattice, colouring, ujk_ground_state = eg.make_honeycomb(7)

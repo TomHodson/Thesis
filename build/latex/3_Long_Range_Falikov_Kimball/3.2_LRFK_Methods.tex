@@ -100,31 +100,15 @@ DOS(\omega) = \sum_n \delta(\omega - \epsilon_n)
 IPR(\omega) = DOS(\omega)^{-1} \sum_{n,i} \delta(\omega - \epsilon_n) \abs{\psi_{n,i}}^4
 \] Where \(\psi_{n,i}\) is the wavefunction corresponding to the energy \(\epsilon_n\) at the ith site. In practice we bin the energies and IPRs into a fine energy grid and use Lorentzian smoothing if necessary.
 
-\begin{figure}
-\hypertarget{fig:raw}{%
-\centering
-\includegraphics{figs/lsr/raw_steps_single_flip.pdf}
-\caption{An MCMC walk starting from the staggered charge density wave ground state for a system with \(N = 100\) sites and 10,000 MCMC steps. In this simulation only a single spin can be flipped per step according to the Metropolis-Hastings Algorithm. The staggered magnetisation \(m = N^{-1} \sum_i (-1)^i \; S_i\) order parameter is plotted below. At this temperature the thermal average of m is zero, while the initial state has m = 1. We see that it takes about 1000 steps for the system to converge, after which it moves about the m = 0 average with a finite auto-correlation time. \(t = 1, \alpha = 1.25, T = 3, J = U = 5\) \protect\hypertarget{fig:raw}{}{{[}fig:raw{]}}}\label{fig:raw}
-}
-\end{figure}
-
 {MCMC} sidesteps these issues by defining a random walk that focuses on the states with the greatest Boltzmann weight. At low temperatures this means we need only visit a few low energy states to make good estimates while at high temperatures the weights become uniform so a small number of samples distributed across the state space suffice. However we will see that the method is not without difficulties of its own.
-
-\begin{figure}
-\hypertarget{fig:single}{%
-\centering
-\includegraphics{figs/lsr/single.pdf}
-\caption{Two MCMC chains starting from the same initial state for a system with \(N = 90\) sites and 1000 MCMC steps. In this simulation the MCMC step is defined differently: an attempt is made to flip n spins, where n is drawn from Uniform(1,N). This is repeated \(N^2/100\) times for each step. This trades off computation time for storage space, as it makes the samples less correlated, giving smaller statistical error for a given number of stored samples. These simulations therefore have the potential to necessitate \(N^2/100\) matrix diagonalisations for every MCMC sample, though this can be cut down with caching and other tricks. \(t = 1, \alpha = 1.25, T = 2.2, J = U = 5\) \protect\hypertarget{fig:single}{}{{[}fig:single{]}}}\label{fig:single}
-}
-\end{figure}
 
 In implementation {MCMC} can be boiled down to choosing a transition function \(\mathcal{T}(\s_{t} \rightarrow \s_t+1)\) where \(\s\) are vectors representing classical spin configurations. We start in some initial state \(\s_0\) and then repeatedly jump to new states according to the probabilities given by \(\mathcal{T}\). This defines a set of random walks \(\{\s_0\ldots \s_i\ldots \s_N\}\). Fig.~\protect\hyperlink{fig:single}{2} shows this in practice: we have a (rather small) ensemble of \(M = 2\) walkers starting at the same point in state space and then spreading outwards by flipping spins along the way.
 
 In pseudo-code one could write the MCMC simulation for a single walker as:
 
-``\,'python current\_state = initial\_state
+```python current\_state = initial\_state
 
-for i in range(N\_steps): new\_state = sample\_T(current\_state) states{[}i{]} = current\_state ``\,'
+for i in range(N\_steps): new\_state = sample\_T(current\_state) states{[}i{]} = current\_state ```
 
 Where the \texttt{sample\_T} function here produces a state with probability determined by the \texttt{current\_state} and the transition function \(\mathcal{T}\).
 
@@ -139,14 +123,6 @@ Matrices that satisfy this are called stochastic matrices exactly because they m
 
 \hypertarget{auto-correlation-time}{%
 \subsection{Auto-correlation Time}\label{auto-correlation-time}}
-
-\begin{figure}
-\hypertarget{fig:m_autocorr}{%
-\centering
-\includegraphics{figs/lsr/m_autocorr.png}
-\caption{(Upper) 10 MCMC chains starting from the same initial state for a system with \(N = 150\) sites and 3000 MCMC steps. At each MCMC step, n spins are flipped where n is drawn from Uniform(1,N) and this is repeated \(N^2/100\) times. The simulations therefore have the potential to necessitate \(10*N^2\) matrix diagonalisations for each 100 MCMC steps. (Lower) The normalised auto-correlation \((\expval{m_i m_{i-j}} - \expval{m_i}\expval{m_i}) / Var(m_i))\) averaged over \(i\). It can be seen that even with each MCMC step already being composed of many individual flip attempts, the auto-correlation is still non negligible and must be taken into account in the statistics. \(t = 1, \alpha = 1.25, T = 2.2, J = U = 5\) \protect\hypertarget{fig:m_autocorr}{}{{[}fig:m\_autocorr{]}}}\label{fig:m_autocorr}
-}
-\end{figure}
 
 At this stage one might think we're done. We can indeed draw independent samples from \(P(\s; \beta)\) by starting from some arbitrary initial state and doing \(k\) steps to arrive at a sample. However a key insight is that after the convergence time, every state generated is a sample from \(P(\s; \beta)\)! They are not, however, independent samples. In Fig.~\protect\hyperlink{fig:raw}{1} it is already clear that the samples of the order parameter m have some auto-correlation because only a few spins are flipped each step but even when the number of spins flipped per step is increased, Fig.~\protect\hyperlink{fig:m_autocorr}{3} shows that it can be an important effect near the phase transition. Let's define the auto-correlation time \(\tau(O)\) informally as the number of MCMC samples of some observable O that are statistically equal to one independent sample.~{[}\^{}4{]} The auto-correlation time is generally shorter than the convergence time so it therefore makes sense from an efficiency standpoint to run a single walker for many MCMC steps rather than to run a huge ensemble for \(k\) steps each.
 

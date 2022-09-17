@@ -1,0 +1,255 @@
+% ****** Start of file apssamp.tex ******
+%
+%   This file is part of the APS files in the REVTeX 4.2 distribution.
+%   Version 4.2a of REVTeX, December 2014
+%
+%   Copyright (c) 2014 The American Physical Society.
+%
+%   See the REVTeX 4 README file for restrictions and more information.
+%
+% TeX'ing this file requires that you have AMS-LaTeX 2.0 installed
+% as well as the rest of the prerequisites for REVTeX 4.2
+%
+% See the REVTeX 4 README file
+% It also requires running BibTeX. The commands are as follows:
+%
+%  1)  latex apssamp.tex
+%  2)  bibtex apssamp
+%  3)  latex apssamp.tex
+%  4)  latex apssamp.tex
+%
+\documentclass[%
+ reprint,
+superscriptaddress,
+%groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose, 
+%preprint,
+%preprintnumbers,
+%nofootinbib,
+%nobibnotes,
+%bibnotes,
+ amsmath,amssymb,
+aps,
+% prl,
+%prb,
+%rmp,
+%prstab,
+%prstper,
+%floatfix,
+]{revtex4-2}
+
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{urlblue}{HTML}{007bff}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{orcidlink}
+\usepackage{hyperref}% add hypertext capabilities
+\usepackage{cleveref}
+
+\newcommand{\Tr}{\ensuremath{\textup{Tr}}}
+\renewcommand{\bf}[1]{\ensuremath{\textbf{#1}}}
+
+% \usepackage{caption} % These break revtex figure captions, please don't use.
+% \usepackage{subcaption}
+
+
+\hypersetup{
+    colorlinks = true,
+    linkcolor  = urlblue,
+    citecolor  = urlblue,
+    urlcolor   = urlblue,
+}
+
+\urlstyle{same}
+
+\bibliographystyle{apsrev4-2}
+
+\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+
+\begin{document}
+
+\preprint{APS/123-QED}
+
+\title{An Exact Chiral Amorphous Spin Liquid}
+
+
+\author{G. Cassella \orcidlink{0000-0003-4506-5791}}
+\thanks{These three authors contributed equally, and names are ordered alphabetically.}
+\affiliation{\small Blackett Laboratory, Imperial College London, London SW7 2AZ, United Kingdom}
+
+
+\author{P. D'Ornellas \orcidlink{0000-0002-2349-0044}}
+\thanks{These three authors contributed equally, and names are ordered alphabetically.}
+\affiliation{\small Blackett Laboratory, Imperial College London, London SW7 2AZ, United Kingdom}
+
+
+\author{T. Hodson \orcidlink{0000-0002-4121-4772}}
+\thanks{These three authors contributed equally, and names are ordered alphabetically.}
+\affiliation{\small Blackett Laboratory, Imperial College London, London SW7 2AZ, United Kingdom}
+
+\author{W. M. H. Natori \orcidlink{0000-0002-0740-2956}}
+\affiliation{Institut Laue-Langevin, BP 156, 41 Avenue des Martyrs, 38042 Grenoble Cedex 9, France}
+
+\author{J. Knolle \orcidlink{0000-0002-0956-2419}}
+\affiliation{\small Blackett Laboratory, Imperial College London, London SW7 2AZ, United Kingdom}
+\affiliation{Department of Physics TQM, Technische Universit{\"a}t M{\"u}nchen, James-Franck-Stra{\ss}e 1, D-85748 Garching, Germany}
+\affiliation{Munich Center for Quantum Science and Technology (MCQST), 80799 Munich, Germany}
+
+%at the end Global choices we need to make
+% either vortex or flux sectors
+% use either pointset or set of points
+
+
+\date{\today}
+
+\begin{abstract}
+Topological insulator phases of non-interacting particles have been generalized from periodic crystals to amorphous lattices, which raises the question whether topologically ordered quantum many-body phases may similarly exist in amorphous systems? Here we construct a soluble chiral amorphous quantum spin liquid by extending the Kitaev honeycomb model to random lattices with fixed coordination number three. The model retains its exact solubility but the presence of plaquettes with an odd number of sides leads to a spontaneous breaking of time reversal symmetry. We unearth a rich phase diagram displaying Abelian as well as a non-Abelian quantum spin liquid phases with a remarkably simple ground state flux pattern. Furthermore, we show that the system undergoes a finite-temperature phase transition to a conducting thermal metal state and discuss possible experimental realisations. 
+\end{abstract}
+
+
+\maketitle
+
+
+\begin{figure*}[ht!]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figs/figure_1.pdf}
+    \caption{\textbf{(a)} Amorphous lattice generated via Voronoi tessellation of a uniformly distributed random point set on the unit square. Periodic boundary conditions are imposed by tiling the unit square before Voronoi tessellation. \textbf{(b)} Magnified portion of the amorphous lattice. Arrows from site $j$ to site $k$ indicate the bond variable $u_{jk} = 1$ while $u_{kj} = -1$. Shading of the plaquettes indicates the $\mathbb{Z}_2$ flux $\phi_p = +1$ ($-1$) through even-sided white (grey) plaquettes $+i$, ($-i$) for odd sided plaquettes. Colors correspond to a valid assignment of the bond colourings, $\alpha_{jk}$. The inset demonstrates the Majorana construction on a tri-coordinate motif, which allows for the exact solution of the model. \textbf{(c)} Ternary phase diagram of the amorphous Kitaev model with varying exchange coupling. The isotropic regime $|J_x| \approx |J_y| \approx |J_z|$ (B), exhibits a topologically non-trivial chiral QSL ground state with Chern number $\nu=\pm1$. The Fermion gap of the ground state flux sector closes at the phase boundary (solid black lines), and a transition occurs to a $\nu=0$ phase (A) for anisotropic couplings. The phase boundary was obtained by averaging over 20 amorphous lattice realisations with $\sim400$ sites. Dotted black lines indicate the corresponding phase boundaries in the honeycomb model.}
+    \label{fig:example_lattice}
+\end{figure*}
+
+Amorphous materials are condensed matter systems characterised by short-range regularities in the absence of long-range crystalline order as studied early on for amorphous semiconductors~\cite{Yonezawa1983,zallen2008physics}. The bonds of a whole range of covalent compounds can enforce local constraints around each ion, e.g.~a fixed coordination number $z$, which has enabled the prediction of energy gaps even in lattices without translational symmetry~\cite{Weaire1976,gaskell1979structure}, the most famous example being amorphous Ge and Si with $z=4$~\cite{Weaire1971,betteridge1973possible}. Recently, following the discovery of topological insulators (TIs) it has been shown that similar phases can exist in amorphous systems characterized by protected edge states and topological bulk invariants~\cite{mitchellAmorphousTopologicalInsulators2018,agarwala2019topological,marsalTopologicalWeaireThorpeModels2020,costa2019toward,agarwala2020higher,spring2021amorphous,corbae2019evidence}. However, research on electronic systems has been mostly focused on non-interacting systems with few exceptions, for example, to account for the observation of superconductivity~\cite{buckel1954einfluss,mcmillan1981electron,meisel1981eliashberg,bergmann1976amorphous,mannaNoncrystallineTopologicalSuperconductors2022} in amorphous materials or very recently to understand the effect of strong electron repulsion in TIs~\cite{kim2022fractionalization}.     
+
+Magnetism in amorphous systems has been investigated since the 1960s, mostly through the adaptation of theoretical tools developed for disordered systems \cite{aharony1975critical,Petrakovski1981,kaneyoshi1992introduction,Kaneyoshi2018} and with numerical methods~\cite{fahnle1984monte,plascak2000ising}. Research focused on classical Heisenberg and Ising models which have been shown to account for observed behavior of ferromagnetism, disordered antiferromagnetism and widely observed spin glass behaviour~\cite{coey1978amorphous}. However, the role of spin-anisotropic interactions and quantum effects in amorphous magnets has not been addressed. It is an open question whether frustrated magnetic interactions on amorphous lattices can give rise genuine quantum phases, i.e.~to long-range entangled quantum spin liquids (QSL)~\cite{Anderson1973,Knolle2019,Savary2016,Lacroix2011}. 
+
+
+%Broad constraints to the possible phases hosted by Heisenberg amorphous magnets were provided by the phenomenological theory developed by Andreev and Marchenko \cite{Andreev1,Andreev2,Andreev3}. The phases in this theory are described by a set of macroscopic magnetic vectors that transform according to the irreducible representations of the group of spatial symmetries of the system \cite{Andreev1}. Amorphous magnets are treated, on average, as homogeneous and isotropic, being thus symmetric under three-dimensional rotations and spatial inversion \cite{Andreev2}. Only three types of phases are consistent to this group of symmetries, corresponding to ferromagnets, disordered antiferromagnets, or spin glasses \cite{Andreev2,Andreev3}.
+
+
+%Two intentional simplifications of Andreev's and Marchenko's theory were the neglect of spin-orbit coupling induced anisotropies and the effects arising from the local structure of amorphous lattices. It is then expected that their theory is invalid for amorphous compounds generated from crystalline magnets with strong spin-orbit coupling with tight geometrical arrangements.
+
+
+The combination of a fixed local coordination number in conjunction with magnetic frustration generated by bond-anisotropic Ising exchange can lead to stable QSL phases. The seminal Kitaev model on the tricoordinated honeycomb lattice~\cite{kitaevAnyonsExactlySolved2006} provides an exactly solvable model whose ground state is a QSL characterized by a static $\mathbb Z_2$ gauge field and Majorana fermion excitations. 
+Several instances of Kitaev candidate materials were synthesized in the last decade~\cite{Jackeli2009,HerrmannsAnRev2018,Winter2017,TrebstPhysRep2022,Takagi2019} following the suggestion that heavy-ion Mott insulators formed by edge-sharing octahedra may realize dominant Kitaev interactions~\cite{Jackeli2009}. 
+%
+It is by now understood that the Kitaev model on any three-coordinated $z=3$ graph has conserved plaquette operators and local symmetries~\cite{Baskaran2007,Baskaran2008} which allow a mapping onto effective free Majorana fermion problems in a background of static $\mathbb Z_2$ fluxes ~\cite{Nussinov2009,OBrienPRB2016,yaoExactChiralSpin2007,hermanns2015weyl}. However, depending on lattice symmetries, finding the ground state flux sector and understanding the QSL properties may still be challenging~\cite{eschmann2019thermodynamics,Peri2020}. 
+
+
+In this letter we study the Kitaev model on an amorphous lattice, providing an example of a topologically ordered amorphous QSL phase. Concentrating on random networks generated via Voronoi tessellation \cite{mitchellAmorphousTopologicalInsulators2018,marsalTopologicalWeaireThorpeModels2020} with $z=3$, we show that the presence of plaquettes with an odd-number of sites lead to a chiral QSL spontaneously breaking time-reversal symmetry (TRS)~\cite{yaoExactChiralSpin2007,Chua2011,ChuaPRB2011,Fiete2012,Natori2016,Wu2009, WangHaoranPRB2021}. Remarkably, we find via extensive numerics that the ground state $\mathbb Z_2$ flux sector follows a simple counting rule consistent with Lieb's theorem \cite{lieb_flux_1994}. We map out the phase diagram of the model and show that the chiral phase around the symmetric point is gapped and characterized by a quantized local Chern number $\nu$~\cite{peru_preprint, mitchellAmorphousTopologicalInsulators2018} as well as protected chiral Majorana edge modes. Finally, we comment on the role of finite temperature fluctuations and show that the proliferation of flux excitations leads to an Anderson transition to a thermal metal phase \cite{Laumann2012,lahtinenTopologicalLiquidNucleation2012,selfThermallyInducedMetallic2019}. \par
+
+{\it The Model ---} 
+We start with a brief review of the Kitaev model on the honeycomb lattice \cite{kitaevAnyonsExactlySolved2006} before generalising it to amorphous systems. A spin-1/2 is placed on every vertex and each bond is labelled by an index $\alpha \in \{ x, y, z\}$. The bonds are arranged such that each vertex connects to exactly one bond of each type. The Hamiltonian is given by
+\begin{equation}
+    \label{eqn:kitham}
+    \mathcal{H} = - \sum_{\langle j,k\rangle_\alpha} J^{\alpha}\sigma_j^{\alpha}\sigma_k^{\alpha},
+\end{equation}
+where $\sigma^\alpha_j$ is a Pauli matrix acting on site $j$, \(\langle j,k\rangle_\alpha\) is a pair of nearest-neighbour indices connected by an $\alpha$-bond with exchange coupling $J^\alpha$. For each plaquette of the lattice, we define a {\it flux operator} $ W_p = \prod \sigma_j^{\alpha}\sigma_k^{\alpha}$, where the product runs clockwise over the bonds around the plaquette. These commute with one another and the Hamiltonian, so correspond to an extensive number of conserved quantities. This allows us to split the Hilbert space according to the eigenvalues $\phi_p = \pm 1$ ($\pm i$ for odd plaquettes) of $\{W_p\}$.
+
+The Hamiltonian (\ref{eqn:kitham}) can be exactly solved by transforming to a Majorana fermion representation~\cite{kitaevAnyonsExactlySolved2006}, see fig.~\ref{fig:example_lattice}. Each spin is represented with four Majorana operators, $\sigma_i^\alpha = i b_i^\alpha c_i$. We define a set of conserved bond operators $\hat u_{jk} = ib_j^{\alpha}b_k^{\alpha}$. As with the $W_p$ operators, we may partition the Majorana Hilbert space according to the eigenvalues of these operators, $u_{jk}=\pm 1$. For a particular choice of these bond variables, eqn.~\ref{eqn:kitham} reduces to a quadratic Majorana Hamiltonian
+\begin{equation}\label{eqn:majorana_hamiltonian}
+    \mathcal{H} = \frac{i}{4}\sum_{ j,k }A_{jk} c_j c_k,
+\end{equation}
+where $A_{jk}=2J^{\alpha}u_{jk}$.
+
+The Kitaev Hamiltonian remains exactly solvable on any lattice in which no site connects to more than one bond of the same type \cite{Nussinov2009}. Thus, we shall restrict our investigation to lattices in which every vertex has coordination number $z \leq 3$. Here we generate such lattices using Voronoi tessellation~\cite{florescu_designer_2009}. Once a lattice has been generated, the bonds must be labelled in such a way that no vertex touches multiple edges of the same type, which we refer to as a \textit{three-edge colouring}. The problem of finding such a colouring is equivalent to the classical problem of four-colouring the faces, which is always solvable on a planar graph \cite{Tait1880, appelEveryPlanarMap1989a} but can take up to seven edges on the torus~\cite{ringel_solution_1968}. We describe both steps in \cref{apx:lattice_construction}. One example of an coloured amorphous lattice is shown in fig.~\ref{fig:example_lattice}(a). 
+
+Once the lattice and colouring has been found, the amorphous Hamiltonian is diagonalised using the same procedure as for the honeycomb model. Note that the Majorana system is only strictly equivalent to the initial spin system after a parity projection~\cite{pedrocchiPhysicalSolutionsKitaev2011, Yao2009}, details of which for the amorphous case are described in \cref{apx:projector}. Nevertheless, one can still use eqn.~\ref{eqn:majorana_hamiltonian} to evaluate the expectation values of operators that conserve $\hat u_{jk}$ in the thermodynamic limit \cite{zschocke2015physical,knolle_dynamics_2016}. The ground state energy of a given flux sector is the sum of the negative eigenvalues of $iA/4$ in eqn.~\ref{eqn:majorana_hamiltonian}, and excitation energies are given by the positive eigenvalues. 
+
+{\it Ground State Flux Sector ---} 
+Next we investigate which flux patterns minimize the ground state energy on the amorphous lattice. When represented in the Majorana Hilbert space, flux operators $ W_p = \prod \sigma_j^{\alpha}\sigma_k^{\alpha}$ correspond to ordered products of link variables $\hat u_{jk}$, and their eigenvalues describe the $\mathbb Z_2$ flux through each plaquette,
+\begin{equation} \label{eqn:flux_definition}
+    \phi_p = \prod_{(j,k) \in \partial p} -iu_{jk},
+\end{equation}
+where the product is taken over the $u_{jk}$ values going \textit{clockwise} around the border $\partial p$ of each plaquette. We refer to a particular choice of a set of $\{ \phi_p\}$ as a flux sector.\par
+The spin Hamiltonian is real, thus it has TRS. However, the flux $\phi_p$ through any plaquette with an odd number of sides has imaginary eigenvalues $\pm i$. Thus, states with a fixed flux sector spontaneously break TRS, which in the context of crystalline Kitaev models was first described by Yao and Kivelson~\cite{Yao2011}. All flux sectors come in degenerate pairs, where time reversal is equivalent to inverting the flux through every odd plaquette~\cite{yaoExactChiralSpin2007, Peri2020}.
+
+
+For a system with $n_p$ plaquettes in periodic boundaries, there are $2^{n_p-1}$ possible flux sectors, and in general it is a nontrivial task to determine which pair of flux sectors has the lowest energy. On the honeycomb lattice, the ground state was shown by Lieb to be flux free, $\phi_p=+1$ \cite{lieb_flux_1994}, however, since all lattice symmetries are broken no such proof exists for amorphous lattices. Remarkably, we still find that for a sufficiently large system the energy is minimised by setting the flux through each plaquette $p$ to 
+\begin{align} \label{eqn:gnd_flux}
+    \phi^{\textup{g.s.}}_p = -(\pm i)^{n_{\textup{sides}}},
+\end{align}
+where $n_{\textup{sides}}$ is the number of edges that form the plaquette and the global choice of the sign of $i$ gives each of the two TRS-degenerate ground state flux sectors. This conjecture is supported by numerical evidence, detailed in \cref{apx:ground_state}, as well as being consistent with other regular lattices for which Lieb's theorem is not applicable~\cite{OBrienPRB2016}. Having identified the ground state, any other sector can be characterized by the configuration of vortices, i.e.~by the plaquettes whose flux is flipped with respect to $\left\{ \phi_p^{\textup{g.s.}} \right\}$.
+
+\par
+The ground state phase diagram can then be determined by the strength of each bond type, $J^\alpha$, and we numerically calculate the ternary phase diagram shown in \cref{fig:example_lattice} (c). The diagram contains two distinct phases: close to the corners of the triangle, e.g.~$|J^z| \gg |J^x|, |J^y|$, the (A) phase is equivalent to the toric code on an amorphous lattice \cite{kitaev_fault-tolerant_2003}. The phase has a fermionic gap and supports Abelian excitations. Around the isotropic point $J^x = J^y = J^z$, the (B) phase is also gapped in contrast to the honeycomb case as a consequence of TRS breaking from the finite density of odd plaquettes. We will confirm below that the (B) phase is indeed a {\it chiral spin liquid}. 
+
+\par
+As the values of $J^\alpha$ are varied, the fermionic gap closes at the boundary between the two phases. In the honeycomb model, the phase boundaries are located on the straight lines $|J^\alpha| = |J^\beta| + |J^\gamma|$, for any permutation of $\alpha, \beta, \gamma \in \{x,y,z\}$. We find that on the amorphous lattice these boundaries exhibit an inward curvature similar to honeycomb Kitaev models with flux \cite{Nasu_Thermal_2015} or bond \cite{knolle_dynamics_2016} disorder.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\columnwidth]{figs/figure_2_bashed}
+    \caption{\textbf{(a)} In-gap fermionic wavefunction drawn from the ground state flux sector in open boundary conditions, showing showing a topological edge mode. Cut of the density along a line of lattice sites spanning the system (black line) is shown in the bottom subfigure on a logarithmic scale, demonstrating the characteristic exponential decay of topological edge modes with distance from the edge. \textbf{(b)} Ground-state flux sector fermionic density of states in open boundary conditions, colored by inverse participation ratio. The increased inverse participation ratio of the in-gap states signifies their localisation to the edges of the system.}
+    \label{fig:edge_modes}
+\end{figure}
+
+{\it Chern Number and Edge Modes ---} 
+A fundamental tool for understanding the distinction between the two phases is the Chern number. The original definition relies on momentum space, and so cannot be used here, where the system lacks any translational symmetry. However, recently methods have been developed for evaluating a real-space analogue of the Chern number \cite{bianco_mapping_2011,Hastings_Almost_2010}. Here we shall use a slight modification of Kitaev's definition \cite{kitaevAnyonsExactlySolved2006, peru_preprint, mitchellAmorphousTopologicalInsulators2018}. For a choice of flux sector, we calculate the projector $P$ onto the negative energy eigenstates of the matrix $iA$ defined in \cref{eqn:majorana_hamiltonian}. The local Chern number around a point $\bf R$ in the bulk is given by 
+\begin{align}
+    \nu (\bf R) = 4\pi \textup{Im}\; \Tr_{\textup{Bulk}} 
+    \left ( 
+    P\theta_{R_x} P \theta_{R_y} P
+    \right ),
+\end{align}
+where $\theta_{R_x}$ is a step function in the $x$-direction, with the step located at $x = R_x$, $\theta_{R_y}$ is defined analogously. The trace is taken over a region around $\bf R$ in the bulk of the material, where care must be taken not to include any points close to the edges. Provided that the point $\bf R$ is sufficiently far from the edges, this quantity will be very close to quantised to the Chern number.
+
+
+
+Using this local Chern marker, we determine that the (A) phase has Chern number $\nu = 0$, whereas the two TRS-degenerate ground state flux sectors in the (B) phase have Chern number $\nu = \pm 1$ respectively. In closed boundaries, this leads to the appearance of gap-crossing protected edge modes, in accordance with the bulk-boundary correspondence \cite{qi_general_2006}, an example is shown in \cref{fig:edge_modes}. The edge modes are exponentially localised to the boundary of the system, and can be qualitatively distinguished from bulk states by their large inverse participation ratio,
+\begin{equation}
+    \textup{IPR} = \int d^2r|\psi(\mathbf{r})|^4.
+\end{equation} 
+Finally, we note that the closing of the gap on the boundary between the two phases is necessary in order to transition between states with different Chern numbers.
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.95\textwidth]{figs/figure_3_bashed}
+    \caption{\textbf{(a)} Density of states (top) and inverse participation ratio scaling exponent (bottom) of the fermionic spectrum as a function of flux defect density, $\tau$, for isotropic couplings. Each pixel is averaged over 10 independent lattice realisations, in flux sectors sampled from an ensemble with a proportion $\rho$ of fluxes flipped with respect to the ground state sector. White pixels correspond to bins containing no fermionic states. At low defect density, the fermionic spectra are gapped. As the defect density increases, in-gap states appear with a small $\tau$, indicating that they are strongly localized around defects. At large defect density, $\tau$ increases for the in-gap sites, indicating that they are delocalised and the system becomes gapless. Using defect density as a proxy for temperature, this demonstrates the thermal phase transition from a chiral spin liquid to a thermal metal phase. \textbf{(b)} A histogram of fermionic density of states sampled from the thermodynamic ensemble of flux sectors for $T\to\infty$, i.e.~all gauge configurations equally likely. The oscillations at low $E$ are characteristic of a thermal metal phase~\cite{selfThermallyInducedMetallic2019}, demonstrated for the Kitaev honeycomb lattice model subject to a magnetic field (top) and the amorphous Kitaev model (bottom). $L$ corresponds to the linear extent of the system -- $L\sim\sqrt{N}$ with $N$ sites -- for both lattice types.}
+    \label{fig:DOS_Oscillations}
+\end{figure*}
+
+{\it Anderson Transition to a Thermal Metal ---} 
+Having understood the spontaneous formation of a chiral amorphous QSL ground state, we are now in a position to discuss the finite temperature behavior of the model. In general, an Ising like thermal phase transition into the chiral QSL phase is expected akin to the one observed for the Yao-Kivelson model~\cite{nasu2015thermodynamics} but a full Monte-Carlo sampling, which is further complicated by the inherent disorder in the amorphous lattice, is beyond the scope of this letter. Nevertheless, the main effect of increasing temperature is the proliferation of fluxes which allow us to gain a qualitative understanding of the finite temperature behavior~\cite{Nasu_Thermal_2015}.
+
+
+On the honeycomb Kitaev model with explicit TRS breaking, Majorana zero modes bind to fluxes forming Ising non-Abelian anyons \cite{Beenakker2013}. Their pairwise interaction decays exponentially with separation~\cite{Laumann2012,Lahtinen_2011,lahtinenTopologicalLiquidNucleation2012}. As temperature is increased, the proliferation of vortices in the system produces a finite density of anyons and their hybridization leads to an Anderson transition to a macroscopically degenerate state known as a \emph{thermal metal phase}~\cite{Laumann2012, selfThermallyInducedMetallic2019, Chalker_thermal_2001}. This exotic phase has two key signatures. Firstly, the metallic phase is defined by a closing of the fermion gap -- that is, it is driven by vortex configurations with a gapless fermionic spectrum. Secondly, we expect the density of states in a thermal metal to diverge logarithmically with energy and display characteristic low energy oscillations predicted by random matrix theory (RMT)~\cite{bocquet_disordered_2000, selfThermallyInducedMetallic2019}. Below we show that all of the above features carry over to the amorphous QSL with spontaneous TRS breaking. 
+
+\par
+We study the closing of the fermion gap using the flux density $\rho$ as a proxy for temperature. This approximation is exact in the limits $T = 0$ ($\rho = 0$) and $T \to \infty$ ($\rho = 0.5$). At intermediate temperatures the method neglects the influence of flux-flux correlations. However, we are only interested in whether the gap closes at all. The fermionic density of states as a function of $\rho$ is shown in~\cref{fig:DOS_Oscillations}(a). As the defect density increases, the gap becomes populated with fermionic states. We quantify the degree to which a state is localised by calculating the dimensional scaling exponent of the IPR with the linear extent of the system, $L\sim\sqrt{N}$, with $N$ being the number of sites on the lattice,
+\begin{equation}
+    \mathrm{IPR} \propto L^{-\tau}.
+\end{equation}
+At small $\rho$, the states populating the gap possess $\tau\approx0$, indicating that they are localised states pinned to individual fluxes -- the system remains insulating. At larger $\rho$, the in-gap states merge with the bulk band and become extensive, closing the gap -- the system transitions to a metallic phase.
+
+Finally, the averaged density of states in the $\rho = 0.5$ case is shown in \cref{fig:DOS_Oscillations}(b) for both the Honeycomb model and our amorphous lattice. Note that only the honeycomb model is calculated in the presence of an effective magnetic field explicitly breaking TRS. In both cases we see the logarithmic scaling alongside the characteristic RMT oscillations at low energy, giving strong evidence that the amorphous model displays a finite temperature transition to a thermal metal phase. 
+
+
+{\it Discussion and Conclusions ---}
+We have studied an extension of the Kitaev honeycomb model to amorphous lattices with coordination number $z= 3$. We found that it is able to support two quantum spin liquid phases that can be distinguished using a real-space generalisation of the Chern number. The presence of odd-sided plaquettes results in a spontaneous breaking of TRS, and the emergence of a chiral spin liquid phase. Furthermore we found evidence that the amorphous system undergoes an Anderson transition to a thermal metal phase, driven by the proliferation of vortices with increasing temperature. 
+Our exactly soluble chiral QSL provides a first example of a topologically quantum many-body phase in amorphous magnets, which raises a number of questions for future research. 
+
+First, a numerically challenging task would be a study of the full finite temperature phase diagram via Monte-Carlo sampling and possible violations of the Harris criterion for the Ising transition stemming from the inherent lattice disorder~\cite{barghathi2014phase,schrauth2018two,schrauth2018violation}. Second, it would be worthwhile to search for experimental realisation of amorphous Kitaev materials, which can possibly be created from crystalline ones using standards method of repeated liquifying and fast cooling cycles~\cite{Weaire1976,Petrakovski1981,Kaneyoshi2018}. The putative QSL behavior of the intercalated Kitaev compound H$_3$LiIr$_2$O$_6$~\cite{kitagawa2018spin,knolle2019bond} could possibly be related to amorphous lattice disorder. Moreover, metal organic frameworks are promising platforms forming amorphous lattices~\cite{bennett2014amorphous} with recent proposals for realizing strong Kitaev interactions~\cite{yamada2017designing} as well as reports of QSL behavior~\cite{misumi2020quantum}. We expect that an experimental signature of a chiral amorphous QSL is a half-quantized thermal Hall effect similar to magnetic field induced behavior of honeycomb Kitaev materials~\cite{Kasahara2018,Yokoi2021,Yamashita2020,Bruin2022}. Alternatively, it could be characterized by local probes such as spin-polarized STM~\cite{Feldmeier2020,Konig2020,Udagawa2021} and the thermal metal phase displays characteristic longitudinal heat transport signatures \cite{Beenakker2013}. Third, it would be interesting to study the stability of the chiral amorphous Kitaev QSL with respect to perturbations~\cite{Rau2014,Chaloupka2010,Chaloupka2013,Chaloupka2015,Winter2016} and, importantly, to investigate whether QSL may exist for spin-isotropic Heisenberg models on amorphous lattices. 
+
+Overall, there has been surprisingly little research on amorphous quantum many body phases albeit material candidates aplenty. We expect our exact chiral amorphous spin liquid to find many generalisation to realistic amorphous quantum magnets and beyond. 
+
+
+\vspace{0.3cm}
+{\it Acknowledgements--- } 
+We thank Adolfo Grushin and Cecille Repellin for helpful discussions and collaboration on related work. 
+JK acknowledges support via the Imperial-TUM flagship partnership. The research is part of the Munich Quantum Valley, which is supported by the Bavarian state government with funds from the Hightech Agenda Bayern Plus. This work was supported in part by the Engineering and Physical Sciences Research Council (EP/T51780X/1 GC, EP/R513052/1 TH, PD).
+
+\nocite{Karp1972,imms-sat18, koala}
+\bibliography{refs}% Produces the bibliography via BibTeX.
+
+\input{appendices}
+
+\end{document}
+
