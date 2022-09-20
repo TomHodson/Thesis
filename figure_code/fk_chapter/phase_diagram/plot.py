@@ -8,6 +8,7 @@ import matplotlib as mpl
 
 from FKMC.general import smooth
 import matplotlib.gridspec as gridspec
+from matplotlib.colors import to_hex
 
 column_width = w = 3.375
 black_line_widths = 1.2
@@ -37,6 +38,10 @@ gapless_color = to_rgba('#e1a3f0')
 gapped_color = colors[3]
 gapless_color = colors[-1]
 cdw_gapped_midpoint = np.mean([cdw_color, gapped_color], axis = 0)
+
+print("cdw: ", to_hex(cdw_color))
+print("Anderson: ", to_hex(gapless_color))
+print("Mott: ", to_hex(gapped_color))
 
 Tc = 2.25
 

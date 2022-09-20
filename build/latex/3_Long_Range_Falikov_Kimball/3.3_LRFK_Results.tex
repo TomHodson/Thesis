@@ -6,15 +6,6 @@
 
 Using the MCMC methods described in the previous section I will now discuss the results of extensive MCMC simulations of the model, starting with the phase diagram in the fermion spin coupling \(U\), the strength of the long range spin-spin coupling \(J\) and the temperature \(T\).
 
-\hypertarget{fig:binder_cumulants}{%
-\begin{figure}
-\centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/fk_chapter/binder_cumulants/binder_cumulants}
-\caption[{Binder Cumulants}]{(Left) The order parameters, \(\langle m^2 \rangle\)(solid) and \(1 - f\) (dashed) describing the onset of the charge density wave phase of the long-range 1D Falicov model at low temperature with staggered magnetisation \(m = N^{-1} \sum_i (-1)^i S_i\) and fermionic order parameter \(f = 2 N^{-1}|\sum_i (-1)^i \; \langle c^\dagger_{i}c_{i}| \rangle\) . (Right) The crossing of the Binder cumulant, \(B = \langle m^4 \rangle / \langle m^2 \rangle^2\), with system size provides a diagnostic that the phase transition is not a finite size effect, it's used to estimate the critical lines shown in the phase diagram \cref{fig:phase_diagram} . All plots use system sizes \(N = [10,20,30,50,70,110,160,250]\) and lines are coloured from \(N = 10\) in dark blue to \(N = 250\) in yellow. The parameter values \(U = 5,\;J = 5,\;\alpha = 1.25\) except where explicitly mentioned.}
-\label{fig:binder_cumulants}
-\end{figure}
-}
-
 Fig \cref{fig:phase_diagram} shows the phase diagram for constant \(U=5\) and constant \(J=5\), respectively. The transition temperatures were determined from the crossings of the Binder cumulants \(B_4 = \langle m^4 \rangle /\langle m^2 \rangle^2\)~\autocite{binderFiniteSizeScaling1981}. For a representative set of parameters, \cref{fig:binder_cumulants} shows the order parameter \(\langle m \rangle^2\) and the Binder cumulants, both as functions of system size and temperature. The crossings confirm that the system has a FTPT and that the ordered phase is not a finite size effect.
 
 The CDW transition temperature is largely independent from the strength of the interaction \(U\). This demonstrates that the phase transition is driven by the long-range term \(J\) with little effect from the coupling to the fermions \(U\). The physics of the spin sector in the long-range FK model mimics that of the long range Ising (LRI) model and is not significantly altered by the presence of the fermions. In two dimensions the transition to the CDW phase is mediated by an RKYY-like interaction~\autocite{rusinCalculationRKKYRange2017} but this is insufficient to stabilise long range order in one dimension. That the critical temperature \(T_c\) does not depend on \(U\) in our model further confirms this.
@@ -100,9 +91,25 @@ H_{\mathrm{DM}} = & \;U \sum_{i} (-1)^i \; d_i \;(c^\dagger_{i}c_{i} - \tfrac{1}
 
 \cref{fig:DM_DOS} and \cref{fig:DM_IPR_scaling} compare the FK model to the disorder model at different system sizes, matching the defect densities of the disorder model to the FK model at \(N = 270\) above and below the CDW transition. We find very good, even quantitative, agreement between the FK and disorder models, which suggests that correlations in the spin sector do not play a significant role.
 
+\hypertarget{fig:DM_DOS}{%
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/fk_chapter/disorder_model/DM_DOS}
+\caption[{A comparison of the full FK model to a simple binary disorder model.}]{A comparison of the full FK model to a simple binary disorder model (DM) with a CDW wave background perturbed by uncorrelated defects at density \(0 < \rho < 1\) matched to the \(\rho\) for the largest corresponding FK model. As in \cref{fig:DOS}, the Energy resolved DOS(\(\omega\)) is shown. The DOSs match well implying that correlations in the CDW wave fluctuations are not relevant at these system parameters.}
+\label{fig:DM_DOS}
+\end{figure}
+}
+
 As we can sample directly from the disorder model, rather than through MCMC, the samples are uncorrelated. Hence we can evaluate much larger system sizes with the disorder model which enables us to pin down the correct localisation effects. In particular, what appear to be delocalized states for small system sizes eventually turn out to be states with large localization length. The localization length diverges towards the ordered zero temperature CDW state. The interplay of interactions, which here produce as peculiar binary potential, and localization can be very intricate and the added advantage of a 1D model is that we can explore very large system sizes.
 
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/fk_chapter/disorder_model/DM_DOS} \includegraphics[width=1\textwidth,height=\textheight]{figure_code/fk_chapter/disorder_model/DM_IPR_scaling}
+\hypertarget{fig:DM_IPR_scaling}{%
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/fk_chapter/disorder_model/DM_IPR_scaling}
+\caption[{A comparison of the full FK model to a simple binary disorder model.}]{A comparison of the full FK model to a simple binary disorder model (DM) with a CDW wave background perturbed by uncorrelated defects at density \(0 < \rho < 1\) matched to the \(\rho\) for the largest corresponding FK model. As in \cref{fig:IPR_scaling} \(\tau(\omega)\) the scaling of IPR(\(\omega\)) with system size, , is shown both in gap (\(\omega_0\)) and in the band (\(\omega_1\)). This data makes clear that the apparent scaling of IPR with system size at small sysis a finite size effect due to weak localisation~\autocite{antipovInteractionTunedAndersonMott2016}, hence all the states are indeed localised as one would expect in 1D. The disorder model \(\tau_0,\tau_1\) for each figure are: (a) \(0.01\pm0.05, -0.02\pm0.06\) (b) \(0.01\pm0.04, -0.01\pm0.04\) (c) \(0.05\pm0.06, 0.04\pm0.06\) (d) \(-0.03\pm0.06, 0.01\pm0.06\). The lines are fit on system sizes \(N > 400\)}
+\label{fig:DM_IPR_scaling}
+\end{figure}
+}
 
 \hypertarget{fk-conclusion}{%
 \section{Discussion and Conclusion}\label{fk-conclusion}}

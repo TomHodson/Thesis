@@ -76,29 +76,25 @@ In order to reduce the effects of the boundary conditions and the finite size of
 
 \[
 \begin{aligned}
-J'(x) &= \abs{\frac{L}{\pi}\sin \frac{\pi x}{L}}^{-\alpha} \\
+J'(x) &= \frac{L}{\pi}\left|\;\sin \frac{\pi x}{L}\;\right|^{-\alpha} \\
 J(x) &= \frac{J_0 J'(x)}{\sum_y J'(y)}
-\end{aligned}\] \% The scaling ensures that, in the ordered phase, the overall potential felt by each site due to the rest of the system is independent of system size.
+\end{aligned}
+\]
+
+The scaling ensures that, in the ordered phase, the overall potential felt by each site due to the rest of the system is independent of system size.
 
 \hypertarget{binder-cumulants}{%
 \subsection{Binder Cumulants}\label{binder-cumulants}}
 
-The Binder cumulant is defined as: \[U_B = 1 - \frac{\tex{\mu_4}}{3\tex{\mu_2}^2}\] \% where \[\mu_n = \tex{(m - \tex{m})^n}\] \% are the central moments of the order parameter m: \[m = \sum_i (-1)^i (2n_i - 1) / N\] \% The Binder cumulant evaluated against temperature can be used as a diagnostic for the existence of a phase transition. If multiple such curves are plotted for different system sizes, a crossing indicates the location of a critical point~\autocite{binderFiniteSizeScaling1981,musialMonteCarloSimulations2002}.
+The Binder cumulant is defined as:
 
-\hypertarget{diagnostics-of-localisation}{%
-\subsection{Diagnostics of Localisation}\label{diagnostics-of-localisation}}
+\[
+U_B = 1 - \frac{\langle\mu_4\rangle}{3\langle\mu_2\rangle^2}
+\]
 
-\hypertarget{inverse-participation-ratio}{%
-\subsubsection{Inverse Participation Ratio}\label{inverse-participation-ratio}}
+where \(\mu_n = \langle(m - \langle m\rangle)^n\rangle\) are the central moments of the order parameter \(m = \sum_i (-1)^i (2n_i - 1) / N\). The Binder cumulant evaluated against temperature is a diagnostic for the existence of a phase transition. If multiple such curves are plotted for different system sizes, a crossing indicates the location of a critical point while the lines do not cross for systems that don't have a phase transition in the thermodynamic limit~\autocite{binderFiniteSizeScaling1981,musialMonteCarloSimulations2002}.
 
-The inverse participation ratio is defined for a normalised wave function \(\psi_i = \psi(x_i), \sum_i \abs{\psi_i}^2 = 1\) as its fourth moment~\autocite{kramerLocalizationTheoryExperiment1993}: \[
-P^{-1} = \sum_i \abs{\psi_i}^4
-\] \% It acts as a measure of the portion of space occupied by the wave function. For localised states it will be independent of system size while for plane wave states in d dimensions \$P = L\^{}d \$. States may also be intermediate between localised and extended, described by their fractal dimensionality \(d > d* > 0\): \[
-P(L) \goeslike L^{d*} 
-\] \% For extended states \(d* = 0\) while for localised ones \(d* = 0\). In this work we take use an energy resolved IPR~\autocite{andersonAbsenceDiffusionCertain1958}: \[
-DOS(\omega) = \sum_n \delta(\omega - \epsilon_n)
-IPR(\omega) = DOS(\omega)^{-1} \sum_{n,i} \delta(\omega - \epsilon_n) \abs{\psi_{n,i}}^4
-\] Where \(\psi_{n,i}\) is the wavefunction corresponding to the energy \(\epsilon_n\) at the ith site. In practice we bin the energies and IPRs into a fine energy grid and use Lorentzian smoothing if necessary.
+\includegraphics[width=1\textwidth,height=\textheight]{figure_code/fk_chapter/binder_cumulants/binder_cumulants}
 
 {MCMC} sidesteps these issues by defining a random walk that focuses on the states with the greatest Boltzmann weight. At low temperatures this means we need only visit a few low energy states to make good estimates while at high temperatures the weights become uniform so a small number of samples distributed across the state space suffice. However we will see that the method is not without difficulties of its own.
 
