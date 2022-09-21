@@ -1,0 +1,120 @@
+---
+title: The Long Range Falikov-Kimball Model - The Model
+excerpt: 
+layout: none
+image: 
+
+---
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>The Long Range Falikov-Kimball Model - The Model</title>
+
+
+<script src="/assets/mathjax/tex-mml-svg.js" id="MathJax-script" async></script>
+<script src="/assets/js/thesis_scrollspy.js"></script>
+
+<link rel="stylesheet" href="/assets/css/styles.css">
+<script src="/assets/js/index.js"></script>
+</head>
+<body>
+
+<!--Capture the table of contents from pandoc as a jekyll variable  -->
+{% capture tableOfContents %}
+<br>
+<nav aria-label="Table of Contents" class="page-table-of-contents">
+<ul>
+<li><a href="#chap:3-the-long-range-falicov-kimball-model" id="toc-chap:3-the-long-range-falicov-kimball-model">3 The Long Range Falicov-Kimball Model</a></li>
+<li><a href="#sec:lrfk-model" id="toc-sec:lrfk-model">The Model</a></li>
+<li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
+</ul>
+</nav>
+{% endcapture %}
+
+<!-- Give the table of contents to header as a variable so it can be put into the sidebar-->
+{% include header.html extra=tableOfContents %}
+
+<main>
+
+<!-- Table of Contents -->
+<!-- <nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#chap:3-the-long-range-falicov-kimball-model" id="toc-chap:3-the-long-range-falicov-kimball-model">3 The Long Range Falicov-Kimball Model</a></li>
+<li><a href="#sec:lrfk-model" id="toc-sec:lrfk-model">The Model</a></li>
+<li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
+</ul>
+</nav>
+ -->
+
+<!-- Main Page Body -->
+<div id="page-header">
+<p>3 The Long Range Falicov-Kimball Model</p>
+<hr />
+</div>
+<section id="chap:3-the-long-range-falicov-kimball-model" class="level1">
+<h1>3 The Long Range Falicov-Kimball Model</h1>
+<p><strong>Contributions</strong></p>
+<p>This chapter expands on work presented in</p>
+<p> <span class="citation" data-cites="hodsonOnedimensionalLongrangeFalikovKimball2021"> [<a href="#ref-hodsonOnedimensionalLongrangeFalikovKimball2021" role="doc-biblioref">1</a>]</span> <a href="https://link.aps.org/doi/10.1103/PhysRevB.104.045116">One-dimensional long-range Falikov-Kimball model: Thermal phase transition and disorder-free localization</a>, Hodson, T. and Willsher, J. and Knolle, J., Phys. Rev. B, <strong>104</strong>, 4, 2021,</p>
+<p>The code is available online <span class="citation" data-cites="hodsonMCMCFKModel2021"> [<a href="#ref-hodsonMCMCFKModel2021" role="doc-biblioref">2</a>]</span>.</p>
+<p>Johannes had the initial idea to use a long range Ising term to stabilise order in a one dimension Falikov-Kimball model. Josef developed a proof of concept during a summer project at Imperial along with Alexander Belcik. I wrote the simulation code and performed all the analysis presented here.</p>
+<p><strong>Chapter Summary</strong></p>
+<p>The paper is organised as follows. First, I will introduce the long range Falicov-Kimball (LRFK) model and motivate its definition. Second, I will present the <a href="../3_Long_Range_Falicov_Kimball/3.2_LRFK_Methods.html#sec:lrfk-methods">methods</a> used to solve it numerically, including Markov chain Monte Carlo and finite size scaling. I will then present and interpret the <a href="../3_Long_Range_Falicov_Kimball/3.3_LRFK_Results.html#sec:lrfk-results">results</a> obtained.</p>
+</section>
+<section id="sec:lrfk-model" class="level1">
+<h1>The Model</h1>
+<p>Dimensionality is crucial for the physics of both localisation and phase transitions. We have already seen that the one dimensional standard FK model cannot support an ordered phase at finite temperatures and therefore has no finite temperature phase transition (FTPT).</p>
+<p>On bipartite lattices in dimensions 2 and above the FK model exhibits a finite temperature phase transition to an ordered charge density wave (CDW) phase <span class="citation" data-cites="maskaThermodynamicsTwodimensionalFalicovKimball2006"> [<a href="#ref-maskaThermodynamicsTwodimensionalFalicovKimball2006" role="doc-biblioref">3</a>]</span>. In this phase, the spins order anti-ferromagnetically, breaking the <span class="math inline">\(\mathbb{Z}_2\)</span> symmetry. In 1D, however, Periel’s argument <span class="citation" data-cites="peierlsIsingModelFerromagnetism1936 kennedyItinerantElectronModel1986"> [<a href="#ref-peierlsIsingModelFerromagnetism1936" role="doc-biblioref">4</a>,<a href="#ref-kennedyItinerantElectronModel1986" role="doc-biblioref">5</a>]</span> states that domain walls only introduce a constant energy penalty into the free energy while bringing a entropic contribution logarithmic in system size. Hence the 1D model does not have a finite temperature phase transition. However 1D systems are much easier to study numerically and admit simpler realisations experimentally. We therefore introduce a long-range coupling between the ions in order to stabilise a CDW phase in 1D.</p>
+<p>We interpret the FK model as a model of spinless fermions, <span class="math inline">\(c^\dagger_{i}\)</span>, hopping on a 1D lattice against a classical Ising spin background, <span class="math inline">\(S_i \in {\pm \frac{1}{2}}\)</span>. The fermions couple to the spins via an onsite interaction with strength <span class="math inline">\(U\)</span> which we supplement by a long-range interaction, <span class="math display">\[
+J_{ij} = 4\kappa J\; (-1)^{|i-j|} |i-j|^{-\alpha},
+\]</span></p>
+<p>between the spins. The additional coupling is very similar to that of the long range Ising model, it stabilises the Antiferromagnetic (AFM) order of the Ising spins which promotes the finite temperature CDW phase of the fermionic sector.</p>
+<p>The hopping strength of the electrons, <span class="math inline">\(t = 1\)</span>, sets the overall energy scale and we concentrate throughout on the particle-hole symmetric point at zero chemical potential and half filling <span class="citation" data-cites="gruberFalicovKimballModelReview1996"> [<a href="#ref-gruberFalicovKimballModelReview1996" role="doc-biblioref">6</a>]</span>.</p>
+<p><span class="math display">\[\begin{aligned}
+H_{\mathrm{FK}} = &amp; \;U \sum_{i} S_i\;(c^\dagger_{i}c_{i} - \tfrac{1}{2}) -\;t \sum_{i} (c^\dagger_{i}c_{i+1} + \textit{h.c.)}\\
+&amp;  + \sum_{i, j}^{N} J_{ij}  S_i S_j
+\label{eq:HFK}\end{aligned}\]</span></p>
+<p>Without proper normalisation, the long range coupling would render the critical temperature strongly system size dependent for small system sizes. Within a mean field approximation the critical temperature scales with the effective coupling to all the neighbours of each site, which for a system with <span class="math inline">\(N\)</span> sites is <span class="math inline">\(\sum_{i=1}^{N} i^{-\alpha}\)</span>. Hence, the normalisation <span class="math inline">\(\kappa^{-1} = \sum_{i=1}^{N} i^{-\alpha}\)</span>, renders the critical temperature independent of system size in the mean field approximation. This greatly improves the finite size behaviour of the model.</p>
+<p>Taking the limit <span class="math inline">\(U = 0\)</span> decouples the spins from the fermions, which gives a spin sector governed by a classical LRI model. Note, the transformation of the spins <span class="math inline">\(S_i \to (-1)^{i} S_i\)</span> maps the AFM model to the FM one. As discussed in the background section, Peierls’ classic argument can be extended to long range couplings to show that, for the 1D LRI model, a power law decay of <span class="math inline">\(\alpha &lt; 2\)</span> is required for a FTPT as the energy of defect domain then scales with the system size and can overcome the entropic contribution. A renormalisation group analysis supports this finding and shows that the critical exponents are only universal for <span class="math inline">\(\alpha \leq 3/2\)</span> <span class="citation" data-cites="ruelleStatisticalMechanicsOnedimensional1968 thoulessLongRangeOrderOneDimensional1969 angeliniRelationsShortrangeLongrange2014"> [<a href="#ref-ruelleStatisticalMechanicsOnedimensional1968" role="doc-biblioref">7</a>–<a href="#ref-angeliniRelationsShortrangeLongrange2014" role="doc-biblioref">9</a>]</span>. In the following, we choose <span class="math inline">\(\alpha = 5/4\)</span> to avoid the additional complexity of non-universal critical points.</p>
+<p>Next Section: <a href="../3_Long_Range_Falicov_Kimball/3.2_LRFK_Methods.html">Methods</a></p>
+</section>
+<section id="bibliography" class="level1 unnumbered">
+<h1 class="unnumbered">Bibliography</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-hodsonOnedimensionalLongrangeFalikovKimball2021" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">T. Hodson, J. Willsher, and J. Knolle, <em><a href="https://doi.org/10.1103/PhysRevB.104.045116">One-Dimensional Long-Range Falikov-Kimball Model: Thermal Phase Transition and Disorder-Free Localization</a></em>, Phys. Rev. B <strong>104</strong>, 045116 (2021).</div>
+</div>
+<div id="ref-hodsonMCMCFKModel2021" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">T. Hodson, <em><a href="https://doi.org/10.5281/zenodo.4593904">Markov Chain Monte Carlo for the Kitaev Model</a></em>, (2021).</div>
+</div>
+<div id="ref-maskaThermodynamicsTwodimensionalFalicovKimball2006" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">M. M. Maśka and K. Czajka, <em><a href="https://doi.org/10.1103/PhysRevB.74.035109">Thermodynamics of the Two-Dimensional Falicov-Kimball Model: A Classical Monte Carlo Study</a></em>, Phys. Rev. B <strong>74</strong>, 035109 (2006).</div>
+</div>
+<div id="ref-peierlsIsingModelFerromagnetism1936" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">R. Peierls, <em><a href="https://doi.org/10.1017/S0305004100019174">On Ising’s Model of Ferromagnetism</a></em>, Mathematical Proceedings of the Cambridge Philosophical Society <strong>32</strong>, 477 (1936).</div>
+</div>
+<div id="ref-kennedyItinerantElectronModel1986" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">T. Kennedy and E. H. Lieb, <em><a href="https://doi.org/10.1016/0378-4371(86)90188-3">An Itinerant Electron Model with Crystalline or Magnetic Long Range Order</a></em>, Physica A: Statistical Mechanics and Its Applications <strong>138</strong>, 320 (1986).</div>
+</div>
+<div id="ref-gruberFalicovKimballModelReview1996" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">C. Gruber and N. Macris, <em>The Falicov-Kimball Model: A Review of Exact Results and Extensions</em>, Helvetica Physica Acta <strong>69</strong>, (1996).</div>
+</div>
+<div id="ref-ruelleStatisticalMechanicsOnedimensional1968" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">D. Ruelle, <em><a href="https://mathscinet.ams.org/mathscinet-getitem?mr=0234697">Statistical Mechanics of a One-Dimensional Lattice Gas</a></em>, Comm. Math. Phys. <strong>9</strong>, 267 (1968).</div>
+</div>
+<div id="ref-thoulessLongRangeOrderOneDimensional1969" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">D. J. Thouless, <em><a href="https://doi.org/10.1103/PhysRev.187.732">Long-Range Order in One-Dimensional Ising Systems</a></em>, Phys. Rev. <strong>187</strong>, 732 (1969).</div>
+</div>
+<div id="ref-angeliniRelationsShortrangeLongrange2014" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">M. C. Angelini, G. Parisi, and F. Ricci-Tersenghi, <em><a href="https://doi.org/10.1103/PhysRevE.89.062120">Relations Between Short-Range and Long-Range Ising Models</a></em>, Phys. Rev. E <strong>89</strong>, 062120 (2014).</div>
+</div>
+</div>
+</section>
+
+
+</main>
+</body>
+</html>

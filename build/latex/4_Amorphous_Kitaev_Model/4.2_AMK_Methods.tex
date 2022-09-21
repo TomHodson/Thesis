@@ -1,8 +1,5 @@
-\begin{Shaded}
-\begin{Highlighting}[]
-
-\end{Highlighting}
-\end{Shaded}
+\begin{lstlisting}[language=Python]
+\end{lstlisting}
 
 \hypertarget{amk-methods}{%
 \section{Methods}\label{amk-methods}}
@@ -119,7 +116,7 @@ Thus, it is a relatively standard technique in the computer science community to
 
 NP problems can be loosely considered as those which do not have a special structure than can be exploited to compute their solution in polynomial time. Our three-edge-colouring problem is likely not in NP. However, since we do not know what special structure it might have that could be used to speed up its solution, using a SAT solver appears to be a reasonable first method to try. As will be discussed later, this turned out to work well enough and looking for a better solution was not necessary.
 
-We use a solver called \texttt{MiniSAT}~\autocite{imms-sat18}. Like most modern SAT solvers, \texttt{MiniSAT} requires the input problem to be specified in Conjunctive Normal Form (CNF). CNF requires that the constraints be encoded as a set of \emph{clauses} of the form \[x_1 \;\textrm{or}\; -x_3 \;\textrm{or}\; x_5\] that contain logical ORs of some subset of the variables where any of the variables may also be logically NOT'd, which we represent by negation here.
+We use a solver called \passthrough{\lstinline!MiniSAT!}~\autocite{imms-sat18}. Like most modern SAT solvers, \passthrough{\lstinline!MiniSAT!} requires the input problem to be specified in Conjunctive Normal Form (CNF). CNF requires that the constraints be encoded as a set of \emph{clauses} of the form \[x_1 \;\textrm{or}\; -x_3 \;\textrm{or}\; x_5\] that contain logical ORs of some subset of the variables where any of the variables may also be logically NOT'd, which we represent by negation here.
 
 A solution of the problem is one that makes all the clauses simultaneously true.
 
@@ -131,9 +128,9 @@ The first constraint is a product of doing this mapping to boolean variables. Th
 
 Let's say we have three variables that correspond to particular edge being red \(r\), green \(g\) or blue \(b\).
 
-To require that exactly one of the variables be true, we can enforce that no pair of variables be true: \texttt{-(r\ and\ b)\ -(r\ and\ g)\ -(b\ and\ g)}
+To require that exactly one of the variables be true, we can enforce that no pair of variables be true: \passthrough{\lstinline!-(r and b) -(r and g) -(b and g)!}
 
-However, these clauses are not in CNF form. Therefore, we also have to use the fact that \texttt{-(a\ and\ b)\ =\ (-a\ OR\ -b)}. To enforce that at least one of these is true we simply OR them all together \texttt{(r\ or\ b\ or\ g)}
+However, these clauses are not in CNF form. Therefore, we also have to use the fact that \passthrough{\lstinline!-(a and b) = (-a OR -b)!}. To enforce that at least one of these is true we simply OR them all together \passthrough{\lstinline!(r or b or g)!}
 
 To encode the fact that no adjacent edges can have the same colour, we emit a clause that, for each pair of adjacent edges, they cannot be both red, both green or both blue.
 

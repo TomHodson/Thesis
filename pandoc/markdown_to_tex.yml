@@ -13,6 +13,7 @@ filters:
   - ${.}/latex_filter.py
   - ${.}/latex_short_caption.lua
   
+listings: true #use the listings package to format code blocks
 
 # top-level-division: chapter
 

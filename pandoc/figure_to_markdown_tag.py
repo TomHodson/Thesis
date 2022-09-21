@@ -25,6 +25,7 @@ for a in tags:
     src = a.img['src']
     name = Path(src).stem
     if not tag_id: tag_id = f"#fig:{name}"
+    if not tag_id.startswith("#fig:"): tag_id = "#fig:" + tag_id
     
     style = a.img.get('style', 'max-width:700px;')
     style = dict([l.split(':') for l in style.split(";") if l])

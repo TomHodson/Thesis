@@ -19,9 +19,7 @@ This gives us the Hamiltonian \begin{equation}\protect\hypertarget{eq:bg-kh-mode
 
 The KH can arise as the result of strong spin-orbit couplings in, for example, the transition metal based compounds~\autocite{Jackeli2009,HerrmannsAnRev2018,Winter2017,TrebstPhysRep2022,Takagi2019}. The model is highly frustrated: each spin would like to align along a different direction with each of its three neighbours. This cannot be achieved even classically~\autocite{chandraClassicalHeisenbergSpins2010,selaOrderbydisorderSpinorbitalLiquids2014}. This frustration leads the the model to have a quantum spin liquid (QSL) ground state, a complex many body state with a high degree of entanglement but no long range magnetic order even at zero temperature. While the possibility of a QSL ground state was suggested much earlier~\autocite{andersonResonatingValenceBonds1973}, the KH model was one of the first concrete models of the QSL state. The KH model has a rich ground state phase diagram with gapless and gapped phases, the latter supporting fractionalised quasiparticles with both Abelian and non-Abelian quasiparticle excitations. Anyons have been the subject of much attention because, among other reasons, they can be braided through spacetime to achieve noise tolerant quantum computations~\autocite{freedmanTopologicalQuantumComputation2003}. At finite temperature the KH model undergoes a phase transition to a thermal metal state~\autocite{selfThermallyInducedMetallic2019}. The KH model can be solved exactly via a mapping to Majorana fermions. This mapping yields an extensive number of static \(\mathbb Z_2\) fluxes tied to an emergent gauge field with the remaining fermions are governed by a free fermion hamiltonian.
 
-This section will go over the standard model in detail, first discussing \protect\hyperlink{the-spin-model}{the spin model}, then detailing the transformation to a \protect\hyperlink{the-majorana-model}{Majorana hamiltonian} that allows a full solution while enlarging the Hamiltonian. We will discuss the properties of the \protect\hyperlink{emergent-gauge-fields}{emergent gauge fields} and the projector. We will then discuss the \protect\hyperlink{bg-the-ground-state}{ground state} found via Lieb's theorem as well as work on generalisations of the ground state to other lattices. Finally we will look at the phase diagram.
-
-The \protect\hyperlink{anyonic-statistics}{next section} will discuss anyons, topology and the Chern number, using the Kitaev model as an explicit example of these topics.
+This section will go over the standard model in detail, first discussing \protect\hyperlink{the-spin-model}{the spin model}, then detailing the transformation to a \protect\hyperlink{the-majorana-model}{Majorana hamiltonian} that allows a full solution while enlarging the Hamiltonian. We will discuss the properties of the \protect\hyperlink{an-emergent-gauge-field}{emergent gauge fields} and the projector. The \protect\hyperlink{sec:anyons}{next section} will discuss anyons, topology and the Chern number, using the Kitaev model as an explicit example of these topics. Finally will then discuss the ground state found via Lieb's theorem as well as work on generalisations of the ground state to other lattices. Finally we will look at the \protect\hyperlink{ground-state-phases}{phase diagram}.
 
 \hypertarget{the-spin-model}{%
 \subsection{The Spin Model}\label{the-spin-model}}
@@ -71,7 +69,7 @@ The tildes on the spin operators \(\tilde{\sigma_i^\alpha}\) emphasis that they 
 
 The Pauli matrices, however, have the additional property that the \emph{chiral element} \(\sigma^x \sigma^y \sigma^z = i\), this relation is not determined by the group properties of \(G_{3,0}\). Therefore to fully reproduce the algebra of the Pauli matrices we must project into the subspace where \(\tilde{\sigma}^x \tilde{\sigma}^y \tilde{\sigma}^z = i\). The chiral element of the gamma matrices for instance \(\gamma_5 = i\gamma^0 \gamma^1 \gamma^2 \gamma^3\) is of central importance in quantum field theory. See~\autocite{petitjeanChiralityDiracSpinors2020} for more discussion of this group theoretic view.
 
-The projector must project onto the subspace where \(\tilde \sigma^x \tilde \sigma^y \tilde \sigma^z = i\). If we work this through we find that in general \$\tilde \sigma\^{}x \tilde \sigma\^{}y \tilde\sigma\^{}z = iD \$ where \(D = b^x b^y b^z c\) must be the identity for every site. In other words, we can only work with \emph{physical states} \(|\phi\rangle\) that satisfy \$ D\_i\textbar{}\phi\rangle = \textbar{}\phi\rangle\$ for all sites \(i\). From this we construct an on-site projector \(P_i = \frac{1 + D_i}{2}\) and the overall projector is simply \(P = \prod_i P_i\).
+The projector must project onto the subspace where \(\tilde \sigma^x \tilde \sigma^y \tilde \sigma^z = i\). If we work this through we find that in general \(\tilde \sigma^x \tilde \sigma^y \tilde\sigma^z = iD\) where \(D = b^x b^y b^z c\) must be the identity for every site. In other words, we can only work with \emph{physical states} \(|\phi\rangle\) that satisfy \(D_i|\phi\rangle = |\phi\rangle\) for all sites \(i\). From this we construct an on-site projector \(P_i = \frac{1 + D_i}{2}\) and the overall projector is simply \(P = \prod_i P_i\).
 
 Another way to see what this is doing physically is to explicitly construct the two intermediate fermionic operators \(f\) and \(g\) that give rise to these four Majoranas. Working through the algebra we see that the \(D\) operator corresponds to the fermion parity \(D = -(2n_f - 1)(2n_g - 1)\) where \(n_f,\; n_g\) are the number operators. Expanding the product \(\prod_i P_i\) out, we find that the projector corresponds to a symmetrisation over \(\{u_{ij}\}\) states within a flux sector and and overall fermion parity \(\prod_i D_i\). This tells us that any arbitrary state can be made to have non-zero overlap with the physical subspace via the addition or removal of a single fermion. This implies that in the thermodynamic limit the projection step is not generally necessary to extract physical results, see~\autocite{pedrocchiPhysicalSolutionsKitaev2011} or \protect\hyperlink{app-the-projector}{appendix A.5} for more details.
 
@@ -141,12 +139,19 @@ Thus we can interpret the fluxes \(\phi_i\) as the exponential of magnetic fluxe
 
 Understanding \(u_{ij}\) as a gauge field provides another way to understand the action of the projector. The local projector \(P_i = \frac{1 + D_i}{2}\) applied to a state constructs a superposition of the original state and the gauge equivalent state linked to it by flipping the three \(u_{ij}\) around site \(i\). The overall projector \(P = \prod_i P_i\) can thus be understood as a symmetrisation over all gauge equivalent states, removing the gauge degeneracy introduced by the mapping from spins to Majoranas.
 
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/intro/flood_fill/flood_fill} \includegraphics[width=0.57\textwidth,height=\textheight]{figure_code/amk_chapter/topological_fluxes.png}
+\hypertarget{fig:topological_fluxes}{%
+\begin{figure}
+\centering
+\includegraphics[width=0.57\textwidth,height=\textheight]{figure_code/amk_chapter/topological_fluxes.png}
+\caption[{Topological Fluxes}]{Wilson loops that wind the major or minor diameters of the torus measure flux winding through the hole of the doughnut/torus or through the filling. If they made doughnuts with both had a jam filling and a hole, this analogy would be a lot easier to make~\autocite{parkerWhyDoesThis}.}
+\label{fig:topological_fluxes}
+\end{figure}
+}
 
 A final but important point to mention is that is that the local fluxes \(\phi_i\) are not quite all there is. We've seen that products of \(\phi_i\) can be used to construct the flux associated with arbitrary contractible loops. On the plane contractible loops are all there are. However, on the torus we can construct two global fluxes \(\Phi_x\) and \(\Phi_y\) which correspond to paths tracing the major and minor axes. The four sectors spanned by the \(\pm1\) values of these fluxes are gapped away from one another but only by virtual tunnelling processes so the gap decays exponentially with system size~\autocite{kitaevAnyonsExactlySolved2006}. Physically \(\Phi_x\) and \(\Phi_y\) could be thought of as measuring the flux that threads through the hole of the doughnut. In general, surfaces with genus \(g\) have \(g\) `handles' and \(2g\) of these global fluxes. At first glance it may seem this would not have much relevance to physical realisations of the Kitaev model that will likely have a planar geometry with open boundary conditions. However these fluxes are closely linked to topology and the existence of anyonic quasiparticle excitations in the model, which we will discuss next.
 
-\hypertarget{anyons-topology-and-the-chern-number}{%
-\subsection{Anyons, Topology and the Chern number}\label{anyons-topology-and-the-chern-number}}
+\hypertarget{sec:anyons}{%
+\subsection{Anyons, Topology and the Chern number}\label{sec:anyons}}
 
 \hypertarget{fig:braiding}{%
 \begin{figure}
@@ -164,15 +169,6 @@ In gapped condensed matter systems, all equal time correlators decay exponential
 First we realise that in two dimensions, swapping identical particles twice is not topologically equivalent to the identity, see \cref{fig:braiding}. Instead it corresponds to encircling one particle around the other. This means we can in general pick up any complex phase \(e^{i\theta}\), hence the name \textbf{any}-ons upon exchange. These are known as Abelian anyons because complex multiplication commutes and hence the group of braiding operations forms and Abelian group.
 
 The KH model has a topologically degenerate ground state with sectors labelled by the values of the topological fluxes \((\Phi_x\), \(\Phi_y)\). Consider the operation in which a quasiparticle pair is created from the ground state, transported around one of the non-contractible loops and then annihilated together, call them \(\mathcal{T}_{x}\) and \(\mathcal{T}_{y}\). These operations move us around within the ground state manifold and they need not commute. This leads to non-Abelian anyons. As Kitaev points out, these operations are not specific to the torus: the operation \(\mathcal{T}_{x}\mathcal{T}_{y}\mathcal{T}_{x}^{-1}\mathcal{T}_{y}^{-1}\) corresponds to an operation in which none of the particles crosses the torus, rather one simply winds around the other, hence these effects of relevant even for the planar case.
-
-\hypertarget{fig:types_of_dual_loops_animated}{%
-\begin{figure}
-\centering
-\includegraphics[width=1\textwidth,height=\textheight]{figure_code/amk_chapter/intro/types_of_dual_loops_animated/types_of_dual_loops_animated}
-\caption[{Dual Loops and Vortex Pairs}]{The different kinds of strings and loops that we can make by flipping bond variables or transporting vortices around. (a) Flipping a single bond \(u_{ij}\) makes a pair of vortices on either side. (b) Flipping a string of bonds separates the vortex pair spatially. The flipped bonds form a path (in red) on the dual lattice. (c) If we create a vortex-vortex pair, transport one of them around a loop and then annihilate them, we can change the bond sector without changing the vortex sector. This is a manifestation of the gauge symmetry of the bond sector. (d) If we transport a vortex around the major or minor axes of the torus, we create a non-contractable loop of bonds \(\hat{\mathcal{T}}_{x/y}\). Unlike all the other dual loops, These operators cannot be constructed from the contractable loops created by \(D_j\). operators and they flip the value of the topological fluxes. \href{http://thomashodson.com/assets/thesis/figure_code/amk_chapter/intro/types_of_dual_loops_animated/types_of_dual_loops_animated.gif}{ Animated version online.}}
-\label{fig:types_of_dual_loops_animated}
-\end{figure}
-}
 
 In condensed matter systems, the existence of anyonic excitations automatically implies the system has topological ground state degeneracy on the torus~\autocite{einarssonFractionalStatisticsTorus1990} and indeed anyons and topology are intimately linked~\autocite{oshikawaTopologicalDegeneracyNonAbelian2007,Chung_Topological_quantum2010,yaoAlgebraicSpinLiquid2009}. Originally a concept used to describe complex vector bundles in algebraic topology~\autocite{chernCharacteristicClassesHermitian1946}, the Chern number has found use in physics as a powerful tool diagnostic tool for topological systems. Kitaev showed that vortices in the KH model are Abelian when the Chern number is even and non-Abelian when the Chern number is odd. In the odd case the non-Abelian statistics of the vortices arise due to unpaired Majorana modes that are bound to them.
 
@@ -198,22 +194,6 @@ An external magnetic can be used to break chiral symmetry. The lowest order term
 
 At finite temperatures, recent work has shown that the KH model undergoes a transition to a thermal metal phase.
 
-\textbf{Summary}
-
-We have seen that\ldots{}
-
-\textbf{Summary} The Kitaev Honeycomb model is remarkable because it combines three key properties. First, the form of the Hamiltonian plausibly be realised by a real material. Candidate materials, such as \(\alpha\mathrm{-RuCl}_3\), are known to have sufficiently strong spin-orbit coupling and the correct lattice structure to behave according to the Kitaev Honeycomb model with small corrections~\autocite{banerjeeProximateKitaevQuantum2016,TrebstPhysRep2022}. Second, its ground state is the canonical example of the long sought after quantum spin liquid state. Its excitations are anyons, particles that can only exist in two dimensions that break the normal fermion/boson dichotomy.
+To surmise, the Kitaev Honeycomb model is remarkable because it combines three key properties. First, the form of the Hamiltonian plausibly be realised by a real material. Candidate materials, such as \(\alpha\mathrm{-RuCl}_3\), are known to have sufficiently strong spin-orbit coupling and the correct lattice structure to behave according to the Kitaev Honeycomb model with small corrections~\autocite{banerjeeProximateKitaevQuantum2016,TrebstPhysRep2022}. Second, its ground state is the canonical example of the long sought after quantum spin liquid state, its dynamical spin-spin correlation functions are zero beyond nearest neighbour separation~\autocite{baskaranExactResultsSpin2007}. Its excitations are anyons, particles that can only exist in two dimensions that break the normal fermion/boson dichotomy.
 
 Third, and perhaps most importantly, this model is a rare many body interacting quantum system that can be treated analytically. It is exactly solvable. We can explicitly write down its many body ground states in terms of single particle states~\autocite{kitaevAnyonsExactlySolved2006}. The solubility of the Kitaev Honeycomb Model, like the Falikov-Kimball model of chapter 1, comes about because the model has extensively many conserved degrees of freedom. These conserved quantities can be factored out as classical degrees of freedom, leaving behind a non-interacting quantum model that is easy to solve.
-
-``dynamical two spin correlation functions are identically zero beyond nearest neighbor separation in the Kitaev Model''~\autocite{baskaranExactResultsSpin2007}
-
-\begin{itemize}
-\tightlist
-\item
-  RuCl\_3 is the classic QSL candidate material
-\item
-  really follows the Kitaev-Heisenberg model
-\item
-  experimental probes include inelastic neutron scattering, Raman scattering
-\end{itemize}

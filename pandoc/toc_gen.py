@@ -56,8 +56,8 @@ chapters = [
     contents = "2_Background"
     ),
     dict(
-    name = "3 The Long Range Falikov-Kimball Model",
-    contents = "3_Long_Range_Falikov_Kimball"
+    name = "3 The Long Range Falicov-Kimball Model",
+    contents = "3_Long_Range_Falicov_Kimball"
     ),
     dict(
     name = "4 The Amorphous Kitaev Model",
