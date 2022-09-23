@@ -37,15 +37,13 @@ def action(elem, doc):
         # img = pf.convert_text(elem.text, "html")[0].content[0]
         img = elem
         src = Path(img.url)
+        img.identifier = img.identifier.replace(":", "-").replace("#", "")  #: is not valid in HTML id attributes, use - instead
         if src.is_relative_to(base): 
             src = new_base / src.relative_to(base)
         
         if img.url.startswith("attachment:"):
             _, name = img.url.split(":")
             src = new_base / name
-
-        # if img.url.endswith(".svg") or img.url.endswith(".gif"):
-        #     src = src.parent / (src.stem + ".pdf")
             
         img.url = str(src)
         return img
