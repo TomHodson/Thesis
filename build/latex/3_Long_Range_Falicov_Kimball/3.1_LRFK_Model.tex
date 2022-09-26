@@ -15,6 +15,10 @@ The paper is organised as follows. First, I will introduce the long range Falico
 \hypertarget{sec:lrfk-model}{%
 \section{The Model}\label{sec:lrfk-model}}
 
+Dimensionality is crucial for the physics of both localisation and phase transitions. We have already seen that the one dimensional standard FK model cannot support an ordered phase at finite temperatures and therefore has no finite temperature phase transition (FTPT).
+
+On bipartite lattices in dimensions 2 and above the FK model exhibits a finite temperature phase transition to an ordered charge density wave (CDW) phase~\autocite{maskaThermodynamicsTwodimensionalFalicovKimball2006}. In this phase, the spins order anti-ferromagnetically, breaking the \(\mathbb{Z}_2\) symmetry. In 1D, however, Peierls's argument~\autocite{peierlsIsingModelFerromagnetism1936,kennedyItinerantElectronModel1986} states that domain walls only introduce a constant energy penalty into the free energy while bringing a entropic contribution logarithmic in system size. Hence the 1D model does not have a finite temperature phase transition. However 1D systems are much easier to study numerically and admit simpler realisations experimentally. We therefore introduce a long-range coupling between the ions in order to stabilise a CDW phase in 1D.
+
 \hypertarget{fig:lrfk_schematic}{%
 \begin{figure}
 \centering
@@ -23,10 +27,6 @@ The paper is organised as follows. First, I will introduce the long range Falico
 \label{fig:lrfk_schematic}
 \end{figure}
 }
-
-Dimensionality is crucial for the physics of both localisation and phase transitions. We have already seen that the one dimensional standard FK model cannot support an ordered phase at finite temperatures and therefore has no finite temperature phase transition (FTPT).
-
-On bipartite lattices in dimensions 2 and above the FK model exhibits a finite temperature phase transition to an ordered charge density wave (CDW) phase~\autocite{maskaThermodynamicsTwodimensionalFalicovKimball2006}. In this phase, the spins order anti-ferromagnetically, breaking the \(\mathbb{Z}_2\) symmetry. In 1D, however, Periel's argument~\autocite{peierlsIsingModelFerromagnetism1936,kennedyItinerantElectronModel1986} states that domain walls only introduce a constant energy penalty into the free energy while bringing a entropic contribution logarithmic in system size. Hence the 1D model does not have a finite temperature phase transition. However 1D systems are much easier to study numerically and admit simpler realisations experimentally. We therefore introduce a long-range coupling between the ions in order to stabilise a CDW phase in 1D.
 
 We interpret the FK model as a model of spinless fermions, \(c^\dagger_{i}\), hopping on a 1D lattice against a classical Ising spin background, \(S_i \in {\pm \frac{1}{2}}\). The fermions couple to the spins via an onsite interaction with strength \(U\) which we supplement by a long-range interaction, \[
 J_{ij} = 4\kappa J\; (-1)^{|i-j|} |i-j|^{-\alpha},

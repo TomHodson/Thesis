@@ -31,10 +31,12 @@ Ns= [3,4,5,6,7]
 fig, axes = plt.subplots(nrows=1, ncols=len(Ns))
 fig.set_size_inches(2 * w, 2 * w / len(Ns))
 
+gs_sector = [r"$- 1$", r"$\mp i$", r"$+ 1$", r"$\pm i$"]
+
 for n, ax in zip(Ns, axes):
-    l = eg.single_plaquette(n)
+    l = eg.single_plaquette(n, rotation = np.pi /(n) * (1 - n%2))
     pl.plot_edges(l,ax = ax, directions = True, arrow_head_length=0.05)
-    ax.text(0.5,0.5, r"$\pm i$" if n%2 else r"$\pm 1$", ha = "center", va = "center", fontsize = 16)
+    ax.text(0.5,0.5, gs_sector[n%4], ha = "center", va = "center", fontsize = 16)
     s = 0.10
     ax.set(xlim = (s,1-s), ylim = (s, 1-s))
     ax.axis("off")
