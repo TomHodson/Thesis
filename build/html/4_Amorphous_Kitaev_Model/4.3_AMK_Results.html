@@ -41,6 +41,7 @@ image:
 <ul>
 <li><a href="#amk-results" id="toc-amk-results">Results</a>
 <ul>
+<li><a href="#numerical-evidence-for-the-ground-state" id="toc-numerical-evidence-for-the-ground-state">Numerical evidence for the ground state</a></li>
 <li><a href="#the-ground-state-flux-sector" id="toc-the-ground-state-flux-sector">The Ground State Flux Sector</a></li>
 <li><a href="#spontaneous-chiral-symmetry-breaking" id="toc-spontaneous-chiral-symmetry-breaking">Spontaneous Chiral Symmetry Breaking</a></li>
 <li><a href="#ground-state-phase-diagram" id="toc-ground-state-phase-diagram">Ground State Phase Diagram</a>
@@ -71,6 +72,7 @@ image:
 <ul>
 <li><a href="#amk-results" id="toc-amk-results">Results</a>
 <ul>
+<li><a href="#numerical-evidence-for-the-ground-state" id="toc-numerical-evidence-for-the-ground-state">Numerical evidence for the ground state</a></li>
 <li><a href="#the-ground-state-flux-sector" id="toc-the-ground-state-flux-sector">The Ground State Flux Sector</a></li>
 <li><a href="#spontaneous-chiral-symmetry-breaking" id="toc-spontaneous-chiral-symmetry-breaking">Spontaneous Chiral Symmetry Breaking</a></li>
 <li><a href="#ground-state-phase-diagram" id="toc-ground-state-phase-diagram">Ground State Phase Diagram</a>
@@ -98,6 +100,15 @@ image:
 </div>
 <section id="amk-results" class="level1">
 <h1>Results</h1>
+<section id="numerical-evidence-for-the-ground-state" class="level3">
+<h3>Numerical evidence for the ground state</h3>
+<p>This guess only works for larger lattices. To rigorously test it, we would want to directly enumerate the <span class="math inline">\(2^N\)</span> vortex sectors for a smaller lattice and check that the lowest state found is the vortex sector predicted by our conjecture.</p>
+<p>To do this we tile an amorphous lattice as the unit cell of a periodic <span class="math inline">\(N\times N\)</span> system. Bonds that originally crossed the periodic boundaries now connect adjacent unit cells. Using Bloch’s theorem, the problem essentially reduces back to the single amorphous unit cell. However, now the edges that cross the periodic boundaries pick up a phase dependent on the crystal momentum <span class="math inline">\(\vec{q} = (q_x, q_y)\)</span> and the lattice vector of the bond <span class="math inline">\(\vec{x} = (+1, 0, -1, +1, 0, -1)\)</span>. Assigning these lattice vectors to each bond is also a very convenient way to store and plot toroidal graphs.</p>
+<p>This can then be solved using Bloch’s theorem. For a given crystal momentum <span class="math inline">\(\textbf{q} \in [0,2\pi)^2\)</span>, we are left with a Bloch Hamiltonian, which is identical to the original Hamiltonian aside from an extra phase on edges that cross the periodic boundaries in the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> directions, <span class="math display">\[\begin{aligned}
+    M_{jk}(\textbf{q}) =  \frac{i}{2} J^{\alpha} u_{jk} e^{i q_{jk}},\end{aligned}\]</span> where <span class="math inline">\(q_{jk} = q_x\)</span> for a bond that crosses the <span class="math inline">\(x\)</span>-periodic boundary in the positive direction, with the analogous definition for <span class="math inline">\(y\)</span>-crossing bonds. We also have <span class="math inline">\(q_{jk} = -q_{kj}\)</span>. Finally, <span class="math inline">\(q_{jk} = 0\)</span> if the edge does not cross any boundaries at all. In essence, we are imposing twisted boundary conditions on our system. The total energy of the tiled system can be calculated by summing the energy of <span class="math inline">\(M( \textbf{q})\)</span> for every value of <span class="math inline">\(\textbf{q}\)</span>.</p>
+<p>With this technique, the finite size effects related to the non-contractible loop operators are removed with only a linear penalty in computation time compared to the exponential penalty paid by simply diagonalising larger lattices.</p>
+<p>This technique verifies that <span class="math inline">\(\phi_0\)</span> correctly predicts the ground state for hundreds of thousands of lattices with up to twenty plaquettes. For larger lattices, we verified that random perturbations around the predicted ground state never yield a lower energy state.</p>
+</section>
 <section id="the-ground-state-flux-sector" class="level2">
 <h2>The Ground State Flux Sector</h2>
 <p>Here I will discuss the numerical evidence that our guess for the ground state flux sector is correct. We will do this by enumerating all the flux sectors of many separate system realisations. However there are some issues we will need to address to make this argument work.</p>

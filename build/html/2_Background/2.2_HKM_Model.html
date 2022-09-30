@@ -140,12 +140,17 @@ H &amp;=  i \sum_{\langle i,j\rangle_\alpha} J^{\alpha} u_{ij} \hat{c}_i \hat{c}
 <section id="the-fermion-problem" class="level2">
 <h2>The Fermion Problem</h2>
 <p>We now have a quadratic Hamiltonian, eq. <a href="#eq:bg-kh-maj-model">3</a>, coupled to a classical field <span class="math inline">\(u_{ij}\)</span>. What follows is relatively standard theory for quadratic Hamiltonians <span class="citation" data-cites="BlaizotRipka1986"> [<a href="#ref-BlaizotRipka1986" role="doc-biblioref">18</a>]</span>.</p>
-<p>Because of the antisymmetry <span class="math inline">\(J^{\alpha} u_{ij}\)</span>, the eigenvalues of eq. <a href="#eq:bg-kh-maj-model">3</a> come in pairs <span class="math inline">\(\pm \epsilon_m\)</span>. We organise the eigenmodes of <span class="math inline">\(H\)</span> into pairs, such that <span class="math inline">\(b_m\)</span> and <span class="math inline">\(b_m&#39;\)</span> have energies <span class="math inline">\(\epsilon_m\)</span> and <span class="math inline">\(-\epsilon_m\)</span>. The transformation <span class="math inline">\(Q\)</span> <span class="math display">\[(c_1, c_2... c_{2N}) Q = (b_1, b_1&#39;, b_2, b_2&#39; ... b_{N}, b_{N}&#39;)\]</span> puts the Hamiltonian into normal mode form <span class="math display">\[\tilde{H}_u = \frac{i}{2} \sum_m \epsilon_m b_m b_m&#39;.\]</span></p>
-<p>The determinant of <span class="math inline">\(Q\)</span> appears when evaluating the projector explicitly, otherwise, the <span class="math inline">\(b_m\)</span> are merely an intermediate step. From them, we form fermionic operators <span class="math display">\[ f_i = \tfrac{1}{2} (b_m + ib_m&#39;)\]</span> with their associated number operators <span class="math inline">\(n_i = f^\dagger_i f_i\)</span>. These let us write the Hamiltonian neatly as</p>
-<p><span class="math display">\[ \tilde{H}_u = \sum_m \epsilon_m (n_m - \tfrac{1}{2}).\]</span></p>
+<p>Because of the antisymmetry <span class="math inline">\(J^{\alpha} u_{ij}\)</span>, the eigenvalues of eq. <a href="#eq:bg-kh-maj-model">3</a> come in pairs <span class="math inline">\(\pm \epsilon_m\)</span>. We organise the eigenmodes of <span class="math inline">\(H\)</span> into pairs, such that <span class="math inline">\(b_m\)</span> and <span class="math inline">\(b_m&#39;\)</span> have energies <span class="math inline">\(\epsilon_m\)</span> and <span class="math inline">\(-\epsilon_m\)</span>. The transformation <span class="math inline">\(Q\)</span></p>
+<p><span class="math display">\[(c_1, c_2... c_{2N}) Q = (b_1, b_1&#39;, b_2, b_2&#39; ... b_{N}, b_{N}&#39;)\]</span></p>
+<p>puts the Hamiltonian into normal mode form</p>
+<p><span class="math display">\[H = \frac{i}{2} \sum_m \epsilon_m b_m b_m&#39;.\]</span></p>
+<p>The determinant of <span class="math inline">\(Q\)</span> appears when evaluating the projector explicitly, otherwise, the <span class="math inline">\(b_m\)</span> are merely an intermediate step. From them, we form fermionic operators</p>
+<p><span class="math display">\[ f_i = \tfrac{1}{2} (b_m + ib_m&#39;)\]</span></p>
+<p>with their associated number operators <span class="math inline">\(n_i = f^\dagger_i f_i\)</span>. These let us write the Hamiltonian neatly as</p>
+<p><span class="math display">\[ H = \sum_m \epsilon_m (n_m - \tfrac{1}{2}).\]</span></p>
 <p>The energy of the ground state <span class="math inline">\(|n_m = 0\rangle\)</span> of the many body system at fixed <span class="math inline">\(\{u_{ij}\}\)</span> is</p>
-<p><span class="math display">\[E_{u,0} = -\frac{1}{2}\sum_m \epsilon_m \]</span></p>
-<p>and we can construct any state from a particular choice of <span class="math inline">\(n_m = 0,1\)</span>.</p>
+<p><span class="math display">\[E_{0} = -\frac{1}{2}\sum_m \epsilon_m \]</span></p>
+<p>and we can construct any state from a particular choice of <span class="math inline">\(n_m = 0,1\)</span>. If we only care about the ground state energy <span class="math inline">\(E_{0}\)</span>, it is possible to skip forming the fermionic operators. The eigenvalues obtained directly from diagonalising <span class="math inline">\(J^{\alpha} u_{ij}\)</span> come in <span class="math inline">\(\pm \epsilon_m\)</span> pairs. We can take half the absolute value of the set to recover <span class="math inline">\(\sum_m \epsilon_m\)</span> directly.</p>
 </section>
 <section id="an-emergent-gauge-field" class="level2">
 <h2>An Emergent Gauge Field</h2>

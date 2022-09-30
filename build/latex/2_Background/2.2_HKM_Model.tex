@@ -100,17 +100,27 @@ H &=  i \sum_{\langle i,j\rangle_\alpha} J^{\alpha} u_{ij} \hat{c}_i \hat{c}_j
 
 We now have a quadratic Hamiltonian, \cref{eq:bg-kh-maj-model}, coupled to a classical field \(u_{ij}\). What follows is relatively standard theory for quadratic Hamiltonians~\autocite{BlaizotRipka1986}.
 
-Because of the antisymmetry \(J^{\alpha} u_{ij}\), the eigenvalues of \cref{eq:bg-kh-maj-model} come in pairs \(\pm \epsilon_m\). We organise the eigenmodes of \(H\) into pairs, such that \(b_m\) and \(b_m'\) have energies \(\epsilon_m\) and \(-\epsilon_m\). The transformation \(Q\) \[(c_1, c_2... c_{2N}) Q = (b_1, b_1', b_2, b_2' ... b_{N}, b_{N}')\] puts the Hamiltonian into normal mode form \[\tilde{H}_u = \frac{i}{2} \sum_m \epsilon_m b_m b_m'.\]
+Because of the antisymmetry \(J^{\alpha} u_{ij}\), the eigenvalues of \cref{eq:bg-kh-maj-model} come in pairs \(\pm \epsilon_m\). We organise the eigenmodes of \(H\) into pairs, such that \(b_m\) and \(b_m'\) have energies \(\epsilon_m\) and \(-\epsilon_m\). The transformation \(Q\)
 
-The determinant of \(Q\) appears when evaluating the projector explicitly, otherwise, the \(b_m\) are merely an intermediate step. From them, we form fermionic operators \[ f_i = \tfrac{1}{2} (b_m + ib_m')\] with their associated number operators \(n_i = f^\dagger_i f_i\). These let us write the Hamiltonian neatly as
+\[(c_1, c_2... c_{2N}) Q = (b_1, b_1', b_2, b_2' ... b_{N}, b_{N}')\]
 
-\[ \tilde{H}_u = \sum_m \epsilon_m (n_m - \tfrac{1}{2}).\]
+puts the Hamiltonian into normal mode form
+
+\[H = \frac{i}{2} \sum_m \epsilon_m b_m b_m'.\]
+
+The determinant of \(Q\) appears when evaluating the projector explicitly, otherwise, the \(b_m\) are merely an intermediate step. From them, we form fermionic operators
+
+\[ f_i = \tfrac{1}{2} (b_m + ib_m')\]
+
+with their associated number operators \(n_i = f^\dagger_i f_i\). These let us write the Hamiltonian neatly as
+
+\[ H = \sum_m \epsilon_m (n_m - \tfrac{1}{2}).\]
 
 The energy of the ground state \(|n_m = 0\rangle\) of the many body system at fixed \(\{u_{ij}\}\) is
 
-\[E_{u,0} = -\frac{1}{2}\sum_m \epsilon_m \]
+\[E_{0} = -\frac{1}{2}\sum_m \epsilon_m \]
 
-and we can construct any state from a particular choice of \(n_m = 0,1\).
+and we can construct any state from a particular choice of \(n_m = 0,1\). If we only care about the ground state energy \(E_{0}\), it is possible to skip forming the fermionic operators. The eigenvalues obtained directly from diagonalising \(J^{\alpha} u_{ij}\) come in \(\pm \epsilon_m\) pairs. We can take half the absolute value of the set to recover \(\sum_m \epsilon_m\) directly.
 
 \hypertarget{an-emergent-gauge-field}{%
 \subsection{An Emergent Gauge Field}\label{an-emergent-gauge-field}}
