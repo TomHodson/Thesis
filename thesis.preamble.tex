@@ -1,7 +1,8 @@
 %stuff I've added
 \usepackage[utf8]{inputenc}
+\usepackage[x11names, rgb, html]{xcolor} % load xcolor with options that match solarized.sty before it gets loaded by any other package
 \usepackage{graphicx}% Include figure files
-\DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg} % bare includegraphics calls will try to find files in this order
 
 % font setup
 % \usepackage{libertine}
@@ -32,7 +33,7 @@
 \usepackage{placeins}
 
 \usepackage{float}
-\floatplacement{figure}{t} % the default figure placement specifier
+\floatplacement{figure}{t} % figure placement specifier: t means at the top of the page
 
 \usepackage{hyperref}
 \usepackage{cleveref}

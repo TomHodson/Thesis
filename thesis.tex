@@ -26,16 +26,18 @@
 \maketitle
 
 \preface
-\include{0_Preface/abstract}
-% \input{0_Preface/copyright_declaration}
-\include{build/latex/0_Preface/0.1_Declarations.tex}
+\addcontentsline{toc}{chapter}{Abstract}
+\begin{abstract}
+\input{build/latex/0_Preface/0.1_Abstract.tex}
+\end{abstract}
 
-% \cleardoublepage
-% \addcontentsline{toc}{chapter}{Acknowledgements}
-% \begin{acknowledgements}
-% \include{build/tex/0.i_Aknowledgements}
-% \end{acknowledgements}
-% \include{0_Preface/personal_contributions}
+\include{build/latex/0_Preface/0.2_Declarations.tex}
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\begin{acknowledgements}
+\input{build/latex/0_Preface/0.3_Aknowledgements.tex}
+\end{acknowledgements}
 
 \body
 

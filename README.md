@@ -1,3 +1,6 @@
+[![DOI](https://zenodo.org/badge/513836023.svg)](https://zenodo.org/badge/latestdoi/513836023)
+
+
 # Building
 The current build process is labrinthine and I regret it somewhat, but it works. It's broken down into a series of steps:
 
