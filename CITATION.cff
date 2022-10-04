@@ -1,0 +1,20 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  Interacting quantum many body systems I have known
+  and loved
+message: >-
+  Please cite this thesis using the metadata from
+  this file.
+type: software
+authors:
+  - given-names: Thomas
+    name-particle: Hodson
+    email: thomas.c.hodson@gmail.com
+    affiliation: Imperial College London
+    orcid: 'https://orcid.org/0000-0002-4121-4772'
+repository-code: 'https://github.com/TomHodson/thesis'
+url: 'http://thomashodson.com/thesis/'
+license: CC-BY-NC-4.0
