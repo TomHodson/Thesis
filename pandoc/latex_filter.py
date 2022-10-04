@@ -23,7 +23,7 @@ def action(elem, doc):
             src = src.parent / src.stem
         
         if img.url.endswith(".gif"):
-            url = f"http://thomashodson.com/assets/thesis/{Path(img.url).relative_to(base)}"
+            url = f"http://thomashodson.com/assets/thesis/{Path(img.url).relative_to(base/'figure_code')}"
             # logging.warning(img)
             img.content += [pf.Space, pf.Link(pf.Str(" Animated version online."), url = url),]
 

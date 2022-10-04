@@ -1,5 +1,5 @@
 # input and output formats
-from: markdown
+from: markdown+smart
 to: latex
 wrap: none
 
