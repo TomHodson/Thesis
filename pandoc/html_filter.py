@@ -49,8 +49,6 @@ def action(elem, doc):
         return img
 
 def finalize(doc):
-
-
     # Add a next section/chapter link at the end of each page
     try:
         #Get the last heading in the document
@@ -85,8 +83,8 @@ def finalize(doc):
     except (IndexError, ValueError):
         pass #either there were no headers 
         #or it's the last document so has no next header
-    # except KeyError:
-    #     logging.warning(f"KeyError: {last_header_id} not found in toc data structure")
+    except KeyError:
+        logging.warning(f"KeyError: {first_header_id} not found in toc data structure")
 
     # toclink = pf.Link(pf.Str("Table of Contents"), url="/thesis")
     # doc.content.append(pf.Para(toclink))
