@@ -10,9 +10,7 @@ iteration*.svg
 
 pandoc/figs
 figure_code/exports
-build/json
-build/markdown
-thesis.pdf
+build/
 
 *.aux
 *.fls
@@ -20,7 +18,6 @@ thesis.pdf
 *.fdb_latexmk
 *.toc
 *.gz
-thesis.pdf
 *.pyc
 thesis.bbl
 *.blg

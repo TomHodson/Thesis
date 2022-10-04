@@ -183,6 +183,30 @@ def task_pdf():
                 f'mkdir -p "{target_dir}"',
                 f'latexmk -pdf -g -f -file-line-error -silent -shell-escape -interaction=nonstopmode -jobname="{jobname}" {name}.tex || exit 0',
                 f'cat {jobname}.log | grep -e Warning -e Error',
+                f'cp {target_dir}/{name}.pdf ./{name}.pdf',
+        ],
+        clean = [
+            'latexmk -c -jobname="{jobname}" {name}.tex',
+            "rm -rf `biber --cache`",
+        ],
+        verbosity = 2,
+    )
+
+def task_double_linespaced_pdf():
+    'compile the pdf output using latexmk'
+    name = 'double_line_spaced'
+    target_dir = Path("./build/double_spaced_pdf/")
+
+    # built_latex_files = list(src_dir.glob("**/*.tex"))
+    jobname = target_dir / name # tells latexmk to make all the files look like /target/dir/thesis.*
+    return dict(
+        file_dep = ['pandoc/markdown_to_tex.yml',] + static_latex_files + built_tex + bibliography_files,
+        targets = [target_dir / f'{name}.pdf',],
+        actions = [
+                f'mkdir -p "{target_dir}"',
+                f'latexmk -pdf -g -f -file-line-error -silent -shell-escape -interaction=nonstopmode -jobname="{jobname}" {name}.tex || exit 0',
+                f'cat {jobname}.log | grep -e Warning -e Error',
+                f'cp {target_dir}/{name}.pdf ./{name}.pdf',
         ],
         clean = [
             'latexmk -c -jobname="{jobname}" {name}.tex',
