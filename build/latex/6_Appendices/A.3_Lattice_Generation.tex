@@ -59,7 +59,7 @@ However, these clauses are not in CNF form. Therefore, we also have to use the f
 
 To encode the fact that no adjacent edges can have the same colour, we emit a clause that, for each pair of adjacent edges, they cannot be both red, both green or both blue.
 
-We get a solution or set of solutions from the solver, which we can map back to a labelling of the edges. \cref{fig:multiple_colourings} shows some examples.
+We get a solution or set of solutions from the solver, which we can map back to a labelling of the edges.
 
 The solution presented here works well enough for our purposes. It does not take up a substantial fraction of the overall computation time, see +fig:times but other approaches could likely work.
 
