@@ -19,25 +19,36 @@
 \vspace{-0.4\textheight}
 \vspace{10mm}
 }
-\submitdate{June 2022}
+\submitdate{October 2022}
 
 % \normallinespacing
 
 \maketitle
 
 \preface
+
+%The abstract page
 \addcontentsline{toc}{chapter}{Abstract}
 \begin{abstract}
 \input{build/latex/0_Preface/0.1_Abstract.tex}
 \end{abstract}
 
+% the page with versions, declaration of originality and copyright
 \include{build/latex/0_Preface/0.2_Declarations.tex}
 
+% the Acknodledgemnet page
 \cleardoublepage
 \addcontentsline{toc}{chapter}{Acknowledgements}
 \begin{acknowledgements}
 \input{build/latex/0_Preface/0.3_Aknowledgements.tex}
 \end{acknowledgements}
+
+% the dedication page
+\cleardoublepage
+% \begin{dedication}
+\vspace*{100mm} % about one third of the vertical of an A4 page
+\begin{center}To Kathrin.\end{center}
+% \end{dedication}
 
 \body
 
