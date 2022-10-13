@@ -1,25 +1,37 @@
 \hypertarget{evaluation-of-the-fermion-free-energy}{%
 \section{Evaluation of the Fermion Free Energy}\label{evaluation-of-the-fermion-free-energy}}
 
-There are \(2^N\) possible ion configurations \(\{ n_i \}\), we define \(n^k_i\) to be the occupation of the ith site of the kth configuration. The quantum part of the free energy can then be defined through the quantum partition function \(\mathcal{Z}^k\) associated with each ionic state \(n^k_i\): \[\begin{aligned}
+There are \(2^N\) possible ion configurations \(\{ n_i \}\), we define \(n^k_i\) to be the occupation of the \(i\)th site of the \(k\)th configuration. The quantum part of the free energy can then be defined through the quantum partition function \(\mathcal{Z}^k\) associated with each ionic state \(n^k_i\):
+
+\[\begin{aligned}
 F^k &= -1/\beta \ln{\mathcal{Z}^k} \\
-\end{aligned}\] \% Such that the overall partition function is: \[\begin{aligned}
+\end{aligned}\]
+
+Such that the overall partition function is:
+
+\[\begin{aligned}
 \mathcal{Z} &= \sum_k e^{- \beta H^k} Z^k \\
 &= \sum_k e^{-\beta (H^k + F^k)} \\
 \end{aligned}\]
 
-Because fermions are limited to occupation numbers of 0 or 1 \(Z^k\) simplifies nicely. If \(m^j_i = \{0,1\}\) is defined as the occupation of the level with energy \(\epsilon^k_i\) then the partition function is a sum over all the occupation states labelled by j: \[\begin{aligned}
+Because fermions are limited to occupation numbers of 0 or 1 \(Z^k\) simplifies nicely. If \(m^j_i = \{0,1\}\) is defined as the occupation of the level with energy \(\epsilon^k_i\) then the partition function is a sum over all the occupation states labelled by \(j\):
+
+\[\begin{aligned}
 Z^k    &= \mathrm{Tr} e^{-\beta F^k} = \sum_j e^{-\beta \sum_i m^j_i \epsilon^k_i}\\
        &= \sum_j \prod_i e^{- \beta m^j_i \epsilon^k_i}= \prod_i \sum_j e^{- \beta m^j_i \epsilon^k_i}\\
        &= \prod_i (1 + e^{- \beta \epsilon^k_i})\\
 F^k    &= -1/\beta \sum_k \ln{(1 + e^{- \beta \epsilon^k_i})}
-\end{aligned}\] \% Observables can then be calculated from the partition function, for examples the occupation numbers:
+\end{aligned}\]
+
+Observables can then be calculated from the partition function, for examples the occupation numbers:
 
 \[\begin{aligned}
 \langle N \rangle &= \frac{1}{\beta} \frac{1}{Z} \frac{\partial Z}{\partial \mu} = - \frac{\partial F}{\partial \mu}\\
     &= \frac{1}{\beta} \frac{1}{Z} \frac{\partial}{\partial \mu} \sum_k e^{-\beta (H^k + F^k)}\\
     &= 1/Z \sum_k (N^k_{\mathrm{ion}} + N^k_{\mathrm{electron}}) e^{-\beta (H^k + F^k)}\\
-\end{aligned}\] \% with the definitions:
+\end{aligned}\]
+
+with the definitions:
 
 \[\begin{aligned}
 N^k_{\mathrm{ion}} &= - \frac{\partial H^k}{\partial \mu} = \sum_i n^k_i\\

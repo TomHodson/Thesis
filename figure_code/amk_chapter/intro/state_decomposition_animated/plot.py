@@ -15,7 +15,7 @@ black_line_widths = 1.2
 
 import sys, os
 sys.path.append(os.path.join(os.path.dirname(__file__), os.path.expanduser('~/git/Thesis/figure_code')))
-from plot_settings import bond_colors, plaq_color_scheme
+from plot_settings import bond_colors, plaq_color_scheme, dual_color
 
 rng = np.random.default_rng(222424252565)
 
@@ -100,7 +100,7 @@ for i in tqdm(range(10)):
                     color_scheme = plaq_color_scheme, ax = ax, alpha = 0.5)
 
     flipped_edges = (flux_sector_ujk != reference_ujk)
-    pl.plot_dual(lattice, subset = flipped_edges, ax = ax, linewidths = black_line_widths, color_scheme = bond_colors)
+    pl.plot_dual(lattice, subset = flipped_edges, ax = ax, linewidths = black_line_widths, color_scheme = dual_color)
 
     ax = axes[2]
 
@@ -110,7 +110,7 @@ for i in tqdm(range(10)):
 
     flipped_edges = (gauge_sector_ujk != reference_ujk)
     pl.plot_dual(lattice, subset = flipped_edges, ax = ax,
-                linewidths = black_line_widths, color_scheme = bond_colors)
+                linewidths = black_line_widths, color_scheme = dual_color)
 
     pl.plot_plaquettes(lattice, labels = (gauge_sector_fluxes != reference_fluxes),
                     color_scheme = ['white', 'red'], ax = ax, alpha = 0.5)
@@ -129,7 +129,7 @@ for i in tqdm(range(10)):
 
     flipped_edges = (topological_sector_ujk != reference_ujk)
     if np.any(flipped_edges):
-        pl.plot_dual(lattice, subset = flipped_edges, ax = ax, linewidths = black_line_widths, color_scheme = bond_colors)
+        pl.plot_dual(lattice, subset = flipped_edges, ax = ax, linewidths = black_line_widths, color_scheme = dual_color)
         pl.plot_edges(lattice, subset = flipped_edges, ax = ax, linewidths = black_line_widths, color = 'k')
 
 

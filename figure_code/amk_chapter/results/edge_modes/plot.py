@@ -35,13 +35,20 @@ newcolors = t * purple + (1-t) * white
 plum_to_white_cmap = ListedColormap(newcolors)
 
 ## Load data
-with open("big_solved_lattice.pickle", "rb") as f:
+with open("big_solved_lattice_open.pickle", "rb") as f:
     d = pickle.load(f)
     print(d.keys())
     globals().update(d)
 
 DOS, E_bins = np.histogram(energies, bins = 300)
 IPR, _, _ = scipy.stats.binned_statistic(energies, raw_IPR, statistic='mean', bins = E_bins)
+
+with open("big_solved_lattice_closed.pickle", "rb") as f:
+    d = pickle.load(f)
+    closed_DOS, _ = np.histogram(d["energies"], bins = E_bins)
+    closed_IPR, _, _ = scipy.stats.binned_statistic(d["energies"], d["raw_IPR"], statistic='mean', bins = E_bins)
+
+
 
 ## Figure parameters
 column_width = w = 3.375
@@ -77,9 +84,9 @@ edge_mode_ax.set(yticks = [])
 
 ax = open_bc_DOS_ax
 cmap = inferno_purple_to_white_cmap
-color_val = np.log(IPR)
-color_val = (color_val - np.min(color_val)) / (np.max(color_val) - np.min(color_val))
-norm = matplotlib.colors.Normalize(vmin = 0, vmax = 0.6)
+color_val = np.log10(IPR)
+# color_val = (color_val - np.min(color_val)) / (np.max(color_val) - np.min(color_val))
+norm = matplotlib.colors.Normalize()
 IPR_color = cmap(norm(color_val))
 
 ax.set(ylabel = "DOS", xticks = [], xlim = (-0.4, 0.4))
@@ -93,11 +100,19 @@ ax = closed_bc_DOS_ax
 ax.set(xlabel = "Energy $E/J$", ylabel = "DOS", ylim = (0,25), xlim = (-0.2, 0.2))
 ax.text(0.0, 20, r"\textbf{(c)}", ha = 'center')
 
+color_val = np.log10(closed_IPR)
+IPR_color = cmap(norm(color_val))
+
+ax.set(yticks = [0,20], xlim = (-0.4, 0.4), ylim = (0,40))
+ax.bar(E_bins[:-1], closed_DOS, width = np.diff(E_bins), align = "edge", color = IPR_color, zorder = -1)
+if rasterize: ax.set_rasterization_zorder(0)
+
+
 ax = DOS_colorbar_ax
 fig.colorbar(matplotlib.cm.ScalarMappable(norm=norm, cmap=cmap), cax=ax, orientation = "vertical")
 ax.yaxis.set_label_position("right")
 ax.yaxis.tick_right()
-ax.set_ylabel("log(IPR)", fontsize=11)
+ax.set_ylabel("log$_{10}$(IPR)", fontsize=11)
 # ax.set(yticks = [])
 
 ### Main edge mode plot
@@ -123,7 +138,7 @@ x = np.arange(n_steps) - n_steps//2
 ax.plot(x, np.log(edge_state_density)[path_verts], linewidth = 1, color = 'k', solid_capstyle='round')
 ax.set(yticks = [], xlabel = "Lattice distance")
 
-# plt.subplots_adjust(hspace=.0, right=0.88, bottom=0.15)
+plt.subplots_adjust(hspace=.0, right=0.88, bottom=0.25)
 
 fig.savefig(f'./{Path.cwd().name}.pdf', dpi = 400)
 fig.savefig(f'./{Path.cwd().name}.svg', dpi = 400)

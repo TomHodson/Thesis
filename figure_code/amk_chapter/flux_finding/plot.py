@@ -24,22 +24,14 @@ column_width = 3.375
 w = 3.375
 black_line_widths = 1.2
 
-matplotlib.rcParams.update({'font.size': 13, 'text.usetex': True, 'font.family': 'serif', 'font.serif': ['Computer Modern']})
-matplotlib.rcParams.update({"axes.linewidth": black_line_widths})
-
-# Modified RGB color scheme
-bond_colors = """" 
-#e41a1c
-#4daf4a
-#00639a
-""".split()[1:]
-
-line_colors = [to_hex(a) for a in cm.inferno([0.25, 0.5, 0.75])]
+import sys, osd
+sys.path.append(os.path.join(os.path.dirname(__file__), os.path.expanduser('~/git/Thesis/figure_code')))
+from plot_settings import bond_colors, plaq_color_scheme, dual_color
 
 grid_style = dict(linewidths = black_line_widths, linestyle = '-', colors = 'k', alpha = 0.2)
 
 cmap = plt.get_cmap("tab10")
-color_scheme = cmap([0,1])
+color_scheme = plaq_color_scheme
 
 from koala.flux_finder import pathfinding
 from koala.flux_finder.flux_finder import _greedy_plaquette_pairing

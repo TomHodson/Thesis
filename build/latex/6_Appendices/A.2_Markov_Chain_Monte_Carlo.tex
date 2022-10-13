@@ -43,11 +43,11 @@ In pseudo-code one could write the MCMC simulation for a single walker as:
 current_state = initial_state
 
 for i in range(N_steps):
-    new_state = sample_T(current_state) 
+    new_state = sampleT(current_state) 
     states[i] = current_state
 \end{lstlisting}
 
-Where the \passthrough{\lstinline!sample\_T!} function samples directly from the transition function \(\mathcal{T}\).
+Where the \passthrough{\lstinline!sampleT!} function samples directly from the transition function \(\mathcal{T}\).
 
 If we run many such walkers in parallel we can then approximate the distribution \(p_t(S; S)\) which tells us where the walkers are likely to be after they've evolved for \(t\) steps from an initial state \(S_0\). We need to carefully choose \(\mathcal{T}\) such that the the probability \(p_t(S; S_0)\) approaches the distribution of interest. In this case the thermal distribution \(P(S; \beta) = \mathcal{Z}^{-1} e^{-\beta F(S)}\).
 

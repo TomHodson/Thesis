@@ -118,9 +118,9 @@ p(S)  &amp;= \frac{1}{\mathcal{Z}} e^{-\beta H(S)} \\
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>current_state <span class="op">=</span> initial_state</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N_steps):</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    new_state <span class="op">=</span> sample_T(current_state) </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    new_state <span class="op">=</span> sampleT(current_state) </span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    states[i] <span class="op">=</span> current_state</span></code></pre></div>
-<p>Where the <code>sample_T</code> function samples directly from the transition function <span class="math inline">\(\mathcal{T}\)</span>.</p>
+<p>Where the <code>sampleT</code> function samples directly from the transition function <span class="math inline">\(\mathcal{T}\)</span>.</p>
 <p>If we run many such walkers in parallel we can then approximate the distribution <span class="math inline">\(p_t(S; S)\)</span> which tells us where the walkers are likely to be after they’ve evolved for <span class="math inline">\(t\)</span> steps from an initial state <span class="math inline">\(S_0\)</span>. We need to carefully choose <span class="math inline">\(\mathcal{T}\)</span> such that the the probability <span class="math inline">\(p_t(S; S_0)\)</span> approaches the distribution of interest. In this case the thermal distribution <span class="math inline">\(P(S; \beta) = \mathcal{Z}^{-1} e^{-\beta F(S)}\)</span>.</p>
 </section>
 <section id="global-and-detailed-balance-equations" class="level2">
