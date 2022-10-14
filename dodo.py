@@ -44,7 +44,7 @@ built_tex = [file['.tex'] for file in built_filepaths]
 
 def task_svg_to_pdf():
     "convert inkscape .svg files to .pdf"
-    folders = ["intro_chapter", "background_chapter", "fk_chapter", "amk_chapter"]
+    folders = ["intro_chapter", "background_chapter", "fk_chapter", "amk_chapter", "conclusion"]
     files = list(it.chain.from_iterable(Path("./").glob(f"figure_code/{folder}/*.svg") for folder in folders))
     files += list(Path("./").glob(f"figure_code/*.svg"))
     for f in files:

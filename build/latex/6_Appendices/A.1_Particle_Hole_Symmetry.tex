@@ -5,13 +5,13 @@ The Hubbard and FK models on a bipartite lattice have particle-hole (PH) symmetr
 
 \[d^\dagger_{\alpha,i} = \epsilon_i c_{\alpha,i}\] \[m_{\alpha,i} = d^\dagger_{\alpha,i}d_{\alpha,i}\]
 
-the lattices must be bipartite because to make this work we set \(\epsilon_i = +1\) for the A sublattice and \(-1\) for the even sublattice~\autocite{gruberFalicovKimballModel2005}.
+the lattices must be bipartite because to make this work we set \(\epsilon_i = +1\) for the A sublattice and \(-1\) for the even sublattice~\autocite{gruberFalicovKimballModel2006}.
 
 The entirely filled state \(\ket{\Omega} = \sum_{\alpha,i} c^\dagger_{\alpha,i} \ket{0}\) becomes the new vacuum state \[d_{i\sigma} \ket{\Omega} = (-1)^i c^\dagger_{i\sigma} \sum_{j\rho} c^\dagger_{j\rho} \ket{0} = 0.\]
 
-The number operator \(m_{\alpha,i} = 0,1\) counts holes rather than electrons \[ m_{\alpha,i} = c_{\alpha,i} c^\dagger_{\alpha,i} = 1 - c^\dagger_{\alpha,i} c_{\alpha,i}.\]
+The number operator \(m_{\alpha,i} = 0,1\) now counts holes rather than electrons \[ m_{\alpha,i} = c_{\alpha,i} c^\dagger_{\alpha,i} = 1 - c^\dagger_{\alpha,i} c_{\alpha,i}.\]
 
-With the last equality following from the fermionic commutation relations. In the case of nearest neighbour hopping on a bipartite lattice this transformation also leaves the hopping term unchanged because \(\epsilon_i \epsilon_j = -1\) when \(i\) and \(j\) are on different sublattices: \[ d^\dagger_{\alpha,i} d_{\alpha,j} = \epsilon_i \epsilon_j c_{\alpha,i} c^\dagger_{\alpha,j} = c^\dagger_{\alpha,i} c_{\alpha,j} \]
+In the case of nearest neighbour hopping on a bipartite lattice this transformation also leaves the hopping term unchanged because \(\epsilon_i \epsilon_j = -1\) when \(i\) and \(j\) are on different sublattices: \[ d^\dagger_{\alpha,i} d_{\alpha,j} = \epsilon_i \epsilon_j c_{\alpha,i} c^\dagger_{\alpha,j} = c^\dagger_{\alpha,i} c_{\alpha,j} \]
 
 Defining the particle density \(\rho\) as the number of fermions per site: \[
     \rho = \frac{1}{N} \sum_i \left( n_{i \uparrow} + n_{i \downarrow} \right)

@@ -67,6 +67,9 @@
 \end{refsection}
 
 \hypertarget{chap:2-background}{\chapter{Background}}
+\backgroundsetup{scale = 1, angle = 0, opacity = 1,
+  contents = {\includegraphics[width=297mm, height=297mm]{figure_code/chapter_2_background.pdf}}}
+\BgThispage
 \begin{refsection}
 \include{build/latex/2_Background/2.1_FK_Model.tex}
 \include{build/latex/2_Background/2.2_HKM_Model.tex}
@@ -87,7 +90,7 @@
 \end{refsection}
 
 \hypertarget{chap:4-the-amorphous-kitaev-model}{\chapter{The Amorphous Kitaev Honeycomb Model}}
-\backgroundsetup{scale = 1, angle = 0, opacity = 0.5,
+\backgroundsetup{scale = 1, angle = 0, opacity = 1,
   contents = {\includegraphics[width=297mm, height=297mm]{figure_code/amk_chapter_background_mockup.pdf}}}
 \BgThispage
 \begin{refsection}
@@ -114,10 +117,6 @@
 \hypertarget{chap:appendices}{\chapter*{Appendices}}
 \addcontentsline{toc}{chapter}{Appendices}
 
-%if you're fine with "A Appendices" then do this instead
-% \appendix
-% \chapter{Appendices}
-
 \begin{refsection}
 \include{build/latex/6_Appendices/A.1_Particle_Hole_Symmetry.tex}
 \include{build/latex/6_Appendices/A.1.2_Fermion_Free_Energy.tex}
@@ -128,8 +127,8 @@
 \printbibliography[heading=subbibintoc]
 \end{refsection}
 
-% \addcontentsline{toc}{chapter}
-% \printbibliography[heading=bibintoc,title={Bibliography}] %don't need an overall bibligraphy
 \addcontentsline{toc}{chapter}{Copyright}
-% \includepdf[pages=-]{5_Appendices/APS_copyright_permission.pdf}
+\chapter*{Copyright}
+\includepdf[pages=-]{5_Appendices/APS_copyright_permission.pdf}
+\includepdf[pages=-]{5_Appendices/RNP_22_AUG_057163.pdf}
 \end{document}

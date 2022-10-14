@@ -53,7 +53,7 @@ from plot_settings import bond_colors, plaq_color_scheme, dual_color
 def compute_positions(t):
     "compute plaquette positions at a function of t in [0,1]"
     s, c = np.sin(2*np.pi * t), np.cos(2*np.pi * t)
-    r = 0.4 * (1 - t)
+    r = 0.4 * np.abs(np.cos(4*np.pi * t))
     p1 = (0.5 - r*c, 0.5 + r*s)
     p2 = (0.5 + r*c, 0.5 - r*s)
     return p1, p2
@@ -76,9 +76,8 @@ def compute_ground_state_density(t, v0 = None):
     eigs, vecs = scipy.sparse.linalg.eigsh(H, k=1, sigma=0, v0 = v0)
     v0 = vecs[:, 0]
     lowest_wavefunction = vecs[:, 0]
-    ground_state_density = np.abs(lowest_wavefunction)
     
-    return vortices, edge_path, ground_state_density, v0
+    return vortices, edge_path, lowest_wavefunction, v0
 
 def plot_it(i, interp_t, 
             vortices, edge_path,
@@ -124,7 +123,7 @@ rng = np.random.default_rng(222424252565)
 subprocess.run(["mkdir", "-p", "./animation"])
 
 N_keyframes = 60 #how many times to actually diagonalise the matrix
-N_interpolation_frames = 5 #how many interpolation frames to add in between
+N_interpolation_frames = 1 #how many interpolation frames to add in between
 N = N_keyframes * N_interpolation_frames
 
 #generate a random starting vector to start but later use the previous one
@@ -140,11 +139,12 @@ for keyframe_i in tqdm(range(N_keyframes)):
     for interp_i in tqdm(range(N_interpolation_frames)):
         interp_t = interp_i / N_interpolation_frames
 
-        vortices, edge_path, ground_state_density = current_solution
-        next_vortices, next_edge_path, next_ground_state_density = next_solution
+        vortices, edge_path, wavefunction = current_solution
+        next_vortices, next_edge_path, next_wavefunction = next_solution
 
         s, c = np.sin(np.pi/2 * interp_t), np.cos(np.pi/2 * interp_t)
-        interped_ground_state_density = c * ground_state_density + s * next_ground_state_density
+        interped_wavefunction = c * wavefunction + s * next_wavefunction
+        interped_ground_state_density = np.abs(interped_wavefunction)
 
         i = keyframe_i * N_interpolation_frames + interp_i
         plot_it(i, interp_t, 

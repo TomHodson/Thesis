@@ -29,7 +29,7 @@ In a physics context this lets us evaluate any observable with a mean over the s
 \langle O \rangle & = \sum_{S} p(S) \langle O \rangle_{S} = \sum_{i = 0}^{M} \langle O\rangle_{S_i} + \mathcal{O}(\tfrac{1}{\sqrt{M}})\\
 \end{aligned}\]
 
-The the samples in the random walk are correlated so the samples effectively contain less information than \(N\) independent samples would. As a consequence the variance is larger than the \(\langle O^2 \rangle - \langle O\rangle^2\) form it would have if the estimates were uncorrelated. Methods of estimating the true variance of \(\langle O \rangle\) and decided how many steps are needed will be considered later.
+The samples in the random walk are correlated so the samples effectively contain less information than \(N\) independent samples would. As a consequence the variance is larger than the \(\langle O^2 \rangle - \langle O\rangle^2\) form it would have if the estimates were uncorrelated. Methods of estimating the true variance of \(\langle O \rangle\) and decided how many steps are needed will be considered later.
 
 \hypertarget{implementation-of-mcmc}{%
 \subsection{Implementation of MCMC}\label{implementation-of-mcmc}}
@@ -49,12 +49,12 @@ for i in range(N_steps):
 
 Where the \passthrough{\lstinline!sampleT!} function samples directly from the transition function \(\mathcal{T}\).
 
-If we run many such walkers in parallel we can then approximate the distribution \(p_t(S; S)\) which tells us where the walkers are likely to be after they've evolved for \(t\) steps from an initial state \(S_0\). We need to carefully choose \(\mathcal{T}\) such that the the probability \(p_t(S; S_0)\) approaches the distribution of interest. In this case the thermal distribution \(P(S; \beta) = \mathcal{Z}^{-1} e^{-\beta F(S)}\).
+If we run many such walkers in parallel we can then approximate the distribution \(p_t(S; S)\) which tells us where the walkers are likely to be after they've evolved for \(t\) steps from an initial state \(S_0\). We need to carefully choose \(\mathcal{T}\) such that the probability \(p_t(S; S_0)\) approaches the distribution of interest. In this case the thermal distribution \(P(S; \beta) = \mathcal{Z}^{-1} e^{-\beta F(S)}\).
 
 \hypertarget{global-and-detailed-balance-equations}{%
 \subsection{Global and Detailed balance equations}\label{global-and-detailed-balance-equations}}
 
-We cam quite easily write down the properties that \(\mathcal{T}\) must have in order to yield the correct target distribution. Since we must transition somewhere at each step, we first have the normalisation condition that \[\sum\limits_S \mathcal{T}(S' \rightarrow S) = 1.\]
+We can quite easily write down the properties that \(\mathcal{T}\) must have in order to yield the correct target distribution. Since we must transition somewhere at each step, we first have the normalisation condition that \[\sum\limits_S \mathcal{T}(S' \rightarrow S) = 1.\]
 
 Second, let us move to an ensemble view, where rather than individual walkers and states, we think about the probability distribution of many walkers at each step. If we start all the walkers in the same place the initial distribution will be a delta function and as we step the walkers will wander around, giving us a sequence of probability distributions \(\{p_0(S), p_1(S), p_2(S)\ldots\}\). For discrete spaces we can write the action of the transition function on \(p_i\) as a matrix equation
 
@@ -92,7 +92,7 @@ The proposal \(S'\) is then accepted or rejected with an acceptance probability 
 
 \[\mathcal{T}(S\to S') = q(S\to S')\mathcal{A}(S \to S')\]
 
-The Metropolis-Hasting algorithm is a slight extension of the original Metropolis algorithm which allows for non-symmetric proposal distributions \$q(S\to S') \neq q(S'\to S) \$. It can be derived starting from detailed balance~\autocite{krauthIntroductionMonteCarlo1998}:
+The Metropolis-Hasting algorithm is a slight extension of the original Metropolis algorithm which allows for non-symmetric proposal distributions \(q(S\to S') \neq q(S'\to S)\). It can be derived starting from detailed balance~\autocite{krauthIntroductionMonteCarlo1998}:
 
 \[
 P(S)\mathcal{T}(S \to S') = P(S')\mathcal{T}(S' \to S)
@@ -150,7 +150,7 @@ for i in range(N_steps):
 \hypertarget{app-mcmc-two-step-trick}{%
 \subsection{Two Step Trick}\label{app-mcmc-two-step-trick}}
 
-Our method already relies heavily on the split between the classical and quantum sector to derive a sign problem free MCMC algorithm but it turns out that there is a further trick we can play with it. The free energy term is the sum of an easy to compute classical energy and a more expensive quantum free energy, we can split the acceptance function into two in such as way as to avoid having to compute the full exact diagonalisation some of the time:
+Our method already relies heavily on the split between the classical and quantum sector to derive a sign problem free MCMC algorithm but it turns out that there is a further trick we can play with it. The free energy term is the sum of an easy to compute classical energy and a more expensive quantum free energy, we can split the acceptance function into two in such a way as to avoid having to compute the full exact diagonalisation some of the time:
 
 \begin{lstlisting}[language=Python]
 # Our two step MH implementation for models with classical and quantum energy terms
@@ -184,24 +184,24 @@ Taking the LHS and substituting in our transition function: \[\begin{aligned}
 which simplifies to \(r_c r_q\) as \(\min(1,r)/\min(1,1/r) = r\) for \(r > 0\).
 
 \hypertarget{app-mcmc-autocorrelation}{%
-\subsubsection{Auto-correlation Time}\label{app-mcmc-autocorrelation}}
+\subsubsection{Autocorrelation Time}\label{app-mcmc-autocorrelation}}
 
 \hypertarget{fig:m_autocorr}{%
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,height=\textheight]{figure_code/fk_chapter/lsr/figs/m_autocorr.png}
-\caption[{Autocorrelation in MCMC}]{(Upper) 10 MCMC chains starting from the same initial state for a system with \(N = 150\) sites and 3000 MCMC steps. At each MCMC step, n spins are flipped where n is drawn from Uniform(1,N) and this is repeated \(N^2/100\) times. The simulations therefore have the potential to necessitate \(10*N^2\) matrix diagonalisations for each 100 MCMC steps. (Lower) The normalised auto-correlation \((\langle m_i m_{i-j}\rangle - \langle m_i\rangle \langle m_i \rangle) / Var(m_i))\) averaged over \(i\). It can be seen that even with each MCMC step already being composed of many individual flip attempts, the auto-correlation is still non negligible and must be taken into account in the statistics. \(t = 1, \alpha = 1.25, T = 2.2, J = U = 5\)}
+\caption[{Autocorrelation in MCMC}]{(Upper) 10 MCMC chains starting from the same initial state for a system with \(N = 150\) sites and 3000 MCMC steps. At each MCMC step, n spins are flipped where n is drawn from Uniform(1,N) and this is repeated \(N^2/100\) times. The simulations therefore have the potential to necessitate \(10*N^2\) matrix diagonalisations for each 100 MCMC steps. (Lower) The normalised autocorrelation \((\langle m_i m_{i-j}\rangle - \langle m_i\rangle \langle m_i \rangle) / Var(m_i))\) averaged over \(i\). It can be seen that even with each MCMC step already being composed of many individual flip attempts, the autocorrelation is still non negligible and must be taken into account in the statistics. \(t = 1, \alpha = 1.25, T = 2.2, J = U = 5\)}
 \label{fig:m_autocorr}
 \end{figure}
 }
 
-At this stage one might think we're done. We can indeed draw independent samples from our target Boltzmann distribution by starting from some arbitrary initial state and doing \(k\) steps to arrive at a sample. These are not, however, independent samples. In \cref{fig:m_autocorr} it is already clear that the samples of the order parameter \(m\) have some auto-correlation because only a few spins are flipped each step. Even when the number of spins flipped per step is increased that it can be an important effect near the phase transition. Let's define the auto-correlation time \(\tau(O)\) informally as the number of MCMC samples of some observable O that are statistically equal to one independent sample or equivalently as the number of MCMC steps after which the samples are correlated below some cut-off, see~\autocite{krauthIntroductionMonteCarlo1996}. The auto-correlation time is generally shorter than the convergence time so it therefore makes sense from an efficiency standpoint to run a single walker for many MCMC steps rather than to run a huge ensemble for \(k\) steps each.
+At this stage one might think we're done. We can indeed draw independent samples from our target Boltzmann distribution by starting from some arbitrary initial state and doing \(k\) steps to arrive at a sample. These are not, however, independent samples. In \cref{fig:m_autocorr} it is already clear that the samples of the order parameter \(m\) have some autocorrelation because only a few spins are flipped each step. Even when the number of spins flipped per step is increased that it can be an important effect near the phase transition. Let's define the autocorrelation time \(\tau(O)\) informally as the number of MCMC samples of some observable O that are statistically equal to one independent sample or equivalently as the number of MCMC steps after which the samples are correlated below some cut-off, see~\autocite{krauthIntroductionMonteCarlo1996}. The autocorrelation time is generally shorter than the convergence time so it therefore makes sense from an efficiency standpoint to run a single walker for many MCMC steps rather than to run a huge ensemble for \(k\) steps each.
 
 Once the random walk has been carried out for many steps, the expectation values of \(O\) can be estimated from the MCMC samples \(S_i\): \[
     \langle O \rangle = \sum_{i = 0}^{N} O(S_i) + \mathcal{O}(\frac{1}{\sqrt{N}})
 \]
 
-The the samples are correlated so the N of them effectively contains less information than \(N\) independent samples would, in fact roughly \(N/\tau\) effective samples. As a consequence the variance is larger than the \(\langle O^2 \rangle - \langle O \rangle ^2\) form it would have if the estimates were uncorrelated. There are many methods in the literature for estimating the true variance of \(\langle O \rangle\) and deciding how many steps are needed but my approach has been to run a small number of parallel chains, which are independent, in order to estimate the statistical error produced. This is a slightly less computationally efficient because it requires throwing away those \(k\) steps generated before convergence multiple times but it is conceptually simple.
+The samples are correlated so the N of them effectively contains less information than \(N\) independent samples would, in fact roughly \(N/\tau\) effective samples. As a consequence the variance is larger than the \(\langle O^2 \rangle - \langle O \rangle ^2\) form it would have if the estimates were uncorrelated. There are many methods in the literature for estimating the true variance of \(\langle O \rangle\) and deciding how many steps are needed but my approach has been to run a small number of parallel chains, which are independent, in order to estimate the statistical error produced. This is a slightly less computationally efficient because it requires throwing away those \(k\) steps generated before convergence multiple times but it is conceptually simple.
 
 \hypertarget{tuning-the-proposal-distribution}{%
 \subsubsection{Tuning the proposal distribution}\label{tuning-the-proposal-distribution}}
@@ -215,7 +215,7 @@ The the samples are correlated so the N of them effectively contains less inform
 \end{figure}
 }
 
-Now we can discuss how to minimise the auto-correlations. The general principle is that one must balance the proposal distribution between two extremes. Choose overlay small steps, like flipping only a single spin and the acceptance rate will be high because \(\Delta F\) will usually be small, but each state will be very similar to the previous and the auto-correlations will be high too, making sampling inefficient. On the other hand, overlay large steps, like randomising a large portion of the spins each step, will result in very frequent rejections, especially at low temperatures.
+Now we can discuss how to minimise the autocorrelations. The general principle is that one must balance the proposal distribution between two extremes. Choose overly small steps, like flipping only a single spin and the acceptance rate will be high because \(\Delta F\) will usually be small, but each state will be very similar to the previous and the autocorrelations will be high too, making sampling inefficient. On the other hand, overlay large steps, like randomising a large portion of the spins each step, will result in very frequent rejections, especially at low temperatures.
 
 I evaluated a few different proposal distributions for use with the FK model.
 
