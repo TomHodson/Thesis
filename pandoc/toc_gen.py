@@ -84,17 +84,31 @@ for chapter in chapters:
     chapter_files = sorted(chapter_filename.glob("*.md"))
     first_thing_in_chapter = True
 
-    #Add the chapter to our table of contents datastructure
-    index = add_to_section_list(
-        id = chapter_id,
-        chapter_id = chapter_id,
-        path = Path(chapter["contents"]),
-        line = 0, 
-        level = 0,
-        heading = chapter["name"], 
-        index = index)
+    # url = 
+    # current_level = emit_heading(current_level, 1, heading=chapter["name"], url = f"./{file_url}", format=output_type)
+    # first_thing_in_chapter = False
     
-    for filepath in chapter_files:        
+    for filepath in chapter_files:
+        # Even for files that don't contain a heading
+        # we want to generate a chapter heading for them
+        if first_thing_in_chapter:
+            file_url = filepath.parent.relative_to(base) / (filepath.stem + ".html")
+            url = f"./{file_url}"
+            current_level = emit_heading(current_level, 1, heading=chapter["name"], url = url, format=output_type)
+
+            #Add the chapter to our table of contents datastructure
+            index = add_to_section_list(
+                id = chapter_id,
+                chapter_id = chapter_id,
+                path = file_url,
+                line = 0, 
+                level = 0,
+                heading = chapter["name"], 
+                index = index)
+            
+            first_thing_in_chapter = False
+
+
         with open(filepath, 'r') as f:
             for i, line in enumerate(f):
                 if line.startswith('#'):
@@ -108,7 +122,8 @@ for chapter in chapters:
                         
                         # save the section ids to a python dict for later lookup
                         # this enables cross file links later
-                        index = add_to_section_list(id = section_id,
+                        index = add_to_section_list(
+                            id = section_id,
                             chapter_id=chapter_id,
                             path = filepath.relative_to("build/markdown/"),
                             line = i, 
@@ -121,14 +136,7 @@ for chapter in chapters:
                         
                         #use fragments in the url if it's not the first thing on the page that 
                         #we're linking to
-                        url = f"./{file_url}" if first_thing_in_chapter else f"./{file_url}#{url_id}"
-                        
-                        #output a chapter heading too
-                        if first_thing_in_chapter:
-                            current_level = emit_heading(current_level, 1, heading=chapter["name"], url = url, format=output_type)
-                            first_thing_in_chapter = False
-
-                        
+                        url = f"./{file_url}#{url_id}"
                         if level > upto_level: continue # Skip anything lower than this
 
                         current_level = emit_heading(current_level, level+1, heading, url, output_type)
