@@ -1,0 +1,60 @@
+Note that this is not an exhaustive list, there are many smaller fixes that I felt were better served by the latex diff instead.
+
+Add phantom daggers for alignment in equations.
+Make sure figures are referenced in the text.
+Add punctuation after equations
+Check how the cover page for the Ising model prints out
+Make sure are names are capitalised (e.g Hall and Fermi)
+Correction: The Toric code was the first exactly solved QSL model.
+Replace "many body" with "many-body"
+Use latexdiff to show changes
+Changed title to "The Long-Range Falicov-Kimball Model and the Amorphous Kitaev Model: Quantum Many-Body Systems I have known and loved"
+Global look for see ref to check ref is there
+Fix chapter marker showing 5 when it should say appendices. 
+
+
+Thesis Changelog 
+================
+
+Everywhere
+----------
+    - Added phantom daggers where necessary.
+    - Changed title to "The Long-Range Falicov-Kimball Model and the Amorphous Kitaev Model: Quantum Many-Body Systems I have known and loved"
+    - Use "i.e.," rather than variations,
+    - Add hyphen to various things including, Half filling, Half filled etc.
+    - Checked that Hall and other names are capitalised throughout the document while fermion etc are not.
+    - Remove capitalisation of chemical elements.
+    - Add appropriate punctuation after equations.
+    - Fix cover page for chapter 2
+    - Ensure "see ref. [25]" rather than  "see [25]"
+    - Fix chapter header showing "Chapter 5" when it should say "Appendices". 
+
+Introduction
+------------
+    - Added references to figures 1.2, 1.3
+    - Mention that eq 1.3 is at half filling.
+    - Clarify KH is only one of the early exactly solve-able QSL models.
+
+Chapter 2
+----------
+    - Mention fig 2.1 in the text
+    - Fix eqn 2.2
+    - Fix figure 2.2 caption to refer to dimensions greater than one.
+    - Rephrased last sentence of 2.1
+    - Clarify wording of figure 2.5 caption
+    - Fix arrow direction in figure 2.7
+    - Fermions and Bosons -> fermions and bosons
+
+Chapter 3
+----------
+    - Mention fig 3.1 and 3.2 in the text.
+    - Fix mathmode m in fig 3.2 caption
+    - Fix eqn 3.6
+    - Add ylabel to fig 3.3, remove triangle
+    - Mathmode in fig 3.4 caption
+
+
+Chapter 4
+-----------
+    - fix fig 4.1 caption
+    - Fig 4.4 the point appeared outside of the unit square because I was doing random perturbations without putting the points back in the unit square afterwards. This is now fixed. 

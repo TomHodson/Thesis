@@ -70,15 +70,16 @@ def orderparam(ax):
         #axes[0].errorbar(d.MX, d.M2[i], yerr = d.dM2[i] * 2, color = c, linestyle = "None", marker = '|', markersize = 0.5, label = f'N = {N}')
 
         x = np.linspace(d.MX[0], d.MX[-1], 200)
-        ax.plot(x, M_interped(x), color = c)
+        m2_line, = ax.plot(x, M_interped(x), color = c)
         
         fermion.do[i] = np.maximum(fermion.do[i], fermion.do[i].mean() * 0.1)
         o_interped = UnivariateSpline(d.MX, fermion.o[i], w = 1/fermion.do[i], s = len(d.MX))
-        ax.plot(x, 1 - o_interped(x), color = c,linestyle = '--')
+        fermion_line, = ax.plot(x, 1 - o_interped(x), color = c,linestyle = '--')
         #spread(axes[0], d.MX, d.M2[i], d.dM2[i], alpha = 0.3, label = f'N = {N}', color = color)
         
-#         ax.set_ylabel('$m^2$', rotation=0, labelpad=7)
-        ax.set_xlabel('T', rotation=0, labelpad=5)
+#   ax.set_ylabel('$m^2$', rotation=0, labelpad=7)
+    ax.set_xlabel('T', rotation=0, labelpad=5)
+    ax.legend([m2_line, fermion_line], ["$\\langle m \\rangle$", "$1 - f$"])
 
 #the point at the binder crossing
 p = Munch(J = 5, U = 5)
@@ -105,15 +106,16 @@ axes[1].yaxis.tick_right()
 axes[1].yaxis.set_label_position("right")
 
 # ## the triangular critical point marker
-m = Munch(marker = '^', markersize = 2, color = 'black')
-binderax.plot([p.Tc,], [p.B,], **m)
-m2ax.plot([p.Tc,], [p.m2,], **m)
+# m = Munch(marker = '^', markersize = 2, color = 'black')
+# binderax.plot([p.Tc,], [p.B,], **m)
+# m2ax.plot([p.Tc,], [p.m2,], **m)
 
 #The m2 plot
 m2ax.set(xlim = (0,4),
             xticks = [0,1,2,3],
             yticks = [0, 0.5, 1],
-            yticklabels = ['0', '.5', '1']
+            yticklabels = ['0', '.5', '1'],
+            ylabel = "$\\langle m \\rangle$ (solid) \n 1 - f (dotted)"
             )
 
 # startx = 1.6; starty = 0.19;
@@ -138,6 +140,5 @@ binderax.set_box_aspect(1)
 
 fig.tight_layout()
 
-fig.savefig(f'./{Path.cwd().name}.pdf')
-fig.savefig(f'./{Path.cwd().name}.svg', transparent = False)
+fig.savefig(f'./binder_cumulants_template.svg', transparent = False)
 

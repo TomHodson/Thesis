@@ -8,11 +8,13 @@
   \renewcommand{\baselinestretch}{\linespacing} 
 \fi
 
-
+\input{latexdiff_preamble}
 
 \begin{document}
 
-\title{\LARGE {\bf Interacting quantum many body systems I have known and loved}\\
+\title{\LARGE {\bf The Long-Range Falicov-Kimball
+Model and the Amorphous Kitaev Model \\
+[0.2em]\smaller{}Quantum Many-Body Systems I have known and loved}\\
  \vspace*{6mm}
 }
 
@@ -32,17 +34,17 @@
 %The abstract page
 \addcontentsline{toc}{chapter}{Abstract}
 \begin{abstract}
-\input{build/latex/0_Preface/0.1_Abstract.tex}
+\input{build/latex/0_Preface/0.1_Abstract}
 \end{abstract}
 
 % the page with versions, declaration of originality and copyright
-\include{build/latex/0_Preface/0.2_Declarations.tex}
+\include{build/latex/0_Preface/0.2_Declarations}
 
 % the Acknodledgemnet page
 \cleardoublepage
 \addcontentsline{toc}{chapter}{Acknowledgements}
 \begin{acknowledgements}
-\input{build/latex/0_Preface/0.3_Aknowledgements.tex}
+\input{build/latex/0_Preface/0.3_Aknowledgements}
 \end{acknowledgements}
 
 % the dedication page
@@ -62,19 +64,18 @@
 
 \hypertarget{chap:1-introduction}{\chapter{Introduction}}
 \begin{refsection}
-\include{build/latex/1_Introduction/1_Intro.tex}
+\include{build/latex/1_Introduction/1_Intro}
 \printbibliography[heading=subbibintoc]
 \end{refsection}
 
 \hypertarget{chap:2-background}{\chapter{Background}}
 \backgroundsetup{scale = 1, angle = 0, opacity = 1,
-  contents = {\includegraphics[width=297mm, height=297mm]{figure_code/chapter_2_background.pdf}}}
+  contents = {\includegraphics[width=297mm, height=297mm]{figure_code/chapter_2_background_pdfa}}}
 \BgThispage
 \begin{refsection}
-\include{build/latex/2_Background/2.1_FK_Model.tex}
-\include{build/latex/2_Background/2.2_HKM_Model.tex}
-\include{build/latex/2_Background/2.3_Anyons.tex}
-\include{build/latex/2_Background/2.4_Disorder.tex}
+\include{build/latex/2_Background/2.1_FK_Model}
+\include{build/latex/2_Background/2.2_HKM_Model}
+\include{build/latex/2_Background/2.4_Disorder}
 \printbibliography[heading=subbibintoc]
 \end{refsection}
 
@@ -83,9 +84,9 @@
   contents = {\includegraphics[width=297mm, height=297mm]{figure_code/fk_chapter_background_3.pdf}}}
 \BgThispage
 \begin{refsection}
-\include{build/latex/3_Long_Range_Falicov_Kimball/3.1_LRFK_Model.tex}
-\include{build/latex/3_Long_Range_Falicov_Kimball/3.2_LRFK_Methods.tex}
-\include{build/latex/3_Long_Range_Falicov_Kimball/3.3_LRFK_Results.tex}
+\include{build/latex/3_Long_Range_Falicov_Kimball/3.1_LRFK_Model}
+\include{build/latex/3_Long_Range_Falicov_Kimball/3.2_LRFK_Methods}
+\include{build/latex/3_Long_Range_Falicov_Kimball/3.3_LRFK_Results}
 \printbibliography[heading=subbibintoc]
 \end{refsection}
 
@@ -94,10 +95,9 @@
   contents = {\includegraphics[width=297mm, height=297mm]{figure_code/amk_chapter_background_mockup.pdf}}}
 \BgThispage
 \begin{refsection}
-\include{build/latex/4_Amorphous_Kitaev_Model/4.1_AMK_Model.tex}
-\include{build/latex/4_Amorphous_Kitaev_Model/4.1.2_AMK_Model.tex}
-\include{build/latex/4_Amorphous_Kitaev_Model/4.2_AMK_Methods.tex}
-\include{build/latex/4_Amorphous_Kitaev_Model/4.3_AMK_Results.tex}
+\include{build/latex/4_Amorphous_Kitaev_Model/4.1_AMK_Model}
+\include{build/latex/4_Amorphous_Kitaev_Model/4.2_AMK_Methods}
+\include{build/latex/4_Amorphous_Kitaev_Model/4.3_AMK_Results}
 \printbibliography[heading=subbibintoc]
 \end{refsection}
 
@@ -106,24 +106,43 @@
   contents = {\includegraphics[width=297mm, height=297mm]{figure_code/chapter_5_background.pdf}}}
 \BgThispage
 \begin{refsection}
-\include{build/latex/5_Conclusion/5_Conclusion.tex}
+\include{build/latex/5_Conclusion/5_Conclusion}
 \printbibliography[heading=subbibintoc]
 \end{refsection}
 
+
+
 %if you don't want it to put "A Appendices" in the TOC
-\setcounter{chapter}{1}
-\setcounter{section}{0}
-\renewcommand{\thechapter}{\Alph{chapter}}%switch to alphabet counters
-\hypertarget{chap:appendices}{\chapter*{Appendices}}
-\addcontentsline{toc}{chapter}{Appendices}
+% and instead want just "Appendices"
+% you have to manually do a lot of stuff
+% \appendix
+% \setcounter{chapter}{1} % means you get an A for appendices
+% \setcounter{section}{0} % don't know why this has to be 0
+% \renewcommand{\thechapter}{\Alph{chapter}} % switch to alphabet counters
+% % manually update the chapter headers so it doesn't keep using the previous chapter
+% \fancyhead[L]{\ifthenelse{\isodd{\value{page}}}{APPENDICES }{\rightmark}}
+% \hypertarget{chap:appendices}{\chapter*{Appendices}}
+% \addcontentsline{toc}{chapter}{Appendices} % manually add appendices to toc
+
+\appendix
+\renewcommand{\thechapter}{6}
+\renewcommand{\thesection}{\Alph{section}}
+
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries}{}{0pt}{\Large}
+
+% % manually update the chapter headers so it doesn't say appendix appendices
+\fancyhead[L]{\ifthenelse{\isodd{\value{page}}}{APPENDICES }{\rightmark}}
+
+\chapter{Appendices}
 
 \begin{refsection}
-\include{build/latex/6_Appendices/A.1_Particle_Hole_Symmetry.tex}
-\include{build/latex/6_Appendices/A.1.2_Fermion_Free_Energy.tex}
-\include{build/latex/6_Appendices/A.2_Markov_Chain_Monte_Carlo.tex}
-\include{build/latex/6_Appendices/A.3_Lattice_Generation.tex}
-\include{build/latex/6_Appendices/A.4_Lattice_Colouring.tex}
-\include{build/latex/6_Appendices/A.5_The_Projector.tex}
+\include{build/latex/6_Appendices/A.1_Particle_Hole_Symmetry}
+\include{build/latex/6_Appendices/A.1.2_Fermion_Free_Energy}
+\include{build/latex/6_Appendices/A.2_Markov_Chain_Monte_Carlo}
+\include{build/latex/6_Appendices/A.3_Lattice_Generation}
+\include{build/latex/6_Appendices/A.4_Lattice_Colouring}
+\include{build/latex/6_Appendices/A.5_The_Projector}
 \printbibliography[heading=subbibintoc]
 \end{refsection}
 

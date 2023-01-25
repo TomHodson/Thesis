@@ -54,7 +54,7 @@ N_space = 20
 t = np.linspace(0,1,N_time)
 center = rng.random(size = (N_space, 2))[:, None, :] * np.ones((N_space, N_time, 2))
 delta = 1 / np.sqrt(N_space) * rng.random(size = (N_space, N_time, 2))
-points = center + delta
+points = (center + delta) % 1
 
 points[:, -1, :] = points[:, 0, :] #make them start and end at the same point in time
 from scipy.interpolate import make_interp_spline
@@ -95,6 +95,7 @@ def panel_c(ax, lattice):
     ax.add_artist(unit_cell)
     ax.set(xlim = (-margin,margin+1), ylim = (-margin,margin+1))
 
+interped_points = interped_points % 1
 
 for i in tqdm(range(N_time_interp)):
     points = interped_points[:, i, :]

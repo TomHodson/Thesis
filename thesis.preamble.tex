@@ -1,5 +1,9 @@
 %stuff I've added
 \usepackage[utf8]{inputenc}
+
+%fix warning about e with tail
+\DeclareUnicodeCharacter{0229}{\c{e}}
+
 \usepackage[x11names, rgb, html]{xcolor} % load xcolor with options that match solarized.sty before it gets loaded by any other package
 \usepackage{graphicx}% Include figure files
 \DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg} % bare includegraphics calls will try to find files in this order
@@ -17,6 +21,7 @@
 \setlength{\headheight}{15pt}
 \addtolength{\topmargin}{-2.5pt}
 
+\usepackage{titlesec}
 
 \usepackage{tikz}
 \usepackage[labelfont=bf,textfont=small]{caption} %make figure caption labels bold
@@ -45,6 +50,9 @@
 
 \usepackage[pages=some]{background}
 
+%to be able to use %smaller and the like
+\usepackage{relsize}
+
 
 \usepackage[
 backend=biber, %use the biber backed which is supposed to be better than the bibtex backend
@@ -60,6 +68,10 @@ backref=true, % add back references to the bibliography, showing where each refe
 backrefstyle=two, %in the back references, compress any two or more consecutive pages to a range 1-5
 ]{biblatex}
 \addbibresource{entire_zotero_library.bib}
+
+%ignore warning about the fact that the bibtex style sheet doesn't know what to do with
+%@video
+\DeclareBibliographyAlias{video}{misc}
 
 \def\[#1\]{\begin{equation}#1\end{equation}}
 

@@ -10,28 +10,28 @@ To evaluate thermodynamic averages, I perform classical Markov Chain Monte Carlo
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,height=\textheight]{figure_code/fk_chapter/raw_steps_single_flip}
-\caption[{Comparison of different proposal distributions}]{Two Markov Chain Monte Carlo (MCMC) walks starting from the CDW state for a system with \(N = 100\) sites and 10,000 MCMC steps but at a temperature close to but above the ordered state (left column) and much higher than it (right column). In this simulation, only a single spin can be flipped per step according to the Metropolis-Hastings Algorithm. The staggered magnetisation \(m = N^{-1} \sum_i (-1)^i \; S_i\) order parameter is plotted below. At both temperatures the thermal average of m is zero, while the initial state has m = 1. The higher temperature allows the MCMC to converge more quickly and to fluctuate about the mean with a shorter autocorrelation time. \(t = 1, \alpha = 1.25, T = {2.5,5}, J = U = 5\)}
+\caption[{Comparison of different proposal distributions}]{Two Markov Chain Monte Carlo (MCMC) walks starting from the CDW state for a system with \(N = 100\) sites and 10,000 MCMC steps but at a temperature close to but above the ordered state (left column) and much higher than it (right column). In this simulation, only a single spin can be flipped per step according to the Metropolis-Hastings Algorithm. The staggered magnetisation \(m = N^{-1} \sum_i (-1)^i \; S_i\) order parameter is plotted below. At both temperatures the thermal average of \(m\) is zero, while the initial state has \(m = 1\). The higher temperature allows the MCMC to converge more quickly and to fluctuate about the mean with a shorter autocorrelation time. \(t = 1, \alpha = 1.25, T = {2.5,5}, J = U = 5\)}
 \label{fig:raw_steps_single_flip}
 \end{figure}
 }
 
-A classical Markov Chain Monte Carlo (MCMC) method allows us to solve our LRFK model efficiently, yielding unbiased estimates of thermal expectation values.
+A classical Markov Chain Monte Carlo (MCMC) method allows us to solve our LRFK model efficiently, yielding unbiased estimates of thermal expectation values, see \cref{fig:raw_steps_single_flip}.
 
 Since the spin configurations are classical, the LRFK Hamiltonian can be split into a classical spin part \(H_s\) and an operator valued part \(H_c\).
 
 \[\begin{aligned}
 H_s& = - \frac{U}{2}S_i + \sum_{i, j}^{N} J_{ij} S_i S_j \\
-H_c& = \sum_i U S_i c^\dagger_{i}c_{i} -t(c^\dagger_{i}c_{i+1} + c^\dagger_{i+1}c_{i}) \end{aligned}\]
+H_c& = \sum_i U S_i c^\dagger_{i}c^{\phantom{\dagger}}_{i} -t(c^\dagger_{i}c^{\phantom{\dagger}}_{i+1} + c^\dagger_{i+1}c^{\phantom{\dagger}}_{i}). \end{aligned}\]
 
 The partition function can then be written as a sum over spin configurations, \(\vec{S} = (S_0, S_1...S_{N-1})\):
 
 \[\begin{aligned}
 \mathcal{Z} = \mathrm{Tr} e^{-\beta H}= \sum_{\vec{S}} e^{-\beta H_s} \mathrm{Tr}_c e^{-\beta H_c} .\end{aligned}\]
 
-The contribution of \(H_c\) to the grand canonical partition function can be obtained by performing the sum over eigenstate occupation numbers giving \(-\beta F_c[\vec{S}] = \sum_k \ln{(1 + e^{- \beta \epsilon_k})}\) where \({\epsilon_k[\vec{S}]}\) are the eigenvalues of the matrix representation of \(H_c\) determined through exact diagonalisation. This gives a partition function containing a classical energy which corresponds to the long-range interaction of the spins, and a free energy which corresponds to the quantum subsystem.
+The contribution of \(H_c\) to the grand canonical partition function can be obtained by performing the sum over eigenstate occupation numbers giving \(-\beta F_c[\vec{S}] = \sum_k \ln{(1 + e^{- \beta \epsilon_k})}\) where \({\epsilon_k[\vec{S}]}\) are the eigenvalues of the matrix representation of \(H_c\) determined through exact diagonalisation. This gives a partition function containing a classical energy which corresponds to the long-range interaction of the spins, and a free energy which corresponds to the quantum subsystem
 
 \[\begin{aligned}
-\mathcal{Z} = \sum_{\vec{S}} e^{-\beta H_S[\vec{S}] - \beta F_c[\vec{S}]} = \sum_{\vec{S}} e^{-\beta E[\vec{S}]}\end{aligned}\]
+\mathcal{Z} = \sum_{\vec{S}} e^{-\beta H_S[\vec{S}] - \beta F_c[\vec{S}]} = \sum_{\vec{S}} e^{-\beta E[\vec{S}]}.\end{aligned}\]
 
 \hypertarget{markov-chain-monte-carlo-and-emergent-disorder}{%
 \subsection{Markov Chain Monte Carlo and Emergent Disorder}\label{markov-chain-monte-carlo-and-emergent-disorder}}
@@ -40,17 +40,17 @@ Classical MCMC defines a weighted random walk over the spin states \((\vec{S}_0,
 
 \[\begin{aligned}
 \label{eq:thermal_expectation}
-\langle O \rangle & = \sum_{\vec{S}} p(\vec{S}) \langle O \rangle\\
-                  & = \sum_{i = 0}^{M} \langle O\rangle \pm \mathcal{O}(M^{-\tfrac{1}{2}})
+\langle O \rangle & = \sum_{\vec{S}} p(\vec{S}) \langle O \rangle_{\vec{S}}\\
+                  & = \sum_{i = 0}^{M} \langle O\rangle_{\vec{S}_i} \pm \mathcal{O}(M^{-\tfrac{1}{2}}),
 \end{aligned}\]
 
-where the former sum runs over the entire state space while the later runs over all the state visited by a particular MCMC run.
+where the former sum runs over the entire state space while the latter runs over all the states visited by a particular MCMC run,
 
 \[\begin{aligned}
-\langle O \rangle_{\vec{S}}& = \sum_{\nu} n_F(\epsilon_{\nu}) \langle O \rangle{\nu}
+\langle O \rangle_{\vec{S}}& = \sum_{\nu} n_F(\epsilon_{\nu}) \langle O \rangle{\nu},
 \end{aligned}\]
 
-Where \(\nu\) runs over the eigenstates of \(H_c\) for a particular spin configuration and \(n_F(\epsilon) = \left(e^{-\beta\epsilon} + 1\right)^{-1}\) is the Fermi function.
+where \(\nu\) runs over the eigenstates of \(H_c\) for a particular spin configuration and \(n_F(\epsilon) = \left(e^{-\beta\epsilon} + 1\right)^{-1}\) is the Fermi function.
 
 The choice of the transition function for MCMC is under-determined as one only needs to satisfy a set of balance conditions for which there are many solutions~\autocite{kellyReversibilityStochasticNetworks1981}. Here, we incorporate a modification to the standard Metropolis-Hastings algorithm~\autocite{hastingsMonteCarloSampling1970} gleaned from Krauth~\autocite{krauthIntroductionMonteCarlo1998}.
 
@@ -60,7 +60,9 @@ The standard algorithm decomposes the transition probability into \(\mathcal{T}(
 
 with \(\Delta E = E_b - E_a\). The walk then proceeds by sampling a state \(b\) from \(p\) and moving to \(b\) with probability \(\mathcal{A}(a \to b)\). The latter operation is typically implemented by performing a transition if a uniform random sample from the unit interval is less than \(\mathcal{A}(a \to b)\) and otherwise repeating the current state as the next step in the random walk. The proposal distribution is often symmetric, so it does not appear in \(\mathcal{A}\). Here, we flip a small number of sites in \(b\) at random to generate proposals, which is a symmetric proposal.
 
-In our computations~\autocite{hodsonMCMCFKModel2021}, we employ a modification to this algorithm based on the observation that the free energy of the FK system is composed of a classical part which is much quicker to compute than the quantum part. Hence, we can obtain a computational speed up by first considering the value of the classical energy difference \(\Delta H_s\) and rejecting the transition if the former is too high. We only compute the quantum energy difference \(\Delta F_c\) if the transition is accepted. We then perform a second rejection sampling step based upon it. This corresponds to two nested comparisons with the majority of the work only occurring if the first test passes. This modified scheme has the acceptance function \[\mathcal{A}(a \to b) = \min\left(1, e^{-\beta \Delta H_s}\right)\min\left(1, e^{-\beta \Delta F_c}\right)\;.\]
+In our computations~\autocite{hodsonMCMCFKModel2021}, we employ a modification to this algorithm based on the observation that the free energy of the FK system is composed of a classical part which is much quicker to compute than the quantum part. Hence, we can obtain a computational speed up by first considering the value of the classical energy difference \(\Delta H_s\) and rejecting the transition if the former is too high. We only compute the quantum energy difference \(\Delta F_c\) if the transition is accepted. We then perform a second rejection sampling step based upon it. This corresponds to two nested comparisons with the majority of the work only occurring if the first test passes. This modified scheme has the acceptance function
+
+\[\mathcal{A}(a \to b) = \min\left(1, e^{-\beta \Delta H_s}\right)\min\left(1, e^{-\beta \Delta F_c}\right).\]
 
 For the model parameters used, we find that with our new scheme the matrix diagonalisation is skipped around 30\% of the time at \(T = 2.5\) and up to 80\% at \(T = 1.5\). We observe that for \(N = 50\), the matrix diagonalisation, if it occurs, occupies around 60\% of the total computation time for a single step. This rises to 90\% at N = 300 and further increases for larger N. We therefore get the greatest speedup for large system sizes at low temperature where many prospective transitions are rejected at the classical stage and the matrix computation takes up the greatest fraction of the total computation time. The upshot is that we find a speedup of up to a factor of 10 at the cost of very little extra algorithmic complexity.
 
@@ -73,7 +75,7 @@ Our two-step method should be distinguished from the more common method for spee
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,height=\textheight]{figure_code/fk_chapter/binder_cumulants/binder_cumulants}
-\caption[{Binder Cumulants}]{(Left) The order parameters, \(\langle m^2 \rangle\)(solid) and \(1 - f\) (dashed) describing the onset of the charge density wave phase of the LRFK model at low temperature with staggered magnetisation \(m = N^{-1} \sum_i (-1)^i S_i\) and fermionic order parameter \(f = 2 N^{-1}|\sum_i (-1)^i \; \langle c^\dagger_{i}c_{i}| \rangle\) . (Right) The crossing of the Binder cumulant, \(B = \langle m^4 \rangle / \langle m^2 \rangle^2\), with system size provides a diagnostic that the phase transition is not a finite size effect, it is used to estimate the critical lines shown in the phase diagram later. All plots use system sizes \(N = [10,20,30,50,70,110,160,250]\) and lines are coloured from \(N = 10\) in dark blue to \(N = 250\) in yellow. The parameter values \(U = 5,\;J = 5,\;\alpha = 1.25\) except where explicitly mentioned.}
+\caption[{Binder Cumulants}]{(Left) The order parameters, \(\langle m^2 \rangle\) (solid) and \(1 - f\) (dashed) describing the onset of the charge density wave phase of the LRFK model at low temperature with staggered magnetisation \(m = N^{-1} \sum_i (-1)^i S_i\) and fermionic order parameter \(f = 2 N^{-1}|\sum_i (-1)^i \; \langle c^\dagger_{i}c^{\phantom{\dagger}}_{i}| \rangle\) . (Right) The crossing of the Binder cumulant, \(B = \langle m^4 \rangle / \langle m^2 \rangle^2\), with system size provides a diagnostic that the phase transition is not a finite size effect, it is used to estimate the critical lines shown in the phase diagram later. All plots use system sizes \(N = [10,20,30,50,70,110,160,250]\) and lines are coloured from \(N = 10\) in dark blue to \(N = 250\) in yellow. The parameter values \(U = 5,\;J = 5,\;\alpha = 1.25\) except where explicitly mentioned.}
 \label{fig:binder_cumulants}
 \end{figure}
 }
@@ -83,7 +85,7 @@ To improve the scaling of finite size effects, we make the replacement \(|i - j|
 To identify critical points, I use the Binder cumulant \(U_B\) defined by
 
 \[
-U_B = 1 - \frac{\langle\mu_4\rangle}{3\langle\mu_2\rangle^2}
+U_B = 1 - \frac{\langle\mu_4\rangle}{3\langle\mu_2\rangle^2},
 \]
 
 where \(\mu_n = \langle(m - \langle m\rangle)^n\rangle\) are the central moments of the order parameter \(m = \sum_i (-1)^i (2n_i - 1) / N\). The Binder cumulant evaluated against temperature is a diagnostic for the existence of a phase transition. If multiple such curves are plotted for different system sizes, a crossing indicates the location of a critical point while the lines do not cross for systems that don't have a phase transition in the thermodynamic limit~\autocite{binderFiniteSizeScaling1981,musialMonteCarloSimulations2002}.

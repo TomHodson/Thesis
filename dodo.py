@@ -57,7 +57,7 @@ def task_svg_to_pdf():
             actions = [
                 f'inkscape "{f}" --export-type=pdf --export-filename="{target}"',
                 ],
-            clean = True,
+            # clean = True,
         )
     
 def task_ipynb_check():
@@ -186,7 +186,7 @@ def task_pdf():
                 f'cp {target_dir}/{name}.pdf ./{name}.pdf',
         ],
         clean = [
-            'latexmk -c -jobname="{jobname}" {name}.tex',
+            f'latexmk -c -jobname="{jobname}" {name}.tex',
             "rm -rf `biber --cache`",
         ],
         verbosity = 2,
@@ -209,7 +209,7 @@ def task_double_linespaced_pdf():
                 f'cp {target_dir}/{name}.pdf ./{name}.pdf',
         ],
         clean = [
-            'latexmk -c -jobname="{jobname}" {name}.tex',
+            f'latexmk -c -jobname="{jobname}" {name}.tex',
             "rm -rf `biber --cache`",
         ],
         verbosity = 2,

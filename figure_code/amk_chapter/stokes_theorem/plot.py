@@ -82,7 +82,7 @@ for i, p_i in enumerate(plaquettes):
     translated_lattice = lattice.transform(l, translate = v)
     new_center = p.center + v
     
-    pl.plot_edges(translated_lattice, ax = ax, subset = p.edges, directions = p.directions)
+    pl.plot_edges(translated_lattice, ax = ax, subset = p.edges, directions = -p.directions)
     ax.text(*new_center, f"$\phi_{i}$", ha= "center", va = "center")
 
 ax.set(xticks = [], yticks = [], xlim = (xc-s,xc+s), ylim = (yc-s,yc+s))

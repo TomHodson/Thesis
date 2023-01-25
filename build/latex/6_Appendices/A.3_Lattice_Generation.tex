@@ -10,7 +10,7 @@ Information about the embedding of the lattice onto the torus is encoded into a 
 
 Finally, we need to encode the topology of the graph. This is necessary because, if we are simply given an edge \((i, j)\) we do not know how the edge gets from vertex i to vertex j. One method would be taking the shortest path, but it could also `go the long way around' by crossing one of the cuts. To encode this information, we store an additional vector \(\vec{r}\) associated with each edge. \(r_i^x = 0\) means that edge i does not cross the x. \(r_i^x = +1\) (\(-1\)) means it crossed the cut in a positive (negative) sense.
 
-This description of the lattice has a very nice relationship to Bloch's theorem. Applying Bloch's theorem to a periodic lattice essentially means wrappping the unit cell onto a torus. Variations that happen at longer length scales than the size of the unit cell are captured by the crystal momentum. The crystal momentum inserts a phase factor \(e^{i \vec{q}\cdot\vec{r}}\) onto bonds that cross to adjacent unit cells. The vector \(\vec{r}\) is exactly what we use to encode the topology of our lattices.
+This description of the lattice has a very nice relationship to Bloch's theorem. Applying Bloch's theorem to a periodic lattice essentially means wrapping the unit cell onto a torus. Variations that happen at longer length scales than the size of the unit cell are captured by the crystal momentum. The crystal momentum inserts a phase factor \(e^{i \vec{q}\cdot\vec{r}}\) onto bonds that cross to adjacent unit cells. The vector \(\vec{r}\) is exactly what we use to encode the topology of our lattices.
 
 \hypertarget{fig:bloch}{%
 \begin{figure}
@@ -35,7 +35,7 @@ This description of the lattice has a very nice relationship to Bloch's theorem.
 
 In the main text we discuss the problem of three-edge-colouring, assigning one of three labels to each edge of a graph such that no edges of the same label meet at a vertex. To solve this in practice I use a solver called \passthrough{\lstinline!MiniSAT!}~\autocite{imms-sat18}. Like most modern SAT solvers, \passthrough{\lstinline!MiniSAT!} requires the input problem to be specified in Conjunctive Normal Form (CNF). CNF requires that the constraints be encoded as a set of \emph{clauses} of the form
 
-\[x_1 \;\textrm{or}\; -x_3 \;\textrm{or}\; x_5\]
+\[x_1 \;\textrm{or}\; -x_3 \;\textrm{or}\; x_5,\]
 
 that contain logical ORs of some subset of the variables where any of the variables may also be logically NOT'd, which we represent by negation here. A solution of the problem is one that makes all the clauses simultaneously true.
 

@@ -34,13 +34,13 @@ We interpret the FK model as a model of spinless fermions, \(c^\dagger_{i}\), ho
 J_{ij} = 4\kappa J\; (-1)^{|i-j|} |i-j|^{-\alpha},
 \]
 
-between the spins. The additional coupling is very similar to that of the long-range Ising (LRI) model. It stabilises the Antiferromagnetic (AFM) order of the Ising spins which promotes the finite temperature CDW phase of the fermionic sector.
+between the spins, see \cref{fig:lrfk_schematic}. The additional coupling is very similar to that of the long-range Ising (LRI) model. It stabilises the antiferromagnetic (AFM) order of the Ising spins which promotes the finite temperature CDW phase of the fermionic sector.
 
-The hopping strength of the electrons, \(t = 1\), sets the overall energy scale and we concentrate throughout on the particle-hole symmetric point at zero chemical potential and half filling~\autocite{gruberFalicovKimballModelReview1996}.
+The hopping strength of the electrons, \(t = 1\), sets the overall energy scale and we concentrate throughout on the particle-hole symmetric point at zero chemical potential and half-filling~\autocite{gruberFalicovKimballModelReview1996}.
 
 \[\begin{aligned}
-H_{\mathrm{FK}} = & \;U \sum_{i} S_i\;(c^\dagger_{i}c_{i} - \tfrac{1}{2}) -\;t \sum_{i} (c^\dagger_{i}c_{i+1} + \textit{h.c.)}\\ 
- &  + \sum_{i, j}^{N} J_{ij}  S_i S_j
+H_{\mathrm{FK}} = & \;U \sum_{i} S_i\;(c^\dagger_{i}c^{\phantom{\dagger}}_{i} - \tfrac{1}{2}) -\;t \sum_{i} (c^\dagger_{i}c^{\phantom{\dagger}}_{i+1} + \textit{h.c.)}\\ 
+ &  + \sum_{i, j}^{N} J_{ij}  S_i S_j.
 \label{eq:HFK}\end{aligned}\]
 
 Without proper normalisation, the long-range coupling would render the critical temperature strongly system size dependent for small system sizes. Within a mean field approximation, the critical temperature scales with the effective coupling to all the neighbours of each site, which for a system with \(N\) sites is \(\sum_{i=1}^{N} i^{-\alpha}\). Hence, the normalisation \(\kappa^{-1} = \sum_{i=1}^{N} i^{-\alpha}\), renders the critical temperature independent of system size in the mean field approximation. This greatly improves the finite size behaviour of the model.

@@ -5,7 +5,6 @@
 2_FK_Model/9_month_review_fk.tex
 figure_code/amk_paper
 *.json
-doit.db.db
 iteration*.svg
 
 pandoc/figs
@@ -27,4 +26,4 @@ thesis.bbl
 
 thesis.bcf
 thesis.run.xml
-*doit*
+.doit.db.db
